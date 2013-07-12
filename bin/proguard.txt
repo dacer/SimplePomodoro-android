@@ -1,0 +1,39 @@
+# view res/layout/activity_main.xml #generated:9
+-keep class android.support.v4.view.ViewPager { <init>(...); }
+
+# view AndroidManifest.xml #generated:63
+-keep class com.dacer.simplepomodoro.BreakActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:80
+-keep class com.dacer.simplepomodoro.BreakFinishActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:72
+-keep class com.dacer.simplepomodoro.FinishScreenActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:35
+-keep class com.dacer.simplepomodoro.MainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:46
+-keep class com.dacer.simplepomodoro.PomoRunningActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:56
+-keep class com.dacer.simplepomodoro.SettingActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:111
+-keep class com.google.ads.AdActivity { <init>(...); }
+
+# view res/layout/activity_main.xml #generated:15
+-keep class com.viewpagerindicator.LinePageIndicator { <init>(...); }
+
+# view AndroidManifest.xml #generated:89
+-keep class dacer.service.BreakFinishService { <init>(...); }
+
+# view AndroidManifest.xml #generated:86
+-keep class dacer.service.CDService { <init>(...); }
+
+# view AndroidManifest.xml #generated:94
+-keep class dacer.utils.AdminReceiver { <init>(...); }
+
+# onClick res/layout/activity_finish_screen.xml #generated:11
+-keepclassmembers class * { *** endPomo(...); }
+

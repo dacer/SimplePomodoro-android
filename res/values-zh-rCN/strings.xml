@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">极简番茄</string>
+    <string name="action_settings">设置</string>
+    <string name="title_activity_pomo_running">番茄运行中</string>
+    <string name="title_activity_finish_screen">完成</string>
+    <string name="title_activity_Preference">设置</string>
+    <string name="title_activity_break">休息时间</string>
+    <string name="title_record">Record</string>
+    <string name="title_today">Today</string>
+    <string name="title_total">Total</string>
+    <string name="start">Start!</string>
+    <string name="stop">放弃</string>
+    <string name="running_in_background">后台运行</string>
+    <string name="do_you_wish_to_stop">真的要放弃这个番茄吗？</string>
+    <string name="stop_pomodoro">放弃？</string>
+
+    <!-- Circle View -->
+    <string name="time_up">Time\'s UP</string>
+    <!-- CDService -->
+    <string name="take_a_break">开始休息</string>
+    <string name="cancel">取消</string>
+    <string name="pomodoro_time_up">番茄时间结束</string>
+    <string name="now_you_can_take_a_break">现在您可以休息会儿</string>
+	<string name="tap_to_break">点击开始休息</string>
+    
+    <!-- BreakFinishService -->
+    <string name="continue_pomodoro">进行下一个番茄</string>
+    <string name="break_time_up">休息时间到！</string>
+    <string name="now_you_can_continue_your_pomodoro">现在您可以进行您的下一个番茄</string>
+	<string name="tap_to_continue_your_pomodoro">点击进行下一个番茄</string>
+	
+    <!-- Preference -->
+    <string name="pref_title_display">显示</string>
+    <string name="pref_enable_fullscreen">全屏模式</string>
+    <string name="pref_lights_on">屏幕常亮</string>
+    <string name="pref_lights_on_summary">在显示本软件画面时不自动锁屏</string>
+    <string name="pref_theme">主题</string>
+
+    <string-array name="pref_theme_list">
+        <item>黑</item>
+        <item>白</item>
+    </string-array>
+    <string-array name="pref_theme_list_values">
+        <item>black</item>
+        <item>white</item>
+    </string-array>
+
+    <string name="pref_title_timer_settings">定时器</string>
+    <string name="pref_break_duration">休息时间</string>
+
+    <string-array name="pref_break_duration_list">
+        <item>3 分钟</item>
+        <item>5 分钟</item>
+        <item>8 分钟</item>
+    </string-array>
+    <string-array name="pref_break_duration_values">
+        <item>3</item>
+        <item>5</item>
+        <item>8</item>
+    </string-array>
+
+    <string name="pref_long_break_duration">较长休息时间(每4个番茄)</string>
+    <string-array name="pref_long_break_duration_list">
+        <item>15 分钟</item>
+        <item>20 分钟</item>
+        <item>25 分钟</item>
+    </string-array>
+    <string-array name="pref_long_break_duration_values">
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+    </string-array>
+    
+    <string name="pref_title_timers_end_alert">计时器设定</string>
+    <string name="pref_notification_sound">完成提示音</string>
+    <string name="pref_enable_vibrations">开启震动</string>
+    <string name="pref_title_labs">实验室</string>
+    <string name="pref_fast_mode">极速模式</string>
+    <string name="pref_fast_mode_summary">在启动和完成一个番茄时自动锁屏/亮屏</string>
+    <string name="pref_remove_manage">取消设备管理器授权</string>
+    <string name="pref_remove_manage_summary">开启极速模式后，欲删除本软件请先点击我！</string>
+    <string name="pref_title_sync">同步</string>
+    <string name="pref_sync_with_google_task">与Google Task同步（未完成）</string>
+    <string name="pref_sync_with_google_task_summary">Not recommend!</string>
+    <string name="pref_choose_account">Choose account</string>
+    <string name="pref_title_info">其他</string>
+    <string name="pref_email_us">反馈</string>
+    <string name="pref_about">关于</string>
+    <string name="pref_about_summary">本软件根据番茄工作法(Pomodoro Technique®)制成，便于您提高工作效率</string>
+    <string name="caidan">如果你3天内完成3个番茄，广告将不会显示</string>
+    <string name="pref_ringtone_silent">静音</string>
+    <string name="screen_locker_warnning">删除本软件前请必须点击“取消设备管理器授权”按钮</string>
+
+    <!-- Google Task -->
+    <string name="error">Error</string>
+    <string name="error_format">[Error] %s</string>
+    <string name="title_activity_break_finish">BreakFinishActivity</string>
+    <string name="hello_world">Hello world!</string>
+
+</resources>

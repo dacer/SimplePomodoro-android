@@ -1,0 +1,1688 @@
+android.support.v4.app.ActivityCompat
+android.support.v4.app.ActivityCompat: ActivityCompat()
+android.support.v4.app.ActivityCompat: boolean invalidateOptionsMenu(android.app.Activity)
+android.support.v4.app.ActivityCompatHoneycomb
+android.support.v4.app.ActivityCompatHoneycomb: ActivityCompatHoneycomb()
+android.support.v4.app.ActivityCompatHoneycomb: void invalidateOptionsMenu(android.app.Activity)
+android.support.v4.app.ActivityCompatHoneycomb: void dump(android.app.Activity,java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])
+android.support.v4.app.BackStackRecord
+android.support.v4.app.BackStackRecord: java.lang.String TAG
+android.support.v4.app.BackStackRecord: android.support.v4.app.FragmentManagerImpl mManager
+android.support.v4.app.BackStackRecord: int OP_NULL
+android.support.v4.app.BackStackRecord: int OP_ADD
+android.support.v4.app.BackStackRecord: int OP_REPLACE
+android.support.v4.app.BackStackRecord: int OP_REMOVE
+android.support.v4.app.BackStackRecord: int OP_HIDE
+android.support.v4.app.BackStackRecord: int OP_SHOW
+android.support.v4.app.BackStackRecord: int OP_DETACH
+android.support.v4.app.BackStackRecord: int OP_ATTACH
+android.support.v4.app.BackStackRecord: android.support.v4.app.BackStackRecord$Op mHead
+android.support.v4.app.BackStackRecord: android.support.v4.app.BackStackRecord$Op mTail
+android.support.v4.app.BackStackRecord: int mNumOp
+android.support.v4.app.BackStackRecord: int mEnterAnim
+android.support.v4.app.BackStackRecord: int mExitAnim
+android.support.v4.app.BackStackRecord: int mPopEnterAnim
+android.support.v4.app.BackStackRecord: int mPopExitAnim
+android.support.v4.app.BackStackRecord: int mTransition
+android.support.v4.app.BackStackRecord: int mTransitionStyle
+android.support.v4.app.BackStackRecord: boolean mAddToBackStack
+android.support.v4.app.BackStackRecord: boolean mAllowAddToBackStack
+android.support.v4.app.BackStackRecord: java.lang.String mName
+android.support.v4.app.BackStackRecord: boolean mCommitted
+android.support.v4.app.BackStackRecord: int mIndex
+android.support.v4.app.BackStackRecord: int mBreadCrumbTitleRes
+android.support.v4.app.BackStackRecord: java.lang.CharSequence mBreadCrumbTitleText
+android.support.v4.app.BackStackRecord: int mBreadCrumbShortTitleRes
+android.support.v4.app.BackStackRecord: java.lang.CharSequence mBreadCrumbShortTitleText
+android.support.v4.app.BackStackRecord: java.lang.String toString()
+android.support.v4.app.BackStackRecord: void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])
+android.support.v4.app.BackStackRecord: void dump(java.lang.String,java.io.PrintWriter,boolean)
+android.support.v4.app.BackStackRecord: BackStackRecord(android.support.v4.app.FragmentManagerImpl)
+android.support.v4.app.BackStackRecord: int getId()
+android.support.v4.app.BackStackRecord: int getBreadCrumbTitleRes()
+android.support.v4.app.BackStackRecord: int getBreadCrumbShortTitleRes()
+android.support.v4.app.BackStackRecord: java.lang.CharSequence getBreadCrumbTitle()
+android.support.v4.app.BackStackRecord: java.lang.CharSequence getBreadCrumbShortTitle()
+android.support.v4.app.BackStackRecord: void addOp(android.support.v4.app.BackStackRecord$Op)
+android.support.v4.app.BackStackRecord: android.support.v4.app.FragmentTransaction add(android.support.v4.app.Fragment,java.lang.String)
+android.support.v4.app.BackStackRecord: android.support.v4.app.FragmentTransaction add(int,android.support.v4.app.Fragment)
+android.support.v4.app.BackStackRecord: android.support.v4.app.FragmentTransaction add(int,android.support.v4.app.Fragment,java.lang.String)
+android.support.v4.app.BackStackRecord: void doAddOp(int,android.support.v4.app.Fragment,java.lang.String,int)
+android.support.v4.app.BackStackRecord: android.support.v4.app.FragmentTransaction replace(int,android.support.v4.app.Fragment)
+android.support.v4.app.BackStackRecord: android.support.v4.app.FragmentTransaction replace(int,android.support.v4.app.Fragment,java.lang.String)
+android.support.v4.app.BackStackRecord: android.support.v4.app.FragmentTransaction remove(android.support.v4.app.Fragment)
+android.support.v4.app.BackStackRecord: android.support.v4.app.FragmentTransaction hide(android.support.v4.app.Fragment)
+android.support.v4.app.BackStackRecord: android.support.v4.app.FragmentTransaction show(android.support.v4.app.Fragment)
+android.support.v4.app.BackStackRecord: android.support.v4.app.FragmentTransaction detach(android.support.v4.app.Fragment)
+android.support.v4.app.BackStackRecord: android.support.v4.app.FragmentTransaction attach(android.support.v4.app.Fragment)
+android.support.v4.app.BackStackRecord: android.support.v4.app.FragmentTransaction setCustomAnimations(int,int)
+android.support.v4.app.BackStackRecord: android.support.v4.app.FragmentTransaction setCustomAnimations(int,int,int,int)
+android.support.v4.app.BackStackRecord: android.support.v4.app.FragmentTransaction setTransition(int)
+android.support.v4.app.BackStackRecord: android.support.v4.app.FragmentTransaction setTransitionStyle(int)
+android.support.v4.app.BackStackRecord: android.support.v4.app.FragmentTransaction addToBackStack(java.lang.String)
+android.support.v4.app.BackStackRecord: boolean isAddToBackStackAllowed()
+android.support.v4.app.BackStackRecord: android.support.v4.app.FragmentTransaction disallowAddToBackStack()
+android.support.v4.app.BackStackRecord: android.support.v4.app.FragmentTransaction setBreadCrumbTitle(int)
+android.support.v4.app.BackStackRecord: android.support.v4.app.FragmentTransaction setBreadCrumbTitle(java.lang.CharSequence)
+android.support.v4.app.BackStackRecord: android.support.v4.app.FragmentTransaction setBreadCrumbShortTitle(int)
+android.support.v4.app.BackStackRecord: android.support.v4.app.FragmentTransaction setBreadCrumbShortTitle(java.lang.CharSequence)
+android.support.v4.app.BackStackRecord: void bumpBackStackNesting(int)
+android.support.v4.app.BackStackRecord: int commit()
+android.support.v4.app.BackStackRecord: int commitAllowingStateLoss()
+android.support.v4.app.BackStackRecord: int commitInternal(boolean)
+android.support.v4.app.BackStackRecord: void run()
+android.support.v4.app.BackStackRecord: void popFromBackStack(boolean)
+android.support.v4.app.BackStackRecord: java.lang.String getName()
+android.support.v4.app.BackStackRecord: int getTransition()
+android.support.v4.app.BackStackRecord: int getTransitionStyle()
+android.support.v4.app.BackStackRecord: boolean isEmpty()
+android.support.v4.app.BackStackRecord$Op
+android.support.v4.app.BackStackRecord$Op: android.support.v4.app.BackStackRecord$Op next
+android.support.v4.app.BackStackRecord$Op: android.support.v4.app.BackStackRecord$Op prev
+android.support.v4.app.BackStackRecord$Op: int cmd
+android.support.v4.app.BackStackRecord$Op: android.support.v4.app.Fragment fragment
+android.support.v4.app.BackStackRecord$Op: int enterAnim
+android.support.v4.app.BackStackRecord$Op: int exitAnim
+android.support.v4.app.BackStackRecord$Op: int popEnterAnim
+android.support.v4.app.BackStackRecord$Op: int popExitAnim
+android.support.v4.app.BackStackRecord$Op: java.util.ArrayList removed
+android.support.v4.app.BackStackRecord$Op: BackStackRecord$Op()
+android.support.v4.app.BackStackState
+android.support.v4.app.BackStackState: int[] mOps
+android.support.v4.app.BackStackState: int mTransition
+android.support.v4.app.BackStackState: int mTransitionStyle
+android.support.v4.app.BackStackState: java.lang.String mName
+android.support.v4.app.BackStackState: int mIndex
+android.support.v4.app.BackStackState: int mBreadCrumbTitleRes
+android.support.v4.app.BackStackState: java.lang.CharSequence mBreadCrumbTitleText
+android.support.v4.app.BackStackState: int mBreadCrumbShortTitleRes
+android.support.v4.app.BackStackState: java.lang.CharSequence mBreadCrumbShortTitleText
+android.support.v4.app.BackStackState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.BackStackState: BackStackState(android.support.v4.app.FragmentManagerImpl,android.support.v4.app.BackStackRecord)
+android.support.v4.app.BackStackState: BackStackState(android.os.Parcel)
+android.support.v4.app.BackStackState: android.support.v4.app.BackStackRecord instantiate(android.support.v4.app.FragmentManagerImpl)
+android.support.v4.app.BackStackState: int describeContents()
+android.support.v4.app.BackStackState: void writeToParcel(android.os.Parcel,int)
+android.support.v4.app.BackStackState: void <clinit>()
+android.support.v4.app.BackStackState$1
+android.support.v4.app.BackStackState$1: BackStackState$1()
+android.support.v4.app.BackStackState$1: android.support.v4.app.BackStackState createFromParcel(android.os.Parcel)
+android.support.v4.app.BackStackState$1: android.support.v4.app.BackStackState[] newArray(int)
+android.support.v4.app.BackStackState$1: java.lang.Object[] newArray(int)
+android.support.v4.app.BackStackState$1: java.lang.Object createFromParcel(android.os.Parcel)
+android.support.v4.app.DialogFragment
+android.support.v4.app.DialogFragment: int STYLE_NORMAL
+android.support.v4.app.DialogFragment: int STYLE_NO_TITLE
+android.support.v4.app.DialogFragment: int STYLE_NO_FRAME
+android.support.v4.app.DialogFragment: int STYLE_NO_INPUT
+android.support.v4.app.DialogFragment: java.lang.String SAVED_DIALOG_STATE_TAG
+android.support.v4.app.DialogFragment: java.lang.String SAVED_STYLE
+android.support.v4.app.DialogFragment: java.lang.String SAVED_THEME
+android.support.v4.app.DialogFragment: java.lang.String SAVED_CANCELABLE
+android.support.v4.app.DialogFragment: java.lang.String SAVED_SHOWS_DIALOG
+android.support.v4.app.DialogFragment: java.lang.String SAVED_BACK_STACK_ID
+android.support.v4.app.DialogFragment: int mStyle
+android.support.v4.app.DialogFragment: int mTheme
+android.support.v4.app.DialogFragment: boolean mCancelable
+android.support.v4.app.DialogFragment: boolean mShowsDialog
+android.support.v4.app.DialogFragment: int mBackStackId
+android.support.v4.app.DialogFragment: android.app.Dialog mDialog
+android.support.v4.app.DialogFragment: boolean mViewDestroyed
+android.support.v4.app.DialogFragment: boolean mDismissed
+android.support.v4.app.DialogFragment: boolean mShownByMe
+android.support.v4.app.DialogFragment: DialogFragment()
+android.support.v4.app.DialogFragment: void setStyle(int,int)
+android.support.v4.app.DialogFragment: void show(android.support.v4.app.FragmentManager,java.lang.String)
+android.support.v4.app.DialogFragment: int show(android.support.v4.app.FragmentTransaction,java.lang.String)
+android.support.v4.app.DialogFragment: void dismiss()
+android.support.v4.app.DialogFragment: void dismissAllowingStateLoss()
+android.support.v4.app.DialogFragment: void dismissInternal(boolean)
+android.support.v4.app.DialogFragment: android.app.Dialog getDialog()
+android.support.v4.app.DialogFragment: int getTheme()
+android.support.v4.app.DialogFragment: void setCancelable(boolean)
+android.support.v4.app.DialogFragment: boolean isCancelable()
+android.support.v4.app.DialogFragment: void setShowsDialog(boolean)
+android.support.v4.app.DialogFragment: boolean getShowsDialog()
+android.support.v4.app.DialogFragment: void onAttach(android.app.Activity)
+android.support.v4.app.DialogFragment: void onDetach()
+android.support.v4.app.DialogFragment: void onCreate(android.os.Bundle)
+android.support.v4.app.DialogFragment: android.view.LayoutInflater getLayoutInflater(android.os.Bundle)
+android.support.v4.app.DialogFragment: android.app.Dialog onCreateDialog(android.os.Bundle)
+android.support.v4.app.DialogFragment: void onCancel(android.content.DialogInterface)
+android.support.v4.app.DialogFragment: void onDismiss(android.content.DialogInterface)
+android.support.v4.app.DialogFragment: void onActivityCreated(android.os.Bundle)
+android.support.v4.app.DialogFragment: void onStart()
+android.support.v4.app.DialogFragment: void onSaveInstanceState(android.os.Bundle)
+android.support.v4.app.DialogFragment: void onStop()
+android.support.v4.app.DialogFragment: void onDestroyView()
+android.support.v4.app.Fragment
+android.support.v4.app.Fragment: java.util.HashMap sClassMap
+android.support.v4.app.Fragment: int INITIALIZING
+android.support.v4.app.Fragment: int CREATED
+android.support.v4.app.Fragment: int ACTIVITY_CREATED
+android.support.v4.app.Fragment: int STOPPED
+android.support.v4.app.Fragment: int STARTED
+android.support.v4.app.Fragment: int RESUMED
+android.support.v4.app.Fragment: int mState
+android.support.v4.app.Fragment: android.view.View mAnimatingAway
+android.support.v4.app.Fragment: int mStateAfterAnimating
+android.support.v4.app.Fragment: android.os.Bundle mSavedFragmentState
+android.support.v4.app.Fragment: android.util.SparseArray mSavedViewState
+android.support.v4.app.Fragment: int mIndex
+android.support.v4.app.Fragment: java.lang.String mWho
+android.support.v4.app.Fragment: android.os.Bundle mArguments
+android.support.v4.app.Fragment: android.support.v4.app.Fragment mTarget
+android.support.v4.app.Fragment: int mTargetIndex
+android.support.v4.app.Fragment: int mTargetRequestCode
+android.support.v4.app.Fragment: boolean mAdded
+android.support.v4.app.Fragment: boolean mRemoving
+android.support.v4.app.Fragment: boolean mResumed
+android.support.v4.app.Fragment: boolean mFromLayout
+android.support.v4.app.Fragment: boolean mInLayout
+android.support.v4.app.Fragment: boolean mRestored
+android.support.v4.app.Fragment: int mBackStackNesting
+android.support.v4.app.Fragment: android.support.v4.app.FragmentManagerImpl mFragmentManager
+android.support.v4.app.Fragment: android.support.v4.app.FragmentActivity mActivity
+android.support.v4.app.Fragment: android.support.v4.app.FragmentManagerImpl mChildFragmentManager
+android.support.v4.app.Fragment: android.support.v4.app.Fragment mParentFragment
+android.support.v4.app.Fragment: int mFragmentId
+android.support.v4.app.Fragment: int mContainerId
+android.support.v4.app.Fragment: java.lang.String mTag
+android.support.v4.app.Fragment: boolean mHidden
+android.support.v4.app.Fragment: boolean mDetached
+android.support.v4.app.Fragment: boolean mRetainInstance
+android.support.v4.app.Fragment: boolean mRetaining
+android.support.v4.app.Fragment: boolean mHasMenu
+android.support.v4.app.Fragment: boolean mMenuVisible
+android.support.v4.app.Fragment: boolean mCalled
+android.support.v4.app.Fragment: int mNextAnim
+android.support.v4.app.Fragment: android.view.ViewGroup mContainer
+android.support.v4.app.Fragment: android.view.View mView
+android.support.v4.app.Fragment: android.view.View mInnerView
+android.support.v4.app.Fragment: boolean mDeferStart
+android.support.v4.app.Fragment: boolean mUserVisibleHint
+android.support.v4.app.Fragment: android.support.v4.app.LoaderManagerImpl mLoaderManager
+android.support.v4.app.Fragment: boolean mLoadersStarted
+android.support.v4.app.Fragment: boolean mCheckedForLoaderManager
+android.support.v4.app.Fragment: Fragment()
+android.support.v4.app.Fragment: android.support.v4.app.Fragment instantiate(android.content.Context,java.lang.String)
+android.support.v4.app.Fragment: android.support.v4.app.Fragment instantiate(android.content.Context,java.lang.String,android.os.Bundle)
+android.support.v4.app.Fragment: void restoreViewState(android.os.Bundle)
+android.support.v4.app.Fragment: void setIndex(int,android.support.v4.app.Fragment)
+android.support.v4.app.Fragment: boolean isInBackStack()
+android.support.v4.app.Fragment: boolean equals(java.lang.Object)
+android.support.v4.app.Fragment: int hashCode()
+android.support.v4.app.Fragment: java.lang.String toString()
+android.support.v4.app.Fragment: int getId()
+android.support.v4.app.Fragment: java.lang.String getTag()
+android.support.v4.app.Fragment: void setArguments(android.os.Bundle)
+android.support.v4.app.Fragment: android.os.Bundle getArguments()
+android.support.v4.app.Fragment: void setInitialSavedState(android.support.v4.app.Fragment$SavedState)
+android.support.v4.app.Fragment: void setTargetFragment(android.support.v4.app.Fragment,int)
+android.support.v4.app.Fragment: android.support.v4.app.Fragment getTargetFragment()
+android.support.v4.app.Fragment: int getTargetRequestCode()
+android.support.v4.app.Fragment: android.support.v4.app.FragmentActivity getActivity()
+android.support.v4.app.Fragment: android.content.res.Resources getResources()
+android.support.v4.app.Fragment: java.lang.CharSequence getText(int)
+android.support.v4.app.Fragment: java.lang.String getString(int)
+android.support.v4.app.Fragment: java.lang.String getString(int,java.lang.Object[])
+android.support.v4.app.Fragment: android.support.v4.app.FragmentManager getFragmentManager()
+android.support.v4.app.Fragment: android.support.v4.app.FragmentManager getChildFragmentManager()
+android.support.v4.app.Fragment: android.support.v4.app.Fragment getParentFragment()
+android.support.v4.app.Fragment: boolean isAdded()
+android.support.v4.app.Fragment: boolean isDetached()
+android.support.v4.app.Fragment: boolean isRemoving()
+android.support.v4.app.Fragment: boolean isInLayout()
+android.support.v4.app.Fragment: boolean isResumed()
+android.support.v4.app.Fragment: boolean isVisible()
+android.support.v4.app.Fragment: boolean isHidden()
+android.support.v4.app.Fragment: void onHiddenChanged(boolean)
+android.support.v4.app.Fragment: void setRetainInstance(boolean)
+android.support.v4.app.Fragment: boolean getRetainInstance()
+android.support.v4.app.Fragment: void setHasOptionsMenu(boolean)
+android.support.v4.app.Fragment: void setMenuVisibility(boolean)
+android.support.v4.app.Fragment: void setUserVisibleHint(boolean)
+android.support.v4.app.Fragment: boolean getUserVisibleHint()
+android.support.v4.app.Fragment: android.support.v4.app.LoaderManager getLoaderManager()
+android.support.v4.app.Fragment: void startActivity(android.content.Intent)
+android.support.v4.app.Fragment: void startActivityForResult(android.content.Intent,int)
+android.support.v4.app.Fragment: void onActivityResult(int,int,android.content.Intent)
+android.support.v4.app.Fragment: android.view.LayoutInflater getLayoutInflater(android.os.Bundle)
+android.support.v4.app.Fragment: void onInflate(android.app.Activity,android.util.AttributeSet,android.os.Bundle)
+android.support.v4.app.Fragment: void onAttach(android.app.Activity)
+android.support.v4.app.Fragment: android.view.animation.Animation onCreateAnimation(int,boolean,int)
+android.support.v4.app.Fragment: void onCreate(android.os.Bundle)
+android.support.v4.app.Fragment: android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)
+android.support.v4.app.Fragment: void onViewCreated(android.view.View,android.os.Bundle)
+android.support.v4.app.Fragment: android.view.View getView()
+android.support.v4.app.Fragment: void onActivityCreated(android.os.Bundle)
+android.support.v4.app.Fragment: void onViewStateRestored(android.os.Bundle)
+android.support.v4.app.Fragment: void onStart()
+android.support.v4.app.Fragment: void onResume()
+android.support.v4.app.Fragment: void onSaveInstanceState(android.os.Bundle)
+android.support.v4.app.Fragment: void onConfigurationChanged(android.content.res.Configuration)
+android.support.v4.app.Fragment: void onPause()
+android.support.v4.app.Fragment: void onStop()
+android.support.v4.app.Fragment: void onLowMemory()
+android.support.v4.app.Fragment: void onDestroyView()
+android.support.v4.app.Fragment: void onDestroy()
+android.support.v4.app.Fragment: void initState()
+android.support.v4.app.Fragment: void onDetach()
+android.support.v4.app.Fragment: void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater)
+android.support.v4.app.Fragment: void onPrepareOptionsMenu(android.view.Menu)
+android.support.v4.app.Fragment: void onDestroyOptionsMenu()
+android.support.v4.app.Fragment: boolean onOptionsItemSelected(android.view.MenuItem)
+android.support.v4.app.Fragment: void onOptionsMenuClosed(android.view.Menu)
+android.support.v4.app.Fragment: void onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu$ContextMenuInfo)
+android.support.v4.app.Fragment: void registerForContextMenu(android.view.View)
+android.support.v4.app.Fragment: void unregisterForContextMenu(android.view.View)
+android.support.v4.app.Fragment: boolean onContextItemSelected(android.view.MenuItem)
+android.support.v4.app.Fragment: void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])
+android.support.v4.app.Fragment: android.support.v4.app.Fragment findFragmentByWho(java.lang.String)
+android.support.v4.app.Fragment: void instantiateChildFragmentManager()
+android.support.v4.app.Fragment: void performCreate(android.os.Bundle)
+android.support.v4.app.Fragment: android.view.View performCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)
+android.support.v4.app.Fragment: void performActivityCreated(android.os.Bundle)
+android.support.v4.app.Fragment: void performStart()
+android.support.v4.app.Fragment: void performResume()
+android.support.v4.app.Fragment: void performConfigurationChanged(android.content.res.Configuration)
+android.support.v4.app.Fragment: void performLowMemory()
+android.support.v4.app.Fragment: boolean performCreateOptionsMenu(android.view.Menu,android.view.MenuInflater)
+android.support.v4.app.Fragment: boolean performPrepareOptionsMenu(android.view.Menu)
+android.support.v4.app.Fragment: boolean performOptionsItemSelected(android.view.MenuItem)
+android.support.v4.app.Fragment: boolean performContextItemSelected(android.view.MenuItem)
+android.support.v4.app.Fragment: void performOptionsMenuClosed(android.view.Menu)
+android.support.v4.app.Fragment: void performSaveInstanceState(android.os.Bundle)
+android.support.v4.app.Fragment: void performPause()
+android.support.v4.app.Fragment: void performStop()
+android.support.v4.app.Fragment: void performReallyStop()
+android.support.v4.app.Fragment: void performDestroyView()
+android.support.v4.app.Fragment: void performDestroy()
+android.support.v4.app.Fragment: void <clinit>()
+android.support.v4.app.Fragment$1
+android.support.v4.app.Fragment$1: android.support.v4.app.Fragment this$0
+android.support.v4.app.Fragment$1: Fragment$1(android.support.v4.app.Fragment)
+android.support.v4.app.Fragment$1: android.view.View findViewById(int)
+android.support.v4.app.Fragment$InstantiationException
+android.support.v4.app.Fragment$InstantiationException: Fragment$InstantiationException(java.lang.String,java.lang.Exception)
+android.support.v4.app.Fragment$SavedState
+android.support.v4.app.Fragment$SavedState: android.os.Bundle mState
+android.support.v4.app.Fragment$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.Fragment$SavedState: Fragment$SavedState(android.os.Bundle)
+android.support.v4.app.Fragment$SavedState: Fragment$SavedState(android.os.Parcel,java.lang.ClassLoader)
+android.support.v4.app.Fragment$SavedState: int describeContents()
+android.support.v4.app.Fragment$SavedState: void writeToParcel(android.os.Parcel,int)
+android.support.v4.app.Fragment$SavedState: void <clinit>()
+android.support.v4.app.Fragment$SavedState$1
+android.support.v4.app.Fragment$SavedState$1: Fragment$SavedState$1()
+android.support.v4.app.Fragment$SavedState$1: android.support.v4.app.Fragment$SavedState createFromParcel(android.os.Parcel)
+android.support.v4.app.Fragment$SavedState$1: android.support.v4.app.Fragment$SavedState[] newArray(int)
+android.support.v4.app.Fragment$SavedState$1: java.lang.Object[] newArray(int)
+android.support.v4.app.Fragment$SavedState$1: java.lang.Object createFromParcel(android.os.Parcel)
+android.support.v4.app.FragmentActivity
+android.support.v4.app.FragmentActivity: java.lang.String TAG
+android.support.v4.app.FragmentActivity: java.lang.String FRAGMENTS_TAG
+android.support.v4.app.FragmentActivity: int HONEYCOMB
+android.support.v4.app.FragmentActivity: int MSG_REALLY_STOPPED
+android.support.v4.app.FragmentActivity: int MSG_RESUME_PENDING
+android.support.v4.app.FragmentActivity: android.os.Handler mHandler
+android.support.v4.app.FragmentActivity: android.support.v4.app.FragmentManagerImpl mFragments
+android.support.v4.app.FragmentActivity: android.support.v4.app.FragmentContainer mContainer
+android.support.v4.app.FragmentActivity: boolean mCreated
+android.support.v4.app.FragmentActivity: boolean mResumed
+android.support.v4.app.FragmentActivity: boolean mStopped
+android.support.v4.app.FragmentActivity: boolean mReallyStopped
+android.support.v4.app.FragmentActivity: boolean mRetaining
+android.support.v4.app.FragmentActivity: boolean mOptionsMenuInvalidated
+android.support.v4.app.FragmentActivity: boolean mCheckedForLoaderManager
+android.support.v4.app.FragmentActivity: boolean mLoadersStarted
+android.support.v4.app.FragmentActivity: java.util.HashMap mAllLoaderManagers
+android.support.v4.app.FragmentActivity: android.support.v4.app.LoaderManagerImpl mLoaderManager
+android.support.v4.app.FragmentActivity: FragmentActivity()
+android.support.v4.app.FragmentActivity: void onActivityResult(int,int,android.content.Intent)
+android.support.v4.app.FragmentActivity: void onBackPressed()
+android.support.v4.app.FragmentActivity: void onConfigurationChanged(android.content.res.Configuration)
+android.support.v4.app.FragmentActivity: void onCreate(android.os.Bundle)
+android.support.v4.app.FragmentActivity: boolean onCreatePanelMenu(int,android.view.Menu)
+android.support.v4.app.FragmentActivity: android.view.View onCreateView(java.lang.String,android.content.Context,android.util.AttributeSet)
+android.support.v4.app.FragmentActivity: void onDestroy()
+android.support.v4.app.FragmentActivity: boolean onKeyDown(int,android.view.KeyEvent)
+android.support.v4.app.FragmentActivity: void onLowMemory()
+android.support.v4.app.FragmentActivity: boolean onMenuItemSelected(int,android.view.MenuItem)
+android.support.v4.app.FragmentActivity: void onPanelClosed(int,android.view.Menu)
+android.support.v4.app.FragmentActivity: void onPause()
+android.support.v4.app.FragmentActivity: void onNewIntent(android.content.Intent)
+android.support.v4.app.FragmentActivity: void onResume()
+android.support.v4.app.FragmentActivity: void onPostResume()
+android.support.v4.app.FragmentActivity: void onResumeFragments()
+android.support.v4.app.FragmentActivity: boolean onPreparePanel(int,android.view.View,android.view.Menu)
+android.support.v4.app.FragmentActivity: java.lang.Object onRetainNonConfigurationInstance()
+android.support.v4.app.FragmentActivity: void onSaveInstanceState(android.os.Bundle)
+android.support.v4.app.FragmentActivity: void onStart()
+android.support.v4.app.FragmentActivity: void onStop()
+android.support.v4.app.FragmentActivity: java.lang.Object onRetainCustomNonConfigurationInstance()
+android.support.v4.app.FragmentActivity: java.lang.Object getLastCustomNonConfigurationInstance()
+android.support.v4.app.FragmentActivity: void supportInvalidateOptionsMenu()
+android.support.v4.app.FragmentActivity: void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])
+android.support.v4.app.FragmentActivity: java.lang.String viewToString(android.view.View)
+android.support.v4.app.FragmentActivity: void dumpViewHierarchy(java.lang.String,java.io.PrintWriter,android.view.View)
+android.support.v4.app.FragmentActivity: void doReallyStop(boolean)
+android.support.v4.app.FragmentActivity: void onReallyStop()
+android.support.v4.app.FragmentActivity: void onAttachFragment(android.support.v4.app.Fragment)
+android.support.v4.app.FragmentActivity: android.support.v4.app.FragmentManager getSupportFragmentManager()
+android.support.v4.app.FragmentActivity: void startActivityForResult(android.content.Intent,int)
+android.support.v4.app.FragmentActivity: void startActivityFromFragment(android.support.v4.app.Fragment,android.content.Intent,int)
+android.support.v4.app.FragmentActivity: void invalidateSupportFragment(java.lang.String)
+android.support.v4.app.FragmentActivity: android.support.v4.app.LoaderManager getSupportLoaderManager()
+android.support.v4.app.FragmentActivity: android.support.v4.app.LoaderManagerImpl getLoaderManager(java.lang.String,boolean,boolean)
+android.support.v4.app.FragmentActivity$1
+android.support.v4.app.FragmentActivity$1: android.support.v4.app.FragmentActivity this$0
+android.support.v4.app.FragmentActivity$1: FragmentActivity$1(android.support.v4.app.FragmentActivity)
+android.support.v4.app.FragmentActivity$1: void handleMessage(android.os.Message)
+android.support.v4.app.FragmentActivity$2
+android.support.v4.app.FragmentActivity$2: android.support.v4.app.FragmentActivity this$0
+android.support.v4.app.FragmentActivity$2: FragmentActivity$2(android.support.v4.app.FragmentActivity)
+android.support.v4.app.FragmentActivity$2: android.view.View findViewById(int)
+android.support.v4.app.FragmentActivity$FragmentTag
+android.support.v4.app.FragmentActivity$FragmentTag: int[] Fragment
+android.support.v4.app.FragmentActivity$FragmentTag: int Fragment_id
+android.support.v4.app.FragmentActivity$FragmentTag: int Fragment_name
+android.support.v4.app.FragmentActivity$FragmentTag: int Fragment_tag
+android.support.v4.app.FragmentActivity$FragmentTag: FragmentActivity$FragmentTag()
+android.support.v4.app.FragmentActivity$FragmentTag: void <clinit>()
+android.support.v4.app.FragmentActivity$NonConfigurationInstances
+android.support.v4.app.FragmentActivity$NonConfigurationInstances: java.lang.Object activity
+android.support.v4.app.FragmentActivity$NonConfigurationInstances: java.lang.Object custom
+android.support.v4.app.FragmentActivity$NonConfigurationInstances: java.util.HashMap children
+android.support.v4.app.FragmentActivity$NonConfigurationInstances: java.util.ArrayList fragments
+android.support.v4.app.FragmentActivity$NonConfigurationInstances: java.util.HashMap loaders
+android.support.v4.app.FragmentActivity$NonConfigurationInstances: FragmentActivity$NonConfigurationInstances()
+android.support.v4.app.FragmentContainer
+android.support.v4.app.FragmentContainer: android.view.View findViewById(int)
+android.support.v4.app.FragmentManager
+android.support.v4.app.FragmentManager: int POP_BACK_STACK_INCLUSIVE
+android.support.v4.app.FragmentManager: FragmentManager()
+android.support.v4.app.FragmentManager: android.support.v4.app.FragmentTransaction beginTransaction()
+android.support.v4.app.FragmentManager: android.support.v4.app.FragmentTransaction openTransaction()
+android.support.v4.app.FragmentManager: boolean executePendingTransactions()
+android.support.v4.app.FragmentManager: android.support.v4.app.Fragment findFragmentById(int)
+android.support.v4.app.FragmentManager: android.support.v4.app.Fragment findFragmentByTag(java.lang.String)
+android.support.v4.app.FragmentManager: void popBackStack()
+android.support.v4.app.FragmentManager: boolean popBackStackImmediate()
+android.support.v4.app.FragmentManager: void popBackStack(java.lang.String,int)
+android.support.v4.app.FragmentManager: boolean popBackStackImmediate(java.lang.String,int)
+android.support.v4.app.FragmentManager: void popBackStack(int,int)
+android.support.v4.app.FragmentManager: boolean popBackStackImmediate(int,int)
+android.support.v4.app.FragmentManager: int getBackStackEntryCount()
+android.support.v4.app.FragmentManager: android.support.v4.app.FragmentManager$BackStackEntry getBackStackEntryAt(int)
+android.support.v4.app.FragmentManager: void addOnBackStackChangedListener(android.support.v4.app.FragmentManager$OnBackStackChangedListener)
+android.support.v4.app.FragmentManager: void removeOnBackStackChangedListener(android.support.v4.app.FragmentManager$OnBackStackChangedListener)
+android.support.v4.app.FragmentManager: void putFragment(android.os.Bundle,java.lang.String,android.support.v4.app.Fragment)
+android.support.v4.app.FragmentManager: android.support.v4.app.Fragment getFragment(android.os.Bundle,java.lang.String)
+android.support.v4.app.FragmentManager: android.support.v4.app.Fragment$SavedState saveFragmentInstanceState(android.support.v4.app.Fragment)
+android.support.v4.app.FragmentManager: void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])
+android.support.v4.app.FragmentManager: void enableDebugLogging(boolean)
+android.support.v4.app.FragmentManager$BackStackEntry
+android.support.v4.app.FragmentManager$BackStackEntry: int getId()
+android.support.v4.app.FragmentManager$BackStackEntry: java.lang.String getName()
+android.support.v4.app.FragmentManager$BackStackEntry: int getBreadCrumbTitleRes()
+android.support.v4.app.FragmentManager$BackStackEntry: int getBreadCrumbShortTitleRes()
+android.support.v4.app.FragmentManager$BackStackEntry: java.lang.CharSequence getBreadCrumbTitle()
+android.support.v4.app.FragmentManager$BackStackEntry: java.lang.CharSequence getBreadCrumbShortTitle()
+android.support.v4.app.FragmentManager$OnBackStackChangedListener
+android.support.v4.app.FragmentManager$OnBackStackChangedListener: void onBackStackChanged()
+android.support.v4.app.FragmentManagerImpl
+android.support.v4.app.FragmentManagerImpl: boolean DEBUG
+android.support.v4.app.FragmentManagerImpl: java.lang.String TAG
+android.support.v4.app.FragmentManagerImpl: boolean HONEYCOMB
+android.support.v4.app.FragmentManagerImpl: java.lang.String TARGET_REQUEST_CODE_STATE_TAG
+android.support.v4.app.FragmentManagerImpl: java.lang.String TARGET_STATE_TAG
+android.support.v4.app.FragmentManagerImpl: java.lang.String VIEW_STATE_TAG
+android.support.v4.app.FragmentManagerImpl: java.lang.String USER_VISIBLE_HINT_TAG
+android.support.v4.app.FragmentManagerImpl: java.util.ArrayList mPendingActions
+android.support.v4.app.FragmentManagerImpl: java.lang.Runnable[] mTmpActions
+android.support.v4.app.FragmentManagerImpl: boolean mExecutingActions
+android.support.v4.app.FragmentManagerImpl: java.util.ArrayList mActive
+android.support.v4.app.FragmentManagerImpl: java.util.ArrayList mAdded
+android.support.v4.app.FragmentManagerImpl: java.util.ArrayList mAvailIndices
+android.support.v4.app.FragmentManagerImpl: java.util.ArrayList mBackStack
+android.support.v4.app.FragmentManagerImpl: java.util.ArrayList mCreatedMenus
+android.support.v4.app.FragmentManagerImpl: java.util.ArrayList mBackStackIndices
+android.support.v4.app.FragmentManagerImpl: java.util.ArrayList mAvailBackStackIndices
+android.support.v4.app.FragmentManagerImpl: java.util.ArrayList mBackStackChangeListeners
+android.support.v4.app.FragmentManagerImpl: int mCurState
+android.support.v4.app.FragmentManagerImpl: android.support.v4.app.FragmentActivity mActivity
+android.support.v4.app.FragmentManagerImpl: android.support.v4.app.FragmentContainer mContainer
+android.support.v4.app.FragmentManagerImpl: android.support.v4.app.Fragment mParent
+android.support.v4.app.FragmentManagerImpl: boolean mNeedMenuInvalidate
+android.support.v4.app.FragmentManagerImpl: boolean mStateSaved
+android.support.v4.app.FragmentManagerImpl: boolean mDestroyed
+android.support.v4.app.FragmentManagerImpl: java.lang.String mNoTransactionsBecause
+android.support.v4.app.FragmentManagerImpl: boolean mHavePendingDeferredStart
+android.support.v4.app.FragmentManagerImpl: android.os.Bundle mStateBundle
+android.support.v4.app.FragmentManagerImpl: android.util.SparseArray mStateArray
+android.support.v4.app.FragmentManagerImpl: java.lang.Runnable mExecCommit
+android.support.v4.app.FragmentManagerImpl: android.view.animation.Interpolator DECELERATE_QUINT
+android.support.v4.app.FragmentManagerImpl: android.view.animation.Interpolator DECELERATE_CUBIC
+android.support.v4.app.FragmentManagerImpl: android.view.animation.Interpolator ACCELERATE_QUINT
+android.support.v4.app.FragmentManagerImpl: android.view.animation.Interpolator ACCELERATE_CUBIC
+android.support.v4.app.FragmentManagerImpl: int ANIM_DUR
+android.support.v4.app.FragmentManagerImpl: int ANIM_STYLE_OPEN_ENTER
+android.support.v4.app.FragmentManagerImpl: int ANIM_STYLE_OPEN_EXIT
+android.support.v4.app.FragmentManagerImpl: int ANIM_STYLE_CLOSE_ENTER
+android.support.v4.app.FragmentManagerImpl: int ANIM_STYLE_CLOSE_EXIT
+android.support.v4.app.FragmentManagerImpl: int ANIM_STYLE_FADE_ENTER
+android.support.v4.app.FragmentManagerImpl: int ANIM_STYLE_FADE_EXIT
+android.support.v4.app.FragmentManagerImpl: FragmentManagerImpl()
+android.support.v4.app.FragmentManagerImpl: void throwException(java.lang.RuntimeException)
+android.support.v4.app.FragmentManagerImpl: android.support.v4.app.FragmentTransaction beginTransaction()
+android.support.v4.app.FragmentManagerImpl: boolean executePendingTransactions()
+android.support.v4.app.FragmentManagerImpl: void popBackStack()
+android.support.v4.app.FragmentManagerImpl: boolean popBackStackImmediate()
+android.support.v4.app.FragmentManagerImpl: void popBackStack(java.lang.String,int)
+android.support.v4.app.FragmentManagerImpl: boolean popBackStackImmediate(java.lang.String,int)
+android.support.v4.app.FragmentManagerImpl: void popBackStack(int,int)
+android.support.v4.app.FragmentManagerImpl: boolean popBackStackImmediate(int,int)
+android.support.v4.app.FragmentManagerImpl: int getBackStackEntryCount()
+android.support.v4.app.FragmentManagerImpl: android.support.v4.app.FragmentManager$BackStackEntry getBackStackEntryAt(int)
+android.support.v4.app.FragmentManagerImpl: void addOnBackStackChangedListener(android.support.v4.app.FragmentManager$OnBackStackChangedListener)
+android.support.v4.app.FragmentManagerImpl: void removeOnBackStackChangedListener(android.support.v4.app.FragmentManager$OnBackStackChangedListener)
+android.support.v4.app.FragmentManagerImpl: void putFragment(android.os.Bundle,java.lang.String,android.support.v4.app.Fragment)
+android.support.v4.app.FragmentManagerImpl: android.support.v4.app.Fragment getFragment(android.os.Bundle,java.lang.String)
+android.support.v4.app.FragmentManagerImpl: android.support.v4.app.Fragment$SavedState saveFragmentInstanceState(android.support.v4.app.Fragment)
+android.support.v4.app.FragmentManagerImpl: java.lang.String toString()
+android.support.v4.app.FragmentManagerImpl: void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])
+android.support.v4.app.FragmentManagerImpl: android.view.animation.Animation makeOpenCloseAnimation(android.content.Context,float,float,float,float)
+android.support.v4.app.FragmentManagerImpl: android.view.animation.Animation makeFadeAnimation(android.content.Context,float,float)
+android.support.v4.app.FragmentManagerImpl: android.view.animation.Animation loadAnimation(android.support.v4.app.Fragment,int,boolean,int)
+android.support.v4.app.FragmentManagerImpl: void performPendingDeferredStart(android.support.v4.app.Fragment)
+android.support.v4.app.FragmentManagerImpl: void moveToState(android.support.v4.app.Fragment,int,int,int,boolean)
+android.support.v4.app.FragmentManagerImpl: void moveToState(android.support.v4.app.Fragment)
+android.support.v4.app.FragmentManagerImpl: void moveToState(int,boolean)
+android.support.v4.app.FragmentManagerImpl: void moveToState(int,int,int,boolean)
+android.support.v4.app.FragmentManagerImpl: void startPendingDeferredFragments()
+android.support.v4.app.FragmentManagerImpl: void makeActive(android.support.v4.app.Fragment)
+android.support.v4.app.FragmentManagerImpl: void makeInactive(android.support.v4.app.Fragment)
+android.support.v4.app.FragmentManagerImpl: void addFragment(android.support.v4.app.Fragment,boolean)
+android.support.v4.app.FragmentManagerImpl: void removeFragment(android.support.v4.app.Fragment,int,int)
+android.support.v4.app.FragmentManagerImpl: void hideFragment(android.support.v4.app.Fragment,int,int)
+android.support.v4.app.FragmentManagerImpl: void showFragment(android.support.v4.app.Fragment,int,int)
+android.support.v4.app.FragmentManagerImpl: void detachFragment(android.support.v4.app.Fragment,int,int)
+android.support.v4.app.FragmentManagerImpl: void attachFragment(android.support.v4.app.Fragment,int,int)
+android.support.v4.app.FragmentManagerImpl: android.support.v4.app.Fragment findFragmentById(int)
+android.support.v4.app.FragmentManagerImpl: android.support.v4.app.Fragment findFragmentByTag(java.lang.String)
+android.support.v4.app.FragmentManagerImpl: android.support.v4.app.Fragment findFragmentByWho(java.lang.String)
+android.support.v4.app.FragmentManagerImpl: void checkStateLoss()
+android.support.v4.app.FragmentManagerImpl: void enqueueAction(java.lang.Runnable,boolean)
+android.support.v4.app.FragmentManagerImpl: int allocBackStackIndex(android.support.v4.app.BackStackRecord)
+android.support.v4.app.FragmentManagerImpl: void setBackStackIndex(int,android.support.v4.app.BackStackRecord)
+android.support.v4.app.FragmentManagerImpl: void freeBackStackIndex(int)
+android.support.v4.app.FragmentManagerImpl: boolean execPendingActions()
+android.support.v4.app.FragmentManagerImpl: void reportBackStackChanged()
+android.support.v4.app.FragmentManagerImpl: void addBackStackState(android.support.v4.app.BackStackRecord)
+android.support.v4.app.FragmentManagerImpl: boolean popBackStackState(android.os.Handler,java.lang.String,int,int)
+android.support.v4.app.FragmentManagerImpl: java.util.ArrayList retainNonConfig()
+android.support.v4.app.FragmentManagerImpl: void saveFragmentViewState(android.support.v4.app.Fragment)
+android.support.v4.app.FragmentManagerImpl: android.os.Bundle saveFragmentBasicState(android.support.v4.app.Fragment)
+android.support.v4.app.FragmentManagerImpl: android.os.Parcelable saveAllState()
+android.support.v4.app.FragmentManagerImpl: void restoreAllState(android.os.Parcelable,java.util.ArrayList)
+android.support.v4.app.FragmentManagerImpl: void attachActivity(android.support.v4.app.FragmentActivity,android.support.v4.app.FragmentContainer,android.support.v4.app.Fragment)
+android.support.v4.app.FragmentManagerImpl: void noteStateNotSaved()
+android.support.v4.app.FragmentManagerImpl: void dispatchCreate()
+android.support.v4.app.FragmentManagerImpl: void dispatchActivityCreated()
+android.support.v4.app.FragmentManagerImpl: void dispatchStart()
+android.support.v4.app.FragmentManagerImpl: void dispatchResume()
+android.support.v4.app.FragmentManagerImpl: void dispatchPause()
+android.support.v4.app.FragmentManagerImpl: void dispatchStop()
+android.support.v4.app.FragmentManagerImpl: void dispatchReallyStop()
+android.support.v4.app.FragmentManagerImpl: void dispatchDestroyView()
+android.support.v4.app.FragmentManagerImpl: void dispatchDestroy()
+android.support.v4.app.FragmentManagerImpl: void dispatchConfigurationChanged(android.content.res.Configuration)
+android.support.v4.app.FragmentManagerImpl: void dispatchLowMemory()
+android.support.v4.app.FragmentManagerImpl: boolean dispatchCreateOptionsMenu(android.view.Menu,android.view.MenuInflater)
+android.support.v4.app.FragmentManagerImpl: boolean dispatchPrepareOptionsMenu(android.view.Menu)
+android.support.v4.app.FragmentManagerImpl: boolean dispatchOptionsItemSelected(android.view.MenuItem)
+android.support.v4.app.FragmentManagerImpl: boolean dispatchContextItemSelected(android.view.MenuItem)
+android.support.v4.app.FragmentManagerImpl: void dispatchOptionsMenuClosed(android.view.Menu)
+android.support.v4.app.FragmentManagerImpl: int reverseTransit(int)
+android.support.v4.app.FragmentManagerImpl: int transitToStyleIndex(int,boolean)
+android.support.v4.app.FragmentManagerImpl: void <clinit>()
+android.support.v4.app.FragmentManagerImpl$1
+android.support.v4.app.FragmentManagerImpl$1: android.support.v4.app.FragmentManagerImpl this$0
+android.support.v4.app.FragmentManagerImpl$1: FragmentManagerImpl$1(android.support.v4.app.FragmentManagerImpl)
+android.support.v4.app.FragmentManagerImpl$1: void run()
+android.support.v4.app.FragmentManagerImpl$2
+android.support.v4.app.FragmentManagerImpl$2: android.support.v4.app.FragmentManagerImpl this$0
+android.support.v4.app.FragmentManagerImpl$2: FragmentManagerImpl$2(android.support.v4.app.FragmentManagerImpl)
+android.support.v4.app.FragmentManagerImpl$2: void run()
+android.support.v4.app.FragmentManagerImpl$3
+android.support.v4.app.FragmentManagerImpl$3: java.lang.String val$name
+android.support.v4.app.FragmentManagerImpl$3: int val$flags
+android.support.v4.app.FragmentManagerImpl$3: android.support.v4.app.FragmentManagerImpl this$0
+android.support.v4.app.FragmentManagerImpl$3: FragmentManagerImpl$3(android.support.v4.app.FragmentManagerImpl,java.lang.String,int)
+android.support.v4.app.FragmentManagerImpl$3: void run()
+android.support.v4.app.FragmentManagerImpl$4
+android.support.v4.app.FragmentManagerImpl$4: int val$id
+android.support.v4.app.FragmentManagerImpl$4: int val$flags
+android.support.v4.app.FragmentManagerImpl$4: android.support.v4.app.FragmentManagerImpl this$0
+android.support.v4.app.FragmentManagerImpl$4: FragmentManagerImpl$4(android.support.v4.app.FragmentManagerImpl,int,int)
+android.support.v4.app.FragmentManagerImpl$4: void run()
+android.support.v4.app.FragmentManagerImpl$5
+android.support.v4.app.FragmentManagerImpl$5: android.support.v4.app.Fragment val$fragment
+android.support.v4.app.FragmentManagerImpl$5: android.support.v4.app.FragmentManagerImpl this$0
+android.support.v4.app.FragmentManagerImpl$5: FragmentManagerImpl$5(android.support.v4.app.FragmentManagerImpl,android.support.v4.app.Fragment)
+android.support.v4.app.FragmentManagerImpl$5: void onAnimationEnd(android.view.animation.Animation)
+android.support.v4.app.FragmentManagerImpl$5: void onAnimationRepeat(android.view.animation.Animation)
+android.support.v4.app.FragmentManagerImpl$5: void onAnimationStart(android.view.animation.Animation)
+android.support.v4.app.FragmentManagerState
+android.support.v4.app.FragmentManagerState: android.support.v4.app.FragmentState[] mActive
+android.support.v4.app.FragmentManagerState: int[] mAdded
+android.support.v4.app.FragmentManagerState: android.support.v4.app.BackStackState[] mBackStack
+android.support.v4.app.FragmentManagerState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentManagerState: FragmentManagerState()
+android.support.v4.app.FragmentManagerState: FragmentManagerState(android.os.Parcel)
+android.support.v4.app.FragmentManagerState: int describeContents()
+android.support.v4.app.FragmentManagerState: void writeToParcel(android.os.Parcel,int)
+android.support.v4.app.FragmentManagerState: void <clinit>()
+android.support.v4.app.FragmentManagerState$1
+android.support.v4.app.FragmentManagerState$1: FragmentManagerState$1()
+android.support.v4.app.FragmentManagerState$1: android.support.v4.app.FragmentManagerState createFromParcel(android.os.Parcel)
+android.support.v4.app.FragmentManagerState$1: android.support.v4.app.FragmentManagerState[] newArray(int)
+android.support.v4.app.FragmentManagerState$1: java.lang.Object[] newArray(int)
+android.support.v4.app.FragmentManagerState$1: java.lang.Object createFromParcel(android.os.Parcel)
+android.support.v4.app.FragmentPagerAdapter
+android.support.v4.app.FragmentPagerAdapter: java.lang.String TAG
+android.support.v4.app.FragmentPagerAdapter: boolean DEBUG
+android.support.v4.app.FragmentPagerAdapter: android.support.v4.app.FragmentManager mFragmentManager
+android.support.v4.app.FragmentPagerAdapter: android.support.v4.app.FragmentTransaction mCurTransaction
+android.support.v4.app.FragmentPagerAdapter: android.support.v4.app.Fragment mCurrentPrimaryItem
+android.support.v4.app.FragmentPagerAdapter: FragmentPagerAdapter(android.support.v4.app.FragmentManager)
+android.support.v4.app.FragmentPagerAdapter: android.support.v4.app.Fragment getItem(int)
+android.support.v4.app.FragmentPagerAdapter: void startUpdate(android.view.ViewGroup)
+android.support.v4.app.FragmentPagerAdapter: java.lang.Object instantiateItem(android.view.ViewGroup,int)
+android.support.v4.app.FragmentPagerAdapter: void destroyItem(android.view.ViewGroup,int,java.lang.Object)
+android.support.v4.app.FragmentPagerAdapter: void setPrimaryItem(android.view.ViewGroup,int,java.lang.Object)
+android.support.v4.app.FragmentPagerAdapter: void finishUpdate(android.view.ViewGroup)
+android.support.v4.app.FragmentPagerAdapter: boolean isViewFromObject(android.view.View,java.lang.Object)
+android.support.v4.app.FragmentPagerAdapter: android.os.Parcelable saveState()
+android.support.v4.app.FragmentPagerAdapter: void restoreState(android.os.Parcelable,java.lang.ClassLoader)
+android.support.v4.app.FragmentPagerAdapter: long getItemId(int)
+android.support.v4.app.FragmentPagerAdapter: java.lang.String makeFragmentName(int,long)
+android.support.v4.app.FragmentState
+android.support.v4.app.FragmentState: java.lang.String mClassName
+android.support.v4.app.FragmentState: int mIndex
+android.support.v4.app.FragmentState: boolean mFromLayout
+android.support.v4.app.FragmentState: int mFragmentId
+android.support.v4.app.FragmentState: int mContainerId
+android.support.v4.app.FragmentState: java.lang.String mTag
+android.support.v4.app.FragmentState: boolean mRetainInstance
+android.support.v4.app.FragmentState: boolean mDetached
+android.support.v4.app.FragmentState: android.os.Bundle mArguments
+android.support.v4.app.FragmentState: android.os.Bundle mSavedFragmentState
+android.support.v4.app.FragmentState: android.support.v4.app.Fragment mInstance
+android.support.v4.app.FragmentState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentState: FragmentState(android.support.v4.app.Fragment)
+android.support.v4.app.FragmentState: FragmentState(android.os.Parcel)
+android.support.v4.app.FragmentState: android.support.v4.app.Fragment instantiate(android.support.v4.app.FragmentActivity,android.support.v4.app.Fragment)
+android.support.v4.app.FragmentState: int describeContents()
+android.support.v4.app.FragmentState: void writeToParcel(android.os.Parcel,int)
+android.support.v4.app.FragmentState: void <clinit>()
+android.support.v4.app.FragmentState$1
+android.support.v4.app.FragmentState$1: FragmentState$1()
+android.support.v4.app.FragmentState$1: android.support.v4.app.FragmentState createFromParcel(android.os.Parcel)
+android.support.v4.app.FragmentState$1: android.support.v4.app.FragmentState[] newArray(int)
+android.support.v4.app.FragmentState$1: java.lang.Object[] newArray(int)
+android.support.v4.app.FragmentState$1: java.lang.Object createFromParcel(android.os.Parcel)
+android.support.v4.app.FragmentStatePagerAdapter
+android.support.v4.app.FragmentStatePagerAdapter: java.lang.String TAG
+android.support.v4.app.FragmentStatePagerAdapter: boolean DEBUG
+android.support.v4.app.FragmentStatePagerAdapter: android.support.v4.app.FragmentManager mFragmentManager
+android.support.v4.app.FragmentStatePagerAdapter: android.support.v4.app.FragmentTransaction mCurTransaction
+android.support.v4.app.FragmentStatePagerAdapter: java.util.ArrayList mSavedState
+android.support.v4.app.FragmentStatePagerAdapter: java.util.ArrayList mFragments
+android.support.v4.app.FragmentStatePagerAdapter: android.support.v4.app.Fragment mCurrentPrimaryItem
+android.support.v4.app.FragmentStatePagerAdapter: FragmentStatePagerAdapter(android.support.v4.app.FragmentManager)
+android.support.v4.app.FragmentStatePagerAdapter: android.support.v4.app.Fragment getItem(int)
+android.support.v4.app.FragmentStatePagerAdapter: void startUpdate(android.view.ViewGroup)
+android.support.v4.app.FragmentStatePagerAdapter: java.lang.Object instantiateItem(android.view.ViewGroup,int)
+android.support.v4.app.FragmentStatePagerAdapter: void destroyItem(android.view.ViewGroup,int,java.lang.Object)
+android.support.v4.app.FragmentStatePagerAdapter: void setPrimaryItem(android.view.ViewGroup,int,java.lang.Object)
+android.support.v4.app.FragmentStatePagerAdapter: void finishUpdate(android.view.ViewGroup)
+android.support.v4.app.FragmentStatePagerAdapter: boolean isViewFromObject(android.view.View,java.lang.Object)
+android.support.v4.app.FragmentStatePagerAdapter: android.os.Parcelable saveState()
+android.support.v4.app.FragmentStatePagerAdapter: void restoreState(android.os.Parcelable,java.lang.ClassLoader)
+android.support.v4.app.FragmentTabHost
+android.support.v4.app.FragmentTabHost: java.util.ArrayList mTabs
+android.support.v4.app.FragmentTabHost: android.widget.FrameLayout mRealTabContent
+android.support.v4.app.FragmentTabHost: android.content.Context mContext
+android.support.v4.app.FragmentTabHost: android.support.v4.app.FragmentManager mFragmentManager
+android.support.v4.app.FragmentTabHost: int mContainerId
+android.support.v4.app.FragmentTabHost: android.widget.TabHost$OnTabChangeListener mOnTabChangeListener
+android.support.v4.app.FragmentTabHost: android.support.v4.app.FragmentTabHost$TabInfo mLastTab
+android.support.v4.app.FragmentTabHost: boolean mAttached
+android.support.v4.app.FragmentTabHost: FragmentTabHost(android.content.Context)
+android.support.v4.app.FragmentTabHost: FragmentTabHost(android.content.Context,android.util.AttributeSet)
+android.support.v4.app.FragmentTabHost: void initFragmentTabHost(android.content.Context,android.util.AttributeSet)
+android.support.v4.app.FragmentTabHost: void setup()
+android.support.v4.app.FragmentTabHost: void setup(android.content.Context,android.support.v4.app.FragmentManager)
+android.support.v4.app.FragmentTabHost: void setup(android.content.Context,android.support.v4.app.FragmentManager,int)
+android.support.v4.app.FragmentTabHost: void ensureContent()
+android.support.v4.app.FragmentTabHost: void setOnTabChangedListener(android.widget.TabHost$OnTabChangeListener)
+android.support.v4.app.FragmentTabHost: void addTab(android.widget.TabHost$TabSpec,java.lang.Class,android.os.Bundle)
+android.support.v4.app.FragmentTabHost: void onAttachedToWindow()
+android.support.v4.app.FragmentTabHost: void onDetachedFromWindow()
+android.support.v4.app.FragmentTabHost: android.os.Parcelable onSaveInstanceState()
+android.support.v4.app.FragmentTabHost: void onRestoreInstanceState(android.os.Parcelable)
+android.support.v4.app.FragmentTabHost: void onTabChanged(java.lang.String)
+android.support.v4.app.FragmentTabHost: android.support.v4.app.FragmentTransaction doTabChanged(java.lang.String,android.support.v4.app.FragmentTransaction)
+android.support.v4.app.FragmentTabHost$1
+android.support.v4.app.FragmentTabHost$DummyTabFactory
+android.support.v4.app.FragmentTabHost$DummyTabFactory: android.content.Context mContext
+android.support.v4.app.FragmentTabHost$DummyTabFactory: FragmentTabHost$DummyTabFactory(android.content.Context)
+android.support.v4.app.FragmentTabHost$DummyTabFactory: android.view.View createTabContent(java.lang.String)
+android.support.v4.app.FragmentTabHost$SavedState
+android.support.v4.app.FragmentTabHost$SavedState: java.lang.String curTab
+android.support.v4.app.FragmentTabHost$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentTabHost$SavedState: FragmentTabHost$SavedState(android.os.Parcelable)
+android.support.v4.app.FragmentTabHost$SavedState: FragmentTabHost$SavedState(android.os.Parcel)
+android.support.v4.app.FragmentTabHost$SavedState: void writeToParcel(android.os.Parcel,int)
+android.support.v4.app.FragmentTabHost$SavedState: java.lang.String toString()
+android.support.v4.app.FragmentTabHost$SavedState: FragmentTabHost$SavedState(android.os.Parcel,android.support.v4.app.FragmentTabHost$1)
+android.support.v4.app.FragmentTabHost$SavedState: void <clinit>()
+android.support.v4.app.FragmentTabHost$SavedState$1
+android.support.v4.app.FragmentTabHost$SavedState$1: FragmentTabHost$SavedState$1()
+android.support.v4.app.FragmentTabHost$SavedState$1: android.support.v4.app.FragmentTabHost$SavedState createFromParcel(android.os.Parcel)
+android.support.v4.app.FragmentTabHost$SavedState$1: android.support.v4.app.FragmentTabHost$SavedState[] newArray(int)
+android.support.v4.app.FragmentTabHost$SavedState$1: java.lang.Object[] newArray(int)
+android.support.v4.app.FragmentTabHost$SavedState$1: java.lang.Object createFromParcel(android.os.Parcel)
+android.support.v4.app.FragmentTabHost$TabInfo
+android.support.v4.app.FragmentTabHost$TabInfo: java.lang.String tag
+android.support.v4.app.FragmentTabHost$TabInfo: java.lang.Class clss
+android.support.v4.app.FragmentTabHost$TabInfo: android.os.Bundle args
+android.support.v4.app.FragmentTabHost$TabInfo: android.support.v4.app.Fragment fragment
+android.support.v4.app.FragmentTabHost$TabInfo: FragmentTabHost$TabInfo(java.lang.String,java.lang.Class,android.os.Bundle)
+android.support.v4.app.FragmentTabHost$TabInfo: android.support.v4.app.Fragment access$102(android.support.v4.app.FragmentTabHost$TabInfo,android.support.v4.app.Fragment)
+android.support.v4.app.FragmentTabHost$TabInfo: android.support.v4.app.Fragment access$100(android.support.v4.app.FragmentTabHost$TabInfo)
+android.support.v4.app.FragmentTabHost$TabInfo: java.lang.String access$200(android.support.v4.app.FragmentTabHost$TabInfo)
+android.support.v4.app.FragmentTabHost$TabInfo: java.lang.Class access$300(android.support.v4.app.FragmentTabHost$TabInfo)
+android.support.v4.app.FragmentTabHost$TabInfo: android.os.Bundle access$400(android.support.v4.app.FragmentTabHost$TabInfo)
+android.support.v4.app.FragmentTransaction
+android.support.v4.app.FragmentTransaction: int TRANSIT_ENTER_MASK
+android.support.v4.app.FragmentTransaction: int TRANSIT_EXIT_MASK
+android.support.v4.app.FragmentTransaction: int TRANSIT_UNSET
+android.support.v4.app.FragmentTransaction: int TRANSIT_NONE
+android.support.v4.app.FragmentTransaction: int TRANSIT_FRAGMENT_OPEN
+android.support.v4.app.FragmentTransaction: int TRANSIT_FRAGMENT_CLOSE
+android.support.v4.app.FragmentTransaction: int TRANSIT_FRAGMENT_FADE
+android.support.v4.app.FragmentTransaction: FragmentTransaction()
+android.support.v4.app.FragmentTransaction: android.support.v4.app.FragmentTransaction add(android.support.v4.app.Fragment,java.lang.String)
+android.support.v4.app.FragmentTransaction: android.support.v4.app.FragmentTransaction add(int,android.support.v4.app.Fragment)
+android.support.v4.app.FragmentTransaction: android.support.v4.app.FragmentTransaction add(int,android.support.v4.app.Fragment,java.lang.String)
+android.support.v4.app.FragmentTransaction: android.support.v4.app.FragmentTransaction replace(int,android.support.v4.app.Fragment)
+android.support.v4.app.FragmentTransaction: android.support.v4.app.FragmentTransaction replace(int,android.support.v4.app.Fragment,java.lang.String)
+android.support.v4.app.FragmentTransaction: android.support.v4.app.FragmentTransaction remove(android.support.v4.app.Fragment)
+android.support.v4.app.FragmentTransaction: android.support.v4.app.FragmentTransaction hide(android.support.v4.app.Fragment)
+android.support.v4.app.FragmentTransaction: android.support.v4.app.FragmentTransaction show(android.support.v4.app.Fragment)
+android.support.v4.app.FragmentTransaction: android.support.v4.app.FragmentTransaction detach(android.support.v4.app.Fragment)
+android.support.v4.app.FragmentTransaction: android.support.v4.app.FragmentTransaction attach(android.support.v4.app.Fragment)
+android.support.v4.app.FragmentTransaction: boolean isEmpty()
+android.support.v4.app.FragmentTransaction: android.support.v4.app.FragmentTransaction setCustomAnimations(int,int)
+android.support.v4.app.FragmentTransaction: android.support.v4.app.FragmentTransaction setCustomAnimations(int,int,int,int)
+android.support.v4.app.FragmentTransaction: android.support.v4.app.FragmentTransaction setTransition(int)
+android.support.v4.app.FragmentTransaction: android.support.v4.app.FragmentTransaction setTransitionStyle(int)
+android.support.v4.app.FragmentTransaction: android.support.v4.app.FragmentTransaction addToBackStack(java.lang.String)
+android.support.v4.app.FragmentTransaction: boolean isAddToBackStackAllowed()
+android.support.v4.app.FragmentTransaction: android.support.v4.app.FragmentTransaction disallowAddToBackStack()
+android.support.v4.app.FragmentTransaction: android.support.v4.app.FragmentTransaction setBreadCrumbTitle(int)
+android.support.v4.app.FragmentTransaction: android.support.v4.app.FragmentTransaction setBreadCrumbTitle(java.lang.CharSequence)
+android.support.v4.app.FragmentTransaction: android.support.v4.app.FragmentTransaction setBreadCrumbShortTitle(int)
+android.support.v4.app.FragmentTransaction: android.support.v4.app.FragmentTransaction setBreadCrumbShortTitle(java.lang.CharSequence)
+android.support.v4.app.FragmentTransaction: int commit()
+android.support.v4.app.FragmentTransaction: int commitAllowingStateLoss()
+android.support.v4.app.ListFragment
+android.support.v4.app.ListFragment: int INTERNAL_EMPTY_ID
+android.support.v4.app.ListFragment: int INTERNAL_PROGRESS_CONTAINER_ID
+android.support.v4.app.ListFragment: int INTERNAL_LIST_CONTAINER_ID
+android.support.v4.app.ListFragment: android.os.Handler mHandler
+android.support.v4.app.ListFragment: java.lang.Runnable mRequestFocus
+android.support.v4.app.ListFragment: android.widget.AdapterView$OnItemClickListener mOnClickListener
+android.support.v4.app.ListFragment: android.widget.ListAdapter mAdapter
+android.support.v4.app.ListFragment: android.widget.ListView mList
+android.support.v4.app.ListFragment: android.view.View mEmptyView
+android.support.v4.app.ListFragment: android.widget.TextView mStandardEmptyView
+android.support.v4.app.ListFragment: android.view.View mProgressContainer
+android.support.v4.app.ListFragment: android.view.View mListContainer
+android.support.v4.app.ListFragment: java.lang.CharSequence mEmptyText
+android.support.v4.app.ListFragment: boolean mListShown
+android.support.v4.app.ListFragment: ListFragment()
+android.support.v4.app.ListFragment: android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)
+android.support.v4.app.ListFragment: void onViewCreated(android.view.View,android.os.Bundle)
+android.support.v4.app.ListFragment: void onDestroyView()
+android.support.v4.app.ListFragment: void onListItemClick(android.widget.ListView,android.view.View,int,long)
+android.support.v4.app.ListFragment: void setListAdapter(android.widget.ListAdapter)
+android.support.v4.app.ListFragment: void setSelection(int)
+android.support.v4.app.ListFragment: int getSelectedItemPosition()
+android.support.v4.app.ListFragment: long getSelectedItemId()
+android.support.v4.app.ListFragment: android.widget.ListView getListView()
+android.support.v4.app.ListFragment: void setEmptyText(java.lang.CharSequence)
+android.support.v4.app.ListFragment: void setListShown(boolean)
+android.support.v4.app.ListFragment: void setListShownNoAnimation(boolean)
+android.support.v4.app.ListFragment: void setListShown(boolean,boolean)
+android.support.v4.app.ListFragment: android.widget.ListAdapter getListAdapter()
+android.support.v4.app.ListFragment: void ensureList()
+android.support.v4.app.ListFragment$1
+android.support.v4.app.ListFragment$1: android.support.v4.app.ListFragment this$0
+android.support.v4.app.ListFragment$1: ListFragment$1(android.support.v4.app.ListFragment)
+android.support.v4.app.ListFragment$1: void run()
+android.support.v4.app.ListFragment$2
+android.support.v4.app.ListFragment$2: android.support.v4.app.ListFragment this$0
+android.support.v4.app.ListFragment$2: ListFragment$2(android.support.v4.app.ListFragment)
+android.support.v4.app.ListFragment$2: void onItemClick(android.widget.AdapterView,android.view.View,int,long)
+android.support.v4.app.LoaderManager
+android.support.v4.app.LoaderManager: LoaderManager()
+android.support.v4.app.LoaderManager: android.support.v4.content.Loader initLoader(int,android.os.Bundle,android.support.v4.app.LoaderManager$LoaderCallbacks)
+android.support.v4.app.LoaderManager: android.support.v4.content.Loader restartLoader(int,android.os.Bundle,android.support.v4.app.LoaderManager$LoaderCallbacks)
+android.support.v4.app.LoaderManager: void destroyLoader(int)
+android.support.v4.app.LoaderManager: android.support.v4.content.Loader getLoader(int)
+android.support.v4.app.LoaderManager: void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])
+android.support.v4.app.LoaderManager: void enableDebugLogging(boolean)
+android.support.v4.app.LoaderManager: boolean hasRunningLoaders()
+android.support.v4.app.LoaderManager$LoaderCallbacks
+android.support.v4.app.LoaderManager$LoaderCallbacks: android.support.v4.content.Loader onCreateLoader(int,android.os.Bundle)
+android.support.v4.app.LoaderManager$LoaderCallbacks: void onLoadFinished(android.support.v4.content.Loader,java.lang.Object)
+android.support.v4.app.LoaderManager$LoaderCallbacks: void onLoaderReset(android.support.v4.content.Loader)
+android.support.v4.app.LoaderManagerImpl
+android.support.v4.app.LoaderManagerImpl: java.lang.String TAG
+android.support.v4.app.LoaderManagerImpl: boolean DEBUG
+android.support.v4.app.LoaderManagerImpl: android.support.v4.util.SparseArrayCompat mLoaders
+android.support.v4.app.LoaderManagerImpl: android.support.v4.util.SparseArrayCompat mInactiveLoaders
+android.support.v4.app.LoaderManagerImpl: java.lang.String mWho
+android.support.v4.app.LoaderManagerImpl: android.support.v4.app.FragmentActivity mActivity
+android.support.v4.app.LoaderManagerImpl: boolean mStarted
+android.support.v4.app.LoaderManagerImpl: boolean mRetaining
+android.support.v4.app.LoaderManagerImpl: boolean mRetainingStarted
+android.support.v4.app.LoaderManagerImpl: boolean mCreatingLoader
+android.support.v4.app.LoaderManagerImpl: LoaderManagerImpl(java.lang.String,android.support.v4.app.FragmentActivity,boolean)
+android.support.v4.app.LoaderManagerImpl: void updateActivity(android.support.v4.app.FragmentActivity)
+android.support.v4.app.LoaderManagerImpl: android.support.v4.app.LoaderManagerImpl$LoaderInfo createLoader(int,android.os.Bundle,android.support.v4.app.LoaderManager$LoaderCallbacks)
+android.support.v4.app.LoaderManagerImpl: android.support.v4.app.LoaderManagerImpl$LoaderInfo createAndInstallLoader(int,android.os.Bundle,android.support.v4.app.LoaderManager$LoaderCallbacks)
+android.support.v4.app.LoaderManagerImpl: void installLoader(android.support.v4.app.LoaderManagerImpl$LoaderInfo)
+android.support.v4.app.LoaderManagerImpl: android.support.v4.content.Loader initLoader(int,android.os.Bundle,android.support.v4.app.LoaderManager$LoaderCallbacks)
+android.support.v4.app.LoaderManagerImpl: android.support.v4.content.Loader restartLoader(int,android.os.Bundle,android.support.v4.app.LoaderManager$LoaderCallbacks)
+android.support.v4.app.LoaderManagerImpl: void destroyLoader(int)
+android.support.v4.app.LoaderManagerImpl: android.support.v4.content.Loader getLoader(int)
+android.support.v4.app.LoaderManagerImpl: void doStart()
+android.support.v4.app.LoaderManagerImpl: void doStop()
+android.support.v4.app.LoaderManagerImpl: void doRetain()
+android.support.v4.app.LoaderManagerImpl: void finishRetain()
+android.support.v4.app.LoaderManagerImpl: void doReportNextStart()
+android.support.v4.app.LoaderManagerImpl: void doReportStart()
+android.support.v4.app.LoaderManagerImpl: void doDestroy()
+android.support.v4.app.LoaderManagerImpl: java.lang.String toString()
+android.support.v4.app.LoaderManagerImpl: void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])
+android.support.v4.app.LoaderManagerImpl: boolean hasRunningLoaders()
+android.support.v4.app.LoaderManagerImpl: void <clinit>()
+android.support.v4.app.LoaderManagerImpl$LoaderInfo
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: int mId
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: android.os.Bundle mArgs
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: android.support.v4.app.LoaderManager$LoaderCallbacks mCallbacks
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: android.support.v4.content.Loader mLoader
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: boolean mHaveData
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: boolean mDeliveredData
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: java.lang.Object mData
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: boolean mStarted
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: boolean mRetaining
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: boolean mRetainingStarted
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: boolean mReportNextStart
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: boolean mDestroyed
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: boolean mListenerRegistered
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: android.support.v4.app.LoaderManagerImpl$LoaderInfo mPendingLoader
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: android.support.v4.app.LoaderManagerImpl this$0
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: LoaderManagerImpl$LoaderInfo(android.support.v4.app.LoaderManagerImpl,int,android.os.Bundle,android.support.v4.app.LoaderManager$LoaderCallbacks)
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: void start()
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: void retain()
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: void finishRetain()
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: void reportStart()
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: void stop()
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: void destroy()
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: void onLoadComplete(android.support.v4.content.Loader,java.lang.Object)
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: void callOnLoadFinished(android.support.v4.content.Loader,java.lang.Object)
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: java.lang.String toString()
+android.support.v4.app.LoaderManagerImpl$LoaderInfo: void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])
+android.support.v4.app.NavUtils
+android.support.v4.app.NavUtils: java.lang.String TAG
+android.support.v4.app.NavUtils: java.lang.String PARENT_ACTIVITY
+android.support.v4.app.NavUtils: android.support.v4.app.NavUtils$NavUtilsImpl IMPL
+android.support.v4.app.NavUtils: boolean shouldUpRecreateTask(android.app.Activity,android.content.Intent)
+android.support.v4.app.NavUtils: void navigateUpFromSameTask(android.app.Activity)
+android.support.v4.app.NavUtils: void navigateUpTo(android.app.Activity,android.content.Intent)
+android.support.v4.app.NavUtils: android.content.Intent getParentActivityIntent(android.app.Activity)
+android.support.v4.app.NavUtils: android.content.Intent getParentActivityIntent(android.content.Context,java.lang.Class)
+android.support.v4.app.NavUtils: android.content.Intent getParentActivityIntent(android.content.Context,android.content.ComponentName)
+android.support.v4.app.NavUtils: java.lang.String getParentActivityName(android.app.Activity)
+android.support.v4.app.NavUtils: java.lang.String getParentActivityName(android.content.Context,android.content.ComponentName)
+android.support.v4.app.NavUtils: NavUtils()
+android.support.v4.app.NavUtils: void <clinit>()
+android.support.v4.app.NavUtils$NavUtilsImpl
+android.support.v4.app.NavUtils$NavUtilsImpl: android.content.Intent getParentActivityIntent(android.app.Activity)
+android.support.v4.app.NavUtils$NavUtilsImpl: boolean shouldUpRecreateTask(android.app.Activity,android.content.Intent)
+android.support.v4.app.NavUtils$NavUtilsImpl: void navigateUpTo(android.app.Activity,android.content.Intent)
+android.support.v4.app.NavUtils$NavUtilsImpl: java.lang.String getParentActivityName(android.content.Context,android.content.pm.ActivityInfo)
+android.support.v4.app.NavUtils$NavUtilsImplBase
+android.support.v4.app.NavUtils$NavUtilsImplBase: NavUtils$NavUtilsImplBase()
+android.support.v4.app.NavUtils$NavUtilsImplBase: android.content.Intent getParentActivityIntent(android.app.Activity)
+android.support.v4.app.NavUtils$NavUtilsImplBase: boolean shouldUpRecreateTask(android.app.Activity,android.content.Intent)
+android.support.v4.app.NavUtils$NavUtilsImplBase: void navigateUpTo(android.app.Activity,android.content.Intent)
+android.support.v4.app.NavUtils$NavUtilsImplBase: java.lang.String getParentActivityName(android.content.Context,android.content.pm.ActivityInfo)
+android.support.v4.app.NavUtils$NavUtilsImplJB
+android.support.v4.app.NavUtils$NavUtilsImplJB: NavUtils$NavUtilsImplJB()
+android.support.v4.app.NavUtils$NavUtilsImplJB: android.content.Intent getParentActivityIntent(android.app.Activity)
+android.support.v4.app.NavUtils$NavUtilsImplJB: android.content.Intent superGetParentActivityIntent(android.app.Activity)
+android.support.v4.app.NavUtils$NavUtilsImplJB: boolean shouldUpRecreateTask(android.app.Activity,android.content.Intent)
+android.support.v4.app.NavUtils$NavUtilsImplJB: void navigateUpTo(android.app.Activity,android.content.Intent)
+android.support.v4.app.NavUtils$NavUtilsImplJB: java.lang.String getParentActivityName(android.content.Context,android.content.pm.ActivityInfo)
+android.support.v4.app.NavUtilsJB
+android.support.v4.app.NavUtilsJB: NavUtilsJB()
+android.support.v4.app.NavUtilsJB: android.content.Intent getParentActivityIntent(android.app.Activity)
+android.support.v4.app.NavUtilsJB: boolean shouldUpRecreateTask(android.app.Activity,android.content.Intent)
+android.support.v4.app.NavUtilsJB: void navigateUpTo(android.app.Activity,android.content.Intent)
+android.support.v4.app.NavUtilsJB: java.lang.String getParentActivityName(android.content.pm.ActivityInfo)
+android.support.v4.app.NoSaveStateFrameLayout
+android.support.v4.app.NoSaveStateFrameLayout: android.view.ViewGroup wrap(android.view.View)
+android.support.v4.app.NoSaveStateFrameLayout: NoSaveStateFrameLayout(android.content.Context)
+android.support.v4.app.NoSaveStateFrameLayout: void dispatchSaveInstanceState(android.util.SparseArray)
+android.support.v4.app.NoSaveStateFrameLayout: void dispatchRestoreInstanceState(android.util.SparseArray)
+android.support.v4.app.NotificationCompat
+android.support.v4.app.NotificationCompat: int FLAG_HIGH_PRIORITY
+android.support.v4.app.NotificationCompat: int PRIORITY_DEFAULT
+android.support.v4.app.NotificationCompat: int PRIORITY_LOW
+android.support.v4.app.NotificationCompat: int PRIORITY_MIN
+android.support.v4.app.NotificationCompat: int PRIORITY_HIGH
+android.support.v4.app.NotificationCompat: int PRIORITY_MAX
+android.support.v4.app.NotificationCompat: android.support.v4.app.NotificationCompat$NotificationCompatImpl IMPL
+android.support.v4.app.NotificationCompat: NotificationCompat()
+android.support.v4.app.NotificationCompat: android.support.v4.app.NotificationCompat$NotificationCompatImpl access$000()
+android.support.v4.app.NotificationCompat: void <clinit>()
+android.support.v4.app.NotificationCompat$Action
+android.support.v4.app.NotificationCompat$Action: int icon
+android.support.v4.app.NotificationCompat$Action: java.lang.CharSequence title
+android.support.v4.app.NotificationCompat$Action: android.app.PendingIntent actionIntent
+android.support.v4.app.NotificationCompat$Action: NotificationCompat$Action(int,java.lang.CharSequence,android.app.PendingIntent)
+android.support.v4.app.NotificationCompat$BigPictureStyle
+android.support.v4.app.NotificationCompat$BigPictureStyle: android.graphics.Bitmap mPicture
+android.support.v4.app.NotificationCompat$BigPictureStyle: NotificationCompat$BigPictureStyle()
+android.support.v4.app.NotificationCompat$BigPictureStyle: NotificationCompat$BigPictureStyle(android.support.v4.app.NotificationCompat$Builder)
+android.support.v4.app.NotificationCompat$BigPictureStyle: android.support.v4.app.NotificationCompat$BigPictureStyle setBigContentTitle(java.lang.CharSequence)
+android.support.v4.app.NotificationCompat$BigPictureStyle: android.support.v4.app.NotificationCompat$BigPictureStyle setSummaryText(java.lang.CharSequence)
+android.support.v4.app.NotificationCompat$BigPictureStyle: android.support.v4.app.NotificationCompat$BigPictureStyle bigPicture(android.graphics.Bitmap)
+android.support.v4.app.NotificationCompat$BigTextStyle
+android.support.v4.app.NotificationCompat$BigTextStyle: java.lang.CharSequence mBigText
+android.support.v4.app.NotificationCompat$BigTextStyle: NotificationCompat$BigTextStyle()
+android.support.v4.app.NotificationCompat$BigTextStyle: NotificationCompat$BigTextStyle(android.support.v4.app.NotificationCompat$Builder)
+android.support.v4.app.NotificationCompat$BigTextStyle: android.support.v4.app.NotificationCompat$BigTextStyle setBigContentTitle(java.lang.CharSequence)
+android.support.v4.app.NotificationCompat$BigTextStyle: android.support.v4.app.NotificationCompat$BigTextStyle setSummaryText(java.lang.CharSequence)
+android.support.v4.app.NotificationCompat$BigTextStyle: android.support.v4.app.NotificationCompat$BigTextStyle bigText(java.lang.CharSequence)
+android.support.v4.app.NotificationCompat$Builder
+android.support.v4.app.NotificationCompat$Builder: android.content.Context mContext
+android.support.v4.app.NotificationCompat$Builder: java.lang.CharSequence mContentTitle
+android.support.v4.app.NotificationCompat$Builder: java.lang.CharSequence mContentText
+android.support.v4.app.NotificationCompat$Builder: android.app.PendingIntent mContentIntent
+android.support.v4.app.NotificationCompat$Builder: android.app.PendingIntent mFullScreenIntent
+android.support.v4.app.NotificationCompat$Builder: android.widget.RemoteViews mTickerView
+android.support.v4.app.NotificationCompat$Builder: android.graphics.Bitmap mLargeIcon
+android.support.v4.app.NotificationCompat$Builder: java.lang.CharSequence mContentInfo
+android.support.v4.app.NotificationCompat$Builder: int mNumber
+android.support.v4.app.NotificationCompat$Builder: int mPriority
+android.support.v4.app.NotificationCompat$Builder: boolean mUseChronometer
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Style mStyle
+android.support.v4.app.NotificationCompat$Builder: java.lang.CharSequence mSubText
+android.support.v4.app.NotificationCompat$Builder: int mProgressMax
+android.support.v4.app.NotificationCompat$Builder: int mProgress
+android.support.v4.app.NotificationCompat$Builder: boolean mProgressIndeterminate
+android.support.v4.app.NotificationCompat$Builder: java.util.ArrayList mActions
+android.support.v4.app.NotificationCompat$Builder: android.app.Notification mNotification
+android.support.v4.app.NotificationCompat$Builder: NotificationCompat$Builder(android.content.Context)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setWhen(long)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setUsesChronometer(boolean)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setSmallIcon(int)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setSmallIcon(int,int)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setContentTitle(java.lang.CharSequence)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setContentText(java.lang.CharSequence)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setSubText(java.lang.CharSequence)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setNumber(int)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setContentInfo(java.lang.CharSequence)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setProgress(int,int,boolean)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setContent(android.widget.RemoteViews)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setContentIntent(android.app.PendingIntent)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setDeleteIntent(android.app.PendingIntent)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setFullScreenIntent(android.app.PendingIntent,boolean)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setTicker(java.lang.CharSequence)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setTicker(java.lang.CharSequence,android.widget.RemoteViews)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setLargeIcon(android.graphics.Bitmap)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setSound(android.net.Uri)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setSound(android.net.Uri,int)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setVibrate(long[])
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setLights(int,int,int)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setOngoing(boolean)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setOnlyAlertOnce(boolean)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setAutoCancel(boolean)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setDefaults(int)
+android.support.v4.app.NotificationCompat$Builder: void setFlag(int,boolean)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setPriority(int)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder addAction(int,java.lang.CharSequence,android.app.PendingIntent)
+android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setStyle(android.support.v4.app.NotificationCompat$Style)
+android.support.v4.app.NotificationCompat$Builder: android.app.Notification getNotification()
+android.support.v4.app.NotificationCompat$Builder: android.app.Notification build()
+android.support.v4.app.NotificationCompat$InboxStyle
+android.support.v4.app.NotificationCompat$InboxStyle: java.util.ArrayList mTexts
+android.support.v4.app.NotificationCompat$InboxStyle: NotificationCompat$InboxStyle()
+android.support.v4.app.NotificationCompat$InboxStyle: NotificationCompat$InboxStyle(android.support.v4.app.NotificationCompat$Builder)
+android.support.v4.app.NotificationCompat$InboxStyle: android.support.v4.app.NotificationCompat$InboxStyle setBigContentTitle(java.lang.CharSequence)
+android.support.v4.app.NotificationCompat$InboxStyle: android.support.v4.app.NotificationCompat$InboxStyle setSummaryText(java.lang.CharSequence)
+android.support.v4.app.NotificationCompat$InboxStyle: android.support.v4.app.NotificationCompat$InboxStyle addLine(java.lang.CharSequence)
+android.support.v4.app.NotificationCompat$NotificationCompatImpl
+android.support.v4.app.NotificationCompat$NotificationCompatImpl: android.app.Notification build(android.support.v4.app.NotificationCompat$Builder)
+android.support.v4.app.NotificationCompat$NotificationCompatImplBase
+android.support.v4.app.NotificationCompat$NotificationCompatImplBase: NotificationCompat$NotificationCompatImplBase()
+android.support.v4.app.NotificationCompat$NotificationCompatImplBase: android.app.Notification build(android.support.v4.app.NotificationCompat$Builder)
+android.support.v4.app.NotificationCompat$NotificationCompatImplHoneycomb
+android.support.v4.app.NotificationCompat$NotificationCompatImplHoneycomb: NotificationCompat$NotificationCompatImplHoneycomb()
+android.support.v4.app.NotificationCompat$NotificationCompatImplHoneycomb: android.app.Notification build(android.support.v4.app.NotificationCompat$Builder)
+android.support.v4.app.NotificationCompat$NotificationCompatImplIceCreamSandwich
+android.support.v4.app.NotificationCompat$NotificationCompatImplIceCreamSandwich: NotificationCompat$NotificationCompatImplIceCreamSandwich()
+android.support.v4.app.NotificationCompat$NotificationCompatImplIceCreamSandwich: android.app.Notification build(android.support.v4.app.NotificationCompat$Builder)
+android.support.v4.app.NotificationCompat$NotificationCompatImplJellybean
+android.support.v4.app.NotificationCompat$NotificationCompatImplJellybean: NotificationCompat$NotificationCompatImplJellybean()
+android.support.v4.app.NotificationCompat$NotificationCompatImplJellybean: android.app.Notification build(android.support.v4.app.NotificationCompat$Builder)
+android.support.v4.app.NotificationCompat$Style
+android.support.v4.app.NotificationCompat$Style: android.support.v4.app.NotificationCompat$Builder mBuilder
+android.support.v4.app.NotificationCompat$Style: java.lang.CharSequence mBigContentTitle
+android.support.v4.app.NotificationCompat$Style: java.lang.CharSequence mSummaryText
+android.support.v4.app.NotificationCompat$Style: boolean mSummaryTextSet
+android.support.v4.app.NotificationCompat$Style: NotificationCompat$Style()
+android.support.v4.app.NotificationCompat$Style: void setBuilder(android.support.v4.app.NotificationCompat$Builder)
+android.support.v4.app.NotificationCompat$Style: android.app.Notification build()
+android.support.v4.app.NotificationCompatHoneycomb
+android.support.v4.app.NotificationCompatHoneycomb: NotificationCompatHoneycomb()
+android.support.v4.app.NotificationCompatHoneycomb: android.app.Notification add(android.content.Context,android.app.Notification,java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence,android.widget.RemoteViews,int,android.app.PendingIntent,android.app.PendingIntent,android.graphics.Bitmap)
+android.support.v4.app.NotificationCompatIceCreamSandwich
+android.support.v4.app.NotificationCompatIceCreamSandwich: NotificationCompatIceCreamSandwich()
+android.support.v4.app.NotificationCompatIceCreamSandwich: android.app.Notification add(android.content.Context,android.app.Notification,java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence,android.widget.RemoteViews,int,android.app.PendingIntent,android.app.PendingIntent,android.graphics.Bitmap,int,int,boolean)
+android.support.v4.app.NotificationCompatJellybean
+android.support.v4.app.NotificationCompatJellybean: android.app.Notification$Builder b
+android.support.v4.app.NotificationCompatJellybean: NotificationCompatJellybean(android.content.Context,android.app.Notification,java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence,android.widget.RemoteViews,int,android.app.PendingIntent,android.app.PendingIntent,android.graphics.Bitmap,int,int,boolean,boolean,int,java.lang.CharSequence)
+android.support.v4.app.NotificationCompatJellybean: void addAction(int,java.lang.CharSequence,android.app.PendingIntent)
+android.support.v4.app.NotificationCompatJellybean: void addBigTextStyle(java.lang.CharSequence,boolean,java.lang.CharSequence,java.lang.CharSequence)
+android.support.v4.app.NotificationCompatJellybean: void addBigPictureStyle(java.lang.CharSequence,boolean,java.lang.CharSequence,android.graphics.Bitmap)
+android.support.v4.app.NotificationCompatJellybean: void addInboxStyle(java.lang.CharSequence,boolean,java.lang.CharSequence,java.util.ArrayList)
+android.support.v4.app.NotificationCompatJellybean: android.app.Notification build()
+android.support.v4.app.ServiceCompat
+android.support.v4.app.ServiceCompat: int START_STICKY
+android.support.v4.app.ServiceCompat: ServiceCompat()
+android.support.v4.app.ShareCompat
+android.support.v4.app.ShareCompat: java.lang.String EXTRA_CALLING_PACKAGE
+android.support.v4.app.ShareCompat: java.lang.String EXTRA_CALLING_ACTIVITY
+android.support.v4.app.ShareCompat: android.support.v4.app.ShareCompat$ShareCompatImpl IMPL
+android.support.v4.app.ShareCompat: ShareCompat()
+android.support.v4.app.ShareCompat: java.lang.String getCallingPackage(android.app.Activity)
+android.support.v4.app.ShareCompat: android.content.ComponentName getCallingActivity(android.app.Activity)
+android.support.v4.app.ShareCompat: void configureMenuItem(android.view.MenuItem,android.support.v4.app.ShareCompat$IntentBuilder)
+android.support.v4.app.ShareCompat: void configureMenuItem(android.view.Menu,int,android.support.v4.app.ShareCompat$IntentBuilder)
+android.support.v4.app.ShareCompat: android.support.v4.app.ShareCompat$ShareCompatImpl access$000()
+android.support.v4.app.ShareCompat: void <clinit>()
+android.support.v4.app.ShareCompat$IntentBuilder
+android.support.v4.app.ShareCompat$IntentBuilder: android.app.Activity mActivity
+android.support.v4.app.ShareCompat$IntentBuilder: android.content.Intent mIntent
+android.support.v4.app.ShareCompat$IntentBuilder: java.lang.CharSequence mChooserTitle
+android.support.v4.app.ShareCompat$IntentBuilder: java.util.ArrayList mToAddresses
+android.support.v4.app.ShareCompat$IntentBuilder: java.util.ArrayList mCcAddresses
+android.support.v4.app.ShareCompat$IntentBuilder: java.util.ArrayList mBccAddresses
+android.support.v4.app.ShareCompat$IntentBuilder: java.util.ArrayList mStreams
+android.support.v4.app.ShareCompat$IntentBuilder: android.support.v4.app.ShareCompat$IntentBuilder from(android.app.Activity)
+android.support.v4.app.ShareCompat$IntentBuilder: ShareCompat$IntentBuilder(android.app.Activity)
+android.support.v4.app.ShareCompat$IntentBuilder: android.content.Intent getIntent()
+android.support.v4.app.ShareCompat$IntentBuilder: android.app.Activity getActivity()
+android.support.v4.app.ShareCompat$IntentBuilder: void combineArrayExtra(java.lang.String,java.util.ArrayList)
+android.support.v4.app.ShareCompat$IntentBuilder: void combineArrayExtra(java.lang.String,java.lang.String[])
+android.support.v4.app.ShareCompat$IntentBuilder: android.content.Intent createChooserIntent()
+android.support.v4.app.ShareCompat$IntentBuilder: void startChooser()
+android.support.v4.app.ShareCompat$IntentBuilder: android.support.v4.app.ShareCompat$IntentBuilder setChooserTitle(java.lang.CharSequence)
+android.support.v4.app.ShareCompat$IntentBuilder: android.support.v4.app.ShareCompat$IntentBuilder setChooserTitle(int)
+android.support.v4.app.ShareCompat$IntentBuilder: android.support.v4.app.ShareCompat$IntentBuilder setType(java.lang.String)
+android.support.v4.app.ShareCompat$IntentBuilder: android.support.v4.app.ShareCompat$IntentBuilder setText(java.lang.CharSequence)
+android.support.v4.app.ShareCompat$IntentBuilder: android.support.v4.app.ShareCompat$IntentBuilder setHtmlText(java.lang.String)
+android.support.v4.app.ShareCompat$IntentBuilder: android.support.v4.app.ShareCompat$IntentBuilder setStream(android.net.Uri)
+android.support.v4.app.ShareCompat$IntentBuilder: android.support.v4.app.ShareCompat$IntentBuilder addStream(android.net.Uri)
+android.support.v4.app.ShareCompat$IntentBuilder: android.support.v4.app.ShareCompat$IntentBuilder setEmailTo(java.lang.String[])
+android.support.v4.app.ShareCompat$IntentBuilder: android.support.v4.app.ShareCompat$IntentBuilder addEmailTo(java.lang.String)
+android.support.v4.app.ShareCompat$IntentBuilder: android.support.v4.app.ShareCompat$IntentBuilder addEmailTo(java.lang.String[])
+android.support.v4.app.ShareCompat$IntentBuilder: android.support.v4.app.ShareCompat$IntentBuilder setEmailCc(java.lang.String[])
+android.support.v4.app.ShareCompat$IntentBuilder: android.support.v4.app.ShareCompat$IntentBuilder addEmailCc(java.lang.String)
+android.support.v4.app.ShareCompat$IntentBuilder: android.support.v4.app.ShareCompat$IntentBuilder addEmailCc(java.lang.String[])
+android.support.v4.app.ShareCompat$IntentBuilder: android.support.v4.app.ShareCompat$IntentBuilder setEmailBcc(java.lang.String[])
+android.support.v4.app.ShareCompat$IntentBuilder: android.support.v4.app.ShareCompat$IntentBuilder addEmailBcc(java.lang.String)
+android.support.v4.app.ShareCompat$IntentBuilder: android.support.v4.app.ShareCompat$IntentBuilder addEmailBcc(java.lang.String[])
+android.support.v4.app.ShareCompat$IntentBuilder: android.support.v4.app.ShareCompat$IntentBuilder setSubject(java.lang.String)
+android.support.v4.app.ShareCompat$IntentReader
+android.support.v4.app.ShareCompat$IntentReader: java.lang.String TAG
+android.support.v4.app.ShareCompat$IntentReader: android.app.Activity mActivity
+android.support.v4.app.ShareCompat$IntentReader: android.content.Intent mIntent
+android.support.v4.app.ShareCompat$IntentReader: java.lang.String mCallingPackage
+android.support.v4.app.ShareCompat$IntentReader: android.content.ComponentName mCallingActivity
+android.support.v4.app.ShareCompat$IntentReader: java.util.ArrayList mStreams
+android.support.v4.app.ShareCompat$IntentReader: android.support.v4.app.ShareCompat$IntentReader from(android.app.Activity)
+android.support.v4.app.ShareCompat$IntentReader: ShareCompat$IntentReader(android.app.Activity)
+android.support.v4.app.ShareCompat$IntentReader: boolean isShareIntent()
+android.support.v4.app.ShareCompat$IntentReader: boolean isSingleShare()
+android.support.v4.app.ShareCompat$IntentReader: boolean isMultipleShare()
+android.support.v4.app.ShareCompat$IntentReader: java.lang.String getType()
+android.support.v4.app.ShareCompat$IntentReader: java.lang.CharSequence getText()
+android.support.v4.app.ShareCompat$IntentReader: java.lang.String getHtmlText()
+android.support.v4.app.ShareCompat$IntentReader: android.net.Uri getStream()
+android.support.v4.app.ShareCompat$IntentReader: android.net.Uri getStream(int)
+android.support.v4.app.ShareCompat$IntentReader: int getStreamCount()
+android.support.v4.app.ShareCompat$IntentReader: java.lang.String[] getEmailTo()
+android.support.v4.app.ShareCompat$IntentReader: java.lang.String[] getEmailCc()
+android.support.v4.app.ShareCompat$IntentReader: java.lang.String[] getEmailBcc()
+android.support.v4.app.ShareCompat$IntentReader: java.lang.String getSubject()
+android.support.v4.app.ShareCompat$IntentReader: java.lang.String getCallingPackage()
+android.support.v4.app.ShareCompat$IntentReader: android.content.ComponentName getCallingActivity()
+android.support.v4.app.ShareCompat$IntentReader: android.graphics.drawable.Drawable getCallingActivityIcon()
+android.support.v4.app.ShareCompat$IntentReader: android.graphics.drawable.Drawable getCallingApplicationIcon()
+android.support.v4.app.ShareCompat$IntentReader: java.lang.CharSequence getCallingApplicationLabel()
+android.support.v4.app.ShareCompat$ShareCompatImpl
+android.support.v4.app.ShareCompat$ShareCompatImpl: void configureMenuItem(android.view.MenuItem,android.support.v4.app.ShareCompat$IntentBuilder)
+android.support.v4.app.ShareCompat$ShareCompatImpl: java.lang.String escapeHtml(java.lang.CharSequence)
+android.support.v4.app.ShareCompat$ShareCompatImplBase
+android.support.v4.app.ShareCompat$ShareCompatImplBase: ShareCompat$ShareCompatImplBase()
+android.support.v4.app.ShareCompat$ShareCompatImplBase: void configureMenuItem(android.view.MenuItem,android.support.v4.app.ShareCompat$IntentBuilder)
+android.support.v4.app.ShareCompat$ShareCompatImplBase: java.lang.String escapeHtml(java.lang.CharSequence)
+android.support.v4.app.ShareCompat$ShareCompatImplBase: void withinStyle(java.lang.StringBuilder,java.lang.CharSequence,int,int)
+android.support.v4.app.ShareCompat$ShareCompatImplICS
+android.support.v4.app.ShareCompat$ShareCompatImplICS: ShareCompat$ShareCompatImplICS()
+android.support.v4.app.ShareCompat$ShareCompatImplICS: void configureMenuItem(android.view.MenuItem,android.support.v4.app.ShareCompat$IntentBuilder)
+android.support.v4.app.ShareCompat$ShareCompatImplICS: boolean shouldAddChooserIntent(android.view.MenuItem)
+android.support.v4.app.ShareCompat$ShareCompatImplJB
+android.support.v4.app.ShareCompat$ShareCompatImplJB: ShareCompat$ShareCompatImplJB()
+android.support.v4.app.ShareCompat$ShareCompatImplJB: java.lang.String escapeHtml(java.lang.CharSequence)
+android.support.v4.app.ShareCompat$ShareCompatImplJB: boolean shouldAddChooserIntent(android.view.MenuItem)
+android.support.v4.app.ShareCompatICS
+android.support.v4.app.ShareCompatICS: java.lang.String HISTORY_FILENAME_PREFIX
+android.support.v4.app.ShareCompatICS: ShareCompatICS()
+android.support.v4.app.ShareCompatICS: void configureMenuItem(android.view.MenuItem,android.app.Activity,android.content.Intent)
+android.support.v4.app.ShareCompatJB
+android.support.v4.app.ShareCompatJB: ShareCompatJB()
+android.support.v4.app.ShareCompatJB: java.lang.String escapeHtml(java.lang.CharSequence)
+android.support.v4.app.SuperNotCalledException
+android.support.v4.app.SuperNotCalledException: SuperNotCalledException(java.lang.String)
+android.support.v4.app.TaskStackBuilder
+android.support.v4.app.TaskStackBuilder: java.lang.String TAG
+android.support.v4.app.TaskStackBuilder: android.support.v4.app.TaskStackBuilder$TaskStackBuilderImpl IMPL
+android.support.v4.app.TaskStackBuilder: java.util.ArrayList mIntents
+android.support.v4.app.TaskStackBuilder: android.content.Context mSourceContext
+android.support.v4.app.TaskStackBuilder: TaskStackBuilder(android.content.Context)
+android.support.v4.app.TaskStackBuilder: android.support.v4.app.TaskStackBuilder create(android.content.Context)
+android.support.v4.app.TaskStackBuilder: android.support.v4.app.TaskStackBuilder from(android.content.Context)
+android.support.v4.app.TaskStackBuilder: android.support.v4.app.TaskStackBuilder addNextIntent(android.content.Intent)
+android.support.v4.app.TaskStackBuilder: android.support.v4.app.TaskStackBuilder addNextIntentWithParentStack(android.content.Intent)
+android.support.v4.app.TaskStackBuilder: android.support.v4.app.TaskStackBuilder addParentStack(android.app.Activity)
+android.support.v4.app.TaskStackBuilder: android.support.v4.app.TaskStackBuilder addParentStack(java.lang.Class)
+android.support.v4.app.TaskStackBuilder: android.support.v4.app.TaskStackBuilder addParentStack(android.content.ComponentName)
+android.support.v4.app.TaskStackBuilder: int getIntentCount()
+android.support.v4.app.TaskStackBuilder: android.content.Intent getIntent(int)
+android.support.v4.app.TaskStackBuilder: android.content.Intent editIntentAt(int)
+android.support.v4.app.TaskStackBuilder: java.util.Iterator iterator()
+android.support.v4.app.TaskStackBuilder: void startActivities()
+android.support.v4.app.TaskStackBuilder: void startActivities(android.os.Bundle)
+android.support.v4.app.TaskStackBuilder: android.app.PendingIntent getPendingIntent(int,int)
+android.support.v4.app.TaskStackBuilder: android.app.PendingIntent getPendingIntent(int,int,android.os.Bundle)
+android.support.v4.app.TaskStackBuilder: android.content.Intent[] getIntents()
+android.support.v4.app.TaskStackBuilder: void <clinit>()
+android.support.v4.app.TaskStackBuilder$TaskStackBuilderImpl
+android.support.v4.app.TaskStackBuilder$TaskStackBuilderImpl: android.app.PendingIntent getPendingIntent(android.content.Context,android.content.Intent[],int,int,android.os.Bundle)
+android.support.v4.app.TaskStackBuilder$TaskStackBuilderImplBase
+android.support.v4.app.TaskStackBuilder$TaskStackBuilderImplBase: TaskStackBuilder$TaskStackBuilderImplBase()
+android.support.v4.app.TaskStackBuilder$TaskStackBuilderImplBase: android.app.PendingIntent getPendingIntent(android.content.Context,android.content.Intent[],int,int,android.os.Bundle)
+android.support.v4.app.TaskStackBuilder$TaskStackBuilderImplHoneycomb
+android.support.v4.app.TaskStackBuilder$TaskStackBuilderImplHoneycomb: TaskStackBuilder$TaskStackBuilderImplHoneycomb()
+android.support.v4.app.TaskStackBuilder$TaskStackBuilderImplHoneycomb: android.app.PendingIntent getPendingIntent(android.content.Context,android.content.Intent[],int,int,android.os.Bundle)
+android.support.v4.app.TaskStackBuilder$TaskStackBuilderImplJellybean
+android.support.v4.app.TaskStackBuilder$TaskStackBuilderImplJellybean: TaskStackBuilder$TaskStackBuilderImplJellybean()
+android.support.v4.app.TaskStackBuilder$TaskStackBuilderImplJellybean: android.app.PendingIntent getPendingIntent(android.content.Context,android.content.Intent[],int,int,android.os.Bundle)
+android.support.v4.app.TaskStackBuilderHoneycomb
+android.support.v4.app.TaskStackBuilderHoneycomb: TaskStackBuilderHoneycomb()
+android.support.v4.app.TaskStackBuilderHoneycomb: android.app.PendingIntent getActivitiesPendingIntent(android.content.Context,int,android.content.Intent[],int)
+android.support.v4.app.TaskStackBuilderJellybean
+android.support.v4.app.TaskStackBuilderJellybean: TaskStackBuilderJellybean()
+android.support.v4.app.TaskStackBuilderJellybean: android.app.PendingIntent getActivitiesPendingIntent(android.content.Context,int,android.content.Intent[],int,android.os.Bundle)
+android.support.v4.content.ContextCompat: ContextCompat()
+android.support.v4.content.ContextCompat: boolean startActivities(android.content.Context,android.content.Intent[])
+android.support.v4.content.ContextCompat: boolean startActivities(android.content.Context,android.content.Intent[],android.os.Bundle)
+android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status[] values()
+android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status valueOf(java.lang.String)
+android.support.v4.view.PagerAdapter: android.database.DataSetObservable mObservable
+android.support.v4.view.PagerAdapter: int POSITION_UNCHANGED
+android.support.v4.view.PagerAdapter: int POSITION_NONE
+android.support.v4.view.PagerAdapter: PagerAdapter()
+android.support.v4.view.PagerAdapter: int getCount()
+android.support.v4.view.PagerAdapter: void startUpdate(android.view.ViewGroup)
+android.support.v4.view.PagerAdapter: java.lang.Object instantiateItem(android.view.ViewGroup,int)
+android.support.v4.view.PagerAdapter: void destroyItem(android.view.ViewGroup,int,java.lang.Object)
+android.support.v4.view.PagerAdapter: void setPrimaryItem(android.view.ViewGroup,int,java.lang.Object)
+android.support.v4.view.PagerAdapter: void finishUpdate(android.view.ViewGroup)
+android.support.v4.view.PagerAdapter: void startUpdate(android.view.View)
+android.support.v4.view.PagerAdapter: java.lang.Object instantiateItem(android.view.View,int)
+android.support.v4.view.PagerAdapter: void destroyItem(android.view.View,int,java.lang.Object)
+android.support.v4.view.PagerAdapter: void setPrimaryItem(android.view.View,int,java.lang.Object)
+android.support.v4.view.PagerAdapter: void finishUpdate(android.view.View)
+android.support.v4.view.PagerAdapter: boolean isViewFromObject(android.view.View,java.lang.Object)
+android.support.v4.view.PagerAdapter: android.os.Parcelable saveState()
+android.support.v4.view.PagerAdapter: void restoreState(android.os.Parcelable,java.lang.ClassLoader)
+android.support.v4.view.PagerAdapter: int getItemPosition(java.lang.Object)
+android.support.v4.view.PagerAdapter: void notifyDataSetChanged()
+android.support.v4.view.PagerAdapter: void registerDataSetObserver(android.database.DataSetObserver)
+android.support.v4.view.PagerAdapter: void unregisterDataSetObserver(android.database.DataSetObserver)
+android.support.v4.view.PagerAdapter: java.lang.CharSequence getPageTitle(int)
+android.support.v4.view.PagerAdapter: float getPageWidth(int)
+android.support.v4.view.PagerTabStrip
+android.support.v4.view.PagerTabStrip: PagerTabStrip(android.content.Context,android.util.AttributeSet)
+android.support.v4.view.PagerTitleStrip
+android.support.v4.view.PagerTitleStrip: PagerTitleStrip(android.content.Context,android.util.AttributeSet)
+android.support.v4.view.ViewPager
+android.support.v4.view.ViewPager: ViewPager(android.content.Context)
+android.support.v4.view.ViewPager: ViewPager(android.content.Context,android.util.AttributeSet)
+android.support.v4.view.ViewPager$LayoutParams
+android.support.v4.view.ViewPager$LayoutParams: ViewPager$LayoutParams(android.content.Context,android.util.AttributeSet)
+android.support.v4.view.ViewPager$SavedState
+android.support.v4.view.ViewPager$SavedState: android.os.Parcelable$Creator CREATOR
+com.dacer.simplepomodoro.BreakActivity
+com.dacer.simplepomodoro.BreakActivity: BreakActivity()
+com.dacer.simplepomodoro.BreakFinishActivity
+com.dacer.simplepomodoro.BreakFinishActivity: BreakFinishActivity()
+com.dacer.simplepomodoro.FinishScreenActivity
+com.dacer.simplepomodoro.FinishScreenActivity: FinishScreenActivity()
+com.dacer.simplepomodoro.MainActivity
+com.dacer.simplepomodoro.MainActivity: MainActivity()
+com.dacer.simplepomodoro.PomoRunningActivity
+com.dacer.simplepomodoro.PomoRunningActivity: PomoRunningActivity()
+com.dacer.simplepomodoro.R$array
+com.dacer.simplepomodoro.R$array: int pref_break_duration_list
+com.dacer.simplepomodoro.R$array: int pref_break_duration_values
+com.dacer.simplepomodoro.R$array: int pref_long_break_duration_list
+com.dacer.simplepomodoro.R$array: int pref_long_break_duration_values
+com.dacer.simplepomodoro.R$array: int pref_theme_list
+com.dacer.simplepomodoro.R$array: int pref_theme_list_values
+com.dacer.simplepomodoro.R$attr
+com.dacer.simplepomodoro.R$attr: int centered
+com.dacer.simplepomodoro.R$attr: int clipPadding
+com.dacer.simplepomodoro.R$attr: int fadeDelay
+com.dacer.simplepomodoro.R$attr: int fadeLength
+com.dacer.simplepomodoro.R$attr: int fades
+com.dacer.simplepomodoro.R$attr: int fillColor
+com.dacer.simplepomodoro.R$attr: int footerColor
+com.dacer.simplepomodoro.R$attr: int footerIndicatorHeight
+com.dacer.simplepomodoro.R$attr: int footerIndicatorStyle
+com.dacer.simplepomodoro.R$attr: int footerIndicatorUnderlinePadding
+com.dacer.simplepomodoro.R$attr: int footerLineHeight
+com.dacer.simplepomodoro.R$attr: int footerPadding
+com.dacer.simplepomodoro.R$attr: int gapWidth
+com.dacer.simplepomodoro.R$attr: int linePosition
+com.dacer.simplepomodoro.R$attr: int lineWidth
+com.dacer.simplepomodoro.R$attr: int pageColor
+com.dacer.simplepomodoro.R$attr: int radius
+com.dacer.simplepomodoro.R$attr: int selectedBold
+com.dacer.simplepomodoro.R$attr: int selectedColor
+com.dacer.simplepomodoro.R$attr: int snap
+com.dacer.simplepomodoro.R$attr: int strokeColor
+com.dacer.simplepomodoro.R$attr: int strokeWidth
+com.dacer.simplepomodoro.R$attr: int titlePadding
+com.dacer.simplepomodoro.R$attr: int topPadding
+com.dacer.simplepomodoro.R$attr: int unselectedColor
+com.dacer.simplepomodoro.R$attr: int vpiCirclePageIndicatorStyle
+com.dacer.simplepomodoro.R$attr: int vpiIconPageIndicatorStyle
+com.dacer.simplepomodoro.R$attr: int vpiLinePageIndicatorStyle
+com.dacer.simplepomodoro.R$attr: int vpiTabPageIndicatorStyle
+com.dacer.simplepomodoro.R$attr: int vpiTitlePageIndicatorStyle
+com.dacer.simplepomodoro.R$attr: int vpiUnderlinePageIndicatorStyle
+com.dacer.simplepomodoro.R$bool
+com.dacer.simplepomodoro.R$bool: int default_circle_indicator_centered
+com.dacer.simplepomodoro.R$bool: int default_circle_indicator_snap
+com.dacer.simplepomodoro.R$bool: int default_line_indicator_centered
+com.dacer.simplepomodoro.R$bool: int default_title_indicator_selected_bold
+com.dacer.simplepomodoro.R$bool: int default_underline_indicator_fades
+com.dacer.simplepomodoro.R$color
+com.dacer.simplepomodoro.R$color: int default_circle_indicator_fill_color
+com.dacer.simplepomodoro.R$color: int default_circle_indicator_page_color
+com.dacer.simplepomodoro.R$color: int default_circle_indicator_stroke_color
+com.dacer.simplepomodoro.R$color: int default_line_indicator_selected_color
+com.dacer.simplepomodoro.R$color: int default_line_indicator_unselected_color
+com.dacer.simplepomodoro.R$color: int default_title_indicator_footer_color
+com.dacer.simplepomodoro.R$color: int default_title_indicator_selected_color
+com.dacer.simplepomodoro.R$color: int default_title_indicator_text_color
+com.dacer.simplepomodoro.R$color: int default_underline_indicator_selected_color
+com.dacer.simplepomodoro.R$color: int vpi__background_holo_dark
+com.dacer.simplepomodoro.R$color: int vpi__background_holo_light
+com.dacer.simplepomodoro.R$color: int vpi__bright_foreground_disabled_holo_dark
+com.dacer.simplepomodoro.R$color: int vpi__bright_foreground_disabled_holo_light
+com.dacer.simplepomodoro.R$color: int vpi__bright_foreground_holo_dark
+com.dacer.simplepomodoro.R$color: int vpi__bright_foreground_holo_light
+com.dacer.simplepomodoro.R$color: int vpi__bright_foreground_inverse_holo_dark
+com.dacer.simplepomodoro.R$color: int vpi__bright_foreground_inverse_holo_light
+com.dacer.simplepomodoro.R$color: int vpi__dark_theme
+com.dacer.simplepomodoro.R$color: int vpi__light_theme
+com.dacer.simplepomodoro.R$dimen
+com.dacer.simplepomodoro.R$dimen: int activity_horizontal_margin
+com.dacer.simplepomodoro.R$dimen: int activity_vertical_margin
+com.dacer.simplepomodoro.R$dimen: int default_circle_indicator_radius
+com.dacer.simplepomodoro.R$dimen: int default_circle_indicator_stroke_width
+com.dacer.simplepomodoro.R$dimen: int default_line_indicator_gap_width
+com.dacer.simplepomodoro.R$dimen: int default_line_indicator_line_width
+com.dacer.simplepomodoro.R$dimen: int default_line_indicator_stroke_width
+com.dacer.simplepomodoro.R$dimen: int default_title_indicator_clip_padding
+com.dacer.simplepomodoro.R$dimen: int default_title_indicator_footer_indicator_height
+com.dacer.simplepomodoro.R$dimen: int default_title_indicator_footer_indicator_underline_padding
+com.dacer.simplepomodoro.R$dimen: int default_title_indicator_footer_line_height
+com.dacer.simplepomodoro.R$dimen: int default_title_indicator_footer_padding
+com.dacer.simplepomodoro.R$dimen: int default_title_indicator_text_size
+com.dacer.simplepomodoro.R$dimen: int default_title_indicator_title_padding
+com.dacer.simplepomodoro.R$dimen: int default_title_indicator_top_padding
+com.dacer.simplepomodoro.R$drawable
+com.dacer.simplepomodoro.R$drawable: int card_shadow
+com.dacer.simplepomodoro.R$drawable: int coffee
+com.dacer.simplepomodoro.R$drawable: int color_progressbar
+com.dacer.simplepomodoro.R$drawable: int ic_action_overflow
+com.dacer.simplepomodoro.R$drawable: int ic_launcher
+com.dacer.simplepomodoro.R$drawable: int ic_notification_icon
+com.dacer.simplepomodoro.R$drawable: int vpi__tab_indicator
+com.dacer.simplepomodoro.R$drawable: int vpi__tab_selected_focused_holo
+com.dacer.simplepomodoro.R$drawable: int vpi__tab_selected_holo
+com.dacer.simplepomodoro.R$drawable: int vpi__tab_selected_pressed_holo
+com.dacer.simplepomodoro.R$drawable: int vpi__tab_unselected_focused_holo
+com.dacer.simplepomodoro.R$drawable: int vpi__tab_unselected_holo
+com.dacer.simplepomodoro.R$drawable: int vpi__tab_unselected_pressed_holo
+com.dacer.simplepomodoro.R$id
+com.dacer.simplepomodoro.R$id: int action_settings
+com.dacer.simplepomodoro.R$id: int ad_layout
+com.dacer.simplepomodoro.R$id: int ad_view
+com.dacer.simplepomodoro.R$id: int bottom
+com.dacer.simplepomodoro.R$id: int btn_continu
+com.dacer.simplepomodoro.R$id: int btn_setting
+com.dacer.simplepomodoro.R$id: int button_end
+com.dacer.simplepomodoro.R$id: int center_view
+com.dacer.simplepomodoro.R$id: int indicator
+com.dacer.simplepomodoro.R$id: int layout_bottom
+com.dacer.simplepomodoro.R$id: int list_task
+com.dacer.simplepomodoro.R$id: int main_layout
+com.dacer.simplepomodoro.R$id: int none
+com.dacer.simplepomodoro.R$id: int pager
+com.dacer.simplepomodoro.R$id: int pb_time
+com.dacer.simplepomodoro.R$id: int refresh_progress
+com.dacer.simplepomodoro.R$id: int top
+com.dacer.simplepomodoro.R$id: int triangle
+com.dacer.simplepomodoro.R$id: int tv_long_break
+com.dacer.simplepomodoro.R$id: int tv_time
+com.dacer.simplepomodoro.R$id: int tv_time_up
+com.dacer.simplepomodoro.R$id: int tv_title_record
+com.dacer.simplepomodoro.R$id: int tv_today
+com.dacer.simplepomodoro.R$id: int tv_today_text
+com.dacer.simplepomodoro.R$id: int tv_total
+com.dacer.simplepomodoro.R$id: int tv_total_text
+com.dacer.simplepomodoro.R$id: int underline
+com.dacer.simplepomodoro.R$integer
+com.dacer.simplepomodoro.R$integer: int default_circle_indicator_orientation
+com.dacer.simplepomodoro.R$integer: int default_title_indicator_footer_indicator_style
+com.dacer.simplepomodoro.R$integer: int default_title_indicator_line_position
+com.dacer.simplepomodoro.R$integer: int default_underline_indicator_fade_delay
+com.dacer.simplepomodoro.R$integer: int default_underline_indicator_fade_length
+com.dacer.simplepomodoro.R$layout
+com.dacer.simplepomodoro.R$layout: int activity_break
+com.dacer.simplepomodoro.R$layout: int activity_break_finish
+com.dacer.simplepomodoro.R$layout: int activity_finish_screen
+com.dacer.simplepomodoro.R$layout: int activity_main
+com.dacer.simplepomodoro.R$layout: int activity_pomo_running
+com.dacer.simplepomodoro.R$layout: int fragment_record
+com.dacer.simplepomodoro.R$layout: int fragment_task
+com.dacer.simplepomodoro.R$layout: int preference_activity
+com.dacer.simplepomodoro.R$menu
+com.dacer.simplepomodoro.R$menu: int break_finish
+com.dacer.simplepomodoro.R$string
+com.dacer.simplepomodoro.R$string: int action_settings
+com.dacer.simplepomodoro.R$string: int app_name
+com.dacer.simplepomodoro.R$string: int break_time_up
+com.dacer.simplepomodoro.R$string: int caidan
+com.dacer.simplepomodoro.R$string: int cancel
+com.dacer.simplepomodoro.R$string: int continue_pomodoro
+com.dacer.simplepomodoro.R$string: int do_you_wish_to_stop
+com.dacer.simplepomodoro.R$string: int error
+com.dacer.simplepomodoro.R$string: int error_format
+com.dacer.simplepomodoro.R$string: int hello_world
+com.dacer.simplepomodoro.R$string: int now_you_can_continue_your_pomodoro
+com.dacer.simplepomodoro.R$string: int now_you_can_take_a_break
+com.dacer.simplepomodoro.R$string: int pomodoro_time_up
+com.dacer.simplepomodoro.R$string: int pref_about
+com.dacer.simplepomodoro.R$string: int pref_about_summary
+com.dacer.simplepomodoro.R$string: int pref_break_duration
+com.dacer.simplepomodoro.R$string: int pref_choose_account
+com.dacer.simplepomodoro.R$string: int pref_email_us
+com.dacer.simplepomodoro.R$string: int pref_enable_fullscreen
+com.dacer.simplepomodoro.R$string: int pref_enable_vibrations
+com.dacer.simplepomodoro.R$string: int pref_fast_mode
+com.dacer.simplepomodoro.R$string: int pref_fast_mode_summary
+com.dacer.simplepomodoro.R$string: int pref_lights_on
+com.dacer.simplepomodoro.R$string: int pref_lights_on_summary
+com.dacer.simplepomodoro.R$string: int pref_long_break_duration
+com.dacer.simplepomodoro.R$string: int pref_notification_sound
+com.dacer.simplepomodoro.R$string: int pref_remove_manage
+com.dacer.simplepomodoro.R$string: int pref_remove_manage_summary
+com.dacer.simplepomodoro.R$string: int pref_ringtone_silent
+com.dacer.simplepomodoro.R$string: int pref_sync_with_google_task
+com.dacer.simplepomodoro.R$string: int pref_sync_with_google_task_summary
+com.dacer.simplepomodoro.R$string: int pref_theme
+com.dacer.simplepomodoro.R$string: int pref_title_display
+com.dacer.simplepomodoro.R$string: int pref_title_info
+com.dacer.simplepomodoro.R$string: int pref_title_labs
+com.dacer.simplepomodoro.R$string: int pref_title_sync
+com.dacer.simplepomodoro.R$string: int pref_title_timer_settings
+com.dacer.simplepomodoro.R$string: int pref_title_timers_end_alert
+com.dacer.simplepomodoro.R$string: int running_in_background
+com.dacer.simplepomodoro.R$string: int screen_locker_warnning
+com.dacer.simplepomodoro.R$string: int start
+com.dacer.simplepomodoro.R$string: int stop
+com.dacer.simplepomodoro.R$string: int stop_pomodoro
+com.dacer.simplepomodoro.R$string: int take_a_break
+com.dacer.simplepomodoro.R$string: int tap_to_break
+com.dacer.simplepomodoro.R$string: int tap_to_continue_your_pomodoro
+com.dacer.simplepomodoro.R$string: int time_up
+com.dacer.simplepomodoro.R$string: int title_activity_Preference
+com.dacer.simplepomodoro.R$string: int title_activity_break
+com.dacer.simplepomodoro.R$string: int title_activity_break_finish
+com.dacer.simplepomodoro.R$string: int title_activity_finish_screen
+com.dacer.simplepomodoro.R$string: int title_activity_pomo_running
+com.dacer.simplepomodoro.R$string: int title_record
+com.dacer.simplepomodoro.R$string: int title_today
+com.dacer.simplepomodoro.R$string: int title_total
+com.dacer.simplepomodoro.R$style
+com.dacer.simplepomodoro.R$style: int AppBaseFullScreenTheme
+com.dacer.simplepomodoro.R$style: int AppBaseFullScreenThemeWhite
+com.dacer.simplepomodoro.R$style: int AppBaseTheme
+com.dacer.simplepomodoro.R$style: int AppBaseThemeWhite
+com.dacer.simplepomodoro.R$style: int AppTheme
+com.dacer.simplepomodoro.R$style: int MyFullScreenTheme_Black
+com.dacer.simplepomodoro.R$style: int MyFullScreenTheme_White
+com.dacer.simplepomodoro.R$style: int MyMainScreenTheme_Black
+com.dacer.simplepomodoro.R$style: int MyMainScreenTheme_White
+com.dacer.simplepomodoro.R$style: int SettingTheme
+com.dacer.simplepomodoro.R$style: int TextAppearance_TabPageIndicator
+com.dacer.simplepomodoro.R$style: int Theme_PageIndicatorDefaults
+com.dacer.simplepomodoro.R$style: int Widget
+com.dacer.simplepomodoro.R$style: int Widget_IconPageIndicator
+com.dacer.simplepomodoro.R$style: int Widget_TabPageIndicator
+com.dacer.simplepomodoro.R$styleable
+com.dacer.simplepomodoro.R$styleable: int[] CirclePageIndicator
+com.dacer.simplepomodoro.R$styleable: int CirclePageIndicator_android_background
+com.dacer.simplepomodoro.R$styleable: int CirclePageIndicator_android_orientation
+com.dacer.simplepomodoro.R$styleable: int CirclePageIndicator_centered
+com.dacer.simplepomodoro.R$styleable: int CirclePageIndicator_fillColor
+com.dacer.simplepomodoro.R$styleable: int CirclePageIndicator_pageColor
+com.dacer.simplepomodoro.R$styleable: int CirclePageIndicator_radius
+com.dacer.simplepomodoro.R$styleable: int CirclePageIndicator_snap
+com.dacer.simplepomodoro.R$styleable: int CirclePageIndicator_strokeColor
+com.dacer.simplepomodoro.R$styleable: int CirclePageIndicator_strokeWidth
+com.dacer.simplepomodoro.R$styleable: int[] LinePageIndicator
+com.dacer.simplepomodoro.R$styleable: int LinePageIndicator_android_background
+com.dacer.simplepomodoro.R$styleable: int LinePageIndicator_centered
+com.dacer.simplepomodoro.R$styleable: int LinePageIndicator_gapWidth
+com.dacer.simplepomodoro.R$styleable: int LinePageIndicator_lineWidth
+com.dacer.simplepomodoro.R$styleable: int LinePageIndicator_selectedColor
+com.dacer.simplepomodoro.R$styleable: int LinePageIndicator_strokeWidth
+com.dacer.simplepomodoro.R$styleable: int LinePageIndicator_unselectedColor
+com.dacer.simplepomodoro.R$styleable: int[] TitlePageIndicator
+com.dacer.simplepomodoro.R$styleable: int TitlePageIndicator_android_background
+com.dacer.simplepomodoro.R$styleable: int TitlePageIndicator_android_textColor
+com.dacer.simplepomodoro.R$styleable: int TitlePageIndicator_android_textSize
+com.dacer.simplepomodoro.R$styleable: int TitlePageIndicator_clipPadding
+com.dacer.simplepomodoro.R$styleable: int TitlePageIndicator_footerColor
+com.dacer.simplepomodoro.R$styleable: int TitlePageIndicator_footerIndicatorHeight
+com.dacer.simplepomodoro.R$styleable: int TitlePageIndicator_footerIndicatorStyle
+com.dacer.simplepomodoro.R$styleable: int TitlePageIndicator_footerIndicatorUnderlinePadding
+com.dacer.simplepomodoro.R$styleable: int TitlePageIndicator_footerLineHeight
+com.dacer.simplepomodoro.R$styleable: int TitlePageIndicator_footerPadding
+com.dacer.simplepomodoro.R$styleable: int TitlePageIndicator_linePosition
+com.dacer.simplepomodoro.R$styleable: int TitlePageIndicator_selectedBold
+com.dacer.simplepomodoro.R$styleable: int TitlePageIndicator_selectedColor
+com.dacer.simplepomodoro.R$styleable: int TitlePageIndicator_titlePadding
+com.dacer.simplepomodoro.R$styleable: int TitlePageIndicator_topPadding
+com.dacer.simplepomodoro.R$styleable: int[] UnderlinePageIndicator
+com.dacer.simplepomodoro.R$styleable: int UnderlinePageIndicator_android_background
+com.dacer.simplepomodoro.R$styleable: int UnderlinePageIndicator_fadeDelay
+com.dacer.simplepomodoro.R$styleable: int UnderlinePageIndicator_fadeLength
+com.dacer.simplepomodoro.R$styleable: int UnderlinePageIndicator_fades
+com.dacer.simplepomodoro.R$styleable: int UnderlinePageIndicator_selectedColor
+com.dacer.simplepomodoro.R$styleable: int[] ViewPagerIndicator
+com.dacer.simplepomodoro.R$styleable: int ViewPagerIndicator_vpiCirclePageIndicatorStyle
+com.dacer.simplepomodoro.R$styleable: int ViewPagerIndicator_vpiIconPageIndicatorStyle
+com.dacer.simplepomodoro.R$styleable: int ViewPagerIndicator_vpiLinePageIndicatorStyle
+com.dacer.simplepomodoro.R$styleable: int ViewPagerIndicator_vpiTabPageIndicatorStyle
+com.dacer.simplepomodoro.R$styleable: int ViewPagerIndicator_vpiTitlePageIndicatorStyle
+com.dacer.simplepomodoro.R$styleable: int ViewPagerIndicator_vpiUnderlinePageIndicatorStyle
+com.dacer.simplepomodoro.R$xml
+com.dacer.simplepomodoro.R$xml: int lock_screen
+com.dacer.simplepomodoro.R$xml: int preferences
+com.dacer.simplepomodoro.R$xml: int preferences_for_low
+com.dacer.simplepomodoro.SettingActivity
+com.dacer.simplepomodoro.SettingActivity: SettingActivity()
+com.google.ads.AdActivity
+com.google.ads.AdActivity: AdActivity()
+com.google.ads.AdRequest$ErrorCode: com.google.ads.AdRequest$ErrorCode[] values()
+com.google.ads.AdRequest$ErrorCode: com.google.ads.AdRequest$ErrorCode valueOf(java.lang.String)
+com.google.ads.AdRequest$Gender: com.google.ads.AdRequest$Gender[] values()
+com.google.ads.AdRequest$Gender: com.google.ads.AdRequest$Gender valueOf(java.lang.String)
+com.google.ads.AdView
+com.google.ads.AdView: AdView(android.content.Context,android.util.AttributeSet)
+com.google.ads.AdView: AdView(android.content.Context,android.util.AttributeSet,int)
+com.google.ads.doubleclick.DfpAdView
+com.google.ads.doubleclick.DfpAdView: DfpAdView(android.content.Context,android.util.AttributeSet)
+com.google.ads.doubleclick.DfpAdView: DfpAdView(android.content.Context,android.util.AttributeSet,int)
+com.google.ads.doubleclick.SwipeableDfpAdView
+com.google.ads.doubleclick.SwipeableDfpAdView: SwipeableDfpAdView(android.content.Context,android.util.AttributeSet)
+com.google.ads.doubleclick.SwipeableDfpAdView: SwipeableDfpAdView(android.content.Context,android.util.AttributeSet,int)
+com.google.ads.g$a: com.google.ads.g$a[] values()
+com.google.ads.g$a: com.google.ads.g$a valueOf(java.lang.String)
+com.google.ads.internal.c$d: com.google.ads.internal.c$d[] values()
+com.google.ads.internal.c$d: com.google.ads.internal.c$d valueOf(java.lang.String)
+com.google.ads.searchads.SearchAdRequest$BorderType: com.google.ads.searchads.SearchAdRequest$BorderType[] values()
+com.google.ads.searchads.SearchAdRequest$BorderType: com.google.ads.searchads.SearchAdRequest$BorderType valueOf(java.lang.String)
+com.google.ads.util.AdUtil$UserActivityReceiver
+com.google.ads.util.AdUtil$a: com.google.ads.util.AdUtil$a[] values()
+com.google.ads.util.AdUtil$a: com.google.ads.util.AdUtil$a valueOf(java.lang.String)
+com.google.ads.util.b$a: com.google.ads.util.b$a[] values()
+com.google.ads.util.b$a: com.google.ads.util.b$a valueOf(java.lang.String)
+com.umeng.analytics.Gender: com.umeng.analytics.Gender[] values()
+com.umeng.analytics.Gender: com.umeng.analytics.Gender valueOf(java.lang.String)
+com.umeng.common.net.DownloadingService
+com.umeng.common.net.o$a: com.umeng.common.net.o$a[] values()
+com.umeng.common.net.o$a: com.umeng.common.net.o$a valueOf(java.lang.String)
+com.umeng.common.net.p$b: com.umeng.common.net.p$b[] values()
+com.umeng.common.net.p$b: com.umeng.common.net.p$b valueOf(java.lang.String)
+com.umeng.common.util.DeltaUpdate
+com.umeng.common.util.DeltaUpdate: int bspatch(java.lang.String,java.lang.String,java.lang.String)
+com.viewpagerindicator.CirclePageIndicator
+com.viewpagerindicator.CirclePageIndicator: CirclePageIndicator(android.content.Context,android.util.AttributeSet)
+com.viewpagerindicator.CirclePageIndicator: CirclePageIndicator(android.content.Context,android.util.AttributeSet,int)
+com.viewpagerindicator.CirclePageIndicator$SavedState
+com.viewpagerindicator.CirclePageIndicator$SavedState: android.os.Parcelable$Creator CREATOR
+com.viewpagerindicator.IconPageIndicator
+com.viewpagerindicator.IconPageIndicator: IconPageIndicator(android.content.Context,android.util.AttributeSet)
+com.viewpagerindicator.LinePageIndicator
+com.viewpagerindicator.LinePageIndicator: LinePageIndicator(android.content.Context)
+com.viewpagerindicator.LinePageIndicator: LinePageIndicator(android.content.Context,android.util.AttributeSet)
+com.viewpagerindicator.LinePageIndicator: LinePageIndicator(android.content.Context,android.util.AttributeSet,int)
+com.viewpagerindicator.LinePageIndicator$SavedState
+com.viewpagerindicator.LinePageIndicator$SavedState: android.os.Parcelable$Creator CREATOR
+com.viewpagerindicator.R$attr: int centered
+com.viewpagerindicator.R$attr: int clipPadding
+com.viewpagerindicator.R$attr: int fadeDelay
+com.viewpagerindicator.R$attr: int fadeLength
+com.viewpagerindicator.R$attr: int fades
+com.viewpagerindicator.R$attr: int fillColor
+com.viewpagerindicator.R$attr: int footerColor
+com.viewpagerindicator.R$attr: int footerIndicatorHeight
+com.viewpagerindicator.R$attr: int footerIndicatorStyle
+com.viewpagerindicator.R$attr: int footerIndicatorUnderlinePadding
+com.viewpagerindicator.R$attr: int footerLineHeight
+com.viewpagerindicator.R$attr: int footerPadding
+com.viewpagerindicator.R$attr: int gapWidth
+com.viewpagerindicator.R$attr: int linePosition
+com.viewpagerindicator.R$attr: int lineWidth
+com.viewpagerindicator.R$attr: int pageColor
+com.viewpagerindicator.R$attr: int radius
+com.viewpagerindicator.R$attr: int selectedBold
+com.viewpagerindicator.R$attr: int selectedColor
+com.viewpagerindicator.R$attr: int snap
+com.viewpagerindicator.R$attr: int strokeColor
+com.viewpagerindicator.R$attr: int strokeWidth
+com.viewpagerindicator.R$attr: int titlePadding
+com.viewpagerindicator.R$attr: int topPadding
+com.viewpagerindicator.R$attr: int unselectedColor
+com.viewpagerindicator.R$attr: int vpiCirclePageIndicatorStyle
+com.viewpagerindicator.R$attr: int vpiIconPageIndicatorStyle
+com.viewpagerindicator.R$attr: int vpiLinePageIndicatorStyle
+com.viewpagerindicator.R$attr: int vpiTabPageIndicatorStyle
+com.viewpagerindicator.R$attr: int vpiTitlePageIndicatorStyle
+com.viewpagerindicator.R$attr: int vpiUnderlinePageIndicatorStyle
+com.viewpagerindicator.R$bool: int default_circle_indicator_centered
+com.viewpagerindicator.R$bool: int default_circle_indicator_snap
+com.viewpagerindicator.R$bool: int default_line_indicator_centered
+com.viewpagerindicator.R$bool: int default_title_indicator_selected_bold
+com.viewpagerindicator.R$bool: int default_underline_indicator_fades
+com.viewpagerindicator.R$color: int default_circle_indicator_fill_color
+com.viewpagerindicator.R$color: int default_circle_indicator_page_color
+com.viewpagerindicator.R$color: int default_circle_indicator_stroke_color
+com.viewpagerindicator.R$color: int default_line_indicator_selected_color
+com.viewpagerindicator.R$color: int default_line_indicator_unselected_color
+com.viewpagerindicator.R$color: int default_title_indicator_footer_color
+com.viewpagerindicator.R$color: int default_title_indicator_selected_color
+com.viewpagerindicator.R$color: int default_title_indicator_text_color
+com.viewpagerindicator.R$color: int default_underline_indicator_selected_color
+com.viewpagerindicator.R$color: int vpi__background_holo_dark
+com.viewpagerindicator.R$color: int vpi__background_holo_light
+com.viewpagerindicator.R$color: int vpi__bright_foreground_disabled_holo_dark
+com.viewpagerindicator.R$color: int vpi__bright_foreground_disabled_holo_light
+com.viewpagerindicator.R$color: int vpi__bright_foreground_holo_dark
+com.viewpagerindicator.R$color: int vpi__bright_foreground_holo_light
+com.viewpagerindicator.R$color: int vpi__bright_foreground_inverse_holo_dark
+com.viewpagerindicator.R$color: int vpi__bright_foreground_inverse_holo_light
+com.viewpagerindicator.R$color: int vpi__dark_theme
+com.viewpagerindicator.R$color: int vpi__light_theme
+com.viewpagerindicator.R$dimen: int default_circle_indicator_radius
+com.viewpagerindicator.R$dimen: int default_circle_indicator_stroke_width
+com.viewpagerindicator.R$dimen: int default_line_indicator_gap_width
+com.viewpagerindicator.R$dimen: int default_line_indicator_line_width
+com.viewpagerindicator.R$dimen: int default_line_indicator_stroke_width
+com.viewpagerindicator.R$dimen: int default_title_indicator_clip_padding
+com.viewpagerindicator.R$dimen: int default_title_indicator_footer_indicator_height
+com.viewpagerindicator.R$dimen: int default_title_indicator_footer_indicator_underline_padding
+com.viewpagerindicator.R$dimen: int default_title_indicator_footer_line_height
+com.viewpagerindicator.R$dimen: int default_title_indicator_footer_padding
+com.viewpagerindicator.R$dimen: int default_title_indicator_text_size
+com.viewpagerindicator.R$dimen: int default_title_indicator_title_padding
+com.viewpagerindicator.R$dimen: int default_title_indicator_top_padding
+com.viewpagerindicator.R$drawable: int vpi__tab_indicator
+com.viewpagerindicator.R$drawable: int vpi__tab_selected_focused_holo
+com.viewpagerindicator.R$drawable: int vpi__tab_selected_holo
+com.viewpagerindicator.R$drawable: int vpi__tab_selected_pressed_holo
+com.viewpagerindicator.R$drawable: int vpi__tab_unselected_focused_holo
+com.viewpagerindicator.R$drawable: int vpi__tab_unselected_holo
+com.viewpagerindicator.R$drawable: int vpi__tab_unselected_pressed_holo
+com.viewpagerindicator.R$id: int bottom
+com.viewpagerindicator.R$id: int none
+com.viewpagerindicator.R$id: int top
+com.viewpagerindicator.R$id: int triangle
+com.viewpagerindicator.R$id: int underline
+com.viewpagerindicator.R$integer: int default_circle_indicator_orientation
+com.viewpagerindicator.R$integer: int default_title_indicator_footer_indicator_style
+com.viewpagerindicator.R$integer: int default_title_indicator_line_position
+com.viewpagerindicator.R$integer: int default_underline_indicator_fade_delay
+com.viewpagerindicator.R$integer: int default_underline_indicator_fade_length
+com.viewpagerindicator.R$style: int TextAppearance_TabPageIndicator
+com.viewpagerindicator.R$style: int Theme_PageIndicatorDefaults
+com.viewpagerindicator.R$style: int Widget
+com.viewpagerindicator.R$style: int Widget_IconPageIndicator
+com.viewpagerindicator.R$style: int Widget_TabPageIndicator
+com.viewpagerindicator.R$styleable: int[] CirclePageIndicator
+com.viewpagerindicator.R$styleable: int CirclePageIndicator_android_background
+com.viewpagerindicator.R$styleable: int CirclePageIndicator_android_orientation
+com.viewpagerindicator.R$styleable: int CirclePageIndicator_centered
+com.viewpagerindicator.R$styleable: int CirclePageIndicator_fillColor
+com.viewpagerindicator.R$styleable: int CirclePageIndicator_pageColor
+com.viewpagerindicator.R$styleable: int CirclePageIndicator_radius
+com.viewpagerindicator.R$styleable: int CirclePageIndicator_snap
+com.viewpagerindicator.R$styleable: int CirclePageIndicator_strokeColor
+com.viewpagerindicator.R$styleable: int CirclePageIndicator_strokeWidth
+com.viewpagerindicator.R$styleable: int[] LinePageIndicator
+com.viewpagerindicator.R$styleable: int LinePageIndicator_android_background
+com.viewpagerindicator.R$styleable: int LinePageIndicator_centered
+com.viewpagerindicator.R$styleable: int LinePageIndicator_gapWidth
+com.viewpagerindicator.R$styleable: int LinePageIndicator_lineWidth
+com.viewpagerindicator.R$styleable: int LinePageIndicator_selectedColor
+com.viewpagerindicator.R$styleable: int LinePageIndicator_strokeWidth
+com.viewpagerindicator.R$styleable: int LinePageIndicator_unselectedColor
+com.viewpagerindicator.R$styleable: int[] TitlePageIndicator
+com.viewpagerindicator.R$styleable: int TitlePageIndicator_android_background
+com.viewpagerindicator.R$styleable: int TitlePageIndicator_android_textColor
+com.viewpagerindicator.R$styleable: int TitlePageIndicator_android_textSize
+com.viewpagerindicator.R$styleable: int TitlePageIndicator_clipPadding
+com.viewpagerindicator.R$styleable: int TitlePageIndicator_footerColor
+com.viewpagerindicator.R$styleable: int TitlePageIndicator_footerIndicatorHeight
+com.viewpagerindicator.R$styleable: int TitlePageIndicator_footerIndicatorStyle
+com.viewpagerindicator.R$styleable: int TitlePageIndicator_footerIndicatorUnderlinePadding
+com.viewpagerindicator.R$styleable: int TitlePageIndicator_footerLineHeight
+com.viewpagerindicator.R$styleable: int TitlePageIndicator_footerPadding
+com.viewpagerindicator.R$styleable: int TitlePageIndicator_linePosition
+com.viewpagerindicator.R$styleable: int TitlePageIndicator_selectedBold
+com.viewpagerindicator.R$styleable: int TitlePageIndicator_selectedColor
+com.viewpagerindicator.R$styleable: int TitlePageIndicator_titlePadding
+com.viewpagerindicator.R$styleable: int TitlePageIndicator_topPadding
+com.viewpagerindicator.R$styleable: int[] UnderlinePageIndicator
+com.viewpagerindicator.R$styleable: int UnderlinePageIndicator_android_background
+com.viewpagerindicator.R$styleable: int UnderlinePageIndicator_fadeDelay
+com.viewpagerindicator.R$styleable: int UnderlinePageIndicator_fadeLength
+com.viewpagerindicator.R$styleable: int UnderlinePageIndicator_fades
+com.viewpagerindicator.R$styleable: int UnderlinePageIndicator_selectedColor
+com.viewpagerindicator.R$styleable: int[] ViewPagerIndicator
+com.viewpagerindicator.R$styleable: int ViewPagerIndicator_vpiCirclePageIndicatorStyle
+com.viewpagerindicator.R$styleable: int ViewPagerIndicator_vpiIconPageIndicatorStyle
+com.viewpagerindicator.R$styleable: int ViewPagerIndicator_vpiLinePageIndicatorStyle
+com.viewpagerindicator.R$styleable: int ViewPagerIndicator_vpiTabPageIndicatorStyle
+com.viewpagerindicator.R$styleable: int ViewPagerIndicator_vpiTitlePageIndicatorStyle
+com.viewpagerindicator.R$styleable: int ViewPagerIndicator_vpiUnderlinePageIndicatorStyle
+com.viewpagerindicator.TabPageIndicator
+com.viewpagerindicator.TabPageIndicator: TabPageIndicator(android.content.Context,android.util.AttributeSet)
+com.viewpagerindicator.TitlePageIndicator
+com.viewpagerindicator.TitlePageIndicator: TitlePageIndicator(android.content.Context,android.util.AttributeSet)
+com.viewpagerindicator.TitlePageIndicator: TitlePageIndicator(android.content.Context,android.util.AttributeSet,int)
+com.viewpagerindicator.TitlePageIndicator$IndicatorStyle: com.viewpagerindicator.TitlePageIndicator$IndicatorStyle[] values()
+com.viewpagerindicator.TitlePageIndicator$IndicatorStyle: com.viewpagerindicator.TitlePageIndicator$IndicatorStyle valueOf(java.lang.String)
+com.viewpagerindicator.TitlePageIndicator$LinePosition: com.viewpagerindicator.TitlePageIndicator$LinePosition[] values()
+com.viewpagerindicator.TitlePageIndicator$LinePosition: com.viewpagerindicator.TitlePageIndicator$LinePosition valueOf(java.lang.String)
+com.viewpagerindicator.TitlePageIndicator$SavedState
+com.viewpagerindicator.TitlePageIndicator$SavedState: android.os.Parcelable$Creator CREATOR
+com.viewpagerindicator.UnderlinePageIndicator
+com.viewpagerindicator.UnderlinePageIndicator: UnderlinePageIndicator(android.content.Context,android.util.AttributeSet)
+com.viewpagerindicator.UnderlinePageIndicator: UnderlinePageIndicator(android.content.Context,android.util.AttributeSet,int)
+com.viewpagerindicator.UnderlinePageIndicator$SavedState
+com.viewpagerindicator.UnderlinePageIndicator$SavedState: android.os.Parcelable$Creator CREATOR
+dacer.service.BreakFinishService
+dacer.service.BreakFinishService: BreakFinishService()
+dacer.service.CDService
+dacer.service.CDService: CDService()
+dacer.utils.AdminReceiver
+dacer.utils.AdminReceiver: AdminReceiver()
+dacer.utils.MyPomoRecorder$PomoType: dacer.utils.MyPomoRecorder$PomoType[] values()
+dacer.utils.MyPomoRecorder$PomoType: dacer.utils.MyPomoRecorder$PomoType valueOf(java.lang.String)
+dacer.utils.MyUtils$ScreenState: dacer.utils.MyUtils$ScreenState[] values()
+dacer.utils.MyUtils$ScreenState: dacer.utils.MyUtils$ScreenState valueOf(java.lang.String)
+dacer.views.CircleView$AnimType: dacer.views.CircleView$AnimType[] values()
+dacer.views.CircleView$AnimType: dacer.views.CircleView$AnimType valueOf(java.lang.String)
+dacer.views.CircleView$RunMode: dacer.views.CircleView$RunMode[] values()
+dacer.views.CircleView$RunMode: dacer.views.CircleView$RunMode valueOf(java.lang.String)
