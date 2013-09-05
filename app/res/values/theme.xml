@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+	<style name="MyFullScreenTheme_Black" 
+        parent="AppBaseFullScreenTheme">
+    </style>
+    
+	<style name="MyMainScreenTheme_Black" 
+        parent="AppBaseTheme">
+    </style>
+    
+	<style name="MyMainScreenTheme_White" 
+        parent="AppBaseThemeWhite">
+    </style>
+	
+	<style name="MyFullScreenTheme_White" 
+        parent="AppBaseFullScreenThemeWhite">
+    </style>
+</resources>

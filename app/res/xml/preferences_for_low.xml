@@ -1,0 +1,31 @@
+
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/pref_title_display">
+        <ListPreference android:dialogTitle="@string/pref_theme" android:entryValues="@array/pref_theme_list_values" android:entries="@array/pref_theme_list" android:title="@string/pref_theme" android:key="pref_theme_type" android:defaultValue="black"/>
+        <CheckBoxPreference android:title="@string/pref_enable_fullscreen" android:key="pref_enable_fullscreen" android:defaultValue="true"/>
+        <CheckBoxPreference android:title="@string/pref_lights_on" android:summary="@string/pref_lights_on_summary" android:key="pref_lights_on"/>
+            <ListPreference android:entryValues="@array/pref_first_day_values" android:entries="@array/pref_first_day_list" android:title="@string/pref_first_day" android:key="pref_first_day" android:dialogTitle="@string/pref_first_day" android:defaultValue="sunday"/>
+            <EditTextPreference android:title="@string/pref_daily_goal" android:dialogTitle="@string/pref_daily_goal" android:key="pref_daily_goal" android:defaultValue="6"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_title_timer_settings">
+         <ListPreference android:entries="@array/pref_pomodoro_duration_list" android:key="pref_pomodoro_duration" android:title="@string/pref_pomodoro_duration" android:entryValues="@array/pref_pomodoro_duration_values" android:defaultValue="25"/>
+        <ListPreference android:entries="@array/pref_break_duration_list" android:key="pref_break_duration" android:title="@string/pref_break_duration" android:entryValues="@array/pref_break_duration_values" android:defaultValue="5"/>
+            <CheckBoxPreference android:title="@string/pref_enable_vibrations" android:key="pref_enable_vibrations"/>
+            <RingtonePreference android:showSilent="true" android:showDefault="true" android:title="@string/pref_notification_sound" android:ringtoneType="notification" android:key="pref_notification_sound"/>
+        
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_title_labs">
+        <CheckBoxPreference android:title="@string/pref_fast_mode" android:key="pref_fast_mode" android:summary="@string/pref_fast_mode_summary"/>
+        <Preference android:key="pref_remove_manage" android:summary="@string/pref_remove_manage_summary" android:title="@string/pref_remove_manage"/>
+            <CheckBoxPreference android:title="@string/pref_sync_with_google_task" android:key="pref_sync_with_google_task" android:enabled="false"/>
+    </PreferenceCategory>
+    
+    <PreferenceCategory android:title="@string/pref_title_info">
+        <PreferenceScreen android:title="@string/pref_email_us" android:key="pref_email_us"></PreferenceScreen>
+    	<PreferenceScreen android:summary="@string/donate_summary" android:title="@string/donate_via" android:key="donate"></PreferenceScreen>
+    	<PreferenceScreen android:title="@string/pref_about" android:key="pref_about" android:summary="@string/pref_about_summary"></PreferenceScreen>
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

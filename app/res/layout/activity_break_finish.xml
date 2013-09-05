@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#33B5E5"
+    tools:context=".BreakActivity" >
+
+    <View
+        android:id="@+id/center_view"
+        android:layout_width="fill_parent"
+        android:layout_height="18dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true" />
+    
+    <ProgressBar
+        android:id="@+id/pb_time"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="110dp"
+        android:layout_height="5dp"
+        android:layout_below="@id/center_view"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:minHeight="20dp"
+        android:progress="100"
+        android:progressDrawable="@drawable/color_progressbar" />
+
+    <ImageView
+        android:id="@+id/btn_coffee"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_above="@id/center_view"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/coffee" />
+
+
+<RelativeLayout
+        android:id="@+id/layout_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btn_continu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:text="@string/continue_pomodoro"
+            android:textColor="#33B5E5"
+            android:textSize="22sp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_time_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/layout_bottom"
+        android:layout_centerHorizontal="true"
+        android:text="@string/break_time_up"
+        android:textColor="#ffffff"
+        android:textSize="40sp"
+        tools:ignore="HardcodedText" />
+
+<View
+    android:layout_width="fill_parent"
+    android:layout_height="12dp"
+    android:layout_above="@id/layout_bottom"
+    android:background="@drawable/card_shadow" />
+
+</RelativeLayout>

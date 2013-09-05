@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">极简番茄</string>
+    <string name="action_settings">设置</string>
+    <string name="title_activity_pomo_running">番茄运行中</string>
+    <string name="title_activity_finish_screen">完成</string>
+    <string name="title_activity_Preference">设置</string>
+    <string name="title_activity_break">休息时间</string>
+    <string name="title_record">记录</string>
+    <string name="title_today">今日</string>
+    <string name="title_total">总计</string>
+    <string name="start">开始!</string>
+    <string name="stop">放弃</string>
+    <string name="running_in_background">后台运行</string>
+    <string name="do_you_wish_to_stop">真的要放弃这个番茄吗？</string>
+    <string name="stop_pomodoro">放弃？</string>
+
+    <!-- Circle View -->
+    <string name="time_up">时间结束</string>
+    <string name="tap_to_break">点此休息</string>
+    <!-- CDService -->
+    <string name="take_a_break">开始休息</string>
+    <string name="cancel">取消</string>
+    <string name="pomodoro_time_up">番茄时间结束</string>
+    <string name="now_you_can_take_a_break">现在您可以休息会儿</string>
+	<string name="tap_to_break">点此开始休息</string>
+    
+    <!-- BreakFinishService -->
+    <string name="continue_pomodoro">进行下一个番茄</string>
+    <string name="break_time_up">休息时间结束</string>
+    <string name="now_you_can_continue_your_pomodoro">现在您可以进行您的下一个番茄</string>
+	<string name="tap_to_continue_your_pomodoro">点击进行下一个番茄</string>
+	
+    <!-- Preference -->
+    <string name="pref_title_display">显示</string>
+    <string name="pref_enable_fullscreen">全屏模式</string>
+    <string name="pref_lights_on">屏幕常亮</string>
+    <string name="pref_lights_on_summary">在显示本软件画面时不自动锁屏</string>
+    <string name="pref_theme">主题</string>
+
+    <string-array name="pref_theme_list">
+        <item>黑</item>
+        <item>白</item>
+    </string-array>
+    <string-array name="pref_theme_list_values">
+        <item>black</item>
+        <item>white</item>
+    </string-array>
+	<string name="pref_title_weekly_statistics">本周统计</string>
+	<string name="pref_use_pie_chart">显示饼状图</string>
+	<string name="pref_first_day">每周的第一天为</string>
+	<string-array name="pref_first_day_list">
+	    <item>星期天</item>
+	    <item>星期一</item>
+	</string-array>
+	<string-array name="pref_first_day_values">
+	    <item>sunday</item>
+	    <item>monday</item>
+	</string-array>
+	<string name="pref_daily_goal">设定每日目标番茄数</string>
+	<string name="pref_view_full_statistics">查看总统计表</string>
+	<string name="pref_view_full_statistics_summary">请先使用谷歌帐号同步数据</string>
+ 
+    <string name="pref_title_timer_settings">定时器</string>
+    <string name="pref_break_duration">休息时间</string>
+
+    <string-array name="pref_break_duration_list">
+        <item>3 分钟</item>
+        <item>5 分钟</item>
+        <item>8 分钟</item>
+    </string-array>
+    <string-array name="pref_break_duration_values">
+        <item>3</item>
+        <item>5</item>
+        <item>8</item>
+    </string-array>
+
+    <string name="pref_pomodoro_duration">番茄时间</string>
+    <string-array name="pref_pomodoro_duration_list">
+        <item>25 分钟</item>
+        <item>30 分钟</item>
+        <item>35 分钟</item>
+    </string-array>
+    <string-array name="pref_pomodoro_duration_values">
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
+    </string-array>
+    
+    <string name="pref_title_timers_end_alert">计时器设定</string>
+    <string name="pref_notification_sound">完成提示音</string>
+    <string name="pref_enable_vibrations">开启震动</string>
+    <string name="pref_title_labs">实验室</string>
+    <string name="pref_fast_mode">极速模式</string>
+    <string name="pref_fast_mode_summary">在启动和完成一个番茄时自动锁屏/亮屏</string>
+    <string name="pref_remove_manage">取消设备管理器授权</string>
+    <string name="pref_remove_manage_summary">开启极速模式后，欲删除本软件请先点击我！</string>
+    <string name="pref_title_sync">同步</string>
+    <string name="pref_sync_with_google_task">与Google Task同步（未完成）</string>
+    <string name="pref_sync_with_google_task_summary">Not recommend!</string>
+    <string name="pref_choose_account">Choose account</string>
+    <string name="pref_title_info">其他</string>
+    <string name="pref_email_us">反馈</string>
+    <string name="pref_about">关于</string>
+    <string name="pref_about_summary">本软件根据番茄工作法(Pomodoro Technique®)制成，便于您提高工作效率</string>
+    <string name="caidan">如果你3天内完成3个番茄，广告将不会显示</string>
+    <string name="pref_ringtone_silent">静音</string>
+    <string name="screen_locker_warnning">删除本软件前请必须点击“取消设备管理器授权”按钮</string>
+
+    <!-- Google Task -->
+    <string name="error">Error</string>
+    <string name="error_format">[Error] %s</string>
+    <string name="title_activity_break_finish">BreakFinishActivity</string>
+    <string name="hello_world">Hello world!</string>
+
+     <string name="daily_goal_error">错误：每日目标番茄数设置错误，请在设置项中改正！</string>
+     
+     <!-- About -->
+    <string name="author">作者</string>
+    <string name="dacer">Dacer</string>
+    <string name="website">网站</string>
+    <string name="website_url">http://dacer.github.io/myapps/</string>
+    <string name="donate_title">赞助</string>
+    <string name="donate_via">支持作者开发</string>
+    <string name="donate_summary">支付宝/paypal:dacerfeedback@gmail.com</string>
+    <string name="about_pomodoro">关于番茄工作法</string>
+    
+    <!-- Game -->
+    <string name="game_over">游戏结束</string>
+    <string name="your_score_is">最终得分：</string>
+    <string name="restart">重新开始</string>
+    <string name="exit">退出</string>
+    
+    <!-- notification in RunningActivity -->
+    <string name="sp_is_running">番茄时间进行中</string>
+    <string name="click_to_return">点此返回</string>
+    <string name="break_time">休息时间</string>
+    
+    <string name="debug_mode">Debug mode</string>
+    <string name="debug_mode_summary">间隔将固定为1分钟</string>
+</resources>

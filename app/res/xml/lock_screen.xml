@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<device-admin
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-policies>
+        <!-- 强行锁定  在里仅这个是需要的-->
+        <force-lock />
+
+    </uses-policies>
+</device-admin>

@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#33B5E5"
+    tools:context=".BreakActivity" >
+
+    <View
+        android:id="@+id/center_view"
+        android:layout_width="fill_parent"
+        android:layout_height="18dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true" />
+
+    <ProgressBar
+        android:id="@+id/pb_time"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="110dp"
+        android:layout_height="5dp"
+        android:layout_below="@id/center_view"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:minHeight="20dp"
+        android:progress="80"
+        android:progressDrawable="@drawable/color_progressbar" />
+
+    <ImageView
+        android:id="@+id/btn_setting"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_above="@id/center_view"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/coffee" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:text="3:08"
+        android:textColor="#ffffff"
+        android:textSize="40sp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tv_long_break"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="48dp"
+        android:background="#ffffff"
+        android:paddingBottom="6dp"
+        android:paddingLeft="22dp"
+        android:paddingRight="12dp"
+        android:paddingTop="6dp"
+        android:text="longer break"
+        android:textColor="#33B5E5"
+        android:textSize="30sp"
+        android:visibility="gone" />
+
+</RelativeLayout>
