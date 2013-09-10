@@ -24,6 +24,7 @@ public class SettingUtility {
 	private static final String BREAK_DURATION = "pref_break_duration";
 	private static final String FIRST_DAY = "pref_first_day";
 	private static final String DAILY_GOAL = "pref_daily_goal";
+	private static final String ENABLE_GOOGLE_TASK = "pref_sync_with_google_task";
 	
 	private static final String AUTH_TOKEN = "auth_token";
 	private static final String AUTH_ACCOUNT_NAME = "auth_account_name";
@@ -37,6 +38,10 @@ public class SettingUtility {
         return GlobalContext.getInstance();
     }
     
+    public static boolean enableGTask(){
+    	boolean enable = SettingHelper.getSharedPreferences(getContext(), ENABLE_GOOGLE_TASK, false);
+    	return enable;
+    }
     public static boolean isAuthorized(){
     	return getAuthToken()=="0"? false:true;
     }

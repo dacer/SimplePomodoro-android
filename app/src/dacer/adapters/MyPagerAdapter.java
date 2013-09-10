@@ -8,6 +8,7 @@ import com.dacer.simplepomodoro.MainFragment;
 import com.dacer.simplepomodoro.RecordFragment;
 
 import dacer.google.task.TaskListFragment;
+import dacer.settinghelper.SettingUtility;
 
 /**
  * Author:dacer
@@ -22,10 +23,10 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
 
 	@Override
 	public Fragment getItem(int position) {
-		if (position == 1) {
+		if (position == (SettingUtility.enableGTask()? 1 : 0)) {
 			Fragment fragment = new MainFragment();
 			return fragment;
-		} else if (position == 2) {
+		} else if (position == (SettingUtility.enableGTask()? 2 : 1)) {
 			Fragment fragment = new RecordFragment();
 			return fragment;
 		} else {
@@ -37,7 +38,7 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
 
 	@Override
     public int getCount() {
-        return 3;
+        return SettingUtility.enableGTask()? 3 : 2;
     }
 
     @Override

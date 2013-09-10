@@ -10,7 +10,6 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -18,11 +17,8 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -34,12 +30,16 @@ import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.gson.GsonFactory;
 import com.google.api.services.tasks.TasksScopes;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
+
+import dacer.settinghelper.SettingUtility;
 
 public class TaskListFragment extends Fragment {
 	private static final String KEY_CONTENT = "MainFragment:Content";
 	private String mContent = "???";
 	View rootView;
-	private SharedPreferences sp;
 	//Google Task
 	private static final Level LOGGING_LEVEL = Level.OFF;
 	  private static final String PREF_ACCOUNT_NAME = "accountName";
@@ -54,7 +54,7 @@ public class TaskListFragment extends Fragment {
 	  ArrayAdapter<String> adapter;
 	  com.google.api.services.tasks.Tasks service;
 	  int numAsyncTasks;
-	  private ListView listView;
+	  PullToRefreshListView listView;
 	  
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,28 +68,11 @@ public class TaskListFragment extends Fragment {
 			Bundle savedInstanceState) {
 		rootView = inflater.inflate(R.layout.fragment_task, container,
 				false);
-		sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
 		initFont();
-		Boolean showGTask = sp.getBoolean("pref_sync_with_google_task", true);
-		if(showGTask){
-			showGoogleTask();
-			initView();
-		}
-		
+		showGoogleTask();
 		return rootView;
 	}
 
-	private void initView(){
-		ImageButton refreshBTN = (ImageButton) rootView.findViewById(R.id.refresh_btn);
-		refreshBTN.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				SyncDBTasks.run(TaskListFragment.this);
-			}
-		});
-	}
 	
 	private void initFont(){
 		TextView tv_title = (TextView)rootView.findViewById(R.id.tv_title_task);
@@ -98,7 +81,7 @@ public class TaskListFragment extends Fragment {
 //		tv_record.setText(Html.fromHtml("<u>"+"To be continued"+"</u>"));
 		tv_title.setTypeface(roboto);
 		tv_title.setText("Task");
-        Boolean isLightTheme = (sp.getString("pref_theme_type", "black").equals("white"));
+        Boolean isLightTheme = SettingUtility.isLightTheme();
         if(isLightTheme){
     		tv_title.setTextColor(Color.BLACK);
     		rootView.setBackgroundColor(Color.WHITE);
@@ -108,11 +91,16 @@ public class TaskListFragment extends Fragment {
 	
 	private void showGoogleTask(){
 		Logger.getLogger("com.google.api.client").setLevel(LOGGING_LEVEL);
-		listView = (ListView) rootView.findViewById(R.id.list_task);
+		listView = (PullToRefreshListView) rootView.findViewById(R.id.list_task);
+		listView.setOnRefreshListener(new OnRefreshListener<ListView>() {
+		    @Override
+		    public void onRefresh(PullToRefreshBase<ListView> refreshView) {
+		    	SyncDBTasks.run(TaskListFragment.this);
+		    }
+		});
 		credential =
 		        GoogleAccountCredential.usingOAuth2(getActivity(), Collections.singleton(TasksScopes.TASKS));
-		SharedPreferences settings = getActivity().getPreferences(Context.MODE_PRIVATE);
-		credential.setSelectedAccountName(settings.getString(PREF_ACCOUNT_NAME, null));
+		credential.setSelectedAccountName(SettingUtility.getAccountName());
 		// Tasks client
 		service =
 		        new com.google.api.services.tasks.Tasks.Builder(transport, jsonFactory, credential)
@@ -169,10 +157,7 @@ public class TaskListFragment extends Fragment {
 	          String accountName = data.getExtras().getString(AccountManager.KEY_ACCOUNT_NAME);
 	          if (accountName != null) {
 	            credential.setSelectedAccountName(accountName);
-	            SharedPreferences settings = getActivity().getPreferences(Context.MODE_PRIVATE);
-	            SharedPreferences.Editor editor = settings.edit();
-	            editor.putString(PREF_ACCOUNT_NAME, accountName);
-	            editor.commit();
+	            SettingUtility.setAccountName(accountName);
 	            SyncDBTasks.run(this);
 	          }
 	        }

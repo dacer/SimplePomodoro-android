@@ -1,6 +1,12 @@
 package com.dacer.simplepomodoro;
 
+import java.util.Collections;
+
+import android.accounts.AccountManager;
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -18,6 +24,8 @@ import android.view.KeyEvent;
 import android.widget.LinearLayout;
 
 import com.adsmogo.adview.AdsMogoLayout;
+import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
+import com.google.api.services.tasks.TasksScopes;
 
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.GlobalContext;
@@ -29,8 +37,10 @@ import dacer.utils.MyUtils;
  * Date  :Jul 17, 2013
  */
 public class SettingActivity extends PreferenceActivity {
-	
+	GoogleAccountCredential credential;
+	static final int REQUEST_ACCOUNT_PICKER = 2;
 	private AdsMogoLayout adsMogoLayout;
+	private static final String PREF_ACCOUNT_NAME = "accountName";
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +48,7 @@ public class SettingActivity extends PreferenceActivity {
         super.onCreate(savedInstanceState);
         GlobalContext.setActivity(this);
         setContentView(R.layout.preference_activity);
+        initCre();
         
         getListView().setItemsCanFocus(true);
         
@@ -71,7 +82,7 @@ public class SettingActivity extends PreferenceActivity {
 		Preference email_us_Preference = findPreference("pref_email_us");
 		Preference donate_Preference = findPreference("donate");
 		Preference about_Preference = findPreference("pref_about");
-		Preference set_google_account_Preference = findPreference("pref_sync_with_google_task");
+		Preference select_google_account_Preference = findPreference("pref_select_account");
 		
 		final Preference remove_manage_Preference = findPreference("pref_remove_manage");
 		final CheckBoxPreference fast_mode_Preference = 
@@ -147,13 +158,12 @@ public class SettingActivity extends PreferenceActivity {
 			}
 		});
 		
-		set_google_account_Preference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+		select_google_account_Preference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			
 			@Override
 			public boolean onPreferenceClick(Preference preference) {
 				// TODO Auto-generated method stub
-//				GoogleAccountSelectDialog dialog = new GoogleAccountSelectDialog();
-//				dialog.showDialog();
+				chooseAccount();
 				return false;
 			}
 		});
@@ -271,4 +281,30 @@ public class SettingActivity extends PreferenceActivity {
 		super.onDestroy();
 	}
 
+    
+//    google task
+    
+    @Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+	    super.onActivityResult(requestCode, resultCode, data);
+	    switch (requestCode) {
+	      case REQUEST_ACCOUNT_PICKER:
+	        if (resultCode == Activity.RESULT_OK && data != null && data.getExtras() != null) {
+	          String accountName = data.getExtras().getString(AccountManager.KEY_ACCOUNT_NAME);
+	          if (accountName != null) {
+	            credential.setSelectedAccountName(accountName);
+	            SettingUtility.setAccountName(accountName);
+	          }
+	        }
+	        break;
+	    }
+	  }
+    private void chooseAccount() {
+	    startActivityForResult(credential.newChooseAccountIntent(), REQUEST_ACCOUNT_PICKER);
+	  }
+    private void initCre(){
+    	credential =
+		        GoogleAccountCredential.usingOAuth2(this, Collections.singleton(TasksScopes.TASKS));
+		credential.setSelectedAccountName(SettingUtility.getAccountName());
+    }
 }
