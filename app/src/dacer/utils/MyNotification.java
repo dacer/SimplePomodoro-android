@@ -52,7 +52,7 @@ public class MyNotification {
 		mBuilder.setContentIntent(resultPendingIntent);
 		NotificationManager mNotificationManager =
 		    (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
-		mNotificationManager.notify(9527, mBuilder.build());
+		mNotificationManager.notify(9527, mBuilder.getNotification());
 	}
 	
 	public void cancelNotification(){

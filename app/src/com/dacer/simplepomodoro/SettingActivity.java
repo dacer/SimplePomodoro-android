@@ -71,6 +71,7 @@ public class SettingActivity extends PreferenceActivity {
 		Preference email_us_Preference = findPreference("pref_email_us");
 		Preference donate_Preference = findPreference("donate");
 		Preference about_Preference = findPreference("pref_about");
+		Preference set_google_account_Preference = findPreference("pref_sync_with_google_task");
 		
 		final Preference remove_manage_Preference = findPreference("pref_remove_manage");
 		final CheckBoxPreference fast_mode_Preference = 
@@ -142,6 +143,17 @@ public class SettingActivity extends PreferenceActivity {
 			public boolean onPreferenceClick(Preference preference) {
 				// TODO Auto-generated method stub
 				startActivity(new Intent(SettingActivity.this, PlaneFighterActivity.class)); 
+				return false;
+			}
+		});
+		
+		set_google_account_Preference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+			
+			@Override
+			public boolean onPreferenceClick(Preference preference) {
+				// TODO Auto-generated method stub
+//				GoogleAccountSelectDialog dialog = new GoogleAccountSelectDialog();
+//				dialog.showDialog();
 				return false;
 			}
 		});

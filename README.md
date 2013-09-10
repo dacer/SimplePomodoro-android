@@ -1,5 +1,6 @@
 <h1>Simple Pomodoro</h1>
 ---------
+<h3>V2.0预备，增加google task</h3>
 <li><h3>1.2.3更新内容：</h3>
 	<ul>各分辨率下的界面美化统一</ul>
 	<ul>增加周统计功能</ul>

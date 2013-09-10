@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
-
 import com.umeng.analytics.MobclickAgent;
 import com.viewpagerindicator.LinePageIndicator;
 
@@ -21,7 +20,6 @@ import dacer.utils.MyUtils;
  * Date  :Jul 17, 2013
  */
 public class MainActivity extends FragmentActivity{
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -31,13 +29,12 @@ public class MainActivity extends FragmentActivity{
 		
 		ViewPager pager = (ViewPager)findViewById(R.id.pager);
 		pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
-//		pager.setCurrentItem(1);
 		LinePageIndicator mIndicator = (LinePageIndicator)findViewById(R.id.indicator);
 		if(SettingUtility.isLightTheme()){
 			mIndicator.setBackgroundColor(Color.WHITE);
 		}
         mIndicator.setViewPager(pager);
-        mIndicator.setCurrentItem(0);
+        mIndicator.setCurrentItem(1);
         
         //for long break
         MyUtils.deleteContinueTimes(this);
@@ -54,6 +51,7 @@ public class MainActivity extends FragmentActivity{
 	}
 	
 
+	@Override
 	public void onPause() {
 	    super.onPause();
 	    MobclickAgent.onPause(this);

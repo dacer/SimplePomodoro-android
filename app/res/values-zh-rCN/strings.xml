@@ -24,7 +24,7 @@
     <string name="cancel">取消</string>
     <string name="pomodoro_time_up">番茄时间结束</string>
     <string name="now_you_can_take_a_break">现在您可以休息会儿</string>
-	<string name="tap_to_break">点此开始休息</string>
+	
     
     <!-- BreakFinishService -->
     <string name="continue_pomodoro">进行下一个番茄</string>

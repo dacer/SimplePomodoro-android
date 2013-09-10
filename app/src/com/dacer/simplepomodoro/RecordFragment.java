@@ -1,7 +1,5 @@
 package com.dacer.simplepomodoro;
 
-import com.adsmogo.adview.AdsMogoLayout;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -12,7 +10,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.MyPomoRecorder;

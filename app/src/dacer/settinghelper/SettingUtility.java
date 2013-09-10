@@ -1,7 +1,6 @@
 package dacer.settinghelper;
 
 import android.content.Context;
-import android.content.SharedPreferences.Editor;
 import android.graphics.Color;
 import android.widget.Toast;
 
@@ -25,7 +24,9 @@ public class SettingUtility {
 	private static final String BREAK_DURATION = "pref_break_duration";
 	private static final String FIRST_DAY = "pref_first_day";
 	private static final String DAILY_GOAL = "pref_daily_goal";
-
+	
+	private static final String AUTH_TOKEN = "auth_token";
+	private static final String AUTH_ACCOUNT_NAME = "auth_account_name";
 	private static final String DEBUG_MODE = "debug_mode";
 	private static final String PRE_ADREMOVED = "adremoved";
     private SettingUtility() {
@@ -34,6 +35,27 @@ public class SettingUtility {
 
     private static Context getContext() {
         return GlobalContext.getInstance();
+    }
+    
+    public static boolean isAuthorized(){
+    	return getAuthToken()=="0"? false:true;
+    }
+    
+    public static String getAccountName(){
+    	String name = SettingHelper.getSharedPreferences(getContext(), AUTH_ACCOUNT_NAME, "0");
+    	return name;
+    }
+    public static void setAccountName(String name){
+    	SettingHelper.setEditor(getContext(), AUTH_ACCOUNT_NAME, name);
+    }
+    
+    public static String getAuthToken(){
+    	String token = SettingHelper.getSharedPreferences(getContext(), AUTH_TOKEN, "0");
+    	return token;
+    }
+    
+    public static void setAuthToken(String token){
+    	SettingHelper.setEditor(getContext(), AUTH_TOKEN, token);
     }
     
     public static int getPomodoroDuration(){

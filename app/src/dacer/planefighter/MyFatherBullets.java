@@ -1,7 +1,6 @@
 package dacer.planefighter;
 
 import android.graphics.Canvas;
-import android.graphics.Color;
 import dacer.utils.MyUtils;
 
 /**

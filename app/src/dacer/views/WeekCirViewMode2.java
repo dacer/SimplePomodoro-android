@@ -1,9 +1,5 @@
 package dacer.views;
 
-import java.util.ArrayList;
-
-import dacer.utils.MyUtils;
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;

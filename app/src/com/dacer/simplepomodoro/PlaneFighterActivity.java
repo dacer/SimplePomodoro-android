@@ -48,7 +48,8 @@ public class PlaneFighterActivity extends FragmentActivity implements onGameOver
 		// TODO Auto-generated method stub
 		
 		runOnUiThread(new Runnable() {
-			  public void run() {
+			  @Override
+			public void run() {
 				  if(score >= 40){
 					  if(!SettingUtility.isADRemoved()){
 						  	SettingUtility.removeAD(true);

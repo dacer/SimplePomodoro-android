@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.dacer.simplepomodoro.MainFragment;
 import com.dacer.simplepomodoro.RecordFragment;
 
+import dacer.google.task.TaskListFragment;
+
 /**
  * Author:dacer
  * Date  :Jul 17, 2013
@@ -20,19 +22,22 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
 
 	@Override
 	public Fragment getItem(int position) {
-		if (position == 0) {
+		if (position == 1) {
 			Fragment fragment = new MainFragment();
 			return fragment;
-		} else {
+		} else if (position == 2) {
 			Fragment fragment = new RecordFragment();
 			return fragment;
-		} 
+		} else {
+			Fragment fragment = new TaskListFragment();
+			return fragment;
+		}
 
 	}
 
 	@Override
     public int getCount() {
-        return 2;
+        return 3;
     }
 
     @Override

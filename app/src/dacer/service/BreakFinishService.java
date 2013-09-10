@@ -16,7 +16,6 @@ import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.view.WindowManager;
 
-import com.dacer.simplepomodoro.BreakActivity;
 import com.dacer.simplepomodoro.BreakFinishActivity;
 import com.dacer.simplepomodoro.R;
 

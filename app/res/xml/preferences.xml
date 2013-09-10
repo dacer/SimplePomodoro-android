@@ -24,7 +24,7 @@
         <CheckBoxPreference android:title="@string/pref_fast_mode" android:key="pref_fast_mode" android:summary="@string/pref_fast_mode_summary"/>
         <Preference android:key="pref_remove_manage" android:summary="@string/pref_remove_manage_summary" android:title="@string/pref_remove_manage"/>
         <PreferenceCategory android:title="@string/pref_title_sync">
-            <CheckBoxPreference android:title="@string/pref_sync_with_google_task" android:key="pref_sync_with_google_task" android:enabled="false"/>
+            <CheckBoxPreference android:title="@string/pref_sync_with_google_task" android:key="pref_sync_with_google_task"/>
         </PreferenceCategory>
         <CheckBoxPreference android:title="@string/debug_mode" android:summary="@string/debug_mode_summary" android:key="debug_mode"/>
     </PreferenceScreen>
