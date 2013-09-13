@@ -1,5 +1,6 @@
 package dacer.google.task;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
@@ -8,17 +9,15 @@ import java.util.logging.Logger;
 import android.accounts.AccountManager;
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -34,15 +33,18 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
+import dacer.adapters.TaskListCursorAdapter;
+import dacer.interfaces.DialogDismissListener;
 import dacer.settinghelper.SettingUtility;
+import dacer.utils.GlobalContext;
 
-public class TaskListFragment extends Fragment {
+public class TaskListFragment extends Fragment implements DialogDismissListener{
 	private static final String KEY_CONTENT = "MainFragment:Content";
 	private String mContent = "???";
 	View rootView;
 	//Google Task
 	private static final Level LOGGING_LEVEL = Level.OFF;
-	  private static final String PREF_ACCOUNT_NAME = "accountName";
+//	  private static final String PREF_ACCOUNT_NAME = "accountName";
 	  static final String TAG = "TaskListFragment";
 	  static final int REQUEST_GOOGLE_PLAY_SERVICES = 0;
 	  static final int REQUEST_AUTHORIZATION = 1;
@@ -51,10 +53,11 @@ public class TaskListFragment extends Fragment {
 	  final JsonFactory jsonFactory = new GsonFactory();
 	  GoogleAccountCredential credential;
 	  List<String> tasksList;
-	  ArrayAdapter<String> adapter;
+//	  ArrayAdapter<String> adapter;
 	  com.google.api.services.tasks.Tasks service;
 	  int numAsyncTasks;
 	  PullToRefreshListView listView;
+	  
 	  
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -106,7 +109,12 @@ public class TaskListFragment extends Fragment {
 		        new com.google.api.services.tasks.Tasks.Builder(transport, jsonFactory, credential)
 		            .setApplicationName("SimplePomodoro").build();
 		if (checkGooglePlayServicesAvailable()) {
-			haveGooglePlayServices();
+			try {
+				haveGooglePlayServices();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 	
@@ -122,8 +130,22 @@ public class TaskListFragment extends Fragment {
 	  }
 
 	  void refreshView() {
-	    adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, tasksList);
-	    listView.setAdapter(adapter);
+//	    adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, tasksList);
+//	    listView.setAdapter(adapter);
+		TaskLocalUtils tLocalUtils = new TaskLocalUtils(GlobalContext.getInstance());
+	    Cursor cr = tLocalUtils.getAllCursor();
+	    try {
+			List<String> titles = tLocalUtils.getTasksTitleFromDB();
+			TaskListCursorAdapter adapter = new TaskListCursorAdapter(getActivity(), R.layout.my_task_list, 
+					cr,
+					new String[] { TaskRecorder.KEY_TITLE },
+					new int[] { R.id.tvLarger }, 2, getFragmentManager(), this,titles);
+			listView.setAdapter(adapter);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	  }
 
 	  @Override
@@ -140,7 +162,12 @@ public class TaskListFragment extends Fragment {
 	    switch (requestCode) {
 	      case REQUEST_GOOGLE_PLAY_SERVICES:
 	        if (resultCode == Activity.RESULT_OK) {
-	          haveGooglePlayServices();
+	          try {
+				haveGooglePlayServices();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	        } else {
 	          checkGooglePlayServicesAvailable();
 	        }
@@ -175,16 +202,14 @@ public class TaskListFragment extends Fragment {
 	    return true;
 	  }
 
-	  private void haveGooglePlayServices() {
+	  private void haveGooglePlayServices() throws IOException {
 	    // check if there is already an account selected
 	    if (credential.getSelectedAccountName() == null) {
 	      chooseAccount();
 	    } else {
-	    	TaskUtils tUtils = new TaskUtils(service, getActivity());
-	    	List<String> result = tUtils.getTasksTitleFromDB();
-	        tasksList = result;
+//	    	List<String> result = tLocalUtils.getTasksTitleFromDB();
+//	        tasksList = result;
 	        refreshView();
-//	      AsyncLoadTasks.run(this);
 	    }
 	  }
 
@@ -198,6 +223,12 @@ public class TaskListFragment extends Fragment {
         super.onSaveInstanceState(outState);
         outState.putString(KEY_CONTENT, mContent);
     }
+	@Override
+	public void OnDialogDismiss() {
+		// TODO Auto-generated method stub
+		refreshView();
+		
+	}
 
 	
 }

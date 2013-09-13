@@ -5,7 +5,9 @@ import android.graphics.Color;
 import android.widget.Toast;
 
 import com.dacer.simplepomodoro.R;
+import com.google.api.services.tasks.Tasks;
 
+import dacer.google.task.TaskWebUtils;
 import dacer.utils.GlobalContext;
 
 /**
@@ -26,6 +28,7 @@ public class SettingUtility {
 	private static final String DAILY_GOAL = "pref_daily_goal";
 	private static final String ENABLE_GOOGLE_TASK = "pref_sync_with_google_task";
 	
+	private static final String GOOGLE_TASK_API_LISTID = "list_id";
 	private static final String AUTH_TOKEN = "auth_token";
 	private static final String AUTH_ACCOUNT_NAME = "auth_account_name";
 	private static final String DEBUG_MODE = "debug_mode";
@@ -53,7 +56,13 @@ public class SettingUtility {
     public static void setAccountName(String name){
     	SettingHelper.setEditor(getContext(), AUTH_ACCOUNT_NAME, name);
     }
-    
+    public static String getTaskListId(){
+    	String name = SettingHelper.getSharedPreferences(getContext(), GOOGLE_TASK_API_LISTID, "0");
+    	return name;
+    }
+    public static void setTaskListId(String id){
+    	SettingHelper.setEditor(getContext(), GOOGLE_TASK_API_LISTID, id);
+    }
     public static String getAuthToken(){
     	String token = SettingHelper.getSharedPreferences(getContext(), AUTH_TOKEN, "0");
     	return token;

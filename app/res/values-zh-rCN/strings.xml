@@ -139,4 +139,11 @@
     
     <string name="debug_mode">Debug mode</string>
     <string name="debug_mode_summary">间隔将固定为1分钟</string>
+    
+    <!-- google task  -->
+    <string name="new_task">新建任务</string>
+    <string name="task_title">任务内容</string>
+    <string name="the_title_can_not_be_empty">不可为空！</string>
+    <string name="ok">确定</string>
+    
 </resources>

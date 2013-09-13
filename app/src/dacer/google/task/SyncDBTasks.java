@@ -17,30 +17,31 @@ package dacer.google.task;
 import java.io.IOException;
 import java.util.List;
 
+import android.util.Log;
+
+import dacer.settinghelper.SettingUtility;
 import dacer.utils.GlobalContext;
 
 /**
  * Asynchronously load the tasks.
  * 
  * @author Yaniv Inbar
+ * modified by Dacer
  */
 class SyncDBTasks extends CommonAsyncTask {
   String TAG = "AsyncLoadTask--->";
-  private TaskUtils tUtils;
+  private TaskLocalUtils tLocalUtils;
   
   SyncDBTasks(TaskListFragment listFragment) {
     super(listFragment);
-    tUtils = new TaskUtils(client,GlobalContext.getInstance());
+    tLocalUtils = new TaskLocalUtils(GlobalContext.getInstance());
   }
 
   @Override
   protected void doInBackground() throws IOException {
-	  
-    if(!tUtils.listExist(TaskUtils.LIST_NAME)){
-    	tUtils.initGuideList();
-    }
-    tUtils.updateDB(tUtils.getListId(TaskUtils.LIST_NAME));
-    List<String> result = tUtils.getTasksTitleFromDB();
+	  Log.e(TAG, "Running");
+    TaskUtils.updateDB(SettingUtility.getTaskListId(),GlobalContext.getInstance(),client);
+    List<String> result = tLocalUtils.getTasksTitleFromDB();
     mFragment.tasksList = result;
   }
 
