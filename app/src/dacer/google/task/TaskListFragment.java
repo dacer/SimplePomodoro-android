@@ -17,7 +17,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -72,6 +74,7 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 		rootView = inflater.inflate(R.layout.fragment_task, container,
 				false);
 		initFont();
+		initListener();
 		showGoogleTask();
 		return rootView;
 	}
@@ -91,9 +94,19 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
         }
 	}
 	
-	
-	private void showGoogleTask(){
-		Logger.getLogger("com.google.api.client").setLevel(LOGGING_LEVEL);
+	private void initListener(){
+		Button addTaskBTN = (Button)rootView.findViewById(R.id.btn_add_task);
+		addTaskBTN.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				TaskDialogFragment dialog = new TaskDialogFragment();
+				dialog.initDialog(TaskListFragment.this);
+				dialog.show(getFragmentManager(), "");
+			}
+		});
+		
 		listView = (PullToRefreshListView) rootView.findViewById(R.id.list_task);
 		listView.setOnRefreshListener(new OnRefreshListener<ListView>() {
 		    @Override
@@ -101,6 +114,11 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 		    	SyncDBTasks.run(TaskListFragment.this);
 		    }
 		});
+	}
+	
+	
+	private void showGoogleTask(){
+		Logger.getLogger("com.google.api.client").setLevel(LOGGING_LEVEL);
 		credential =
 		        GoogleAccountCredential.usingOAuth2(getActivity(), Collections.singleton(TasksScopes.TASKS));
 		credential.setSelectedAccountName(SettingUtility.getAccountName());
@@ -134,19 +152,29 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 //	    listView.setAdapter(adapter);
 		TaskLocalUtils tLocalUtils = new TaskLocalUtils(GlobalContext.getInstance());
 	    Cursor cr = tLocalUtils.getAllCursor();
-	    try {
-			List<String> titles = tLocalUtils.getTasksTitleFromDB();
-			TaskListCursorAdapter adapter = new TaskListCursorAdapter(getActivity(), R.layout.my_task_list, 
+	    
+	    final TaskListCursorAdapter adapter = new TaskListCursorAdapter(getActivity(), R.layout.my_task_list, 
 					cr,
 					new String[] { TaskRecorder.KEY_TITLE },
-					new int[] { R.id.tvLarger }, 2, getFragmentManager(), this,titles);
-			listView.setAdapter(adapter);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+					new int[] { R.id.tvLarger }, 2, getFragmentManager(), this);
+		listView.setAdapter(adapter);
 		
-	  }
+		SwipeDismissListViewTouchListener touchListener =
+                new SwipeDismissListViewTouchListener(
+                        listView,
+                        new SwipeDismissListViewTouchListener.OnDismissCallback() {
+                            @Override
+                            public void onDismiss(ListView listView, int[] reverseSortedPositions) {
+                                for (int position : reverseSortedPositions) {
+//                                    adapter.remove(adapter.getItem(position));
+                                	//delete 
+                                }
+                                adapter.notifyDataSetChanged();
+                            }
+                        });
+		listView.setOnTouchListener(touchListener);
+        listView.setOnScrollListener(touchListener.makeScrollListener());
+		}
 
 	  @Override
 	public void onResume() {

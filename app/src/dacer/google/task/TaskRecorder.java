@@ -7,7 +7,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import com.google.api.client.util.DateTime;
 
@@ -35,14 +34,14 @@ public class TaskRecorder {
 		mSQLHelper = new SQLHelper(mContext);
 	}
 	
-	public void putTask(String title, String notes, DateTime updateTime, String identifier,
+	public void putTask(String title, String notes, String rfc3339String, String identifier,
 			boolean deleted, boolean completed){
 		db = mSQLHelper.getWritableDatabase();
 		cv.put(KEY_TITLE, title);
 		cv.put(KEY_NOTES, notes);
 		cv.put(KEY_COMPLETED, completed? 1:0);
 		cv.put(KEY_DELETED, deleted? 1:0);
-		cv.put(KEY_UPDATE_TIME, updateTime.toStringRfc3339());
+		cv.put(KEY_UPDATE_TIME, rfc3339String);
 		cv.put(KEY_GOOGLE_TASK_IDENTIFIER, identifier);
 		long res = db.insert(TASKS_TABLE_NAME, null, cv);
 		// res = -1:failed
@@ -78,9 +77,27 @@ public class TaskRecorder {
 		return resultBoolean;
 	}
 
+	public boolean setTaskCompletedByID(boolean completed, int id){
+		db = mSQLHelper.getWritableDatabase();
+		ContentValues args = new ContentValues();
+		args.put(KEY_COMPLETED, completed? 1:0);
+		Boolean resultBoolean = db.update(TASKS_TABLE_NAME,
+				args, KEY_ID + "=" + id, null) > 0;   //-----------------------
+		return resultBoolean;
+	}
 	
 	public boolean setTaskDeletedFlag(boolean deleted, String identifier){
 		int id = getIdByIdentifier(identifier);
+		db = mSQLHelper.getWritableDatabase();
+		ContentValues args = new ContentValues();
+		args.put(KEY_DELETED, deleted? 1:0);
+		Boolean resultBoolean = db.update(TASKS_TABLE_NAME,
+				args, KEY_ID + "=" + id, null) > 0;
+				
+		return resultBoolean;
+	}
+	
+	public boolean setTaskDeletedFlagByID(boolean deleted, int id){
 		db = mSQLHelper.getWritableDatabase();
 		ContentValues args = new ContentValues();
 		args.put(KEY_DELETED, deleted? 1:0);
@@ -260,12 +277,14 @@ public class TaskRecorder {
 		return db = mSQLHelper.getReadableDatabase();
 	}
 	
-	public Cursor getCursor() {
+	public Cursor getCursorWithoutDeleted() {
 		// Log.e("getCursor", "start");
 		db = mSQLHelper.getReadableDatabase();
+		String selection = KEY_DELETED + "=?";
+		String[] selectionArgs = { "0" };
 		Cursor cursor;
-		cursor = db.query(TASKS_TABLE_NAME, null, null,
-					null, null, null, null);
+		cursor = db.query(TASKS_TABLE_NAME, null, selection,
+				selectionArgs, null, null, null);
 		return cursor;
 	}
 	

@@ -50,12 +50,15 @@ public class TaskUtils {
 	    List<Task> localTaskList = tLocalUtils.getTasksFromDB();
 	    for(Task t : localTaskList){
 	    	if(t.getId().equals("0")){
+	    		t.setId(null);
 	    		tWebUtils.addTaskToWeb(listId, t);//may receive invalid listId
+	    		t.setId("0");
 	    		tLocalUtils.deleteTaskInDBTrue(t);
 	    	}
 	    }
 	    
 	    //SECOND
+	    localTaskList = tLocalUtils.getTasksFromDB();
 	    List<Task> webTaskList = tWebUtils.getTasksFromWeb(listId);//may receive invalid listId
 	    List<Task> waitAddToLocalDB = new ArrayList<Task>();
 	    for(Task t : webTaskList){

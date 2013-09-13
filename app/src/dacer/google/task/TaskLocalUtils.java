@@ -4,12 +4,14 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 
 import com.google.api.client.util.DateTime;
 import com.google.api.services.tasks.model.Task;
@@ -33,9 +35,8 @@ public class TaskLocalUtils {
 //	  Task t = new Task();
 //	  
 //  }
-  public void addNewTask(String title) throws ParseException{
-	  DateTime dt = new DateTime(nowUTCDate());
-	  recorder.putTask(title, "", dt, "0",false,false);
+  public void addNewTask(String title){
+	  recorder.putTask(title, "", nowStringRfc3339(), "0",false,false);
   }
   
   public void updateTaskLocal(Task t){
@@ -69,7 +70,7 @@ public class TaskLocalUtils {
 		  }
 		  recorder.putTask(t.getTitle(), 
 				  t.getNotes(), 
-				  t.getUpdated(), 
+				  t.getUpdated().toStringRfc3339(), 
 				  t.getId(), 
 				  deleted,
 				  completed);
@@ -81,25 +82,32 @@ public class TaskLocalUtils {
 	  List<Task> listTask = new ArrayList<Task>();
 	  for (Integer id : allId){
 		  Task t = new Task();
-		  t.setDeleted(recorder.getTaskDeleteByID(id));
-		  t.setTitle(recorder.getTaskTitleByID(id));
-		  if(recorder.getTaskCompletedByID(id)){
+		  boolean completed  = recorder.getTaskCompletedByID(id);
+		  boolean deleted = recorder.getTaskDeleteByID(id);
+		  DateTime updateTime = DateTime.parseRfc3339(recorder.getUpdateTimeByID(id));
+		  String identifier = recorder.getTaskIdentifierByID(id);
+		  String title = recorder.getTaskTitleByID(id);
+		  t.setDeleted(deleted);
+		  t.setTitle(title);
+		  if(completed){
 			  t.setStatus("completed");// Fuck!!! Why MUST use it instead of setCompleted!!!!
 		  }
-		  t.setUpdated(DateTime.parseRfc3339(recorder.getUpdateTimeByID(id)));
-		  t.setId(recorder.getTaskIdentifierByID(id));
+		  t.setUpdated(updateTime);
+		  t.setId(identifier);
 		  listTask.add(t);
 	  }
 	  return listTask;
   }
   
-  public void refreshUpdateTime(Task task) throws ParseException{
-	  DateTime dt = new DateTime(nowUTCDate());
-	  task.setUpdated(dt);
-  }
-  
-  public void deleteTaskInDBFlag(Task task){
-	  recorder.setTaskDeletedFlag(true, task.getId());
+//  public void refreshUpdateTime(Task task) throws ParseException{
+//	  DateTime dt = new DateTime(nowUTCDate());
+//	  task.setUpdated(dt);
+//  }
+//  
+  public void deleteTaskInDBFlagByID(int id){
+	  recorder.setTaskDeletedFlagByID(true, id);
+	  recorder.setUpdateTimeByID(nowStringRfc3339(), id);
+
   }
   
   public void deleteTaskInDBTrue(Task task){
@@ -110,23 +118,22 @@ public class TaskLocalUtils {
 	  return (task.getCompleted()==null? false:true);
   }
 
+  public void setCompletedByID(int id, boolean completed){
+	  recorder.setTaskCompletedByID(completed, id);
+	  recorder.setUpdateTimeByID(nowStringRfc3339(), id);
+  }
   public String getTitleById(int id){
 	  return recorder.getTaskTitleByID(id);
   }
   public void setTitleById(int id, String title){
 	  recorder.setTaskTitleByID(title, id);
-	  try {
-		recorder.setUpdateTimeByID(new DateTime(nowUTCDate()).toStringRfc3339(), id);
-	} catch (ParseException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+	  recorder.setUpdateTimeByID(nowStringRfc3339(), id);
   }
   public void deleteList(){
 	  recorder.deleteList();
   }
   public Cursor getAllCursor(){
-	  return recorder.getCursor();
+	  return recorder.getCursorWithoutDeleted();
   }
   public List<String> getTasksTitleFromDB() throws IOException{
 		List<String> result = new ArrayList<String>();
@@ -143,11 +150,9 @@ public class TaskLocalUtils {
   public void closeDB(){
 	  recorder.closeDB();
   }
-  private static Date nowUTCDate() throws ParseException{
-		SimpleDateFormat dateFormatUTC = new SimpleDateFormat("yyyy-MMM-dd HH:mm:ss");
-		dateFormatUTC.setTimeZone(TimeZone.getTimeZone("UTC"));
-		SimpleDateFormat dateFormatLocal = new SimpleDateFormat("yyyy-MMM-dd HH:mm:ss");
-		dateFormatLocal.setTimeZone(TimeZone.getTimeZone("UTC"));
-		return dateFormatLocal.parse( dateFormatUTC.format(new Date()) );
-	}
+  private  String nowStringRfc3339() {
+	SimpleDateFormat formatUTC = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'.000Z'");
+	formatUTC.setTimeZone(TimeZone.getTimeZone("UTC"));
+	return formatUTC.format(new Date());
+  }
 }

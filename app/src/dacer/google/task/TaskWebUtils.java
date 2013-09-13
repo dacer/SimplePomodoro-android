@@ -52,10 +52,24 @@ public class TaskWebUtils {
 //	return result;
 //  }
   
+  public void addTaskToWeb(String listId, Task task) throws IOException{	
+	  	try {
+			client.tasks().insert(listId, task).execute();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			Log.e("addTaskError--->", e.getMessage());
+			if(is404error(e.getMessage()) || SettingUtility.getTaskListId().equals("0")){
+				TaskUtils.initGuideList(mContext,client);
+				addTaskToWeb(SettingUtility.getTaskListId(), task);
+			}
+		}
+	  }
+  
   public void updateTasktoWeb(String listId,Task t) throws IOException{
-	  Log.e("updateTask----->",".");
-	  Log.e("ID-->",t.getId());
-	  Log.e("listid-->",listId);
+//	  Log.e("updateTask----->",".");
+//	  Log.e("ID-->",t.getId());
+//	  Log.e("listid-->",listId);
 //	  Log.e("completed-->",t.getCompleted().toStringRfc3339());
 //	  Log.e("deleted-->",String.valueOf(t.getDeleted()));
 //	  Log.e("UpdateTime-->",t.getUpdated().toStringRfc3339());
@@ -89,19 +103,7 @@ public class TaskWebUtils {
 	client.tasklists().insert(guideList).execute();
   }
   
-  public void addTaskToWeb(String listId, Task task) throws IOException{	
-  	try {
-		client.tasks().insert(listId, task).execute();
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-		Log.e("addTaskError--->", e.getMessage());
-		if(is404error(e.getMessage()) || SettingUtility.getTaskListId().equals("0")){
-			TaskUtils.initGuideList(mContext,client);
-			addTaskToWeb(SettingUtility.getTaskListId(), task);
-		}
-	}
-  }
+  
   
   //It seems google task api only can upload single task once,F*CK!!!
 //  public void addTasksToWeb(String listId, List<Task> taskList) throws IOException{	

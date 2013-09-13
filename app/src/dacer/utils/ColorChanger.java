@@ -46,7 +46,7 @@ public class ColorChanger {
 		String current_color = sharedPreferences.getString(SP_COLOR_STRING,
 				"#ffbb33");
 		if(!SettingUtility.isLightTheme()){
-			current_color = "#ffffff";
+			current_color = "#282828";
 		}
 		return current_color;
 	}

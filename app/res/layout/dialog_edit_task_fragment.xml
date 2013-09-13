@@ -17,6 +17,12 @@
         android:textSize="33sp"
         android:textStyle="bold"
         android:typeface="monospace" />
+    
+    <View 
+        android:id="@+id/line_2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#0099cc"/>
 
     <EditText
         android:id="@+id/title"

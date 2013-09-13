@@ -1,6 +1,5 @@
 package dacer.google.task;
 
-import java.text.ParseException;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -22,6 +21,7 @@ import android.widget.Toast;
 import com.dacer.simplepomodoro.R;
 
 import dacer.interfaces.DialogDismissListener;
+import dacer.settinghelper.SettingUtility;
 import dacer.utils.ColorChanger;
 
 public class TaskDialogFragment extends DialogFragment {
@@ -47,9 +47,9 @@ public class TaskDialogFragment extends DialogFragment {
 		mTitle = new TaskLocalUtils(getActivity()).getTitleById(db_id);
 	}
 	
-	public void setIsEditing(int line_id, String title){
+	public void setIsEditing(int db_id_input, String title){
 		isEditing = true;
-		db_id = line_id;
+		db_id = db_id_input;
 		mTitle = title;
 	}
 
@@ -63,6 +63,11 @@ public class TaskDialogFragment extends DialogFragment {
 		final TextView tv_dialog_title = (TextView) dialogView
 				.findViewById(R.id.tv_dialog_title);
 
+		View line = dialogView.findViewById(R.id.line_2);
+		if(SettingUtility.isLightTheme()){
+			line.setAlpha(0);
+		}
+		
 		String title_color = ColorChanger.getCurrentColor(getActivity());
 		tv_dialog_title.setBackgroundColor(Color.parseColor(title_color));
 		tv_dialog_title.setOnClickListener(new OnClickListener() {
@@ -91,7 +96,9 @@ public class TaskDialogFragment extends DialogFragment {
 	            
 	            @Override
 				public void run(){
-	            ((InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE)).showSoftInput(ET_title, 0);
+	            ((InputMethodManager)getActivity().
+	            		getSystemService(Context.INPUT_METHOD_SERVICE))
+	            		.showSoftInput(ET_title, 0);
 	            }
 	            
 	        },
@@ -108,19 +115,14 @@ public class TaskDialogFragment extends DialogFragment {
 											Toast.LENGTH_SHORT).show();
 								} else {
 									if (isEditing) {
-										new TaskLocalUtils(getActivity()).setTitleById(db_id+1, ET_title.getText()
+										new TaskLocalUtils(getActivity()).setTitleById(db_id, ET_title.getText()
 												.toString());
 										if (mListener != null) {
 											mListener.OnDialogDismiss();
 										}
 									} else {
-										try {
-											new TaskLocalUtils(getActivity()).addNewTask(ET_title.getText()
+										new TaskLocalUtils(getActivity()).addNewTask(ET_title.getText()
 													.toString());
-										} catch (ParseException e) {
-											// TODO Auto-generated catch block
-											e.printStackTrace();
-										}
 										if (mListener != null) {
 											mListener.OnDialogDismiss();
 										}
