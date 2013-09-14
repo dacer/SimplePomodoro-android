@@ -17,12 +17,11 @@ package dacer.google.task;
 import java.io.IOException;
 
 import android.os.AsyncTask;
-import android.view.View;
+import android.widget.ListView;
 
 import com.dacer.simplepomodoro.R;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GooglePlayServicesAvailabilityIOException;
 import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecoverableAuthIOException;
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 /**
  * Asynchronous task that also takes care of common needs, such as displaying progress,
@@ -34,12 +33,12 @@ abstract class CommonAsyncTask extends AsyncTask<Void, Void, Boolean> {
 
   final TaskListFragment mFragment;
   final com.google.api.services.tasks.Tasks client;
-  private final PullToRefreshListView listView;
+  private final ListView listView;
 
   CommonAsyncTask(TaskListFragment fragment) {
 	mFragment = fragment;
     client = fragment.service;
-    listView = (PullToRefreshListView) fragment.rootView.findViewById(R.id.list_task);
+    listView = (ListView) fragment.rootView.findViewById(R.id.list_task);
   }
 
   @Override
@@ -69,7 +68,7 @@ abstract class CommonAsyncTask extends AsyncTask<Void, Void, Boolean> {
   protected final void onPostExecute(Boolean success) {
     super.onPostExecute(success);
     if (0 == --mFragment.numAsyncTasks) {
-      listView.onRefreshComplete();
+//      listView.onRefreshComplete();
     }
     if (success) {
     	mFragment.refreshView();

@@ -13,16 +13,6 @@
         android:layout_marginRight="12dp"
         android:layout_marginTop="10dp" >
         
-        <Button
-            android:id="@+id/btn_delete"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:text="X" />
-        
         <TextView
             android:id="@+id/tvLarger"
             android:layout_width="match_parent"
@@ -30,7 +20,6 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:layout_toLeftOf="@id/btn_delete"
             android:ellipsize="marquee"
             android:text="Large Text"
             android:textAppearance="?android:attr/textAppearanceLarge" />

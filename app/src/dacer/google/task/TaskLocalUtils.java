@@ -107,7 +107,7 @@ public class TaskLocalUtils {
   public void deleteTaskInDBFlagByID(int id){
 	  recorder.setTaskDeletedFlagByID(true, id);
 	  recorder.setUpdateTimeByID(nowStringRfc3339(), id);
-
+	  
   }
   
   public void deleteTaskInDBTrue(Task task){

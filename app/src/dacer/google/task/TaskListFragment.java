@@ -1,6 +1,7 @@
 package dacer.google.task;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
@@ -22,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dacer.simplepomodoro.R;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -31,15 +33,16 @@ import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.gson.GsonFactory;
 import com.google.api.services.tasks.TasksScopes;
-import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.umeng.common.Log;
 
 import dacer.adapters.TaskListCursorAdapter;
 import dacer.interfaces.DialogDismissListener;
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.GlobalContext;
-
+/**
+ * Author:dacer
+ * Date  :Sep 10, 2013
+ */
 public class TaskListFragment extends Fragment implements DialogDismissListener{
 	private static final String KEY_CONTENT = "MainFragment:Content";
 	private String mContent = "???";
@@ -58,7 +61,7 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 //	  ArrayAdapter<String> adapter;
 	  com.google.api.services.tasks.Tasks service;
 	  int numAsyncTasks;
-	  PullToRefreshListView listView;
+	  ListView listView;
 	  
 	  
 	@Override
@@ -107,13 +110,13 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 			}
 		});
 		
-		listView = (PullToRefreshListView) rootView.findViewById(R.id.list_task);
-		listView.setOnRefreshListener(new OnRefreshListener<ListView>() {
-		    @Override
-		    public void onRefresh(PullToRefreshBase<ListView> refreshView) {
-		    	SyncDBTasks.run(TaskListFragment.this);
-		    }
-		});
+		listView = (ListView) rootView.findViewById(R.id.list_task);
+//		listView.setOnRefreshListener(new OnRefreshListener<ListView>() {
+//		    @Override
+//		    public void onRefresh(PullToRefreshBase<ListView> refreshView) {
+//		    	SyncDBTasks.run(TaskListFragment.this);
+//		    }
+//		});
 	}
 	
 	
@@ -148,16 +151,14 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 	  }
 
 	  void refreshView() {
-//	    adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, tasksList);
-//	    listView.setAdapter(adapter);
 		TaskLocalUtils tLocalUtils = new TaskLocalUtils(GlobalContext.getInstance());
-	    Cursor cr = tLocalUtils.getAllCursor();
+	    final Cursor cr = tLocalUtils.getAllCursor();
 	    
-	    final TaskListCursorAdapter adapter = new TaskListCursorAdapter(getActivity(), R.layout.my_task_list, 
+	    final TaskListCursorAdapter mAdapter = new TaskListCursorAdapter(getActivity(), R.layout.my_task_list, 
 					cr,
 					new String[] { TaskRecorder.KEY_TITLE },
 					new int[] { R.id.tvLarger }, 2, getFragmentManager(), this);
-		listView.setAdapter(adapter);
+		listView.setAdapter(mAdapter);
 		
 		SwipeDismissListViewTouchListener touchListener =
                 new SwipeDismissListViewTouchListener(
@@ -166,13 +167,16 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
                             @Override
                             public void onDismiss(ListView listView, int[] reverseSortedPositions) {
                                 for (int position : reverseSortedPositions) {
-//                                    adapter.remove(adapter.getItem(position));
-                                	//delete 
+//                                    mAdapter.remove(mAdapter.getItem(position));
+                                	new TaskLocalUtils(GlobalContext.getInstance()).
+                                	deleteTaskInDBFlagByID(getAllIdFromCursor(cr).get(position));
                                 }
-                                adapter.notifyDataSetChanged();
+//                                mAdapter.notifyDataSetChanged();
+                                refreshView();//Temporary solution for mAdapter do not have remove void 
+                                			//delete the tasks in cursor && adapter to replace it.
                             }
                         });
-		listView.setOnTouchListener(touchListener);
+        listView.setOnTouchListener(touchListener);
         listView.setOnScrollListener(touchListener.makeScrollListener());
 		}
 
@@ -258,5 +262,15 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 		
 	}
 
+	public ArrayList<Integer> getAllIdFromCursor(Cursor cursor){
+		int idIndex = cursor.getColumnIndex(TaskRecorder.KEY_ID);
+		ArrayList<Integer> mPosition_id = new ArrayList<Integer>();
+		for (cursor.moveToFirst(); !(cursor.isAfterLast()); cursor.moveToNext()) {
+			int tempInt = cursor.getInt(idIndex);
+			Integer integer = tempInt;
+			mPosition_id.add(integer);
+		}
+		return mPosition_id;
+	}
 	
 }

@@ -20,16 +20,13 @@
         android:textSize="83sp" />
 
 
-    <com.handmark.pulltorefresh.library.PullToRefreshListView
+    <ListView
         android:id="@+id/list_task"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/tv_title_task"  >
-
-        
-
-    </com.handmark.pulltorefresh.library.PullToRefreshListView>
+    </ListView>
 
     <Button
         android:id="@+id/btn_add_task"
