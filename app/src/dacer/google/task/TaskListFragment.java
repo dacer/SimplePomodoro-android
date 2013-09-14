@@ -50,19 +50,17 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 	View rootView;
 	//Google Task
 	private static final Level LOGGING_LEVEL = Level.OFF;
-//	  private static final String PREF_ACCOUNT_NAME = "accountName";
-	  static final String TAG = "TaskListFragment";
-	  static final int REQUEST_GOOGLE_PLAY_SERVICES = 0;
-	  static final int REQUEST_AUTHORIZATION = 1;
-	  static final int REQUEST_ACCOUNT_PICKER = 2;
-	  final HttpTransport transport = AndroidHttp.newCompatibleTransport();
-	  final JsonFactory jsonFactory = new GsonFactory();
-	  GoogleAccountCredential credential;
-	  List<String> tasksList;
-//	  ArrayAdapter<String> adapter;
-	  com.google.api.services.tasks.Tasks service;
-	  int numAsyncTasks;
-	  ListView listView;
+	static final String TAG = "TaskListFragment";
+	static final int REQUEST_GOOGLE_PLAY_SERVICES = 0;
+	static final int REQUEST_AUTHORIZATION = 1;
+	static final int REQUEST_ACCOUNT_PICKER = 2;
+	final HttpTransport transport = AndroidHttp.newCompatibleTransport();
+	final JsonFactory jsonFactory = new GsonFactory();
+	GoogleAccountCredential credential;
+	List<String> tasksList;
+	com.google.api.services.tasks.Tasks service;
+	int numAsyncTasks;
+	ListView listView;
 	  
 	  
 	@Override
@@ -78,7 +76,8 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 		rootView = inflater.inflate(R.layout.fragment_task, container,
 				false);
 		initView();
-		showGoogleTask();
+		refreshView();
+		initGoogleTask();
 		return rootView;
 	}
 
@@ -111,17 +110,34 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 				dialog.show(getFragmentManager(), "");
 			}
 		});
-        addTaskBTN.setOnLongClickListener(new OnLongClickListener() {
-			
-			@Override
-			public boolean onLongClick(View arg0) {
-				// TODO Auto-generated method stub
-				SyncDBTasks.run(TaskListFragment.this);
-				return true;
-			}
-		});
+        if(SettingUtility.enableGTask()){
+        	addTaskBTN.setOnLongClickListener(new OnLongClickListener() {
+    			
+    			@Override
+    			public boolean onLongClick(View arg0) {
+    				// TODO Auto-generated method stub
+//    				syncTask();
+    				chooseAccount();
+    				return true;
+    			}
+    		});
+        }
+        
 	}
 
+	private void initGoogleTask(){
+		Logger.getLogger("com.google.api.client").setLevel(LOGGING_LEVEL);
+		credential =
+		        GoogleAccountCredential.usingOAuth2(getActivity(), Collections.singleton(TasksScopes.TASKS));
+		credential.setSelectedAccountName(SettingUtility.getAccountName());
+		// Tasks client
+		service =
+		        new com.google.api.services.tasks.Tasks.Builder(transport, jsonFactory, credential)
+		            .setApplicationName("SimplePomodoro").build();
+		checkGooglePlayServicesAvailable();
+//		}
+	}
+	
 	  void refreshView() {
 		TaskLocalUtils tLocalUtils = new TaskLocalUtils(GlobalContext.getInstance());
 	    final Cursor cr = tLocalUtils.getAllCursorInMainList();
@@ -167,32 +183,19 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 	  }
 
 	  @Override
-	public void onResume() {
-	    super.onResume();
-//	    if (checkGooglePlayServicesAvailable()) {
-//	      haveGooglePlayServices();
-//	    }
-	  }
-
-	  @Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 	    super.onActivityResult(requestCode, resultCode, data);
 	    switch (requestCode) {
 	      case REQUEST_GOOGLE_PLAY_SERVICES:
 	        if (resultCode == Activity.RESULT_OK) {
-	          try {
-				haveGooglePlayServices();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+	          syncTask();
 	        } else {
 	          checkGooglePlayServicesAvailable();
 	        }
 	        break;
 	      case REQUEST_AUTHORIZATION:
 	        if (resultCode == Activity.RESULT_OK) {
-	          SyncDBTasks.run(this);
+	          FragmentAsyncTask.run(this);
 	        } else {
 	          chooseAccount();
 	        }
@@ -203,31 +206,14 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 	          if (accountName != null) {
 	            credential.setSelectedAccountName(accountName);
 	            SettingUtility.setAccountName(accountName);
-	            SyncDBTasks.run(this);
+	            FragmentAsyncTask.run(this);
 	          }
 	        }
 	        break;
 	    }
 	  }
 	  
-	  private void showGoogleTask(){
-			Logger.getLogger("com.google.api.client").setLevel(LOGGING_LEVEL);
-			credential =
-			        GoogleAccountCredential.usingOAuth2(getActivity(), Collections.singleton(TasksScopes.TASKS));
-			credential.setSelectedAccountName(SettingUtility.getAccountName());
-			// Tasks client
-			service =
-			        new com.google.api.services.tasks.Tasks.Builder(transport, jsonFactory, credential)
-			            .setApplicationName("SimplePomodoro").build();
-			if (checkGooglePlayServicesAvailable()) {
-				try {
-					haveGooglePlayServices();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}
+	  
 		
 		void showGooglePlayServicesAvailabilityErrorDialog(final int connectionStatusCode) {
 		    getActivity().runOnUiThread(new Runnable() {
@@ -250,14 +236,12 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 	    return true;
 	  }
 
-	  private void haveGooglePlayServices() throws IOException {
+	  private void syncTask() {
 	    // check if there is already an account selected
 	    if (credential.getSelectedAccountName() == null) {
 	      chooseAccount();
 	    } else {
-//	    	List<String> result = tLocalUtils.getTasksTitleFromDB();
-//	        tasksList = result;
-	        refreshView();
+	    	FragmentAsyncTask.run(this);
 	    }
 	  }
 

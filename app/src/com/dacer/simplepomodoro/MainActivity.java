@@ -34,9 +34,8 @@ public class MainActivity extends FragmentActivity{
 			mIndicator.setBackgroundColor(Color.WHITE);
 		}
         mIndicator.setViewPager(pager);
-        if (SettingUtility.enableGTask()){
-            mIndicator.setCurrentItem(1);
-        }
+        mIndicator.setCurrentItem(1);
+        
         
         //for long break
         MyUtils.deleteContinueTimes(this);

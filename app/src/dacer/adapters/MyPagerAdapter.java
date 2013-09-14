@@ -23,10 +23,10 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
 
 	@Override
 	public Fragment getItem(int position) {
-		if (position == (SettingUtility.enableGTask()? 1 : 0)) {
+		if (position == 1) {
 			Fragment fragment = new MainFragment();
 			return fragment;
-		} else if (position == (SettingUtility.enableGTask()? 2 : 1)) {
+		} else if (position == 2) {
 			Fragment fragment = new RecordFragment();
 			return fragment;
 		} else {
@@ -38,7 +38,7 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
 
 	@Override
     public int getCount() {
-        return SettingUtility.enableGTask()? 3 : 2;
+        return 3;
     }
 
     @Override

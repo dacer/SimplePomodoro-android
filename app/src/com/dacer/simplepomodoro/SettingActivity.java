@@ -37,10 +37,7 @@ import dacer.utils.MyUtils;
  * Date  :Jul 17, 2013
  */
 public class SettingActivity extends PreferenceActivity {
-	GoogleAccountCredential credential;
-	static final int REQUEST_ACCOUNT_PICKER = 2;
 	private AdsMogoLayout adsMogoLayout;
-	private static final String PREF_ACCOUNT_NAME = "accountName";
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +45,7 @@ public class SettingActivity extends PreferenceActivity {
         super.onCreate(savedInstanceState);
         GlobalContext.setActivity(this);
         setContentView(R.layout.preference_activity);
-        initCre();
-        
+
         getListView().setItemsCanFocus(true);
         
         if(!SettingUtility.isADRemoved()){
@@ -163,7 +159,7 @@ public class SettingActivity extends PreferenceActivity {
 			@Override
 			public boolean onPreferenceClick(Preference preference) {
 				// TODO Auto-generated method stub
-				chooseAccount();
+//				chooseAccount();
 				return false;
 			}
 		});
@@ -280,31 +276,7 @@ public class SettingActivity extends PreferenceActivity {
 		}
 		super.onDestroy();
 	}
-
     
-//    google task
+    //google task
     
-    @Override
-	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-	    super.onActivityResult(requestCode, resultCode, data);
-	    switch (requestCode) {
-	      case REQUEST_ACCOUNT_PICKER:
-	        if (resultCode == Activity.RESULT_OK && data != null && data.getExtras() != null) {
-	          String accountName = data.getExtras().getString(AccountManager.KEY_ACCOUNT_NAME);
-	          if (accountName != null) {
-	            credential.setSelectedAccountName(accountName);
-	            SettingUtility.setAccountName(accountName);
-	          }
-	        }
-	        break;
-	    }
-	  }
-    private void chooseAccount() {
-	    startActivityForResult(credential.newChooseAccountIntent(), REQUEST_ACCOUNT_PICKER);
-	  }
-    private void initCre(){
-    	credential =
-		        GoogleAccountCredential.usingOAuth2(this, Collections.singleton(TasksScopes.TASKS));
-		credential.setSelectedAccountName(SettingUtility.getAccountName());
-    }
 }

@@ -178,6 +178,25 @@ public class TaskRecorder {
 		return mPosition_id;
 	}
 	
+	public ArrayList<Integer> getAllNewId(){
+		db = mSQLHelper.getReadableDatabase();
+		Cursor cursor;
+		String selection = KEY_GOOGLE_TASK_IDENTIFIER + "=?";
+		String[] selectionArgs = { "0" };
+		cursor = db.query(TASKS_TABLE_NAME, null, selection,
+				selectionArgs, null, null, null);
+
+		int idIndex = cursor.getColumnIndex(KEY_ID);
+		ArrayList<Integer> mPosition_id = new ArrayList<Integer>();
+		for (cursor.moveToFirst(); !(cursor.isAfterLast()); cursor.moveToNext()) {
+			int tempInt = cursor.getInt(idIndex);
+			Integer integer = tempInt;
+			mPosition_id.add(integer);
+		}
+		return mPosition_id;
+	}
+	
+	
 	private String getInfo(String identifier, String KEY){
 		db = mSQLHelper.getReadableDatabase();
 		String selection = KEY_GOOGLE_TASK_IDENTIFIER + "=?";
@@ -275,14 +294,14 @@ public class TaskRecorder {
 		String[] selectionArgs = { "0","0" };
 		Cursor cursor;
 		cursor = db.query(TASKS_TABLE_NAME, null, selection,
-				selectionArgs, null, null, null);
+				selectionArgs, null, null, KEY_UPDATE_TIME+" DESC");
 		return cursor;
 	}
 	
-	public int deleteTaskTrue(String identifier) {
+	public int deleteTaskTrueByDBID(int db_id) {
 		db = mSQLHelper.getWritableDatabase();
-		String[] args = { identifier };
-		return db.delete(TASKS_TABLE_NAME, KEY_GOOGLE_TASK_IDENTIFIER
+		String[] args = { String.valueOf(db_id) };
+		return db.delete(TASKS_TABLE_NAME, KEY_ID
 				+ "=?", args);
 	}
 	

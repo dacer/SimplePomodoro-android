@@ -62,6 +62,8 @@ public class TaskWebUtils {
 			if(is404error(e.getMessage()) || SettingUtility.getTaskListId().equals("0")){
 				TaskUtils.initGuideList(mContext,client);
 				addTaskToWeb(SettingUtility.getTaskListId(), task);
+			}else {
+				throw e;
 			}
 		}
 	  }
@@ -84,7 +86,7 @@ public class TaskWebUtils {
 		.setShowDeleted(true)
 		.setShowCompleted(true)
 		.setShowHidden(false).execute();
-	} catch (IOException e) {
+	} catch (IOException e) {  // Draw snake and add feet(chinese proverbs XD)
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 		Log.e("getTask----->", e.getMessage());
@@ -92,6 +94,8 @@ public class TaskWebUtils {
 			Log.e("getTasksError--->", e.getMessage());
 			TaskUtils.initGuideList(mContext,client);
 			return getTasksFromWeb(SettingUtility.getTaskListId());
+		}else{
+			throw e;
 		}
 	}
     return tasks.getItems();

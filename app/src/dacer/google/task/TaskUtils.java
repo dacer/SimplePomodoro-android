@@ -2,6 +2,8 @@ package dacer.google.task;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import android.content.Context;
@@ -53,32 +55,36 @@ public class TaskUtils {
 		tWebUtils = new TaskWebUtils(tasks, c);
 		
 		//FIRST Push and delete new tasks(identifrer == 0) in local and delete in DB
-	    List<Task> localTaskList = tLocalUtils.getTasksFromDB();
-	    for(Task t : localTaskList){
-	    	if(t.getId().equals("0")){
-	    		t.setId(null);
-	    		tWebUtils.addTaskToWeb(listId, t);//may receive invalid listId
-	    		t.setId("0");
-	    		tLocalUtils.deleteTaskInDBTrue(t);
-	    	}
+		HashMap<Integer, Task> localNewTaskMap =  tLocalUtils.getLocalNewTaskMap();
+		Iterator<Integer> keySetIterator = localNewTaskMap.keySet().iterator();
+	    while(keySetIterator.hasNext()){
+	    	Integer db_id = keySetIterator.next();
+	    	Task t = localNewTaskMap.get(db_id);
+	    	t.setId(null);
+	    	tWebUtils.addTaskToWeb(listId, t);//may receive invalid listId
+	    	tLocalUtils.deleteTaskInDBTrue(db_id);
 	    }
 	    
 	    //SECOND
-	    localTaskList = tLocalUtils.getTasksFromDB();
+	    List<Task> localTaskList = tLocalUtils.getTasksFromDB();
 	    List<Task> webTaskList = tWebUtils.getTasksFromWeb(listId);//may receive invalid listId
 	    List<Task> waitAddToLocalDB = new ArrayList<Task>();
-	    for(Task t : webTaskList){
-	    	boolean exist = false;
-	    	for(Task tLocal : localTaskList){
-	    		if(tLocal.getId().equals(t.getId())){
-	    			exist = true;
-	    		}
-	    	}
-	    	if(!exist){
-	    		waitAddToLocalDB.add(t);
-	    	}
-	    }
-	    tLocalUtils.putTasksToDB(waitAddToLocalDB);
+	    if(!webTaskList.isEmpty()){
+	    	for(Task t : webTaskList){
+		    	boolean exist = false;
+		    	for(Task tLocal : localTaskList){
+		    		if(tLocal.getId().equals(t.getId())){
+		    			exist = true;
+		    		}
+		    	}
+		    	if(!exist){
+		    		waitAddToLocalDB.add(t);
+		    	}
+		    }
+	    } 
+	    if(!waitAddToLocalDB.isEmpty()){
+		    tLocalUtils.putTasksToDB(waitAddToLocalDB);
+		    }
 	    
 	    //THIRD
 	    localTaskList = tLocalUtils.getTasksFromDB();

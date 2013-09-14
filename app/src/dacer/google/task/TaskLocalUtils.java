@@ -1,17 +1,15 @@
 package dacer.google.task;
 
 import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.TimeZone;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.util.Log;
 
 import com.google.api.client.util.DateTime;
 import com.google.api.services.tasks.model.Task;
@@ -77,6 +75,30 @@ public class TaskLocalUtils {
 	  }
   }
   
+  public HashMap<Integer, Task> getLocalNewTaskMap(){
+	  ArrayList<Integer> allNewId = recorder.getAllNewId();
+	  HashMap<Integer, Task> result = new HashMap<Integer, Task>();
+	  if(!allNewId.isEmpty()){
+		  for(int id : allNewId){
+			  Task t = new Task();
+			  boolean completed  = recorder.getTaskCompletedByID(id);
+			  boolean deleted = recorder.getTaskDeleteByID(id);
+			  DateTime updateTime = DateTime.parseRfc3339(recorder.getUpdateTimeByID(id));
+			  String identifier = recorder.getTaskIdentifierByID(id);
+			  String title = recorder.getTaskTitleByID(id);
+			  t.setDeleted(deleted);
+			  t.setTitle(title);
+			  if(completed){
+				  t.setStatus("completed");// Fuck!!! Why MUST use it instead of setCompleted!!!!
+			  }
+			  t.setUpdated(updateTime);
+			  t.setId(identifier);
+			  result.put(id, t);
+		  }
+	  }
+	  return result;
+  }
+
   public List<Task> getTasksFromDB(){
 	  ArrayList<Integer> allId = recorder.getAllId();
 	  List<Task> listTask = new ArrayList<Task>();
@@ -110,8 +132,8 @@ public class TaskLocalUtils {
 	  
   }
   
-  public void deleteTaskInDBTrue(Task task){
-	  recorder.deleteTaskTrue(task.getId());
+  public void deleteTaskInDBTrue(int db_id){
+	  recorder.deleteTaskTrueByDBID(db_id);
   }
   
   public boolean getTaskCompleted(Task task){
@@ -135,6 +157,8 @@ public class TaskLocalUtils {
   public Cursor getAllCursorInMainList(){
 	  return recorder.getCursorWithoutDeletedandCompleted();
   }
+  
+  
   public List<String> getTasksTitleFromDB() throws IOException{
 		List<String> result = new ArrayList<String>();
 		List<Task> tasks = getTasksFromDB();
