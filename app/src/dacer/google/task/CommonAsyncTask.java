@@ -16,8 +16,12 @@ package dacer.google.task;
 
 import java.io.IOException;
 
+import android.opengl.Visibility;
 import android.os.AsyncTask;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import com.dacer.simplepomodoro.R;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GooglePlayServicesAvailabilityIOException;
@@ -34,17 +38,23 @@ abstract class CommonAsyncTask extends AsyncTask<Void, Void, Boolean> {
   final TaskListFragment mFragment;
   final com.google.api.services.tasks.Tasks client;
   private final ListView listView;
+  private final ImageButton refreshBtn;
+  private final ProgressBar progressBar;
 
   CommonAsyncTask(TaskListFragment fragment) {
 	mFragment = fragment;
     client = fragment.service;
     listView = (ListView) fragment.rootView.findViewById(R.id.list_task);
+    refreshBtn = (ImageButton) fragment.rootView.findViewById(R.id.btn_add_task);
+    progressBar = (ProgressBar) fragment.rootView.findViewById(R.id.progressBar1);
   }
 
   @Override
   protected void onPreExecute() {
     super.onPreExecute();
     mFragment.numAsyncTasks++;
+    refreshBtn.setVisibility(View.GONE);
+    progressBar.setVisibility(View.VISIBLE);
   }
 
   @Override
@@ -69,6 +79,8 @@ abstract class CommonAsyncTask extends AsyncTask<Void, Void, Boolean> {
     super.onPostExecute(success);
     if (0 == --mFragment.numAsyncTasks) {
 //      listView.onRefreshComplete();
+        refreshBtn.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.GONE);
     }
     if (success) {
     	mFragment.refreshView();

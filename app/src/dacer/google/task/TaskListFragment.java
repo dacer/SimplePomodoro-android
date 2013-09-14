@@ -19,11 +19,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dacer.simplepomodoro.R;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -33,9 +36,7 @@ import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.gson.GsonFactory;
 import com.google.api.services.tasks.TasksScopes;
-import com.umeng.common.Log;
 
-import dacer.adapters.TaskListCursorAdapter;
 import dacer.interfaces.DialogDismissListener;
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.GlobalContext;
@@ -76,15 +77,17 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 			Bundle savedInstanceState) {
 		rootView = inflater.inflate(R.layout.fragment_task, container,
 				false);
-		initFont();
-		initListener();
+		initView();
 		showGoogleTask();
 		return rootView;
 	}
 
 	
-	private void initFont(){
+	private void initView(){
 		TextView tv_title = (TextView)rootView.findViewById(R.id.tv_title_task);
+		ImageButton addTaskBTN = (ImageButton)rootView.findViewById(R.id.btn_add_task);
+		listView = (ListView) rootView.findViewById(R.id.list_task);
+		
 		Typeface roboto = Typeface.createFromAsset(getActivity()
 				.getAssets(), "fonts/Roboto-Thin.ttf");
 //		tv_record.setText(Html.fromHtml("<u>"+"To be continued"+"</u>"));
@@ -94,12 +97,11 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
         if(isLightTheme){
     		tv_title.setTextColor(Color.BLACK);
     		rootView.setBackgroundColor(Color.WHITE);
+    		
+    		addTaskBTN.setBackgroundColor(Color.argb(1, 0, 0, 0));
+    		addTaskBTN.setImageResource(R.drawable.new_btn_gray);
         }
-	}
-	
-	private void initListener(){
-		Button addTaskBTN = (Button)rootView.findViewById(R.id.btn_add_task);
-		addTaskBTN.setOnClickListener(new OnClickListener() {
+        addTaskBTN.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -109,55 +111,30 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 				dialog.show(getFragmentManager(), "");
 			}
 		});
-		
-		listView = (ListView) rootView.findViewById(R.id.list_task);
-//		listView.setOnRefreshListener(new OnRefreshListener<ListView>() {
-//		    @Override
-//		    public void onRefresh(PullToRefreshBase<ListView> refreshView) {
-//		    	SyncDBTasks.run(TaskListFragment.this);
-//		    }
-//		});
-	}
-	
-	
-	private void showGoogleTask(){
-		Logger.getLogger("com.google.api.client").setLevel(LOGGING_LEVEL);
-		credential =
-		        GoogleAccountCredential.usingOAuth2(getActivity(), Collections.singleton(TasksScopes.TASKS));
-		credential.setSelectedAccountName(SettingUtility.getAccountName());
-		// Tasks client
-		service =
-		        new com.google.api.services.tasks.Tasks.Builder(transport, jsonFactory, credential)
-		            .setApplicationName("SimplePomodoro").build();
-		if (checkGooglePlayServicesAvailable()) {
-			try {
-				haveGooglePlayServices();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+        addTaskBTN.setOnLongClickListener(new OnLongClickListener() {
+			
+			@Override
+			public boolean onLongClick(View arg0) {
+				// TODO Auto-generated method stub
+				SyncDBTasks.run(TaskListFragment.this);
+				return true;
 			}
-		}
+		});
 	}
-	
-	void showGooglePlayServicesAvailabilityErrorDialog(final int connectionStatusCode) {
-	    getActivity().runOnUiThread(new Runnable() {
-	      public void run() {
-	        Dialog dialog =
-	            GooglePlayServicesUtil.getErrorDialog(connectionStatusCode, getActivity(),
-	                REQUEST_GOOGLE_PLAY_SERVICES);
-	        dialog.show();
-	      }
-	    });
-	  }
 
 	  void refreshView() {
 		TaskLocalUtils tLocalUtils = new TaskLocalUtils(GlobalContext.getInstance());
-	    final Cursor cr = tLocalUtils.getAllCursor();
+	    final Cursor cr = tLocalUtils.getAllCursorInMainList();
+	    final ArrayList<String> mTitles = getAllTitlesOfCurosr(cr);
+	    final ArrayList<Integer> mIds = getAllIdFromCursor(cr);
 	    
-	    final TaskListCursorAdapter mAdapter = new TaskListCursorAdapter(getActivity(), R.layout.my_task_list, 
-					cr,
-					new String[] { TaskRecorder.KEY_TITLE },
-					new int[] { R.id.tvLarger }, 2, getFragmentManager(), this);
+//	    final TaskListCursorAdapter mAdapter = new TaskListCursorAdapter(getActivity(), R.layout.my_task_list, 
+//					cr,
+//					new String[] { TaskRecorder.KEY_TITLE },
+//					new int[] { R.id.tvLarger }, 2, getFragmentManager(), this);
+	    final SimpleCursorAdapter mAdapter = new SimpleCursorAdapter(getActivity(), 
+	    		R.layout.my_task_list, cr, new String[] { TaskRecorder.KEY_TITLE },
+	    		new int[] { R.id.tvLarger });
 		listView.setAdapter(mAdapter);
 		
 		SwipeDismissListViewTouchListener touchListener =
@@ -169,7 +146,7 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
                                 for (int position : reverseSortedPositions) {
 //                                    mAdapter.remove(mAdapter.getItem(position));
                                 	new TaskLocalUtils(GlobalContext.getInstance()).
-                                	deleteTaskInDBFlagByID(getAllIdFromCursor(cr).get(position));
+                                	setCompletedByID(mIds.get(position),true);
                                 }
 //                                mAdapter.notifyDataSetChanged();
                                 refreshView();//Temporary solution for mAdapter do not have remove void 
@@ -178,7 +155,16 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
                         });
         listView.setOnTouchListener(touchListener);
         listView.setOnScrollListener(touchListener.makeScrollListener());
-		}
+        listView.setOnItemLongClickListener (new OnItemLongClickListener() {
+        	  public boolean onItemLongClick(AdapterView parent, View view, int position, long id) {
+        		TaskDialogFragment dialog = new TaskDialogFragment();
+  				dialog.initDialog(TaskListFragment.this);
+  				dialog.setIsEditing(mIds.get(position), mTitles.get(position));
+  				dialog.show(getFragmentManager(), "");
+				return false;
+        	  }
+        });
+	  }
 
 	  @Override
 	public void onResume() {
@@ -224,6 +210,36 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 	    }
 	  }
 	  
+	  private void showGoogleTask(){
+			Logger.getLogger("com.google.api.client").setLevel(LOGGING_LEVEL);
+			credential =
+			        GoogleAccountCredential.usingOAuth2(getActivity(), Collections.singleton(TasksScopes.TASKS));
+			credential.setSelectedAccountName(SettingUtility.getAccountName());
+			// Tasks client
+			service =
+			        new com.google.api.services.tasks.Tasks.Builder(transport, jsonFactory, credential)
+			            .setApplicationName("SimplePomodoro").build();
+			if (checkGooglePlayServicesAvailable()) {
+				try {
+					haveGooglePlayServices();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		void showGooglePlayServicesAvailabilityErrorDialog(final int connectionStatusCode) {
+		    getActivity().runOnUiThread(new Runnable() {
+		      public void run() {
+		        Dialog dialog =
+		            GooglePlayServicesUtil.getErrorDialog(connectionStatusCode, getActivity(),
+		                REQUEST_GOOGLE_PLAY_SERVICES);
+		        dialog.show();
+		      }
+		    });
+		  }
+		
 	  /** Check that Google Play services APK is installed and up to date. */
 	  private boolean checkGooglePlayServicesAvailable() {
 	    final int connectionStatusCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
@@ -262,13 +278,23 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 		
 	}
 
-	public ArrayList<Integer> getAllIdFromCursor(Cursor cursor){
+	private ArrayList<Integer> getAllIdFromCursor(Cursor cursor){
 		int idIndex = cursor.getColumnIndex(TaskRecorder.KEY_ID);
 		ArrayList<Integer> mPosition_id = new ArrayList<Integer>();
 		for (cursor.moveToFirst(); !(cursor.isAfterLast()); cursor.moveToNext()) {
 			int tempInt = cursor.getInt(idIndex);
 			Integer integer = tempInt;
 			mPosition_id.add(integer);
+		}
+		return mPosition_id;
+	}
+	
+	 private ArrayList<String> getAllTitlesOfCurosr(Cursor cursor) {
+		int idIndex = cursor.getColumnIndex(TaskRecorder.KEY_TITLE);
+		ArrayList<String> mPosition_id = new ArrayList<String>();
+		for (cursor.moveToFirst(); !(cursor.isAfterLast()); cursor.moveToNext()) {
+			String temp = cursor.getString(idIndex);
+			mPosition_id.add(temp);
 		}
 		return mPosition_id;
 	}

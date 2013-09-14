@@ -267,21 +267,12 @@ public class TaskRecorder {
 	public void closeDB(){
 		db.close();
 	}
-	private SQLiteDatabase getWritableDB(){
-		SQLiteDatabase db;
-		return db = mSQLHelper.getWritableDatabase();
-	}
 	
-	private SQLiteDatabase getReadableDB(){
-		SQLiteDatabase db;
-		return db = mSQLHelper.getReadableDatabase();
-	}
-	
-	public Cursor getCursorWithoutDeleted() {
+	public Cursor getCursorWithoutDeletedandCompleted() {
 		// Log.e("getCursor", "start");
 		db = mSQLHelper.getReadableDatabase();
-		String selection = KEY_DELETED + "=?";
-		String[] selectionArgs = { "0" };
+		String selection = KEY_DELETED + "=? AND " + KEY_COMPLETED +"=?";
+		String[] selectionArgs = { "0","0" };
 		Cursor cursor;
 		cursor = db.query(TASKS_TABLE_NAME, null, selection,
 				selectionArgs, null, null, null);

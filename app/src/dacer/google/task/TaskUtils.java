@@ -31,13 +31,19 @@ public class TaskUtils {
 		}else{
 			tLocalUtils.deleteList();
 			tWebUtils.addTaskListToWeb(LIST_NAME);
-			Task t = new Task();
-			t.setTitle("Swipe to finish");
 			String listId = tWebUtils.getListIdFromWeb(LIST_NAME);
 			SettingUtility.setTaskListId(listId);
-			tWebUtils.addTaskToWeb(listId, t);
+			addTaskByTitle("Hold \"+\" to sync", tWebUtils, listId);
+			addTaskByTitle("Click \"+\" to add task", tWebUtils, listId);
+			addTaskByTitle("Swipe right to finish", tWebUtils, listId);
 		}
 	  }
+	
+	public static void addTaskByTitle(String title,TaskWebUtils tWebUtils,String listId) throws IOException{
+		Task t = new Task();
+		t.setTitle(title);
+		tWebUtils.addTaskToWeb(listId, t);
+	}
 	public static void updateDB(String listId,Context c,Tasks tasks) throws IOException{
 		//Read http://idacer.tk/?p=42
 		  

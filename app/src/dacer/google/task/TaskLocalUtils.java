@@ -132,8 +132,8 @@ public class TaskLocalUtils {
   public void deleteList(){
 	  recorder.deleteList();
   }
-  public Cursor getAllCursor(){
-	  return recorder.getCursorWithoutDeleted();
+  public Cursor getAllCursorInMainList(){
+	  return recorder.getCursorWithoutDeletedandCompleted();
   }
   public List<String> getTasksTitleFromDB() throws IOException{
 		List<String> result = new ArrayList<String>();
