@@ -53,20 +53,24 @@ public class TaskWebUtils {
 //  }
   
   public void addTaskToWeb(String listId, Task task) throws IOException{	
-	  	try {
-			client.tasks().insert(listId, task).execute();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			Log.e("addTaskError--->", e.getMessage());
-			if(is404error(e.getMessage()) || SettingUtility.getTaskListId().equals("0")){
-				TaskUtils.initGuideList(mContext,client);
-				addTaskToWeb(SettingUtility.getTaskListId(), task);
-			}else {
-				throw e;
-			}
-		}
+	  if(SettingUtility.getTaskListId().equals("0")){ //Get web list id and save to local
+		  TaskUtils.initWebList(mContext, client);
+		  listId = SettingUtility.getTaskListId();
 	  }
+	  try {
+		client.tasks().insert(listId, task).execute();
+	  } catch (IOException e) {
+			// TODO Auto-generated catch block
+		e.printStackTrace();
+		Log.e("addTaskError--->", e.getMessage());
+		if(is404error(e.getMessage())){
+			TaskUtils.initWebList(mContext,client);  //[webListId error]Update web list id 
+			addTaskToWeb(SettingUtility.getTaskListId(), task);
+		}else {
+			throw e;
+		}
+	}
+  }
   
   public void updateTasktoWeb(String listId,Task t) throws IOException{
 //	  Log.e("updateTask----->",".");
@@ -78,11 +82,15 @@ public class TaskWebUtils {
 	  client.tasks().update(listId, t.getId(),t).execute();
   }
   
-  public List<Task> getTasksFromWeb(String TaskListId) throws IOException{
+  public List<Task> getTasksFromWeb(String listId) throws IOException{
+	if(SettingUtility.getTaskListId().equals("0")){ //Get web list id and save to local
+	  TaskUtils.initWebList(mContext, client);
+	  listId = SettingUtility.getTaskListId();
+	}
 	com.google.api.services.tasks.model.Tasks tasks = new 
 			com.google.api.services.tasks.model.Tasks();
 	try {
-		tasks = client.tasks().list(TaskListId)
+		tasks = client.tasks().list(listId)
 		.setShowDeleted(true)
 		.setShowCompleted(true)
 		.setShowHidden(false).execute();
@@ -90,9 +98,9 @@ public class TaskWebUtils {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 		Log.e("getTask----->", e.getMessage());
-		if(is404error(e.getMessage()) || SettingUtility.getTaskListId().equals("0")){
+		if(is404error(e.getMessage())){
 			Log.e("getTasksError--->", e.getMessage());
-			TaskUtils.initGuideList(mContext,client);
+			TaskUtils.initWebList(mContext,client);
 			return getTasksFromWeb(SettingUtility.getTaskListId());
 		}else{
 			throw e;

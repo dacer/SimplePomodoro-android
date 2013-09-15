@@ -17,6 +17,7 @@ import dacer.utils.GlobalContext;
 public class SettingUtility {
 	public static final int LONG_BREAK_DURATION = 25;
 	
+	private static final String FIRST_START = "pref_first_start";
 	private static final String POMODORO_DURATION = "pref_pomodoro_duration";
 	private static final String THEME_TYPE = "pref_theme_type";
 	private static final String ENABLE_VIBRATIONS = "pref_enable_vibrations";
@@ -40,6 +41,16 @@ public class SettingUtility {
     private static Context getContext() {
         return GlobalContext.getInstance();
     }
+    
+    public static boolean isFirstStart(){
+   	 boolean value = SettingHelper.getSharedPreferences(getContext(), FIRST_START, true);
+        return value;
+    }
+    
+    public static void setFirstStart(boolean firstStart){
+    	SettingHelper.setEditor(getContext(), FIRST_START, firstStart);
+    }
+    
     
     public static boolean enableGTask(){
     	boolean enable = SettingHelper.getSharedPreferences(getContext(), ENABLE_GOOGLE_TASK, false);

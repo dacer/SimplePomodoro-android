@@ -108,12 +108,11 @@
     <string name="pref_ringtone_silent">静音</string>
     <string name="screen_locker_warnning">删除本软件前请必须点击“取消设备管理器授权”按钮</string>
 
-    <!-- Google Task -->
+    <!-- Recorder -->
     <string name="error">Error</string>
     <string name="error_format">[Error] %s</string>
     <string name="title_activity_break_finish">BreakFinishActivity</string>
     <string name="hello_world">Hello world!</string>
-
      <string name="daily_goal_error">错误：每日目标番茄数设置错误，请在设置项中改正！</string>
      
      <!-- About -->
@@ -146,4 +145,12 @@
     <string name="the_title_can_not_be_empty">不可为空！</string>
     <string name="ok">确定</string>
     <string name="Sync_with_google_task_is_not_enabled">与Google Task同步未开启</string>
+    
+    <!-- initTask  -->
+    <string name="swipe_right_to_finish">向右滑动完成此任务</string>
+    <string name="click_plus_to_add_task">点击加号添加任务</string>
+    <string name="pull_to_sync">下拉与google task同步</string>
+    <string name="hold_plus_to_change_account">按住加号切换谷歌帐号</string>
+    <string name="i_from_web">我是同步过来的XD</string>
+    
 </resources>

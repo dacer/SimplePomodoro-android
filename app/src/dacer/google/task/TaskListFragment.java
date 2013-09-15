@@ -15,7 +15,6 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -41,6 +40,7 @@ import com.google.api.services.tasks.TasksScopes;
 import dacer.interfaces.DialogDismissListener;
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.GlobalContext;
+import eu.erikw.PullToRefreshListView;
 import eu.erikw.PullToRefreshListView.OnRefreshListener;
 /**
  * Author:dacer
@@ -62,7 +62,7 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 	List<String> tasksList;
 	com.google.api.services.tasks.Tasks service;
 	int numAsyncTasks;
-	eu.erikw.PullToRefreshListView listView;
+	PullToRefreshListView listView;
 	ArrayList<String> mTitles;
     ArrayList<Integer> mIds;
 	  
@@ -79,17 +79,21 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 			Bundle savedInstanceState) {
 		rootView = inflater.inflate(R.layout.fragment_task, container,
 				false);
+		if(SettingUtility.isFirstStart()){
+			TaskUtils.initLocalList(getActivity());
+		}
 		initView();
 		refreshView();
-		initGoogleTask();
-		return rootView;
+		if(SettingUtility.enableGTask()){
+			initGoogleTask();	
+		}return rootView;
 	}
 
 	
 	private void initView(){
 		TextView tv_title = (TextView)rootView.findViewById(R.id.tv_title_task);
 		ImageButton addTaskBTN = (ImageButton)rootView.findViewById(R.id.btn_add_task);
-		listView = (eu.erikw.PullToRefreshListView) rootView.findViewById(R.id.list_task);
+		listView = (PullToRefreshListView) rootView.findViewById(R.id.list_task);
 		listView.setOnRefreshListener(new OnRefreshListener() {
 
 		    @Override
@@ -129,18 +133,24 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 				dialog.show(getFragmentManager(), "");
 			}
 		});
-        if(SettingUtility.enableGTask()){
         	addTaskBTN.setOnLongClickListener(new OnLongClickListener() {
     			
     			@Override
     			public boolean onLongClick(View arg0) {
     				// TODO Auto-generated method stub
-//    				syncTask();
-    				chooseAccount();
+
+    		        if(SettingUtility.enableGTask()){
+    		        	chooseAccount();}
+    		        else{
+    		        	Toast.makeText(getActivity(), 
+    		    				getActivity().getString(
+    		    						R.string.Sync_with_google_task_is_not_enabled),
+    		    				Toast.LENGTH_LONG).show();
+    				}
     				return true;
     			}
     		});
-        }
+        
         
         
         SwipeDismissListViewTouchListener touchListener =

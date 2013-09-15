@@ -19,7 +19,6 @@
         <CheckBoxPreference android:title="@string/pref_fast_mode" android:key="pref_fast_mode" android:summary="@string/pref_fast_mode_summary"/>
         <Preference android:key="pref_remove_manage" android:summary="@string/pref_remove_manage_summary" android:title="@string/pref_remove_manage"/>
             <CheckBoxPreference android:title="@string/pref_sync_with_google_task" android:key="pref_sync_with_google_task"/>
-            <Preference android:title="@string/pref_choose_account" android:key="pref_select_account"/>
     </PreferenceCategory>
     
     <PreferenceCategory android:title="@string/pref_title_info">

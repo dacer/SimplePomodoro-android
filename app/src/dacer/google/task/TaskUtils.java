@@ -8,6 +8,7 @@ import java.util.List;
 
 import android.content.Context;
 
+import com.dacer.simplepomodoro.R;
 import com.google.api.services.tasks.Tasks;
 import com.google.api.services.tasks.model.Task;
 
@@ -21,25 +22,30 @@ import dacer.settinghelper.SettingUtility;
 public class TaskUtils {
 	public static final String LIST_NAME = "SimplePomodoro";
 
-	public static void initGuideList(Context c,Tasks tasks) throws IOException{
-		TaskLocalUtils tLocalUtils;
+	public static void initWebList(Context c,Tasks tasks) throws IOException{
 		TaskWebUtils tWebUtils;
-		tLocalUtils = new TaskLocalUtils(c);
 		tWebUtils = new TaskWebUtils(tasks, c);
 		if(tWebUtils.listExistOnWeb(LIST_NAME)){
-			tLocalUtils.deleteList();
+//			tLocalUtils.deleteList();
 			String listId = tWebUtils.getListIdFromWeb(LIST_NAME);
 			SettingUtility.setTaskListId(listId);
 		}else{
-			tLocalUtils.deleteList();
+//			tLocalUtils.deleteList();
 			tWebUtils.addTaskListToWeb(LIST_NAME);
 			String listId = tWebUtils.getListIdFromWeb(LIST_NAME);
 			SettingUtility.setTaskListId(listId);
-			addTaskByTitle("Hold \"+\" to sync", tWebUtils, listId);
-			addTaskByTitle("Click \"+\" to add task", tWebUtils, listId);
-			addTaskByTitle("Swipe right to finish", tWebUtils, listId);
+			addTaskByTitle(c.getString(R.string.i_from_web), tWebUtils, listId);
 		}
 	  }
+	
+	public static void initLocalList(Context c){
+		TaskLocalUtils tLocalUtils = new TaskLocalUtils(c);
+		tLocalUtils.addNewTask(c.getString(R.string.swipe_right_to_finish));
+		tLocalUtils.addNewTask(c.getString(R.string.click_plus_to_add_task));
+		tLocalUtils.addNewTask(c.getString(R.string.hold_plus_to_change_account));
+		tLocalUtils.addNewTask(c.getString(R.string.pull_to_sync));
+		SettingUtility.setFirstStart(false);
+	}
 	
 	public static void addTaskByTitle(String title,TaskWebUtils tWebUtils,String listId) throws IOException{
 		Task t = new Task();
@@ -63,6 +69,7 @@ public class TaskUtils {
 	    	t.setId(null);
 	    	tWebUtils.addTaskToWeb(listId, t);//may receive invalid listId
 	    	tLocalUtils.deleteTaskInDBTrue(db_id);
+	    	listId = SettingUtility.getTaskListId();//add it because listid maybe updated in this loop
 	    }
 	    
 	    //SECOND

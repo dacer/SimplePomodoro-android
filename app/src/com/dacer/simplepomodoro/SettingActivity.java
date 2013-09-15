@@ -78,7 +78,6 @@ public class SettingActivity extends PreferenceActivity {
 		Preference email_us_Preference = findPreference("pref_email_us");
 		Preference donate_Preference = findPreference("donate");
 		Preference about_Preference = findPreference("pref_about");
-		Preference select_google_account_Preference = findPreference("pref_select_account");
 		
 		final Preference remove_manage_Preference = findPreference("pref_remove_manage");
 		final CheckBoxPreference fast_mode_Preference = 
@@ -154,15 +153,6 @@ public class SettingActivity extends PreferenceActivity {
 			}
 		});
 		
-		select_google_account_Preference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-			
-			@Override
-			public boolean onPreferenceClick(Preference preference) {
-				// TODO Auto-generated method stub
-//				chooseAccount();
-				return false;
-			}
-		});
 	}
 
 	@Override  
