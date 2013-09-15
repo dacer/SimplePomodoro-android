@@ -148,4 +148,5 @@
     <string name="task_title">Task title</string>
     <string name="the_title_can_not_be_empty">The title cannot be empty!</string>
     <string name="ok">OK</string>
+    <string name="Sync_with_google_task_is_not_enabled">Sync with google task is not enabled</string>
 </resources>

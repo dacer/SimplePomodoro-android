@@ -1,6 +1,5 @@
 package dacer.google.task;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,6 +15,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -27,6 +27,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dacer.simplepomodoro.R;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -40,6 +41,7 @@ import com.google.api.services.tasks.TasksScopes;
 import dacer.interfaces.DialogDismissListener;
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.GlobalContext;
+import eu.erikw.PullToRefreshListView.OnRefreshListener;
 /**
  * Author:dacer
  * Date  :Sep 10, 2013
@@ -60,7 +62,9 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 	List<String> tasksList;
 	com.google.api.services.tasks.Tasks service;
 	int numAsyncTasks;
-	ListView listView;
+	eu.erikw.PullToRefreshListView listView;
+	ArrayList<String> mTitles;
+    ArrayList<Integer> mIds;
 	  
 	  
 	@Override
@@ -85,7 +89,22 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 	private void initView(){
 		TextView tv_title = (TextView)rootView.findViewById(R.id.tv_title_task);
 		ImageButton addTaskBTN = (ImageButton)rootView.findViewById(R.id.btn_add_task);
-		listView = (ListView) rootView.findViewById(R.id.list_task);
+		listView = (eu.erikw.PullToRefreshListView) rootView.findViewById(R.id.list_task);
+		listView.setOnRefreshListener(new OnRefreshListener() {
+
+		    @Override
+		    public void onRefresh() {
+		    	if(SettingUtility.enableGTask()){
+			        syncTask();
+		    	}else{
+		    		Toast.makeText(getActivity(), 
+		    				getActivity().getString(
+		    						R.string.Sync_with_google_task_is_not_enabled),
+		    				Toast.LENGTH_LONG).show();
+		    		listView.onRefreshComplete();
+		    	}
+		    }
+		});
 		
 		Typeface roboto = Typeface.createFromAsset(getActivity()
 				.getAssets(), "fonts/Roboto-Thin.ttf");
@@ -123,6 +142,35 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
     		});
         }
         
+        
+        SwipeDismissListViewTouchListener touchListener =
+                new SwipeDismissListViewTouchListener(
+                        listView,
+                        new SwipeDismissListViewTouchListener.OnDismissCallback() {
+                            @Override
+                            public void onDismiss(ListView listView, int[] reverseSortedPositions) {
+                                for (int position : reverseSortedPositions) {
+//                                    mAdapter.remove(mAdapter.getItem(position));
+                                	new TaskLocalUtils(GlobalContext.getInstance()).
+                                	setCompletedByID(mIds.get(position-1),true);//position begin with 1,ArrayList begin with 0!
+                                	
+                                }
+//                                mAdapter.notifyDataSetChanged();
+                                refreshView();//Temporary solution for mAdapter do not have remove void 
+                                			//delete the tasks in cursor && adapter to replace it.
+                            }
+                        });
+        listView.setOnTouchListener(touchListener);
+        listView.setOnScrollListener(touchListener.makeScrollListener());
+        listView.setOnItemLongClickListener (new OnItemLongClickListener() {
+        	  public boolean onItemLongClick(AdapterView parent, View view, int position, long id) {
+        		TaskDialogFragment dialog = new TaskDialogFragment();
+  				dialog.initDialog(TaskListFragment.this);
+  				dialog.setIsEditing(mIds.get(position), mTitles.get(position));
+  				dialog.show(getFragmentManager(), "");
+				return false;
+        	  }
+        });
 	}
 
 	private void initGoogleTask(){
@@ -141,8 +189,8 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 	  void refreshView() {
 		TaskLocalUtils tLocalUtils = new TaskLocalUtils(GlobalContext.getInstance());
 	    final Cursor cr = tLocalUtils.getAllCursorInMainList();
-	    final ArrayList<String> mTitles = getAllTitlesOfCurosr(cr);
-	    final ArrayList<Integer> mIds = getAllIdFromCursor(cr);
+	    mTitles = getAllTitlesOfCurosr(cr);
+	    mIds = getAllIdFromCursor(cr);
 	    
 //	    final TaskListCursorAdapter mAdapter = new TaskListCursorAdapter(getActivity(), R.layout.my_task_list, 
 //					cr,
@@ -153,33 +201,7 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 	    		new int[] { R.id.tvLarger });
 		listView.setAdapter(mAdapter);
 		
-		SwipeDismissListViewTouchListener touchListener =
-                new SwipeDismissListViewTouchListener(
-                        listView,
-                        new SwipeDismissListViewTouchListener.OnDismissCallback() {
-                            @Override
-                            public void onDismiss(ListView listView, int[] reverseSortedPositions) {
-                                for (int position : reverseSortedPositions) {
-//                                    mAdapter.remove(mAdapter.getItem(position));
-                                	new TaskLocalUtils(GlobalContext.getInstance()).
-                                	setCompletedByID(mIds.get(position),true);
-                                }
-//                                mAdapter.notifyDataSetChanged();
-                                refreshView();//Temporary solution for mAdapter do not have remove void 
-                                			//delete the tasks in cursor && adapter to replace it.
-                            }
-                        });
-        listView.setOnTouchListener(touchListener);
-        listView.setOnScrollListener(touchListener.makeScrollListener());
-        listView.setOnItemLongClickListener (new OnItemLongClickListener() {
-        	  public boolean onItemLongClick(AdapterView parent, View view, int position, long id) {
-        		TaskDialogFragment dialog = new TaskDialogFragment();
-  				dialog.initDialog(TaskListFragment.this);
-  				dialog.setIsEditing(mIds.get(position), mTitles.get(position));
-  				dialog.show(getFragmentManager(), "");
-				return false;
-        	  }
-        });
+		
 	  }
 
 	  @Override

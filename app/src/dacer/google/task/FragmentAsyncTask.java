@@ -41,19 +41,19 @@ public class FragmentAsyncTask extends AsyncTask<Void, Void, Boolean> {
 
   final TaskListFragment mFragment;
   final com.google.api.services.tasks.Tasks client;
-  private final ProgressBar progressBar;
+//  private final ProgressBar progressBar;
 
   FragmentAsyncTask(TaskListFragment fragment) {
 	mFragment = fragment;
     client = fragment.service;
-    progressBar = (ProgressBar) fragment.rootView.findViewById(R.id.progressBar1);
+//    progressBar = (ProgressBar) fragment.rootView.findViewById(R.id.progressBar1);
   }
 
   @Override
   protected void onPreExecute() {
     super.onPreExecute();
     mFragment.numAsyncTasks++;
-    progressBar.setVisibility(View.VISIBLE);
+//    progressBar.setVisibility(View.VISIBLE);
   }
 
   @Override
@@ -77,7 +77,8 @@ public class FragmentAsyncTask extends AsyncTask<Void, Void, Boolean> {
   protected final void onPostExecute(Boolean success) {
     super.onPostExecute(success);
     if (0 == --mFragment.numAsyncTasks) {
-        progressBar.setVisibility(View.GONE);
+    	mFragment.listView.onRefreshComplete();
+//        progressBar.setVisibility(View.GONE);
     }
     if (success) {
     	mFragment.refreshView();

@@ -97,7 +97,7 @@
     <string name="pref_remove_manage">取消设备管理器授权</string>
     <string name="pref_remove_manage_summary">开启极速模式后，欲删除本软件请先点击我！</string>
     <string name="pref_title_sync">同步</string>
-    <string name="pref_sync_with_google_task">与Google Task同步（未完成）</string>
+    <string name="pref_sync_with_google_task">与Google Task同步</string>
     <string name="pref_sync_with_google_task_summary">Not recommend!</string>
     <string name="pref_choose_account">Choose account</string>
     <string name="pref_title_info">其他</string>
@@ -145,5 +145,5 @@
     <string name="task_title">任务内容</string>
     <string name="the_title_can_not_be_empty">不可为空！</string>
     <string name="ok">确定</string>
-    
+    <string name="Sync_with_google_task_is_not_enabled">与Google Task同步未开启</string>
 </resources>
