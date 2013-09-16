@@ -26,12 +26,10 @@ import dacer.settinghelper.SettingUtility;
 public class TaskWebUtils {
   private Tasks client;
   private Context mContext;
-  private TaskRecorder recorder;
   
-  public TaskWebUtils(Tasks c, Context cc) {
-	client = c;
+  public TaskWebUtils(Tasks task, Context cc) {
+	client = task;
 	mContext = cc;
-	recorder = new TaskRecorder(mContext);
   }
   
   

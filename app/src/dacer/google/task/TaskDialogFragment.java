@@ -63,9 +63,12 @@ public class TaskDialogFragment extends DialogFragment {
 		final TextView tv_dialog_title = (TextView) dialogView
 				.findViewById(R.id.tv_dialog_title);
 
+		ET_title = (EditText) dialogView.findViewById(R.id.title);
+		
 		View line = dialogView.findViewById(R.id.line_2);
 		if(SettingUtility.isLightTheme()){
 			line.setAlpha(0);
+			tv_dialog_title.setTextColor(Color.parseColor("#fffffb"));
 		}
 		
 		String title_color = ColorChanger.getCurrentColor(getActivity());
@@ -84,11 +87,10 @@ public class TaskDialogFragment extends DialogFragment {
 			}
 		});
 
-		ET_title = (EditText) dialogView.findViewById(R.id.title);
 		ET_title.setText(mTitle);
 		if (isEditing) {
 			// set the title of edit dialog
-			tv_dialog_title.setText("EDIT TASK");
+			tv_dialog_title.setText(getActivity().getString(R.string.edit_task));
 		}
 		   Timer timer = new Timer();
 	        timer.schedule(new TimerTask()

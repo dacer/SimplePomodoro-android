@@ -25,12 +25,13 @@ public class TaskUtils {
 	public static void initWebList(Context c,Tasks tasks) throws IOException{
 		TaskWebUtils tWebUtils;
 		tWebUtils = new TaskWebUtils(tasks, c);
+		TaskLocalUtils tLocalUtils = new TaskLocalUtils(c);
 		if(tWebUtils.listExistOnWeb(LIST_NAME)){
-//			tLocalUtils.deleteList();
+			tLocalUtils.deleteList();
 			String listId = tWebUtils.getListIdFromWeb(LIST_NAME);
 			SettingUtility.setTaskListId(listId);
 		}else{
-//			tLocalUtils.deleteList();
+			tLocalUtils.deleteList();
 			tWebUtils.addTaskListToWeb(LIST_NAME);
 			String listId = tWebUtils.getListIdFromWeb(LIST_NAME);
 			SettingUtility.setTaskListId(listId);

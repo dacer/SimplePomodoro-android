@@ -122,7 +122,7 @@
             android:name="cn.domob.android.ads.DomobActivity"
             android:theme="@android:style/Theme.Translucent" />
         <meta-data android:value="519a110656240b6b7b026b66" android:name="UMENG_APPKEY"></meta-data>
-		<meta-data android:value="Wandoujia" android:name="UMENG_CHANNEL"/>
+		<meta-data android:value="Google play" android:name="UMENG_CHANNEL"/>
     </application>
 
 </manifest>

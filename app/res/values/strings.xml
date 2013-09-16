@@ -144,7 +144,8 @@
     <string name="debug_mode_summary">The duration will be always 1 min</string>
     
     <!-- google task  -->
-    <string name="new_task">NEW TASK</string>
+    <string name="new_task">New Task</string>
+    <string name="edit_task">Edit Task</string>
     <string name="task_title">Task title</string>
     <string name="the_title_can_not_be_empty">The title cannot be empty!</string>
     <string name="ok">OK</string>

@@ -13,7 +13,7 @@
         android:gravity="center"
         android:scaleType="center"
         android:text="@string/new_task"
-        android:textColor="#fffffb"
+        android:textColor="#0099cc"
         android:textSize="33sp"
         android:textStyle="bold"
         android:typeface="monospace" />
@@ -21,7 +21,7 @@
     <View 
         android:id="@+id/line_2"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
         android:background="#0099cc"/>
 
     <EditText
