@@ -29,7 +29,7 @@ import dacer.utils.SetMyAlarmManager;
 public class BreakActivity extends Activity {
 	private ProgressBar mProgressBar;
 	private TextView tvTime;
-	private int breakDuration;
+	private int maxBreakDuration;
 	private int longBreakDuration;
 	TextView longBreakTV;
 	@Override
@@ -39,7 +39,7 @@ public class BreakActivity extends Activity {
 		//preference
 		final Window win = getWindow();
 		Typeface roboto = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Thin.ttf");
-        breakDuration = SettingUtility.getBreakDuration();
+		maxBreakDuration = SettingUtility.getBreakDuration();
         longBreakDuration = SettingUtility.LONG_BREAK_DURATION;
         if(SettingUtility.isFastMode()){
         	MyScreenLocker locker = new MyScreenLocker(this);
@@ -48,55 +48,20 @@ public class BreakActivity extends Activity {
         if(SettingUtility.isLightsOn()){
         	win.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
-
         setTheme(SettingUtility.getTheme());
-        
-//        breakDuration = 1;//<For TEST-------------------------------------
 		setContentView(R.layout.activity_break);
 		
-      if(MyUtils.getContinueTimes(this)%4 == 0){
+      if(MyUtils.getContinueTimes(this)%4 == 0 && MyUtils.getContinueTimes(this) != 0){
     	TextView longBreakTV = (TextView)findViewById(R.id.tv_long_break);
     	longBreakTV.setTypeface(roboto);
     	longBreakTV.setVisibility(View.VISIBLE);
-    	breakDuration = longBreakDuration; // Long break
-    	MyUtils.deleteContinueTimes(this);
+    	maxBreakDuration = longBreakDuration; // Long break
     }
-		
-		tvTime = (TextView)findViewById(R.id.tv_time);
+        tvTime = (TextView)findViewById(R.id.tv_time);
 		mProgressBar = (ProgressBar)findViewById(R.id.pb_time);
 		
 		tvTime.setTypeface(roboto);
-		
-		mProgressBar.setMax(breakDuration * 60);
-		
-		SetMyAlarmManager.schedulService(this, 
-				breakDuration, 
-				BreakFinishService.class);
-		
-		new CountDownTimer((long)breakDuration*60*1000+1000, 1000) {
-       	 	int min, sec, remainSec;
-	        String secStr; 
- 		    @Override
-			public void onTick(long millisUntilFinished) {
- 	            min = (int) (millisUntilFinished / 60000);
- 	            sec = (int) ((millisUntilFinished - min *60000)/1000);
- 	            if (sec < 10){
- 	            	secStr = "0"+String.valueOf(sec);
- 	            }else{
- 	            	secStr = String.valueOf(sec);
- 	            }
- 	            tvTime.setText(min+":"+secStr);
- 	            remainSec = (int) (breakDuration*60 - millisUntilFinished/1000);
- 	            mProgressBar.setProgress(remainSec);
- 		    	
- 		    }
-
- 		    @Override
-			public void onFinish() {
- 		    	finish();
- 		    }
- 		  }.start();
- 		  
+		showContinueView();
  		  
 	}
 
@@ -106,7 +71,8 @@ public class BreakActivity extends Activity {
 		MyNotification mn = new MyNotification(BreakActivity.this);
         mn.showSimpleNotification(getString(R.string.break_time),
         		getString(R.string.click_to_return), true,
-        		BreakActivity.class);
+        		MainActivity.class);
+        SettingUtility.setRunningType(SettingUtility.BREAK_RUNNING);
 	}
 
 	@Override
@@ -114,6 +80,7 @@ public class BreakActivity extends Activity {
 		super.onResume();
 		MyNotification noti = new MyNotification(this);
 		noti.cancelNotification();
+//		SettingUtility.setRunningType(SettingUtility.NONE_RUNNING);
 	}
 	
 	@Override
@@ -154,4 +121,51 @@ public class BreakActivity extends Activity {
         }
         return false;
     }
+	
+	
+	private void showContinueView(){
+		mProgressBar.setMax(maxBreakDuration * 60);
+		int nowProcess = 0;
+		final long leftTimeInMills;
+		
+		long finishTime = SettingUtility.getFinishTimeInMills();
+		long nowTime = MyUtils.getCurrentGMTTimeInMIlls();
+		int runningType = SettingUtility.getRunningType();
+		if((finishTime > nowTime) &&(runningType == SettingUtility.BREAK_RUNNING)){
+			leftTimeInMills = finishTime - nowTime + 1000;
+			nowProcess = (int) (maxBreakDuration*60 - leftTimeInMills/1000);
+			mProgressBar.setProgress(nowProcess);
+		}else {
+			SetMyAlarmManager.schedulService(this, 
+					maxBreakDuration, 
+					BreakFinishService.class);
+			leftTimeInMills = (long)maxBreakDuration*60*1000+1000;
+		}
+
+		
+		SettingUtility.setRunningType(SettingUtility.BREAK_RUNNING);
+		new CountDownTimer(leftTimeInMills, 1000) {
+       	 	int min, sec, remainSec;
+	        String secStr; 
+ 		    @Override
+			public void onTick(long millisUntilFinished) {
+ 	            min = (int) (millisUntilFinished / 60000);
+ 	            sec = (int) ((millisUntilFinished - min *60000)/1000);
+ 	            if (sec < 10){
+ 	            	secStr = "0"+String.valueOf(sec);
+ 	            }else{
+ 	            	secStr = String.valueOf(sec);
+ 	            }
+ 	            tvTime.setText(min+":"+secStr);
+ 	            remainSec = (int) (leftTimeInMills - millisUntilFinished)/1000;
+ 	            mProgressBar.setProgress(remainSec);
+ 		    	
+ 		    }
+
+ 		    @Override
+			public void onFinish() {
+ 		    	finish();
+ 		    }
+ 		  }.start();
+	}
 }

@@ -9,15 +9,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
 import dacer.interfaces.OnClickCircleListener;
+import dacer.service.BreakFinishService;
 import dacer.service.CDService;
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.GlobalContext;
 import dacer.utils.MyNotification;
 import dacer.utils.MyScreenLocker;
+import dacer.utils.MyUtils;
 import dacer.utils.SetMyAlarmManager;
 import dacer.views.CircleView;
 import dacer.views.CircleView.RunMode;
@@ -33,7 +36,6 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		GlobalContext.setActivity(this);
-	    
         if(SettingUtility.isFastMode()){
         	MyScreenLocker locker = new MyScreenLocker(this);
             locker.myLockNow();
@@ -57,18 +59,21 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
 		}
 		mView = new CircleView(this,width/2, 
 				height/2, bigCirRadius, 
-				getString(R.string.start), 0, this,RunMode.MODE_ONE,this);
-		startCountDown(SettingUtility.getPomodoroDuration(), this);
+				getString(R.string.start), 0, this,RunMode.MODE_ONE);
+		
+		showContinueView();
 		setContentView(mView);
 	}
 
 	
-	private void startCountDown(final int totalTime,Context context){
-		SetMyAlarmManager.schedulService(context, totalTime,CDService.class);//set alarm after 25min
-        new CountDownTimer((long)totalTime*60*1000+1000, 1000) {
+	private void startCountDown(final int leftTimeInSec, final int totalTimeInMin, Context context){
+//		SetMyAlarmManager.schedulService(context, totalTime,CDService.class);
+		SettingUtility.setRunningType(SettingUtility.POMO_RUNNING);
+		final int leftTimeInMin = leftTimeInSec/60;
+        new CountDownTimer((long)leftTimeInSec*1000+1000, 1000) {
         	 int min, sec;
 	         String secStr;
-	         float sweepInc = 360f/(totalTime*60f);
+	         float sweepInc = 360f/(totalTimeInMin*60f);
 	         float mSweep;
 	         
   		     @Override
@@ -80,7 +85,7 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
   	            }else{
   	            	secStr = String.valueOf(sec);
   	            }
-  	            mSweep = 360 - sweepInc * (millisUntilFinished / 1000);
+  	            mSweep = 360*(leftTimeInMin/totalTimeInMin) - sweepInc * (millisUntilFinished / 1000);
   		    	mView.setMySweep(mSweep);
   		    	mView.setMyText(String.valueOf(min)+":"+ secStr);
   		    	mView.postInvalidate();
@@ -145,7 +150,8 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
 		MyNotification mn = new MyNotification(PomoRunningActivity.this);
         mn.showSimpleNotification(getString(R.string.sp_is_running),
         		getString(R.string.click_to_return), true,
-        		PomoRunningActivity.class);
+        		MainActivity.class);
+		SettingUtility.setRunningType(SettingUtility.POMO_RUNNING);
 	}
 
 	@Override
@@ -153,6 +159,7 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
 		super.onResume();
 		MyNotification noti = new MyNotification(this);
 		noti.cancelNotification();
+//		SettingUtility.setRunningType(SettingUtility.NONE_RUNNING);
 	}
 	
 	@Override
@@ -161,6 +168,28 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
 		//show/hide time text
 		mView.setTextAlpha(isDisplay? 0 : 255);
 		isDisplay = !isDisplay;
+	}
+	
+	private void showContinueView(){
+		
+		final int leftTimeInSec;
+		long finishTime = SettingUtility.getFinishTimeInMills();
+		long nowTime = MyUtils.getCurrentGMTTimeInMIlls();
+//		Log.e("finishTime", String.valueOf(finishTime));
+//		Log.e("nowTime", String.valueOf(nowTime));
+		int runningType = SettingUtility.getRunningType();
+//		Log.e("runningtype", String.valueOf(runningType));
+		
+		if((finishTime > nowTime) &&(runningType == SettingUtility.POMO_RUNNING)){
+			leftTimeInSec = (int) ((finishTime - nowTime + 1000)/1000);
+		}else {
+			SetMyAlarmManager.schedulService(this, 
+					SettingUtility.getPomodoroDuration(), 
+					CDService.class);
+			leftTimeInSec = SettingUtility.getPomodoroDuration()*60;
+		}
+		startCountDown(leftTimeInSec, SettingUtility.getPomodoroDuration(), this);
+
 	}
 
 }

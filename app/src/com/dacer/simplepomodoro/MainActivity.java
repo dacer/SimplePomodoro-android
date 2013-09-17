@@ -23,8 +23,10 @@ public class MainActivity extends FragmentActivity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setTheme(SettingUtility.getTheme());
 		GlobalContext.setActivity(this);
+		initNowRunningType();
+		
+		setTheme(SettingUtility.getTheme());
 		setContentView(R.layout.activity_main);
 		
 		ViewPager pager = (ViewPager)findViewById(R.id.pager);
@@ -70,4 +72,17 @@ public class MainActivity extends FragmentActivity{
         return false;
     }
 
+	private void initNowRunningType(){
+		long finishTime = SettingUtility.getFinishTimeInMills();
+		long nowTime = MyUtils.getCurrentGMTTimeInMIlls();
+		int runningType = SettingUtility.getRunningType();
+		if((finishTime > nowTime) &&(runningType != SettingUtility.NONE_RUNNING)){
+			if(runningType == SettingUtility.POMO_RUNNING){
+				startActivity(new Intent(MainActivity.this, PomoRunningActivity.class));
+			}else if(runningType == SettingUtility.BREAK_RUNNING){
+				startActivity(new Intent(MainActivity.this, BreakActivity.class));
+			}
+			finish();
+		}
+	}
 }

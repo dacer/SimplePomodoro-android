@@ -1,7 +1,9 @@
 package dacer.utils;
 
 import java.lang.reflect.Field;
+import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -9,6 +11,8 @@ import android.app.ActivityManager.RunningTaskInfo;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Build;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
@@ -202,4 +206,33 @@ public class MyUtils {
 			return false;
 		}
 	} 
+	
+	public static String getAppVersion(){
+		PackageInfo pInfo;
+		String version = "Error";
+		try {
+			pInfo = GlobalContext.getActivity().
+					getPackageManager().getPackageInfo(
+							GlobalContext.getActivity().
+							getPackageName(), 0);
+			version = pInfo.versionName;
+		} catch (NameNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return version;
+	}
+	
+	public static long getCurrentGMTTimeInMIlls(){
+		//Current location time inMillis - timeZoneOffset = GMT time inMillis
+		Calendar calendar = Calendar.getInstance();
+		long unixTime = calendar.getTimeInMillis();
+		long unixTimeGMT = unixTime - TimeZone.getDefault().getRawOffset();
+		return unixTimeGMT;
+	}
+	
+//	public static long getUnixTimeInMills(){
+//		return System.currentTimeMillis();
+//	}
+	
 }

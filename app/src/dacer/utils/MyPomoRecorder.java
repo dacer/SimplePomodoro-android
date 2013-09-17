@@ -42,7 +42,7 @@ public class MyPomoRecorder {
 		db = mSQLHelper.getWritableDatabase();
 		cv.put(KEY_TITLE, title);
 		cv.put(KEY_NOTES, notes);
-		long nowTime = getCurrentGMTTimeInMIlls()/1000;
+		long nowTime = MyUtils.getCurrentGMTTimeInMIlls()/1000;
 		cv.put(KEY_STARTTIME, nowTime - durationMin * 60);
 		cv.put(KEY_FINISHTIME, nowTime);
 		cv.put(KEY_TYPE, mType.equals(PomoType.POMODORO)? 0:1);
@@ -140,13 +140,7 @@ public class MyPomoRecorder {
 	}
 
 	
-	private long getCurrentGMTTimeInMIlls(){
-		//Current location time inMillis - timeZoneOffset = GMT time inMillis
-		Calendar calendar = Calendar.getInstance();
-		long unixTime = calendar.getTimeInMillis();
-		long unixTimeGMT = unixTime - TimeZone.getDefault().getRawOffset();
-		return unixTimeGMT;
-	}
+	
 	
 	private long getTodayZeroOclockGMTTimeInMIlls(){
 		//Current location time inMillis - timeZoneOffset = GMT time inMillis

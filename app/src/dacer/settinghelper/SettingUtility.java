@@ -1,5 +1,7 @@
 package dacer.settinghelper;
 
+import java.util.Calendar;
+
 import android.content.Context;
 import android.graphics.Color;
 import android.widget.Toast;
@@ -9,6 +11,7 @@ import com.google.api.services.tasks.Tasks;
 
 import dacer.google.task.TaskWebUtils;
 import dacer.utils.GlobalContext;
+import dacer.utils.MyUtils;
 
 /**
  * Author:qii
@@ -37,12 +40,60 @@ public class SettingUtility {
 	
 	//Anti be killed Test
 	private static final String FINISH_TIME = "finish_time";
+	private static final String NOW_RUNNING_TYPE = "now_running_type";
+	public static final int NONE_RUNNING = 0;
+	public static final int POMO_RUNNING = 1;
+	public static final int BREAK_RUNNING = 2;
+	
+	
     private SettingUtility() {
 
     }
 
     private static Context getContext() {
         return GlobalContext.getInstance();
+    }
+    
+//    public static void autoSetFinishTime(int runningType){
+//    	long nowMills = MyUtils.getCurrentGMTTimeInMIlls();
+//    	long finishMills = nowMills;
+//    	switch (runningType) {
+//		case POMO_RUNNING:
+//			finishMills += getPomodoroDuration()*60000;
+//			break;
+//
+//		case BREAK_RUNNING:
+//			finishMills += getBreakDuration()*60000;
+//			break;
+//			
+//		case NONE_RUNNING:
+//			finishMills = 0;
+//			break;
+//		default:
+//			break;
+//		}
+//    	setFinishTimeInMills(finishMills);
+//    	setRunningType(runningType);
+//    }
+    
+    public static long getFinishTimeInMills() {
+    	long type = SettingHelper.
+    			getSharedPreferences(getContext(), FINISH_TIME, 0L);
+    	return type;
+    }
+    
+    public static void setFinishTimeInMills(long inMill){
+    	SettingHelper.setEditor(getContext(), FINISH_TIME, inMill);
+    }
+    
+    public static int getRunningType() {
+    	int type = SettingHelper.
+    			getSharedPreferences(getContext(), NOW_RUNNING_TYPE, 0);
+    	return type;
+    }
+    
+    public static void setRunningType(int runningType) {
+    	SettingHelper.setEditor(getContext(), NOW_RUNNING_TYPE, runningType);
     }
     
     public static boolean isFirstStart(){

@@ -46,7 +46,7 @@ public class FinishScreenActivity extends Activity implements OnClickCircleListe
         }
 		View mView = new CircleView(this, width/2, 
 				height/2, bigCirRadius, 
-				getString(R.string.tap_to_break), 360, this,CircleView.RunMode.MODE_TWO,this);
+				getString(R.string.tap_to_break), 360, this,CircleView.RunMode.MODE_TWO);
 		setContentView(mView);
 		final Window win = getWindow();
 		  win.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED

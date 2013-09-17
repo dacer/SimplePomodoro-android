@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import dacer.interfaces.OnClickCircleListener;
+import dacer.settinghelper.SettingUtility;
 import dacer.utils.MyUtils;
 import dacer.views.CircleView;
 import dacer.views.CircleView.RunMode;
@@ -43,7 +44,7 @@ public class MainFragment extends Fragment implements OnClickCircleListener{
 				MyUtils.getScreenWidth()/2, 
 				MyUtils.getScreenHeight()/2, 
 				MyUtils.getBigCirRadius(getActivity()), 
-				getString(R.string.start), 360, this,RunMode.MODE_ONE,getActivity());
+				getString(R.string.start), 360, this,RunMode.MODE_ONE);
 		return mView;
 	}
 

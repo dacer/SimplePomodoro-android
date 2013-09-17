@@ -30,7 +30,6 @@ import dacer.utils.MyUtils;
 public class CircleView extends View {
 	//used to draw two circles
 	Context mContext;
-	private Activity mActivity;
 	private int mAllAlpha = 0;
 	private Boolean enterAnimSign = true;
 	private int backgroundColor;
@@ -74,9 +73,8 @@ public class CircleView extends View {
     
     public CircleView(Context context,float cirCenterX, float cirCenterY,
     		float bigCirRadius, String centerTextStr,
-    		float sweepAngle, OnClickCircleListener listener,RunMode mode,Activity mActivity) {
+    		float sweepAngle, OnClickCircleListener listener,RunMode mode) {
         super(context);
-        this.mActivity = mActivity;
         mContext = context;
         backgroundColor = SettingUtility.isLightTheme()? Color.WHITE:Color.BLACK;
         bigCirColor = SettingUtility.getBigCirColor();
