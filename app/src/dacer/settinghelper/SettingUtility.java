@@ -35,8 +35,8 @@ public class SettingUtility {
 	private static final String DEBUG_MODE = "debug_mode";
 	private static final String PRE_ADREMOVED = "adremoved";
 	
-	//Anti killed Test
-//	private static final String 
+	//Anti be killed Test
+	private static final String FINISH_TIME = "finish_time";
     private SettingUtility() {
 
     }
