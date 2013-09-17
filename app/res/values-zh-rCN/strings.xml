@@ -154,4 +154,8 @@
     <string name="hold_plus_to_change_account">按住加号切换谷歌帐号</string>
     <string name="i_from_web">我是同步过来的XD</string>
     
+    <!-- Thanks  -->
+    <string name="thanks">感谢</string>
+    <string name="tossking">tossking(Neo Tian)</string>
+    <string name="help_me_publish_app">帮助我发布此软件到google play</string>
 </resources>

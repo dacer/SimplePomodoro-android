@@ -1,12 +1,6 @@
 package com.dacer.simplepomodoro;
 
-import java.util.Collections;
-
-import android.accounts.AccountManager;
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -23,9 +17,9 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.widget.LinearLayout;
 
-import com.adsmogo.adview.AdsMogoLayout;
-import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
-import com.google.api.services.tasks.TasksScopes;
+import com.google.ads.AdRequest;
+import com.google.ads.AdSize;
+import com.google.ads.AdView;
 
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.GlobalContext;
@@ -37,7 +31,7 @@ import dacer.utils.MyUtils;
  * Date  :Jul 17, 2013
  */
 public class SettingActivity extends PreferenceActivity {
-	private AdsMogoLayout adsMogoLayout;
+	private AdView adView;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +44,9 @@ public class SettingActivity extends PreferenceActivity {
         
         if(!SettingUtility.isADRemoved()){
         	LinearLayout layout = (LinearLayout)findViewById(R.id.ad_view);
-        	adsMogoLayout = new AdsMogoLayout(this,
-  				"41fd5ef6c39b4b95990bc84e9cd7bdaf", false);
-        	adsMogoLayout. downloadIsShowDialog=true;
-      		layout.addView(adsMogoLayout);
+            adView = new AdView(this, AdSize.BANNER, "a1519a1170dffb0");
+      		layout.addView(adView);
+      		adView.loadAd(new AdRequest());
         }
     }
     
@@ -261,9 +254,9 @@ public class SettingActivity extends PreferenceActivity {
     
     @Override
 	protected void onDestroy() {
-		if (adsMogoLayout != null) {
-			adsMogoLayout.clearThread();
-		}
+    	if (adView != null) {
+    	      adView.destroy();
+    	    }
 		super.onDestroy();
 	}
     

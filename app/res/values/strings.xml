@@ -157,4 +157,9 @@
     <string name="pull_to_sync">Pull to sync with google task</string>
     <string name="hold_plus_to_change_account">Hold \"+\" to change account</string>
     <string name="i_from_web">I\'m from google task:)</string>
+    
+    <!-- Thanks  -->
+    <string name="thanks">Thanks</string>
+    <string name="tossking">tossking(Neo Tian)</string>
+    <string name="help_me_publish_app">Help me publish the app</string>
 </resources>

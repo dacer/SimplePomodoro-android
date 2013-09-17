@@ -34,6 +34,9 @@ public class SettingUtility {
 	private static final String AUTH_ACCOUNT_NAME = "auth_account_name";
 	private static final String DEBUG_MODE = "debug_mode";
 	private static final String PRE_ADREMOVED = "adremoved";
+	
+	//Anti killed Test
+//	private static final String 
     private SettingUtility() {
 
     }

@@ -1,5 +1,7 @@
 package com.dacer.simplepomodoro;
 
+import com.umeng.analytics.MobclickAgent;
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import dacer.planefighter.BGSurfaceView;
 import dacer.planefighter.onGameOverListener;
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.GlobalContext;
+import dacer.utils.MyNotification;
 
 public class PlaneFighterActivity extends FragmentActivity implements onGameOverListener{
 
@@ -91,11 +94,20 @@ public class PlaneFighterActivity extends FragmentActivity implements onGameOver
 		
 	}
 	
+
+	@Override
+	protected void onResume(){
+		super.onResume();
+		MobclickAgent.onResume(this);
+	}
+	
+	
 	@Override
 	protected void onPause() {
 		// TODO Auto-generated method stub
 		super.onPause();
 		finish();
+		MobclickAgent.onPause(this);
 	}
 
 }

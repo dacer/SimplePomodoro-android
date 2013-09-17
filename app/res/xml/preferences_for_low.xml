@@ -20,9 +20,12 @@
         <Preference android:key="pref_remove_manage" android:summary="@string/pref_remove_manage_summary" android:title="@string/pref_remove_manage"/>
             <CheckBoxPreference android:title="@string/pref_sync_with_google_task" android:key="pref_sync_with_google_task"/>
     </PreferenceCategory>
-    
+    <PreferenceCategory android:title="@string/thanks">
+    			<Preference android:summary="@string/help_me_publish_app" android:title="@string/tossking" />
+    </PreferenceCategory>
+    		
     <PreferenceCategory android:title="@string/pref_title_info">
-        <PreferenceScreen android:title="@string/pref_email_us" android:key="pref_email_us"></PreferenceScreen>
+        <PreferenceScreen android:title="@string/pref_email_us" android:key="pref_email_us"></PreferenceScreen>    
     	<PreferenceScreen android:summary="@string/donate_summary" android:title="@string/donate_via" android:key="donate"></PreferenceScreen>
     	<PreferenceScreen android:title="@string/pref_about" android:key="pref_about" android:summary="@string/pref_about_summary"></PreferenceScreen>
     </PreferenceCategory>
