@@ -8,7 +8,9 @@ import java.util.logging.Logger;
 
 import android.accounts.AccountManager;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -20,6 +22,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ImageButton;
@@ -28,6 +31,7 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dacer.simplepomodoro.FinishScreenActivity;
 import com.dacer.simplepomodoro.R;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -38,6 +42,7 @@ import com.google.api.client.json.gson.GsonFactory;
 import com.google.api.services.tasks.TasksScopes;
 
 import dacer.interfaces.DialogDismissListener;
+import dacer.service.CDService;
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.GlobalContext;
 import eu.erikw.PullToRefreshListView;
@@ -81,6 +86,7 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 				false);
 		if(SettingUtility.isFirstStart()){
 			TaskUtils.initLocalList(getActivity());
+			showAlertDialog();
 		}
 		initView();
 		refreshView();
@@ -315,4 +321,21 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 		return mPosition_id;
 	}
 	
+	 private void showAlertDialog(){
+			AlertDialog d = new AlertDialog.Builder(getActivity())
+	        .setTitle("致小米用户")
+	        .setMessage("此版本为MIUI专用，如果您在试用原版时出现提醒延迟的情况下才需要使用此版本。在未开启快速模式且开启屏幕常亮功能时理论上可正常使用")
+	        .setPositiveButton(R.string.ok, new android.content.DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					// TODO Auto-generated method stub
+					
+					
+				}
+			})
+	      	.create();
+			d.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+			d.show();
+		}
 }
