@@ -28,8 +28,12 @@ public class SetMyAlarmManager {
 		calendar.set(Calendar.MINUTE, nowMin+min);
         // Schedule the alarm!  
         AlarmManager am = (AlarmManager)mContext.getSystemService(Context.ALARM_SERVICE);  
-        am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), mAlarmSender);
-		
+        
+//        if(SettingUtility.isFastMode()){
+        	am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), mAlarmSender);
+//        }else{
+//            am.set(AlarmManager.RTC, calendar.getTimeInMillis(), mAlarmSender);
+//        }
         SettingUtility.setFinishTimeInMills(MyUtils.getCurrentGMTTimeInMIlls()+min*60000);
 		
     }  

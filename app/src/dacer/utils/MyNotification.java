@@ -34,6 +34,7 @@ public class MyNotification {
 		        .setAutoCancel(true)
 		        .setContentInfo(String.valueOf(i));
 		
+//		mBuilder.setLights(argb, onMs, offMs)
 //		Intent resultIntent = new Intent(mContext,cls);
 //		TaskStackBuilder stackBuilder = TaskStackBuilder.create(mContext);
 //		stackBuilder.addParentStack(cls);

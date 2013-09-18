@@ -99,7 +99,7 @@
             android:name="com.google.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
         <meta-data android:value="519a110656240b6b7b026b66" android:name="UMENG_APPKEY"></meta-data>
-		<meta-data android:value="Google play" android:name="UMENG_CHANNEL"/>
+		<meta-data android:value="Wandoujia" android:name="UMENG_CHANNEL"/>
     </application>
 
 </manifest>
