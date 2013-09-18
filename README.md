@@ -10,8 +10,12 @@ Features:<br>
 • Google task - Sync your tasks between your device and Google.
 </p>
 
+
 <h3>这是个开源的安卓番茄计时器项目</h3>
-<h4>V2.0预备，增加google task</h4>
+<li><h4>1.9.8更新内容：</h4>
+  <ul>Google Task</ul>
+  <ul>横屏支持 Landscape supported!</ul>
+</li>
 <li><h4>1.2.3更新内容：</h4>
 	<ul>各分辨率下的界面美化统一</ul>
 	<ul>增加周统计功能</ul>

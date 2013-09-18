@@ -1,7 +1,7 @@
 package dacer.views;
 
-import android.app.Activity;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
@@ -21,6 +21,7 @@ import com.dacer.simplepomodoro.R;
 
 import dacer.interfaces.OnClickCircleListener;
 import dacer.settinghelper.SettingUtility;
+import dacer.utils.GlobalContext;
 import dacer.utils.MyUtils;
 
 /**
@@ -172,10 +173,14 @@ public class CircleView extends View {
             canvas.drawCircle(mCenterX, mCenterY, mBigCirRadius, mtPaint);
             canvas.drawCircle(mCenterX, mCenterY, centerCirRadius, centerCirPaint);
 //            canvas.drawRect(buttonOval, mButtonPaint);
-            canvas.drawRoundRect(buttonOval, 22, 22, mButtonPaint);
             canvas.drawText(mCenterTextStr,mCenterX,textTrueCenterY, textPaint);
-            canvas.drawText(mContext.getString(R.string.time_up),
-            		mCenterX,mCenterY*2-mStatusBarHeight-10, mButtonTextPaint);
+            if(GlobalContext.getActivity().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+            	//if landscape do NOT show button text
+                canvas.drawRoundRect(buttonOval, 22, 22, mButtonPaint);
+                canvas.drawText(mContext.getString(R.string.time_up),
+                		mCenterX,mCenterY*2-mStatusBarHeight-10, mButtonTextPaint);
+            }
+            
             invalidate();
         }
         //enter animation

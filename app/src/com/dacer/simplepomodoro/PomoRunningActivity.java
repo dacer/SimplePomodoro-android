@@ -9,12 +9,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
 import dacer.interfaces.OnClickCircleListener;
-import dacer.service.BreakFinishService;
 import dacer.service.CDService;
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.GlobalContext;
@@ -169,6 +167,7 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
 		mView.setTextAlpha(isDisplay? 0 : 255);
 		isDisplay = !isDisplay;
 	}
+	
 	
 	private void showContinueView(){
 		

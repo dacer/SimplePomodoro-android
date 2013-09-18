@@ -1,11 +1,14 @@
 package com.dacer.simplepomodoro;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
+import android.widget.Toast;
+
 import com.umeng.analytics.MobclickAgent;
 import com.viewpagerindicator.LinePageIndicator;
 
@@ -71,7 +74,7 @@ public class MainActivity extends FragmentActivity{
     	} 
         return false;
     }
-
+	
 	private void initNowRunningType(){
 		long finishTime = SettingUtility.getFinishTimeInMills();
 		long nowTime = MyUtils.getCurrentGMTTimeInMIlls();

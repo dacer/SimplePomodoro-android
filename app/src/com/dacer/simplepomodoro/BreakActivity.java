@@ -145,7 +145,7 @@ public class BreakActivity extends Activity {
 		
 		SettingUtility.setRunningType(SettingUtility.BREAK_RUNNING);
 		new CountDownTimer(leftTimeInMills, 1000) {
-       	 	int min, sec, remainSec;
+       	 	int min, sec, passedSec;
 	        String secStr; 
  		    @Override
 			public void onTick(long millisUntilFinished) {
@@ -157,8 +157,8 @@ public class BreakActivity extends Activity {
  	            	secStr = String.valueOf(sec);
  	            }
  	            tvTime.setText(min+":"+secStr);
- 	            remainSec = (int) (leftTimeInMills - millisUntilFinished)/1000;
- 	            mProgressBar.setProgress(remainSec);
+ 	           passedSec = (int) (maxBreakDuration*60 - (millisUntilFinished/1000));
+ 	            mProgressBar.setProgress(passedSec);
  		    	
  		    }
 
