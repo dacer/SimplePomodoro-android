@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">极简番茄 (小米版)</string>
+    <string name="app_name">极简番茄</string>
     <string name="action_settings">设置</string>
     <string name="title_activity_pomo_running">番茄运行中</string>
     <string name="title_activity_finish_screen">完成</string>
@@ -158,4 +158,7 @@
     <string name="thanks">感谢</string>
     <string name="tossking">tossking(Neo Tian)</string>
     <string name="help_me_publish_app">帮助我发布此软件到google play</string>
+
+    <string name="xiaomi_mode">小米模式</string>
+    <string name="xiaomi_mode_summary">小米手机用户请选中我</string>
 </resources>

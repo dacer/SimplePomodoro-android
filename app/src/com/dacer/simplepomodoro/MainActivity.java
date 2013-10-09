@@ -28,7 +28,6 @@ public class MainActivity extends FragmentActivity{
 		super.onCreate(savedInstanceState);
 		GlobalContext.setActivity(this);
 		initNowRunningType();
-		
 		setTheme(SettingUtility.getTheme());
 		setContentView(R.layout.activity_main);
 		
@@ -51,8 +50,6 @@ public class MainActivity extends FragmentActivity{
 	@Override
 	protected void onResume(){
 		super.onResume();
-		MyNotification noti = new MyNotification(this);
-		noti.cancelNotification();
 		MobclickAgent.onResume(this);
 	}
 	

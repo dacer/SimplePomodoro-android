@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningTaskInfo;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageInfo;
@@ -17,6 +18,7 @@ import android.os.Build;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
+import dacer.service.WakeLockService;
 
 /**
  * Author:dacer
@@ -235,4 +237,42 @@ public class MyUtils {
 //		return System.currentTimeMillis();
 //	}
 	
+	
+	public static boolean isWakeLockServiceRunning() {
+        ActivityManager manager = (ActivityManager)GlobalContext.getInstance().getSystemService(GlobalContext.getInstance().ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if ("dacer.service.WakeLockService".equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+	
+	public static void autoStopWakelockService(Context c){
+		if(isWakeLockServiceRunning()){
+			c.stopService(new Intent(c, WakeLockService.class));
+		}
+	}
+	
+	
+	public static boolean isMiPhone(){
+		String[] mi = {"MI","2013022"};
+		for(int i=0; i<3; i++){
+			if(getDeviceName().toLowerCase().contains(mi[i].toLowerCase())){
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	public static String getDeviceName() {
+		  String manufacturer = Build.MANUFACTURER;
+		  String model = Build.MODEL;
+		  if (model.startsWith(manufacturer)) {
+		    return model;
+		  } else {
+		    return manufacturer + " " + model;
+		  }
+		}
 }

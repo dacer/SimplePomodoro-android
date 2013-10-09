@@ -26,7 +26,9 @@
         <PreferenceCategory android:title="@string/pref_title_sync">
             <CheckBoxPreference android:title="@string/pref_sync_with_google_task" android:key="pref_sync_with_google_task"/>
         </PreferenceCategory>
+
         <CheckBoxPreference android:title="@string/debug_mode" android:summary="@string/debug_mode_summary" android:key="debug_mode"/>
+        <CheckBoxPreference android:title="@string/xiaomi_mode" android:summary="@string/xiaomi_mode_summary" android:key="pref_is_xiaomi_mode"/>
     </PreferenceScreen>
     
     <PreferenceCategory android:title="@string/pref_title_info">

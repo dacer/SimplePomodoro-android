@@ -1,7 +1,5 @@
 package com.dacer.simplepomodoro;
 
-import com.umeng.analytics.MobclickAgent;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -12,11 +10,13 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.umeng.analytics.MobclickAgent;
+
 import dacer.planefighter.BGSurfaceView;
 import dacer.planefighter.onGameOverListener;
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.GlobalContext;
-import dacer.utils.MyNotification;
 
 public class PlaneFighterActivity extends FragmentActivity implements onGameOverListener{
 

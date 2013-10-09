@@ -17,7 +17,6 @@ import android.widget.TextView;
 import dacer.service.BreakFinishService;
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.GlobalContext;
-import dacer.utils.MyNotification;
 import dacer.utils.MyScreenLocker;
 import dacer.utils.MyUtils;
 import dacer.utils.SetMyAlarmManager;
@@ -68,20 +67,9 @@ public class BreakActivity extends Activity {
 	@Override
 	protected void onPause(){
 		super.onPause();
-		MyNotification mn = new MyNotification(BreakActivity.this);
-        mn.showSimpleNotification(getString(R.string.break_time),
-        		getString(R.string.click_to_return), true,
-        		MainActivity.class);
         SettingUtility.setRunningType(SettingUtility.BREAK_RUNNING);
 	}
 
-	@Override
-	protected void onResume(){
-		super.onResume();
-		MyNotification noti = new MyNotification(this);
-		noti.cancelNotification();
-//		SettingUtility.setRunningType(SettingUtility.NONE_RUNNING);
-	}
 	
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dacer.simplepomodoro"
-    android:versionCode="17"
-    android:versionName="1.9.4" >
+    android:versionCode="18"
+    android:versionName="1.9.5" >
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -79,6 +79,7 @@
             </activity>
         <service android:name="dacer.service.CDService" />
         <service android:name="dacer.service.BreakFinishService" />
+        <service android:name="dacer.service.WakeLockService" />
 
         <!-- 设备管理 -->
         <receiver
@@ -99,7 +100,7 @@
             android:name="com.google.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
         <meta-data android:value="519a110656240b6b7b026b66" android:name="UMENG_APPKEY"></meta-data>
-		<meta-data android:value="MIUISB" android:name="UMENG_CHANNEL"/>
+		<meta-data android:value="google play" android:name="UMENG_CHANNEL"/>
     </application>
 
 </manifest>

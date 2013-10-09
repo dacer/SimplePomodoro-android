@@ -107,13 +107,12 @@
     <string name="pref_email_us">Feedback</string>
     <string name="pref_about">About</string>
     <string name="pref_about_summary">"The application is based on the "Pomodoro Technique®", a way to get the most out of time management.</string>
-    <string name="caidan">if you have finished 3 Pompdoros since 3 days ago, the AD will be dispeared</string>
     <string name="pref_ringtone_silent">Silent</string>
     <string name="screen_locker_warnning">To uninstall the app, please FIRST click the "Remove administration manage" button</string>
 
     <!-- Recorder -->
     <string name="error">Error</string>
-    <string name="error_format">[Error] %s</string>
+    <string name="error_format">[Error] %s</string><!-- Do NOT change the [%s] -->
     <string name="title_activity_break_finish">BreakFinishActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="daily_goal_error">ERROR:Daily goal is not a number, please correct it in Setting.</string>
@@ -162,4 +161,9 @@
     <string name="thanks">Thanks</string>
     <string name="tossking">tossking(Neo Tian)</string>
     <string name="help_me_publish_app">Help me publish the app</string>
+
+    <string name="xiaomi_mode">XiaoMi Mode</string>
+    <string name="xiaomi_mode_summary">For XiaoMi phone</string>
+    <string name="tick_sound_disabled">Tick sound disabled</string>
+    <string name="tick_sound_enabled">Tick sound enabled</string>
 </resources>

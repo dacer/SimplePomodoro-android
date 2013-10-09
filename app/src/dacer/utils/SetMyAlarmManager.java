@@ -2,12 +2,16 @@ package dacer.utils;
 
 import java.util.Calendar;
 
-import dacer.settinghelper.SettingUtility;
-
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+
+import com.dacer.simplepomodoro.MainActivity;
+import com.dacer.simplepomodoro.R;
+
+import dacer.service.WakeLockService;
+import dacer.settinghelper.SettingUtility;
 
 /**
  * Author:dacer
@@ -29,16 +33,24 @@ public class SetMyAlarmManager {
         // Schedule the alarm!  
         AlarmManager am = (AlarmManager)mContext.getSystemService(Context.ALARM_SERVICE);  
         
-        if(SettingUtility.isFastMode()){
-        	am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), mAlarmSender);
+        if(SettingUtility.isXiaomiMode()){
+        	am.set(AlarmManager.RTC, calendar.getTimeInMillis(), mAlarmSender);
+        	mContext.startService(new Intent(mContext, WakeLockService.class));
         }else{
-            am.set(AlarmManager.RTC, calendar.getTimeInMillis(), mAlarmSender);
+            am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), mAlarmSender);
+            MyNotification mn = new MyNotification(mContext);
+            mn.showSimpleNotification(mContext.getString(R.string.sp_is_running),
+            		mContext.getString(R.string.click_to_return), true,
+            		MainActivity.class);
         }
         SettingUtility.setFinishTimeInMills(MyUtils.getCurrentGMTTimeInMIlls()+min*60000);
 		
     }  
 	
-	public static void stopschedulService(Context mContext, Class<?> cls){  
+	public static void stopschedulService(Context mContext, Class<?> cls){ 
+			MyNotification n = new MyNotification(mContext);
+			n.cancelNotification();
+			MyUtils.autoStopWakelockService(mContext);
 	        PendingIntent mAlarmSender = PendingIntent.getService(mContext,  
 	                0, new Intent(mContext, cls), 0);  
 	        // cancel the alarm.  

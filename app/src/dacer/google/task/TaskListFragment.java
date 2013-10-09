@@ -45,6 +45,7 @@ import dacer.interfaces.DialogDismissListener;
 import dacer.service.CDService;
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.GlobalContext;
+import dacer.utils.MyUtils;
 import eu.erikw.PullToRefreshListView;
 import eu.erikw.PullToRefreshListView.OnRefreshListener;
 /**
@@ -86,7 +87,9 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 				false);
 		if(SettingUtility.isFirstStart()){
 			TaskUtils.initLocalList(getActivity());
-			showAlertDialog();
+			if(MyUtils.isMiPhone()){
+				showXiaoMiAlertDialog();
+			}
 		}
 		initView();
 		refreshView();
@@ -321,10 +324,11 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 		return mPosition_id;
 	}
 	
-	 private void showAlertDialog(){
+	 private void showXiaoMiAlertDialog(){
+		 	SettingUtility.setXiaoMiMode(true);
 			AlertDialog d = new AlertDialog.Builder(getActivity())
-	        .setTitle("致小米用户")
-	        .setMessage("此版本为MIUI专用，如果您在试用原版时出现提醒延迟的情况下才需要使用此版本。在未开启快速模式且开启屏幕常亮功能时理论上可正常使用")
+	        .setTitle("检测到手机为小米手机")
+	        .setMessage("自动调整为【小米模式】，如非小米手机请在设置中关闭小米模式。")
 	        .setPositiveButton(R.string.ok, new android.content.DialogInterface.OnClickListener() {
 				
 				@Override

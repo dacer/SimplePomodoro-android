@@ -1,5 +1,7 @@
 package com.dacer.simplepomodoro;
 
+import com.umeng.analytics.MobclickAgent;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -78,8 +80,14 @@ public class FinishScreenActivity extends Activity implements OnClickCircleListe
 	@Override
 	protected void onResume(){
 		super.onResume();
-		MyNotification noti = new MyNotification(this);
-		noti.cancelNotification();
+		MobclickAgent.onResume(this);
+	}
+	
+
+	@Override
+	public void onPause() {
+	    super.onPause();
+	    MobclickAgent.onPause(this);
 	}
 	
 	@Override

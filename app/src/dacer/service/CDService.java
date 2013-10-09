@@ -40,6 +40,7 @@ public class CDService extends Service {
             switch(msg.what)  
             {  
             case 1:  
+            	MyUtils.autoStopWakelockService(CDService.this);
             	initiService();
             	//add pomo record
       		  	MyPomoRecorder pRecorder = new MyPomoRecorder(CDService.this);

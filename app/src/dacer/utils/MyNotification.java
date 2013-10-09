@@ -31,7 +31,7 @@ public class MyNotification {
 		        .setOngoing(ongoing)
 		        .setContentTitle(title)
 		        .setContentText(text)
-		        .setAutoCancel(true)
+		        .setAutoCancel(!ongoing)
 		        .setContentInfo(String.valueOf(i));
 		
 //		mBuilder.setLights(argb, onMs, offMs)

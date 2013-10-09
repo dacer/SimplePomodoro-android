@@ -31,7 +31,9 @@ public class SettingUtility {
 	private static final String FIRST_DAY = "pref_first_day";
 	private static final String DAILY_GOAL = "pref_daily_goal";
 	private static final String ENABLE_GOOGLE_TASK = "pref_sync_with_google_task";
-	
+
+    private static final String IS_TICK = "pref_is_tick";
+    private static final String IS_XIAOMI_MODE = "pref_is_xiaomi_mode";
 	private static final String GOOGLE_TASK_API_LISTID = "list_id";
 	private static final String AUTH_TOKEN = "auth_token";
 	private static final String AUTH_ACCOUNT_NAME = "auth_account_name";
@@ -75,6 +77,27 @@ public class SettingUtility {
 //    	setFinishTimeInMills(finishMills);
 //    	setRunningType(runningType);
 //    }
+
+    public static boolean isTick(){
+        boolean type = SettingHelper.
+                getSharedPreferences(getContext(), IS_TICK, false);
+        return type;
+    }
+
+    public static void setTick(boolean isTick){
+        SettingHelper.setEditor(getContext(), IS_TICK, isTick);
+    }
+
+    public static boolean isXiaomiMode(){
+        boolean type = SettingHelper.
+                getSharedPreferences(getContext(), IS_XIAOMI_MODE, false);
+        return type;
+    }
+
+    public static void setXiaoMiMode(boolean a){
+
+        SettingHelper.setEditor(getContext(), IS_XIAOMI_MODE, a);
+    }
     
     public static long getFinishTimeInMills() {
     	long type = SettingHelper.

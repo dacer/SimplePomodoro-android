@@ -1,5 +1,7 @@
 package com.dacer.simplepomodoro;
 
+import com.umeng.analytics.MobclickAgent;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -145,19 +147,13 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
 	@Override
 	protected void onPause(){
 		super.onPause();
-		MyNotification mn = new MyNotification(PomoRunningActivity.this);
-        mn.showSimpleNotification(getString(R.string.sp_is_running),
-        		getString(R.string.click_to_return), true,
-        		MainActivity.class);
-		SettingUtility.setRunningType(SettingUtility.POMO_RUNNING);
+        SettingUtility.setRunningType(SettingUtility.POMO_RUNNING);
 	}
 
 	@Override
 	protected void onResume(){
 		super.onResume();
-		MyNotification noti = new MyNotification(this);
-		noti.cancelNotification();
-//		SettingUtility.setRunningType(SettingUtility.NONE_RUNNING);
+		MobclickAgent.onResume(this);
 	}
 	
 	@Override

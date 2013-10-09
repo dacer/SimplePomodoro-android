@@ -36,6 +36,7 @@ public class BreakFinishService extends Service {
             switch(msg.what)  
             {  
             case 1:  
+            	MyUtils.autoStopWakelockService(BreakFinishService.this);
             	//notification
       	        MyNotification mn = new MyNotification(BreakFinishService.this);
       	        mn.showSimpleNotification(getString(R.string.break_time_up),
