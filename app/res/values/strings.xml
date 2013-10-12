@@ -78,6 +78,19 @@
         <item>8</item>
     </string-array>
 
+    <string name="pref_long_break_duration">Long break duration</string>
+
+    <string-array name="pref_long_break_duration_list">
+        <item>15 min</item>
+        <item>20 min</item>
+        <item>25 min</item>
+    </string-array>
+    <string-array name="pref_long_break_duration_values">
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+    </string-array>
+
     <string name="pref_pomodoro_duration">Pomodoro duration</string>
 
     <string-array name="pref_pomodoro_duration_list">
@@ -166,4 +179,6 @@
     <string name="xiaomi_mode_summary">For XiaoMi phone</string>
     <string name="tick_sound_disabled">Tick sound disabled</string>
     <string name="tick_sound_enabled">Tick sound enabled</string>
+    
+    <string name="pref_enable_ticking">Enable ticking sound</string>
 </resources>

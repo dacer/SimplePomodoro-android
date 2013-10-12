@@ -257,7 +257,7 @@ public class MyUtils {
 	
 	public static boolean isMiPhone(){
 		String[] mi = {"MI","2013022"};
-		for(int i=0; i<3; i++){
+		for(int i=0; i<2; i++){
 			if(getDeviceName().toLowerCase().contains(mi[i].toLowerCase())){
 				return true;
 			}

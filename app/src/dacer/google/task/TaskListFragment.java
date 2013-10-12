@@ -85,6 +85,7 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 			Bundle savedInstanceState) {
 		rootView = inflater.inflate(R.layout.fragment_task, container,
 				false);
+//		SettingUtility.removeAD(true);
 		if(SettingUtility.isFirstStart()){
 			TaskUtils.initLocalList(getActivity());
 			if(MyUtils.isMiPhone()){

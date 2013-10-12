@@ -33,7 +33,7 @@ public class SetMyAlarmManager {
         // Schedule the alarm!  
         AlarmManager am = (AlarmManager)mContext.getSystemService(Context.ALARM_SERVICE);  
         
-        if(SettingUtility.isXiaomiMode()){
+        if(SettingUtility.isXiaomiMode()||SettingUtility.isTick()){
         	am.set(AlarmManager.RTC, calendar.getTimeInMillis(), mAlarmSender);
         	mContext.startService(new Intent(mContext, WakeLockService.class));
         }else{

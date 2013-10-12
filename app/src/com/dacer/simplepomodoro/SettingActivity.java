@@ -64,6 +64,7 @@ public class SettingActivity extends PreferenceActivity {
 		bindPreferenceSummaryToValue(findPreference("pref_theme_type"));
 		bindPreferenceSummaryToValue(findPreference("pref_break_duration"));
 		bindPreferenceSummaryToValue(findPreference("pref_pomodoro_duration"));
+        bindPreferenceSummaryToValue(findPreference("pref_long_break_duration"));
 		bindPreferenceSummaryToValue(findPreference("pref_notification_sound"));
 		bindPreferenceSummaryToValue(findPreference("pref_first_day"));
 		bindPreferenceSummaryToValue(findPreference("pref_daily_goal"));

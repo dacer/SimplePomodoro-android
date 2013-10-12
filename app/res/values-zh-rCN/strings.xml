@@ -75,7 +75,19 @@
         <item>5</item>
         <item>8</item>
     </string-array>
+    
+	<string name="pref_long_break_duration">长休息时间</string>
 
+    <string-array name="pref_long_break_duration_list">
+        <item>15 分钟</item>
+        <item>20 分钟</item>
+        <item>25 分钟</item>
+    </string-array>
+    <string-array name="pref_long_break_duration_values">
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+    </string-array>
     <string name="pref_pomodoro_duration">番茄时间</string>
     <string-array name="pref_pomodoro_duration_list">
         <item>25 分钟</item>
@@ -161,4 +173,6 @@
 
     <string name="xiaomi_mode">小米模式</string>
     <string name="xiaomi_mode_summary">小米手机用户请选中我</string>
+    
+    <string name="pref_enable_ticking">开启嘀嗒声</string>
 </resources>

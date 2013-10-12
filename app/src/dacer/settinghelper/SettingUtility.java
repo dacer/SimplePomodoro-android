@@ -18,7 +18,7 @@ import dacer.utils.MyUtils;
  * Date  :Jul 17, 2013
  */
 public class SettingUtility {
-	public static final int LONG_BREAK_DURATION = 25;
+	public static final String LONG_BREAK_DURATION = "pref_long_break_duration";
 	
 	private static final String FIRST_START = "pref_first_start";
 	private static final String POMODORO_DURATION = "pref_pomodoro_duration";
@@ -32,7 +32,7 @@ public class SettingUtility {
 	private static final String DAILY_GOAL = "pref_daily_goal";
 	private static final String ENABLE_GOOGLE_TASK = "pref_sync_with_google_task";
 
-    private static final String IS_TICK = "pref_is_tick";
+    private static final String ENABLE_TICKING = "pref_enable_ticking";
     private static final String IS_XIAOMI_MODE = "pref_is_xiaomi_mode";
 	private static final String GOOGLE_TASK_API_LISTID = "list_id";
 	private static final String AUTH_TOKEN = "auth_token";
@@ -78,14 +78,19 @@ public class SettingUtility {
 //    	setRunningType(runningType);
 //    }
 
+    public static int getLongBreakDuration(){
+		int value = Integer.parseInt(SettingHelper.getSharedPreferences(getContext(), LONG_BREAK_DURATION, "25"));
+        return value;
+    }
+
     public static boolean isTick(){
         boolean type = SettingHelper.
-                getSharedPreferences(getContext(), IS_TICK, false);
+                getSharedPreferences(getContext(), ENABLE_TICKING, false);
         return type;
     }
 
     public static void setTick(boolean isTick){
-        SettingHelper.setEditor(getContext(), IS_TICK, isTick);
+        SettingHelper.setEditor(getContext(), ENABLE_TICKING, isTick);
     }
 
     public static boolean isXiaomiMode(){

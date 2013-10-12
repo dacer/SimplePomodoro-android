@@ -14,8 +14,10 @@
     <PreferenceScreen android:title="@string/pref_title_timer_settings">
         <ListPreference android:entries="@array/pref_pomodoro_duration_list" android:key="pref_pomodoro_duration" android:title="@string/pref_pomodoro_duration" android:entryValues="@array/pref_pomodoro_duration_values" android:defaultValue="25"/>
         <ListPreference android:entries="@array/pref_break_duration_list" android:key="pref_break_duration" android:title="@string/pref_break_duration" android:entryValues="@array/pref_break_duration_values" android:defaultValue="5"/>
+        <ListPreference android:entries="@array/pref_long_break_duration_list" android:key="pref_long_break_duration" android:title="@string/pref_long_break_duration" android:entryValues="@array/pref_long_break_duration_values" android:defaultValue="25"/>
         <PreferenceCategory android:title="@string/pref_title_timers_end_alert">
             <CheckBoxPreference android:title="@string/pref_enable_vibrations" android:key="pref_enable_vibrations"/>
+            <CheckBoxPreference android:title="@string/pref_enable_ticking" android:key="pref_enable_ticking"/>
             <RingtonePreference android:showSilent="true" android:showDefault="true" android:title="@string/pref_notification_sound" android:ringtoneType="notification" android:key="pref_notification_sound"/>
         </PreferenceCategory>
         

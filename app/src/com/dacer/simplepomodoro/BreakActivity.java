@@ -39,7 +39,7 @@ public class BreakActivity extends Activity {
 		final Window win = getWindow();
 		Typeface roboto = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Thin.ttf");
 		maxBreakDuration = SettingUtility.getBreakDuration();
-        longBreakDuration = SettingUtility.LONG_BREAK_DURATION;
+        longBreakDuration = SettingUtility.getLongBreakDuration();
         if(SettingUtility.isFastMode()){
         	MyScreenLocker locker = new MyScreenLocker(this);
             locker.myLockNow();
