@@ -117,7 +117,7 @@ public class BreakActivity extends Activity {
 		final long leftTimeInMills;
 		
 		long finishTime = SettingUtility.getFinishTimeInMills();
-		long nowTime = MyUtils.getCurrentGMTTimeInMIlls();
+		long nowTime = MyUtils.getCurrentUTCInMIlls();
 		int runningType = SettingUtility.getRunningType();
 		if((finishTime > nowTime) &&(runningType == SettingUtility.BREAK_RUNNING)){
 			leftTimeInMills = finishTime - nowTime + 1000;

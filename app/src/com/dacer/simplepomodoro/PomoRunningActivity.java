@@ -169,7 +169,7 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
 		
 		final int leftTimeInSec;
 		long finishTime = SettingUtility.getFinishTimeInMills();
-		long nowTime = MyUtils.getCurrentGMTTimeInMIlls();
+		long nowTime = MyUtils.getCurrentUTCInMIlls();
 //		Log.e("finishTime", String.valueOf(finishTime));
 //		Log.e("nowTime", String.valueOf(nowTime));
 		int runningType = SettingUtility.getRunningType();

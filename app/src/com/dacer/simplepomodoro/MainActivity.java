@@ -74,7 +74,7 @@ public class MainActivity extends FragmentActivity{
 	
 	private void initNowRunningType(){
 		long finishTime = SettingUtility.getFinishTimeInMills();
-		long nowTime = MyUtils.getCurrentGMTTimeInMIlls();
+		long nowTime = MyUtils.getCurrentUTCInMIlls();
 		int runningType = SettingUtility.getRunningType();
 		if((finishTime > nowTime) &&(runningType != SettingUtility.NONE_RUNNING)){
 			if(runningType == SettingUtility.POMO_RUNNING){

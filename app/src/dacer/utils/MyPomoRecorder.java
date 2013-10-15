@@ -11,6 +11,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Author:dacer
@@ -42,7 +43,7 @@ public class MyPomoRecorder {
 		db = mSQLHelper.getWritableDatabase();
 		cv.put(KEY_TITLE, title);
 		cv.put(KEY_NOTES, notes);
-		long nowTime = MyUtils.getCurrentGMTTimeInMIlls()/1000;
+		long nowTime = MyUtils.getCurrentUTCInMIlls()/1000;
 		cv.put(KEY_STARTTIME, nowTime - durationMin * 60);
 		cv.put(KEY_FINISHTIME, nowTime);
 		cv.put(KEY_TYPE, mType.equals(PomoType.POMODORO)? 0:1);
@@ -54,7 +55,7 @@ public class MyPomoRecorder {
 	public int getTodayPomo(){
 		db = mSQLHelper.getReadableDatabase();
 		Cursor cursor;
-        long todayZeroClockTimeInMillis = getTodayZeroOclockGMTTimeInMIlls()/1000;
+        long todayZeroClockTimeInMillis = getTodayZeroOclockInUTCMills()/1000;
         String selection = KEY_STARTTIME + ">=?";
 		String[] selectionArgs = { 
 				String.valueOf(todayZeroClockTimeInMillis) };
@@ -116,8 +117,8 @@ public class MyPomoRecorder {
             long tomorrowZeroTimeInMillis = cal.getTimeInMillis();
             
             String selection = KEY_STARTTIME + " BETWEEN ? AND ? ";
-            todayZeroClockTimeInMillis -= TimeZone.getDefault().getRawOffset(); 
-            tomorrowZeroTimeInMillis -= TimeZone.getDefault().getRawOffset(); 
+//            todayZeroClockTimeInMillis -= TimeZone.getDefault().getRawOffset(); 
+//            tomorrowZeroTimeInMillis -= TimeZone.getDefault().getRawOffset(); 
     		String[] selectionArgs = { 
     				String.valueOf(todayZeroClockTimeInMillis/1000),
     				String.valueOf(tomorrowZeroTimeInMillis/1000)};
@@ -142,18 +143,17 @@ public class MyPomoRecorder {
 	
 	
 	
-	private long getTodayZeroOclockGMTTimeInMIlls(){
+	private long getTodayZeroOclockInUTCMills(){
 		//Current location time inMillis - timeZoneOffset = GMT time inMillis
 		Calendar calendar = Calendar.getInstance();
-		long unixTime = calendar.getTimeInMillis();
-		long unixTimeGMT = unixTime - TimeZone.getDefault().getRawOffset();
-		calendar.setTimeInMillis(unixTimeGMT);
 		calendar.set(Calendar.HOUR_OF_DAY, 0);
 		calendar.set(Calendar.SECOND, 0);
 		calendar.set(Calendar.MINUTE, 0);
 		calendar.set(Calendar.MILLISECOND, 0);
-		unixTimeGMT = calendar.getTimeInMillis();
-		return unixTimeGMT;
+		
+//		long unixTimeGMT = calendar.getTimeInMillis() - TimeZone.getDefault().getRawOffset();
+
+		return calendar.getTimeInMillis();
 	}
 	
 	

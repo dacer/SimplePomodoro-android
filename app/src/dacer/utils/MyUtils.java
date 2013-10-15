@@ -225,18 +225,13 @@ public class MyUtils {
 		return version;
 	}
 	
-	public static long getCurrentGMTTimeInMIlls(){
+	public static long getCurrentUTCInMIlls(){
 		//Current location time inMillis - timeZoneOffset = GMT time inMillis
-		Calendar calendar = Calendar.getInstance();
-		long unixTime = calendar.getTimeInMillis();
-		long unixTimeGMT = unixTime - TimeZone.getDefault().getRawOffset();
-		return unixTimeGMT;
+		long utcTime = System.currentTimeMillis();
+		return utcTime;
 	}
 	
-//	public static long getUnixTimeInMills(){
-//		return System.currentTimeMillis();
-//	}
-	
+
 	
 	public static boolean isWakeLockServiceRunning() {
         ActivityManager manager = (ActivityManager)GlobalContext.getInstance().getSystemService(GlobalContext.getInstance().ACTIVITY_SERVICE);
@@ -275,4 +270,8 @@ public class MyUtils {
 		    return manufacturer + " " + model;
 		  }
 		}
+
+		public static String getDeviceVersion(){
+        return Build.VERSION.RELEASE+" "+Build.VERSION.INCREMENTAL+" "+Build.VERSION.CODENAME+" "+Build.VERSION.SDK_INT;
+    }
 }

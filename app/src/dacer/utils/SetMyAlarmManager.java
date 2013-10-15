@@ -24,26 +24,21 @@ public class SetMyAlarmManager {
 	public static void schedulService(Context mContext,int min, Class<?> cls){  
 		PendingIntent mAlarmSender = PendingIntent.getService(mContext,  
                 0, new Intent(mContext, cls), 0);  
-        final Calendar c = Calendar.getInstance();
-		int nowMin= c.get(Calendar.MINUTE);	
-
-		Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-		calendar.set(Calendar.MINUTE, nowMin+min);
+        long finishTimeInMills = MyUtils.getCurrentUTCInMIlls() + min*60000;
         // Schedule the alarm!  
         AlarmManager am = (AlarmManager)mContext.getSystemService(Context.ALARM_SERVICE);  
         
         if(SettingUtility.isXiaomiMode()||SettingUtility.isTick()){
-        	am.set(AlarmManager.RTC, calendar.getTimeInMillis(), mAlarmSender);
+        	am.set(AlarmManager.RTC, finishTimeInMills, mAlarmSender);
         	mContext.startService(new Intent(mContext, WakeLockService.class));
         }else{
-            am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), mAlarmSender);
+            am.set(AlarmManager.RTC_WAKEUP, finishTimeInMills, mAlarmSender);
             MyNotification mn = new MyNotification(mContext);
             mn.showSimpleNotification(mContext.getString(R.string.sp_is_running),
             		mContext.getString(R.string.click_to_return), true,
             		MainActivity.class);
         }
-        SettingUtility.setFinishTimeInMills(MyUtils.getCurrentGMTTimeInMIlls()+min*60000);
+        SettingUtility.setFinishTimeInMills(finishTimeInMills);
 		
     }  
 	

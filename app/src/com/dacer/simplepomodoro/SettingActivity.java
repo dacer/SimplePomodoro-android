@@ -119,8 +119,8 @@ public class SettingActivity extends PreferenceActivity {
 						Intent intent = new Intent(Intent.ACTION_SEND);
 						intent.setType("message/rfc822");
 						intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"dacerfeedback@gmail.com"});
-//						intent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
-//						intent.putExtra(Intent.EXTRA_TEXT, "I'm email body.");
+//						intent.putExtra(Intent.EXTRA_SUBJECT, "");
+                intent.putExtra(Intent.EXTRA_TEXT, "\n\n\n"+MyUtils.getDeviceName()+"\n"+MyUtils.getDeviceVersion());
 						startActivity(Intent.createChooser(intent, "Send Email"));
 						return false;
 					}
