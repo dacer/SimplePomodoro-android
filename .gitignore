@@ -30,3 +30,7 @@ proguard/
 
 #Mac folder files
 .DS_Store
+
+#library
+pulltorefreshLibrary
+ViewPagerIndicator-library

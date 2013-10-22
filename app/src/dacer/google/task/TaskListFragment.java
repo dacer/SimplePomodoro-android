@@ -328,8 +328,8 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 	 private void showXiaoMiAlertDialog(){
 		 	SettingUtility.setXiaoMiMode(true);
 			AlertDialog d = new AlertDialog.Builder(getActivity())
-	        .setTitle("检测到手机为小米手机")
-	        .setMessage("自动调整为【小米模式】，如非小米手机请在设置中关闭小米模式。")
+	        .setTitle(getActivity().getString(R.string.detect_is_miphone))
+	        .setMessage(getActivity().getString(R.string.miphone_message))
 	        .setPositiveButton(R.string.ok, new android.content.DialogInterface.OnClickListener() {
 				
 				@Override

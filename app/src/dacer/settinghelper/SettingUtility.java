@@ -40,6 +40,8 @@ public class SettingUtility {
 	private static final String DEBUG_MODE = "debug_mode";
 	private static final String PRE_ADREMOVED = "adremoved";
 	
+	private static final String GTASK_FIRST_ENABLED = "gtask_first_enabled";
+	
 	//Anti be killed Test
 	private static final String FINISH_TIME = "finish_time";
 	private static final String NOW_RUNNING_TYPE = "now_running_type";
@@ -83,6 +85,15 @@ public class SettingUtility {
         return value;
     }
 
+    public static boolean isGTaskFirstEnabled(){
+        boolean type = SettingHelper.
+                getSharedPreferences(getContext(), GTASK_FIRST_ENABLED, true);
+        if(type){
+            SettingHelper.setEditor(getContext(), GTASK_FIRST_ENABLED, false);
+        }
+        return type;
+    }
+    
     public static boolean isTick(){
         boolean type = SettingHelper.
                 getSharedPreferences(getContext(), ENABLE_TICKING, false);

@@ -10,7 +10,7 @@ apply plugin: 'android'
 
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
-    compile project(':[Library]:Android-ViewPagerIndicator-master:library')
+    compile project(':SimplePomodoro:ViewPagerIndicator-library')
     compile project(':SimplePomodoro:pulltorefreshLibrary')
 }
 

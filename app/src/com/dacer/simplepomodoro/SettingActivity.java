@@ -1,5 +1,7 @@
 package com.dacer.simplepomodoro;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
@@ -15,11 +17,8 @@ import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
-
-import com.google.ads.AdRequest;
-import com.google.ads.AdSize;
-import com.google.ads.AdView;
 
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.GlobalContext;
@@ -31,7 +30,7 @@ import dacer.utils.MyUtils;
  * Date  :Jul 17, 2013
  */
 public class SettingActivity extends PreferenceActivity {
-	private AdView adView;
+
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,15 +38,7 @@ public class SettingActivity extends PreferenceActivity {
         super.onCreate(savedInstanceState);
         GlobalContext.setActivity(this);
         setContentView(R.layout.preference_activity);
-
         getListView().setItemsCanFocus(true);
-        
-        if(!SettingUtility.isADRemoved()){
-        	LinearLayout layout = (LinearLayout)findViewById(R.id.ad_view);
-            adView = new AdView(this, AdSize.BANNER, "a1519a1170dffb0");
-      		layout.addView(adView);
-      		adView.loadAd(new AdRequest());
-        }
     }
     
     @Override
@@ -69,6 +60,7 @@ public class SettingActivity extends PreferenceActivity {
 		bindPreferenceSummaryToValue(findPreference("pref_first_day"));
 		bindPreferenceSummaryToValue(findPreference("pref_daily_goal"));
 
+		Preference google_task_Preference = findPreference("pref_sync_with_google_task");
 		Preference email_us_Preference = findPreference("pref_email_us");
 		Preference donate_Preference = findPreference("donate");
 		Preference about_Preference = findPreference("pref_about");
@@ -147,6 +139,22 @@ public class SettingActivity extends PreferenceActivity {
 			}
 		});
 		
+		
+		google_task_Preference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+			
+			@Override
+			public boolean onPreferenceClick(Preference preference) {
+				// TODO Auto-generated method stub
+				if(SettingUtility.isGTaskFirstEnabled()){
+					showGtaskAlertDialog();
+					MyScreenLocker locker = new MyScreenLocker(SettingActivity.this);
+					locker.removeManage();
+					remove_manage_Preference.setEnabled(false);
+					fast_mode_Preference.setChecked(false);
+				}
+				return false;
+			}
+		});
 	}
 
 	@Override  
@@ -253,14 +261,22 @@ public class SettingActivity extends PreferenceActivity {
         return false;
     }
     
-    @Override
-	protected void onDestroy() {
-    	if (adView != null) {
-    	      adView.destroy();
-    	    }
-		super.onDestroy();
-	}
-    
     //google task
-    
+    private void showGtaskAlertDialog(){
+		AlertDialog d = new AlertDialog.Builder(this)
+        .setTitle(getString(R.string.gtask_warning))
+        .setMessage(getString(R.string.gtask_warning_summary))
+        .setPositiveButton(R.string.ok, new android.content.DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				
+				
+			}
+		})
+      	.create();
+		d.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+		d.show();
+	}
 }

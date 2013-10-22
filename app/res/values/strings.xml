@@ -181,4 +181,10 @@
     <string name="tick_sound_enabled">Tick sound enabled</string>
     
     <string name="pref_enable_ticking">Enable ticking sound</string>
+    
+    <string name="detect_is_miphone">You seem using XiaoMi Phone</string>
+    <string name="miphone_message">Mi Mode is auto enabled, if you are not using XiaoMi Phone please turn it in setting manually.</string>
+    
+    <string name="gtask_warning">Experimental function!</string>
+    <string name="gtask_warning_summary">This function may cause FC(force close), so FAST MODE will be auto disabled (if it was enabled).</string>
 </resources>
