@@ -10,7 +10,7 @@ Features:<br>
 </p>
 
 ## Building
-Import [pullToRefresh-ListView](https://github.com/erikwt/PullToRefresh-ListView) and [Android-ViewPagerIndicator](https://github.com/JakeWharton/Android-ViewPagerIndicator) as library manaully.
+Import [PullToRefresh-ListView](https://github.com/erikwt/PullToRefresh-ListView) and [Android-ViewPagerIndicator](https://github.com/JakeWharton/Android-ViewPagerIndicator) as library manaully.
 
 ## License
 
@@ -18,7 +18,7 @@ Import [pullToRefresh-ListView](https://github.com/erikwt/PullToRefresh-ListView
 
 ## Thanks
 
-* [pullToRefresh-ListView](https://github.com/erikwt/PullToRefresh-ListView)
+* [PullToRefresh-ListView](https://github.com/erikwt/PullToRefresh-ListView)
 * [Android-ViewPagerIndicator](https://github.com/JakeWharton/Android-ViewPagerIndicator)
 * tossking(Neo Tian)-帮助我发布到Google Play
 
