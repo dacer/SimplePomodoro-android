@@ -1,7 +1,4 @@
-<h1>Simple Pomodoro</h1>
-
-[Google play](https://play.google.com/store/apps/details?id=com.dacer.simplepomodoro)
-
+# Simple Pomodoro [![Google Play](http://developer.android.com/images/brand/en_generic_rgb_wo_45.png)](https://play.google.com/store/apps/details?id=com.dacer.simplepomodoro)
 
 <h3>This a pomodoro timer android app.</h3>
 <p>
@@ -12,32 +9,23 @@ Features:<br>
 • Google task - Sync your tasks between your device and Google.
 </p>
 
+## Building
+Import [pullToRefresh-ListView](https://github.com/erikwt/PullToRefresh-ListView) and [Android-ViewPagerIndicator](https://github.com/JakeWharton/Android-ViewPagerIndicator) as library manaully.
 
-<h3>这是个开源的安卓番茄计时器项目</h3>
-<li><h4>1.9.5</h4>
-	<ul>fix Mi Phone bug</ul></li>
-<li><h4>1.9.3更新内容：</h4>
-	<ul>重写计时部分，后台完全无需占用内存，且在后台被关闭后的多数情况下仍可正常到点提醒</ul>
-  <ul>Google Task</ul>
-  <ul>横屏支持</ul>
-</li>
-<li><h4>1.2.3更新内容：</h4>
-	<ul>各分辨率下的界面美化统一</ul>
-	<ul>增加周统计功能</ul>
-	<ul>增加番茄时间设置项，去除较长休息时间设置项并固定为25分钟 </ul>
-	<ul>细微的bug修正和改进</ul>
-</li>
-<li><h4>V1.3 更新内容：</h4>
-	<ul>主界面中文化，且嵌入细体字体使中英文界面风格统一</ul>
-	<ul>后台运行时加入通知栏提醒(Tip:提醒的右下角数字为连续进行的番茄数)</ul>
-	<ul>细微UI调整</ul>
-	<ul>加入小彩蛋一枚</ul>
-	</li>
+## License
 
-<h3>彩蛋说明：</h3>
- 进入设置点最后一项再点最后一项进入彩蛋.
+* MIT License
 
-<h3>Thanks</h3>
-[ullToRefresh-ListView](https://github.com/erikwt/PullToRefresh-ListView)<br>
-[Android-ViewPagerIndicator](https://github.com/JakeWharton/Android-ViewPagerIndicator)<br>
-tossking(Neo Tian)-帮助我发布到Google Play
+## Thanks
+
+* [pullToRefresh-ListView](https://github.com/erikwt/PullToRefresh-ListView)
+* [Android-ViewPagerIndicator](https://github.com/JakeWharton/Android-ViewPagerIndicator)
+* tossking(Neo Tian)-帮助我发布到Google Play
+
+## Contributing
+
+Please fork this repository and contribute back using
+[pull requests](https://github.com/github/android/pulls).
+
+Any contributions, large or small, major features, bug fixes, additional
+language translations, unit/integration tests are welcomed
