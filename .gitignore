@@ -34,3 +34,6 @@ proguard/
 #library
 pulltorefreshLibrary
 ViewPagerIndicator-library
+
+.google_apis
+.settings
