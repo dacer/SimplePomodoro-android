@@ -83,7 +83,7 @@ public class CircleView extends View {
         		SettingUtility.getWaitShaderColor(), null);
 
         mStatusBarHeight = MyUtils.getStatusBarHeight(context);
-        CENTER_TEXT_SIZE = MyUtils.autoSetValue4DifferentScreen(88);
+        CENTER_TEXT_SIZE = (int)MyUtils.dipToPixels(context,45f);
         float startAngle = 270;
         int allAlpha = 255;
         mListener = listener;
@@ -125,7 +125,7 @@ public class CircleView extends View {
       //MODE 2
         //get Button Text Width
         mButtonTextPaint = new Paint(textPaint);
-        mButtonTextPaint.setTextSize(MyUtils.autoSetValue4DifferentScreen(68));
+        mButtonTextPaint.setTextSize(MyUtils.spToPixels(context,30f));
         mButtonTextPaint.setColor(Color.WHITE);
         BUTTON_TEXT = context.getString(R.string.time_up);
         Rect rect=new Rect();
@@ -134,9 +134,9 @@ public class CircleView extends View {
         mtPaint.setShader(mtShader);
         mRunmode = mode;
         mBigCirRadius = bigCirRadius;
-        buttonOval = new RectF(cirCenterX - rect.width()/2-MyUtils.autoSetValue4DifferentScreen(30),
+        buttonOval = new RectF(cirCenterX - rect.width()/2-MyUtils.dipToPixels(context,30),
         		cirCenterY*2-mStatusBarHeight + fm.top-12, 
-				cirCenterX + rect.width()/2+MyUtils.autoSetValue4DifferentScreen(30), 
+				cirCenterX + rect.width()/2+MyUtils.dipToPixels(context,30), 
 				cirCenterY*2-mStatusBarHeight+20);
         
         mButtonPaint.setColor(SettingUtility.getButtonTextColor());

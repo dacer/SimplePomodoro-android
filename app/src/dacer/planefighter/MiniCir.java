@@ -3,6 +3,7 @@ package dacer.planefighter;
 import java.util.Calendar;
 
 import dacer.utils.MyUtils;
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -32,12 +33,12 @@ public class MiniCir {
 	private boolean autoDeadWhenReachGoal = false;
 	private onDeadListener deadListener;
 	
-	public MiniCir(float[] position,float pixelPer20Millis){
+	public MiniCir(float[] position,float pixelPer20Millis,Context context){
 		Calendar c = Calendar.getInstance();
 		startMillis = c.getTimeInMillis();
 		nextMoveMillis = startMillis + MOVE_PER_MILLIS;
 		
-		mRadius = MyUtils.autoSetValue4DifferentScreen(12);
+		mRadius = (int)MyUtils.dipToPixels(context,6f);
 		startPositionX = position[0];
 		startPositionY = position[1];
 		endPositionX = position[2];

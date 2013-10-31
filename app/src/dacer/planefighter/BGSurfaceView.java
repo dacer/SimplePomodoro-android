@@ -37,8 +37,11 @@ public class BGSurfaceView extends SurfaceView implements SurfaceHolder.Callback
 	private SurfaceHolder mHolder;
 	private MainThread _thread;
 	
+	private Context mContext;
+	
 	public BGSurfaceView(Context context) {
 		super(context);
+		mContext = context;
 		setFocusable(true);
 		mHolder = getHolder();
 		mHolder.addCallback(this);
@@ -94,10 +97,10 @@ public class BGSurfaceView extends SurfaceView implements SurfaceHolder.Callback
 			break;
 		case ADD_SIZE:
 //			MAIN_RADIUS = mainCir.getRadius()+MyUtils.autoSetValue4DifferentScreen(5);
-			elasticityChangeSize(mainCir.getRadius()+MyUtils.autoSetValue4DifferentScreen(5));
+			elasticityChangeSize(mainCir.getRadius()+(int)MyUtils.dipToPixels(mContext,5));
 			break;
 		case REDUCE_SIZE:
-			MAIN_RADIUS = mainCir.getRadius()-MyUtils.autoSetValue4DifferentScreen(5);
+			MAIN_RADIUS = mainCir.getRadius()-(int)MyUtils.dipToPixels(mContext,5);
 //			elasticityChangeSize(mainCir.getRadius()-MyUtils.autoSetValue4DifferentScreen(5));
 			break;
 		default:
@@ -166,15 +169,15 @@ public class BGSurfaceView extends SurfaceView implements SurfaceHolder.Callback
 	
 	private void addWare(){
 		for(int i=0; i<addWareNum; i++){
-			hugeWare.add(new HugeWareBullets(3,redSpeed));
+			hugeWare.add(new HugeWareBullets(3,redSpeed,mContext));
 			hugeWare.get(hugeWare.size()-1).setKnockListener(this, mainCir);
 			hugeWare.get(hugeWare.size()-1).setOnDeadListener(this);
-			trackedBullets.add(new TrackedBullets(1,mainCir,orangeSpeed));
+			trackedBullets.add(new TrackedBullets(1,mainCir,orangeSpeed,mContext));
 			trackedBullets.get(trackedBullets.size()-1).setKnockListener(this, mainCir);
 			trackedBullets.get(trackedBullets.size()-1).setOnDeadListener(this);
 		}
 		if(countdownNum.getNowSecond()>5&&countdownNum.getNowSecond()%2 == 0){
-			goodBullets.add(new GoodBullets(1, mainCir, 6));
+			goodBullets.add(new GoodBullets(1, mainCir, 6,mContext));
 			goodBullets.get(goodBullets.size()-1).setKnockListener(this, mainCir);
 		}	
 	}
@@ -210,9 +213,9 @@ public class BGSurfaceView extends SurfaceView implements SurfaceHolder.Callback
         }
         
         private void initView(Context context){
-    		countdownNum = new CountdownNum();
+    		countdownNum = new CountdownNum(context);
     		mainCir = new MyBigCir(MyUtils.getScreenWidth()/2, MyUtils.getScreenHeight()/3);
-    		MAIN_RADIUS = MyUtils.autoSetValue4DifferentScreen(30);
+    		MAIN_RADIUS = (int)MyUtils.dipToPixels(context,15);
     		hugeWare = new ArrayList<HugeWareBullets>();
     		trackedBullets = new ArrayList<TrackedBullets>();
     		hugeWareShouldDead = new ArrayList<HugeWareBullets>();

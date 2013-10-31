@@ -39,12 +39,8 @@ public class MainActivity extends FragmentActivity{
 		}
         mIndicator.setViewPager(pager);
         mIndicator.setCurrentItem(1);
-        
-        
         //for long break
         MyUtils.deleteContinueTimes(this);
-        
-        
 	}
 
 	@Override

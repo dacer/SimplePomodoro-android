@@ -1,5 +1,6 @@
 package dacer.planefighter;
 
+import android.content.Context;
 import android.graphics.Color;
 import dacer.planefighter.GameUtils.KnockFunction;
 
@@ -9,7 +10,7 @@ import dacer.planefighter.GameUtils.KnockFunction;
  */
 public class GoodBullets extends MyFatherBullets{
 	
-	public GoodBullets(int bulletNUM,MyBigCir mainCir,float speed) {
+	public GoodBullets(int bulletNUM,MyBigCir mainCir,float speed,Context c) {
 		// TODO Auto-generated constructor stub
 		super(bulletNUM,speed);
 		for(int i=0; i<bulletNUM; i++){
@@ -25,7 +26,7 @@ public class GoodBullets extends MyFatherBullets{
 							fromY,
 							(float) (mainCir.getX()+200*random2),
 							(float) (mainCir.getY()+200*random6)}, 
-					(float)(mSpeed*random3));
+					(float)(mSpeed*random3),c);
 			miniCir[i].setColor(Color.parseColor("#FFBB33"));
 			miniCir[i].setOnDeadListener(this);
 		}

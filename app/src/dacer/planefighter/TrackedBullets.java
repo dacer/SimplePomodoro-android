@@ -2,6 +2,7 @@ package dacer.planefighter;
 
 import dacer.planefighter.GameUtils.KnockFunction;
 import dacer.utils.MyUtils;
+import android.content.Context;
 import android.graphics.Color;
 
 /**
@@ -10,7 +11,7 @@ import android.graphics.Color;
  */
 public class TrackedBullets extends MyFatherBullets{
     
-	public TrackedBullets(int bulletNUM,MyBigCir mainCir,float speed) {
+	public TrackedBullets(int bulletNUM,MyBigCir mainCir,float speed,Context c) {
 		// TODO Auto-generated constructor stub
 		super(bulletNUM,speed);
 		for(int i=0; i<bulletNUM; i++){
@@ -26,7 +27,7 @@ public class TrackedBullets extends MyFatherBullets{
 							fromY,
 							(float) (mainCir.getX()+MyUtils.getScreenWidth()/4*random2),
 							(float) (mainCir.getY()+MyUtils.getScreenHeight()/4*random6)}, 
-					(float)randomSpeed);
+					(float)randomSpeed,c);
 			miniCir[i].setColor(Color.parseColor("#AA66CC"));
 			miniCir[i].setOnDeadListener(this);
 		}

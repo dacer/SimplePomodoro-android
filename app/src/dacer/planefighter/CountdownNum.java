@@ -2,6 +2,7 @@ package dacer.planefighter;
 
 import java.util.Calendar;
 
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
@@ -14,14 +15,16 @@ import dacer.utils.MyUtils;
  * Date  :Jul 28, 2013
  */
 public class CountdownNum {
-	private float size=300;
+	private float size;
 	private Paint mPaint;
 	private long startMillis;
 	private int mSecond;
 	private boolean gameOver = false;
-	public CountdownNum() {
+	private Context mContext;
+	public CountdownNum(Context context) {
 		// TODO Auto-generated constructor stub
-		size = MyUtils.autoSetValue4DifferentScreen(380);
+		mContext = context;
+		size = MyUtils.spToPixels(context, 280f);
 		mPaint = new Paint();
 		mPaint.setAntiAlias(true);
 		mPaint.setTextAlign(Align.RIGHT);
@@ -39,7 +42,7 @@ public class CountdownNum {
 			mSecond = (int) ((nowC.getTimeInMillis() - startMillis)/1000);
 		}
 		canvas.drawText(String.valueOf(mSecond), MyUtils.getScreenWidth(), 
-				MyUtils.autoSetValue4DifferentScreen(300), mPaint);
+				size/3*2, mPaint);
 	}
 	
 	public int getNowSecond(){

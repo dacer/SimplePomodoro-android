@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dacer.simplepomodoro"
-    android:versionCode="21"
-    android:versionName="1.9.8" >
+    android:versionCode="22"
+    android:versionName="1.9.9" >
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -38,7 +38,6 @@
             android:configChanges = "orientation" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -46,8 +45,7 @@
             android:name="com.dacer.simplepomodoro.PomoRunningActivity"
             android:label="@string/title_activity_pomo_running"
             android:launchMode="singleTask"
-            android:theme="@style/MyMainScreenTheme_Black"
-            >
+            android:theme="@style/MyMainScreenTheme_Black">
         </activity>
         <activity
             android:name="com.dacer.simplepomodoro.SettingActivity"

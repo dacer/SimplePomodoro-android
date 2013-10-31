@@ -18,6 +18,7 @@ import android.os.Build;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import dacer.service.WakeLockService;
 
 /**
@@ -148,21 +149,21 @@ public class MyUtils {
 		return sbar;
 	}
 	
-//	auto change screen elements value based on Galaxy S3
-	public static int autoSetValue4DifferentScreen(int baseValue){
-		int screenWidth = 720;
-    	int screenHeight = 1280;
-		if(GlobalContext.getActivity() != null){
-			screenWidth = getScreenWidth();
-	    	screenHeight = getScreenHeight();
-		}
-    	if(screenWidth > screenHeight){
-    		screenWidth = screenHeight;
-    	}
-    	int value = baseValue * screenWidth /720;
-    	return value;
-    }
+
+	public static float dipToPixels(Context context, float dipValue) {
+	    DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+	    return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dipValue, metrics);
+	}
 	
+	public static float spToPixels(Context context, Float sp) {
+	    float scaledDensity = context.getResources().getDisplayMetrics().scaledDensity;
+	    return sp*scaledDensity;
+	}
+	
+	public static float pixelsToSp(Context context, Float px) {
+	    float scaledDensity = context.getResources().getDisplayMetrics().scaledDensity;
+	    return px/scaledDensity;
+	}
 	//record for longer break
 	
 	public static void addContinueTimes(Context c){

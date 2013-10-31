@@ -30,9 +30,9 @@ public class WeekCirView extends View {
 		colorSet = new ArrayList<Integer>();
 		bgCirPaint = new Paint();
 		bgCirPaint.setAntiAlias(true);
-		cirRadius = MyUtils.autoSetValue4DifferentScreen(25);
-		cirSpacing = MyUtils.autoSetValue4DifferentScreen(22);
-		cirLeftAlign = MyUtils.autoSetValue4DifferentScreen(10);
+		cirRadius = (int)MyUtils.dipToPixels(context,12);
+		cirSpacing = (int)MyUtils.dipToPixels(context,12);
+		cirLeftAlign = (int)MyUtils.dipToPixels(context,5);
 	}
 
 	@Override 

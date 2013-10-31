@@ -1,5 +1,6 @@
 package dacer.planefighter;
 
+import android.content.Context;
 import dacer.planefighter.GameUtils.KnockFunction;
 
 
@@ -9,7 +10,7 @@ import dacer.planefighter.GameUtils.KnockFunction;
  */
 public class HugeWareBullets extends MyFatherBullets{
     
-	public HugeWareBullets(int bulletNUM,float speed) {
+	public HugeWareBullets(int bulletNUM,float speed,Context c) {
 		// TODO Auto-generated constructor stub
 		super(bulletNUM,speed);
 		for(int i=0; i<bulletNUM; i++){
@@ -35,7 +36,7 @@ public class HugeWareBullets extends MyFatherBullets{
 								fromY,
 								toX,
 								toY}, 
-					(float)randomSpeed);
+					(float)randomSpeed,c);
 			miniCir[i].setOnDeadListener(this);
 			miniCir[i].setAutoDeadAfterArrival(true);
 		}
