@@ -1,5 +1,7 @@
 package com.dacer.simplepomodoro;
 
+import com.robobunny.SeekBarPreference;
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -51,11 +53,10 @@ public class SettingActivity extends PreferenceActivity {
 
 		addPreferencesFromResource(MyUtils.
 				isUnderHoneycomb()? R.xml.preferences_for_low: R.xml.preferences);
-
 		bindPreferenceSummaryToValue(findPreference("pref_theme_type"));
-		bindPreferenceSummaryToValue(findPreference("pref_break_duration"));
-		bindPreferenceSummaryToValue(findPreference("pref_pomodoro_duration"));
-        bindPreferenceSummaryToValue(findPreference("pref_long_break_duration"));
+//		bindPreferenceSummaryToValue(findPreference("pref_break_duration"));
+//		bindPreferenceSummaryToValue(findPreference("pref_pomodoro_duration"));
+//        bindPreferenceSummaryToValue(findPreference("pref_long_break_duration"));
 		bindPreferenceSummaryToValue(findPreference("pref_notification_sound"));
 		bindPreferenceSummaryToValue(findPreference("pref_first_day"));
 		bindPreferenceSummaryToValue(findPreference("pref_daily_goal"));

@@ -1,6 +1,6 @@
 
 <PreferenceScreen
-        xmlns:android="http://schemas.android.com/apk/res/android">
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:robobunny="http://robobunny.com">
     <PreferenceCategory android:title="@string/pref_title_display">
         <ListPreference android:dialogTitle="@string/pref_theme" android:entryValues="@array/pref_theme_list_values" android:entries="@array/pref_theme_list" android:title="@string/pref_theme" android:key="pref_theme_type" android:defaultValue="black"/>
         <CheckBoxPreference android:title="@string/pref_enable_fullscreen" android:key="pref_enable_fullscreen" android:defaultValue="true"/>
@@ -9,10 +9,11 @@
             <EditTextPreference android:title="@string/pref_daily_goal" android:dialogTitle="@string/pref_daily_goal" android:key="pref_daily_goal" android:defaultValue="6"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_title_timer_settings">
-         <ListPreference android:entries="@array/pref_pomodoro_duration_list" android:key="pref_pomodoro_duration" android:title="@string/pref_pomodoro_duration" android:entryValues="@array/pref_pomodoro_duration_values" android:defaultValue="25"/>
-        <ListPreference android:entries="@array/pref_break_duration_list" android:key="pref_break_duration" android:title="@string/pref_break_duration" android:entryValues="@array/pref_break_duration_values" android:defaultValue="5"/>
-        <ListPreference android:entries="@array/pref_long_break_duration_list" android:key="pref_long_break_duration" android:title="@string/pref_long_break_duration" android:entryValues="@array/pref_long_break_duration_values" android:defaultValue="25"/>
-        <CheckBoxPreference android:title="@string/pref_enable_vibrations" android:key="pref_enable_vibrations"/>
+			
+        <com.robobunny.SeekBarPreference  robobunny:interval="5" android:max="45" robobunny:min="20" android:key="pref_pomodoro_duration_new" android:title="@string/pref_pomodoro_duration" android:defaultValue="25" />
+        <com.robobunny.SeekBarPreference  robobunny:interval="1" android:max="10" robobunny:min="1" android:key="pref_break_duration_new" android:title="@string/pref_break_duration" android:defaultValue="5" />
+        <com.robobunny.SeekBarPreference  robobunny:interval="5" android:max="40" robobunny:min="10" android:key="pref_long_break_duration_new" android:title="@string/pref_long_break_duration"  android:defaultValue="25" />
+			<CheckBoxPreference android:title="@string/pref_enable_vibrations" android:key="pref_enable_vibrations"/>
             <CheckBoxPreference android:title="@string/pref_enable_ticking" android:key="pref_enable_ticking"/>
             <RingtonePreference android:showSilent="true" android:showDefault="true" android:title="@string/pref_notification_sound" android:ringtoneType="notification" android:key="pref_notification_sound"/>
         

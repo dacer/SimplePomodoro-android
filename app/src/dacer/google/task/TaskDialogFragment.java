@@ -65,14 +65,16 @@ public class TaskDialogFragment extends DialogFragment {
 
 		ET_title = (EditText) dialogView.findViewById(R.id.title);
 		
-		View line = dialogView.findViewById(R.id.line_2);
+		final View line = dialogView.findViewById(R.id.line_2);
 		if(SettingUtility.isLightTheme()){
-			line.setAlpha(0);
+//			line.setAlpha(0);
+			line.setBackgroundColor(Color.argb(0, 0, 0, 0));
 			tv_dialog_title.setTextColor(Color.parseColor("#fffffb"));
 		}
 		
 		String title_color = ColorChanger.getCurrentColor(getActivity());
 		tv_dialog_title.setBackgroundColor(Color.parseColor(title_color));
+		
 		tv_dialog_title.setOnClickListener(new OnClickListener() {
 
 			@Override

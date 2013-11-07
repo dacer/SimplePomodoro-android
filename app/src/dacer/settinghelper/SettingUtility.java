@@ -18,16 +18,16 @@ import dacer.utils.MyUtils;
  * Date  :Jul 17, 2013
  */
 public class SettingUtility {
-	public static final String LONG_BREAK_DURATION = "pref_long_break_duration";
+	public static final String LONG_BREAK_DURATION = "pref_long_break_duration_new";
 	
 	private static final String FIRST_START = "pref_first_start";
-	private static final String POMODORO_DURATION = "pref_pomodoro_duration";
+	public static final String POMODORO_DURATION = "pref_pomodoro_duration_new";
 	private static final String THEME_TYPE = "pref_theme_type";
 	private static final String ENABLE_VIBRATIONS = "pref_enable_vibrations";
 	private static final String	ENABLE_FASTMODE = "pref_fast_mode";
 	private static final String ENABLE_FULLSCREEN = "pref_enable_fullscreen";
 	private static final String ENABLE_LIGHTS_ON = "pref_lights_on";
-	private static final String BREAK_DURATION = "pref_break_duration";
+	public static final String BREAK_DURATION = "pref_break_duration_new";
 	private static final String FIRST_DAY = "pref_first_day";
 	private static final String DAILY_GOAL = "pref_daily_goal";
 	private static final String ENABLE_GOOGLE_TASK = "pref_sync_with_google_task";
@@ -81,7 +81,7 @@ public class SettingUtility {
 //    }
 
     public static int getLongBreakDuration(){
-		int value = Integer.parseInt(SettingHelper.getSharedPreferences(getContext(), LONG_BREAK_DURATION, "25"));
+		int value = SettingHelper.getSharedPreferences(getContext(), LONG_BREAK_DURATION, 25);
         return value;
     }
 
@@ -177,7 +177,7 @@ public class SettingUtility {
     }
     
     public static int getPomodoroDuration(){
-    	int value = Integer.parseInt(SettingHelper.getSharedPreferences(getContext(), POMODORO_DURATION, "25"));
+    	int value = SettingHelper.getSharedPreferences(getContext(), POMODORO_DURATION, 25);
     	if(SettingHelper.getSharedPreferences(getContext(), DEBUG_MODE, false)){
     		value = 1;
     	}
@@ -185,7 +185,7 @@ public class SettingUtility {
     }
     
     public static int getBreakDuration(){
-		int value = Integer.parseInt(SettingHelper.getSharedPreferences(getContext(), BREAK_DURATION, "5"));
+		int value = SettingHelper.getSharedPreferences(getContext(), BREAK_DURATION, 5);
 		if(SettingHelper.getSharedPreferences(getContext(), DEBUG_MODE, false)){
     		value = 1;
     	}

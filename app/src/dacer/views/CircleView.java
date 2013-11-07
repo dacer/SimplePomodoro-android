@@ -73,7 +73,7 @@ public class CircleView extends View {
     private String BUTTON_TEXT;
     
     public CircleView(Context context,float cirCenterX, float cirCenterY,
-    		float bigCirRadius, String centerTextStr,
+    		float bigCirRadius, String centerTextStr,int centerTextSize,
     		float sweepAngle, OnClickCircleListener listener,RunMode mode) {
         super(context);
         mContext = context;
@@ -83,7 +83,7 @@ public class CircleView extends View {
         		SettingUtility.getWaitShaderColor(), null);
 
         mStatusBarHeight = MyUtils.getStatusBarHeight(context);
-        CENTER_TEXT_SIZE = (int)MyUtils.dipToPixels(context,45f);
+        CENTER_TEXT_SIZE = centerTextSize;
         float startAngle = 270;
         int allAlpha = 255;
         mListener = listener;
@@ -108,9 +108,9 @@ public class CircleView extends View {
         centerCirRadius = bigCirRadius - autoSetRingThickness();
         
         textPaint = new Paint();
-        textPaint.setARGB(allAlpha, 255, 255, 255);//RGB-->White
+        textPaint.setARGB(allAlpha, 255, 255, 255);
         if(SettingUtility.isLightTheme()){
-        	textPaint.setARGB(allAlpha, 0, 0, 0);//RGB-->BLACK
+        	textPaint.setARGB(allAlpha, 0, 0, 0);
         }
         textPaint.setTextAlign(Paint.Align.CENTER);
         textPaint.setTextSize(CENTER_TEXT_SIZE);
@@ -260,8 +260,6 @@ public class CircleView extends View {
                 		downSign = true;
                 	}
                 }
-            	
-            	
                 return true;
             case (MotionEvent.ACTION_MOVE) :
                 return true;
@@ -288,11 +286,7 @@ public class CircleView extends View {
         }
     } 
     
-    
-    /*
-     *
-     * 
-     */
+
     public void setMyAlpha(int alpha){
     	bigCirPaint.setAlpha(alpha);
     	mtPaint.setAlpha(alpha);
@@ -322,23 +316,32 @@ public class CircleView extends View {
     	mCenterTextStr = str;
     }
     
-    public void setMyTextSize(float size){
+    public void setTextSize(float size){
+    	CENTER_TEXT_SIZE = (int)size;
+    }
+    
+    private void setMyTextSize(float size){
     	textPaint.setTextSize(size);
+    }
+
+    public float getTestSize(){
+    	return textPaint.getTextSize();
     }
     
     private float autoSetRingThickness(){
-    	float value = 10;
-    	int screenWidth = MyUtils.getScreenWidth();
-    	int screenHeight = MyUtils.getScreenHeight();
-    	if(screenWidth > screenHeight){
-    		int temp = screenWidth;
-    		screenWidth = screenHeight;
-    		screenHeight = temp;
-    	}
-    	if(screenHeight<854 || screenWidth<480){
-    		value = 5;
-    	}
-    	return value;
+//    	float value = 10;
+//    	int screenWidth = MyUtils.getScreenWidth();
+//    	int screenHeight = MyUtils.getScreenHeight();
+//    	if(screenWidth > screenHeight){
+//    		int temp = screenWidth;
+//    		screenWidth = screenHeight;
+//    		screenHeight = temp;
+//    	}
+//    	if(screenHeight<854 || screenWidth<480){
+//    		value = 5;
+//    	}
+//    	return value;
+    	return (float)MyUtils.dipToPixels(mContext, 5);
     }
     
     

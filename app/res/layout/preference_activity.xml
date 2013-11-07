@@ -14,11 +14,4 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:scrollbars="none" />
 
-    <LinearLayout
-        android:id="@+id/ad_view"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="vertical" >
-    </LinearLayout>
-
 </LinearLayout>

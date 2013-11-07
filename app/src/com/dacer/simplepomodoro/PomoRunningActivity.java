@@ -1,5 +1,7 @@
 package com.dacer.simplepomodoro;
 
+import java.math.BigDecimal;
+
 import com.umeng.analytics.MobclickAgent;
 
 import android.app.Activity;
@@ -31,8 +33,11 @@ import dacer.views.CircleView.RunMode;
  */
 public class PomoRunningActivity extends Activity implements OnClickCircleListener {
 	private CircleView mView;
-	private Boolean isDisplay = true;
-	
+	private enum CenterSize{NONE,MIDDLE,BIG};
+	private CenterSize centerSize = CenterSize.MIDDLE;
+	private int width;
+	private int height;
+	private float bigCirRadius;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		GlobalContext.setActivity(this);
@@ -46,12 +51,13 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
         }
         setTheme(SettingUtility.getTheme());
 		super.onCreate(savedInstanceState);
+		
 		//get Screen Width, Height
 		DisplayMetrics metrics = new DisplayMetrics();   
 		getWindowManager().getDefaultDisplay().getMetrics(metrics);   
-		int width = metrics.widthPixels;   
-		int height = metrics.heightPixels; 
-		float bigCirRadius;
+		width = metrics.widthPixels;   
+		height = metrics.heightPixels; 
+		
 		if(width < height){
 			bigCirRadius = (float) (width * 0.4);
 		}else{
@@ -59,7 +65,7 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
 		}
 		mView = new CircleView(this,width/2, 
 				height/2, bigCirRadius, 
-				getString(R.string.start), 0, this,RunMode.MODE_ONE);
+				getString(R.string.start),(int)MyUtils.dipToPixels(this,45f), 0, this,RunMode.MODE_ONE);
 		
 		showContinueView();
 		setContentView(mView);
@@ -101,7 +107,6 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-//        	Log.e("pomoAct","Back key");
         	AlertDialog d = new AlertDialog.Builder(this)
             .setTitle(getString(R.string.stop_pomodoro))
             .setMessage(getString(R.string.do_you_wish_to_stop))
@@ -111,7 +116,6 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
     			public void onClick(DialogInterface dialog, int which) {
     				// TODO Auto-generated method stub
     				Intent intent = new Intent(Intent.ACTION_MAIN);
-//    				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
     				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     				intent.addCategory(Intent.CATEGORY_HOME);
     				PomoRunningActivity.this.startActivity(intent);
@@ -131,9 +135,6 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
     			 	startActivity(intent);
     			 	finish();
     			 	overridePendingTransition(0, 0);
-//    				startActivity(new Intent(PomoRunningActivity.this,
-//    						MainActivity.class));
-//    				finish();
     			}
     		})
           	.create();
@@ -159,9 +160,22 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
 	@Override
 	public void onClickCircle() {
 		// TODO Auto-generated method stub
-		//show/hide time text
-		mView.setTextAlpha(isDisplay? 0 : 255);
-		isDisplay = !isDisplay;
+//		switch (centerSize) {
+//		case NONE:
+//			mView.setTextSize(MyUtils.dipToPixels(this,45f));
+//			centerSize = CenterSize.MIDDLE;
+//			break;
+//		case MIDDLE:
+//			mView.setTextSize(MyUtils.dipToPixels(this,90f));	
+//			centerSize = CenterSize.BIG;
+//			break;
+//		case BIG:
+//			mView.setTextSize(0);
+//			centerSize = CenterSize.NONE;
+//			break;
+//		default:
+//			break;
+//		}
 	}
 	
 	
