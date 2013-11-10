@@ -29,7 +29,7 @@ public class SettingUtility {
 	private static final String ENABLE_LIGHTS_ON = "pref_lights_on";
 	public static final String BREAK_DURATION = "pref_break_duration_new";
 	private static final String FIRST_DAY = "pref_first_day";
-	private static final String DAILY_GOAL = "pref_daily_goal";
+	private static final String DAILY_GOAL = "pref_daily_goal_new";
 	private static final String ENABLE_GOOGLE_TASK = "pref_sync_with_google_task";
 
     private static final String ENABLE_TICKING = "pref_enable_ticking";
@@ -39,7 +39,7 @@ public class SettingUtility {
 	private static final String AUTH_ACCOUNT_NAME = "auth_account_name";
 	private static final String DEBUG_MODE = "debug_mode";
 	private static final String PRE_ADREMOVED = "adremoved";
-	
+	private static final String BIG_FONT = "big_font";
 	private static final String GTASK_FIRST_ENABLED = "gtask_first_enabled";
 	
 	//Anti be killed Test
@@ -85,6 +85,16 @@ public class SettingUtility {
         return value;
     }
 
+    public static boolean isBigFont(){
+        boolean type = SettingHelper.
+                getSharedPreferences(getContext(), BIG_FONT, false);
+        return type;
+    }
+    
+    public static void setBigFont(boolean isBig){
+        SettingHelper.setEditor(getContext(), BIG_FONT, isBig);
+    }
+    
     public static boolean isGTaskFirstEnabled(){
         boolean type = SettingHelper.
                 getSharedPreferences(getContext(), GTASK_FIRST_ENABLED, true);
@@ -206,13 +216,7 @@ public class SettingUtility {
     }
     
     public static int getDailyGoal(){
-    	int value = 6;
-    	try {
-    		value = Integer.parseInt(SettingHelper.getSharedPreferences(getContext(), DAILY_GOAL, "6"));
-		} catch (Exception e) {
-			// TODO: handle exception
-			Toast.makeText(getContext(), R.string.daily_goal_error, Toast.LENGTH_LONG).show();
-		}
+    	int value = SettingHelper.getSharedPreferences(getContext(), DAILY_GOAL, 6);
     	return value;
     }
     

@@ -61,7 +61,9 @@ public class MyPomoRecorder {
 				String.valueOf(todayZeroClockTimeInMillis) };
 		cursor = db.query(RECORDER_TABLE_NAME, null, selection,
 				selectionArgs, null, null, null);
-		return cursor.getCount();
+		int result = cursor.getCount();
+//		cursor.close();
+		return result;
 	}
 	
 	public ArrayList<Integer> getWeekend(){
@@ -128,6 +130,7 @@ public class MyPomoRecorder {
     		result[theDayOfWeekBeginWithZero] = cursor.getCount();
     		cal.set(Calendar.DAY_OF_YEAR, cal.get(Calendar.DAY_OF_YEAR)-2);
     		theDayOfWeekBeginWithZero--;
+//    		cursor.close();
         }	
 		return result;
 	}

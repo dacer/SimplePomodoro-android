@@ -17,6 +17,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -33,6 +34,7 @@ import android.widget.Toast;
 
 import com.dacer.simplepomodoro.FinishScreenActivity;
 import com.dacer.simplepomodoro.R;
+import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
@@ -270,10 +272,21 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 		
 	  /** Check that Google Play services APK is installed and up to date. */
 	  private boolean checkGooglePlayServicesAvailable() {
-	    final int connectionStatusCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
-	    if (GooglePlayServicesUtil.isUserRecoverableError(connectionStatusCode)) {
-	      showGooglePlayServicesAvailabilityErrorDialog(connectionStatusCode);
-	      return false;
+//	    final int connectionStatusCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
+//	    if (GooglePlayServicesUtil.isUserRecoverableError(connectionStatusCode)) {
+//	      showGooglePlayServicesAvailabilityErrorDialog(connectionStatusCode);
+//	      return false;
+//	    }
+	 // Check status of Google Play Services
+	    int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
+
+	    // Check Google Play Service Available
+	    try {
+	        if (status != ConnectionResult.SUCCESS) {
+	            GooglePlayServicesUtil.getErrorDialog(status, getActivity(), status).show();
+	        }
+	    } catch (Exception e) {
+	        Log.e("Error: GooglePlayServiceUtil: ", "" + e);
 	    }
 	    return true;
 	  }

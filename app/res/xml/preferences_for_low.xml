@@ -6,8 +6,8 @@
         <CheckBoxPreference android:title="@string/pref_enable_fullscreen" android:key="pref_enable_fullscreen" android:defaultValue="true"/>
         <CheckBoxPreference android:title="@string/pref_lights_on" android:summary="@string/pref_lights_on_summary" android:key="pref_lights_on"/>
             <ListPreference android:entryValues="@array/pref_first_day_values" android:entries="@array/pref_first_day_list" android:title="@string/pref_first_day" android:key="pref_first_day" android:dialogTitle="@string/pref_first_day" android:defaultValue="sunday"/>
-            <EditTextPreference android:title="@string/pref_daily_goal" android:dialogTitle="@string/pref_daily_goal" android:key="pref_daily_goal" android:defaultValue="6"/>
-    </PreferenceCategory>
+            <com.robobunny.SeekBarPreference  robobunny:interval="1" android:max="30" robobunny:min="1" android:key="pref_daily_goal_new" android:title="@string/pref_daily_goal" android:defaultValue="6" />
+        </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_title_timer_settings">
 			
         <com.robobunny.SeekBarPreference  robobunny:interval="5" android:max="45" robobunny:min="20" android:key="pref_pomodoro_duration_new" android:title="@string/pref_pomodoro_duration" android:defaultValue="25" />
@@ -28,6 +28,7 @@
     </PreferenceCategory>
     		
     <PreferenceCategory android:title="@string/pref_title_info">
+    	<PreferenceScreen android:summary="@string/dacer" android:title="@string/author" android:key="pref_author"></PreferenceScreen>
         <PreferenceScreen android:title="@string/pref_email_us" android:key="pref_email_us"></PreferenceScreen>    
     	<PreferenceScreen android:summary="@string/donate_summary" android:title="@string/donate_via" android:key="donate"></PreferenceScreen>
     	<PreferenceScreen android:title="@string/pref_about" android:key="pref_about" android:summary="@string/pref_about_summary"></PreferenceScreen>

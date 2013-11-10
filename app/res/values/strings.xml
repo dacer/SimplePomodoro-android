@@ -61,7 +61,7 @@
         <item>monday</item>
     </string-array>
 
-    <string name="pref_daily_goal">Set daily goal(number)</string>
+    <string name="pref_daily_goal">Set daily goal</string>
     <string name="pref_view_full_statistics">View full statistics</string>
     <string name="pref_view_full_statistics_summary">after sync with google account</string>
     <string name="pref_title_timer_settings">Timer</string>
@@ -187,4 +187,9 @@
     
     <string name="gtask_warning">Experimental function!</string>
     <string name="gtask_warning_summary">This function may cause FC(force close), so FAST MODE will be auto disabled (if it was enabled).</string>
+
+	
+    <!-- big font  -->
+    <string name="big_font_enabled">Big Font Enabled</string>
+    <string name="big_font_disabled">Big Font Disabled</string>
 </resources>

@@ -41,19 +41,18 @@ public class RecordFragment extends Fragment {
 		
 		View rootView = inflater.inflate(R.layout.fragment_record, container,
 				false);
-
-		if(!SettingUtility.isADRemoved()){
-//        	LinearLayout layout = (LinearLayout)rootView.findViewById(R.id.ad_view);
-//        	AdsMogoLayout adsMogoLayout = new AdsMogoLayout(getActivity(),
-//  				"41fd5ef6c39b4b95990bc84e9cd7bdaf", false);
-//        	adsMogoLayout. downloadIsShowDialog=true;
-//      		layout.addView(adsMogoLayout);
-        }
 		initFont(rootView);
 		initCirView(rootView);
 		
 		ImageButton settingButton = (ImageButton)rootView.findViewById(R.id.btn_setting);
-		settingButton.setBackgroundColor(Color.BLACK);
+
+		if(SettingUtility.isLightTheme()){
+			settingButton.setImageResource(R.drawable.ic_action_overflow_gray);
+			settingButton.setBackgroundColor(Color.parseColor("#ffffff"));
+		}else{
+			settingButton.setImageResource(R.drawable.ic_action_overflow);
+			settingButton.setBackgroundColor(Color.parseColor("#000000"));
+		}
 		settingButton.setOnClickListener(new OnClickListener() {
 			
 			@Override

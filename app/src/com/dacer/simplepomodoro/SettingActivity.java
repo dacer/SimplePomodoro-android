@@ -21,6 +21,7 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.GlobalContext;
@@ -32,7 +33,7 @@ import dacer.utils.MyUtils;
  * Date  :Jul 17, 2013
  */
 public class SettingActivity extends PreferenceActivity {
-
+	private int forBigFont = 0;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +60,32 @@ public class SettingActivity extends PreferenceActivity {
 //        bindPreferenceSummaryToValue(findPreference("pref_long_break_duration"));
 		bindPreferenceSummaryToValue(findPreference("pref_notification_sound"));
 		bindPreferenceSummaryToValue(findPreference("pref_first_day"));
-		bindPreferenceSummaryToValue(findPreference("pref_daily_goal"));
+//		bindPreferenceSummaryToValue(findPreference("pref_daily_goal"));
 
 		Preference google_task_Preference = findPreference("pref_sync_with_google_task");
 		Preference email_us_Preference = findPreference("pref_email_us");
 		Preference donate_Preference = findPreference("donate");
 		Preference about_Preference = findPreference("pref_about");
+		Preference author_Preference = findPreference("pref_author");
+		
+		author_Preference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+			
+			@Override
+			public boolean onPreferenceClick(Preference preference) {
+				// TODO Auto-generated method stub
+				forBigFont++;
+				if(forBigFont>5){
+					SettingUtility.setBigFont(!SettingUtility.isBigFont());
+					if(SettingUtility.isBigFont()){
+						Toast.makeText(SettingActivity.this, SettingActivity.this.getString(R.string.big_font_enabled), Toast.LENGTH_LONG).show();
+					}else{
+						Toast.makeText(SettingActivity.this, SettingActivity.this.getString(R.string.big_font_disabled), Toast.LENGTH_LONG).show();
+					}
+				}
+				return false;
+			}
+		});
+		
 		
 		final Preference remove_manage_Preference = findPreference("pref_remove_manage");
 		final CheckBoxPreference fast_mode_Preference = 

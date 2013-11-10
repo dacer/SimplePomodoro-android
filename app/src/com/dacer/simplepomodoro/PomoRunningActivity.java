@@ -33,11 +33,14 @@ import dacer.views.CircleView.RunMode;
  */
 public class PomoRunningActivity extends Activity implements OnClickCircleListener {
 	private CircleView mView;
-	private enum CenterSize{NONE,MIDDLE,BIG};
-	private CenterSize centerSize = CenterSize.MIDDLE;
 	private int width;
 	private int height;
 	private float bigCirRadius;
+
+	private enum CenterSize{NONE,MIDDLE,BIG};
+	private CenterSize centerSize = CenterSize.MIDDLE;
+	private boolean isDisplay = true;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		GlobalContext.setActivity(this);
@@ -65,7 +68,7 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
 		}
 		mView = new CircleView(this,width/2, 
 				height/2, bigCirRadius, 
-				getString(R.string.start),(int)MyUtils.dipToPixels(this,45f), 0, this,RunMode.MODE_ONE);
+				getString(R.string.start), 0, this,RunMode.MODE_ONE);
 		
 		showContinueView();
 		setContentView(mView);
@@ -160,6 +163,8 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
 	@Override
 	public void onClickCircle() {
 		// TODO Auto-generated method stub
+		isDisplay = !isDisplay;
+		mView.setTextAlpha(isDisplay? 255:0);
 //		switch (centerSize) {
 //		case NONE:
 //			mView.setTextSize(MyUtils.dipToPixels(this,45f));

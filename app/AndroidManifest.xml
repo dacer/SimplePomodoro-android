@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dacer.simplepomodoro"
-    android:versionCode="23"
-    android:versionName="1.9.9.2" >
+    android:versionCode="24"
+    android:versionName="1.9.9.3" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="9"
         android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.GET_TASKS" />
@@ -21,6 +21,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
 
 
     <application
@@ -94,7 +95,10 @@
             </intent-filter>
         </receiver>
         <meta-data android:value="519a110656240b6b7b026b66" android:name="UMENG_APPKEY"></meta-data>
-		<meta-data android:value="Wandoujia" android:name="UMENG_CHANNEL"/>
+		<meta-data android:value="test" android:name="UMENG_CHANNEL"/>
+		<meta-data
+    android:name="com.google.android.gms.version"
+    android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

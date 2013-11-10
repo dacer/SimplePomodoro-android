@@ -181,4 +181,8 @@
     
     <string name="gtask_warning">实验性功能!</string>
     <string name="gtask_warning_summary">极速模式已自动关闭，请在确保Google Task可正常使用的情况下再开启极速模式。</string>
+    
+    <!-- big font  -->
+    <string name="big_font_enabled">大号字体启用，如需取消请再次点击我</string>
+    <string name="big_font_disabled">大号字体取消</string>
 </resources>

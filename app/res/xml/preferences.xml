@@ -1,13 +1,13 @@
 
 <PreferenceScreen
         xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceScreen android:title="@string/pref_title_display">
+    <PreferenceScreen android:title="@string/pref_title_display" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:robobunny="http://robobunny.com">
         <ListPreference android:dialogTitle="@string/pref_theme" android:entryValues="@array/pref_theme_list_values" android:entries="@array/pref_theme_list" android:title="@string/pref_theme" android:key="pref_theme_type" android:defaultValue="black"/>
         <CheckBoxPreference android:title="@string/pref_enable_fullscreen" android:key="pref_enable_fullscreen" android:defaultValue="false"/>
         <CheckBoxPreference android:title="@string/pref_lights_on" android:summary="@string/pref_lights_on_summary" android:key="pref_lights_on"/>
         <PreferenceCategory android:title="@string/pref_title_weekly_statistics">
-            <ListPreference android:entryValues="@array/pref_first_day_values" android:entries="@array/pref_first_day_list" android:title="@string/pref_first_day" android:key="pref_first_day" android:dialogTitle="@string/pref_first_day" android:defaultValue="sunday"/><EditTextPreference android:title="@string/pref_daily_goal" android:dialogTitle="@string/pref_daily_goal" android:key="pref_daily_goal" android:defaultValue="6"/>
-            
+            <ListPreference android:entryValues="@array/pref_first_day_values" android:entries="@array/pref_first_day_list" android:title="@string/pref_first_day" android:key="pref_first_day" android:dialogTitle="@string/pref_first_day" android:defaultValue="sunday"/>
+           	<com.robobunny.SeekBarPreference  robobunny:interval="1" android:max="30" robobunny:min="1" android:key="pref_daily_goal_new" android:title="@string/pref_daily_goal" android:defaultValue="6" />
         </PreferenceCategory>
         
     </PreferenceScreen>

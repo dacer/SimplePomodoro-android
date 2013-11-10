@@ -73,7 +73,7 @@ public class CircleView extends View {
     private String BUTTON_TEXT;
     
     public CircleView(Context context,float cirCenterX, float cirCenterY,
-    		float bigCirRadius, String centerTextStr,int centerTextSize,
+    		float bigCirRadius, String centerTextStr,
     		float sweepAngle, OnClickCircleListener listener,RunMode mode) {
         super(context);
         mContext = context;
@@ -83,7 +83,10 @@ public class CircleView extends View {
         		SettingUtility.getWaitShaderColor(), null);
 
         mStatusBarHeight = MyUtils.getStatusBarHeight(context);
-        CENTER_TEXT_SIZE = centerTextSize;
+        CENTER_TEXT_SIZE = (int)MyUtils.dipToPixels(mContext,45f);
+        if(SettingUtility.isBigFont()){
+            CENTER_TEXT_SIZE = (int)MyUtils.dipToPixels(mContext,90f);
+        }
         float startAngle = 270;
         int allAlpha = 255;
         mListener = listener;
