@@ -40,7 +40,6 @@ public class SettingUtility {
 	private static final String DEBUG_MODE = "debug_mode";
 	private static final String PRE_ADREMOVED = "adremoved";
 	private static final String BIG_FONT = "big_font";
-	private static final String GTASK_FIRST_ENABLED = "gtask_first_enabled";
 	
 	//Anti be killed Test
 	private static final String FINISH_TIME = "finish_time";
@@ -93,15 +92,6 @@ public class SettingUtility {
     
     public static void setBigFont(boolean isBig){
         SettingHelper.setEditor(getContext(), BIG_FONT, isBig);
-    }
-    
-    public static boolean isGTaskFirstEnabled(){
-        boolean type = SettingHelper.
-                getSharedPreferences(getContext(), GTASK_FIRST_ENABLED, true);
-        if(type){
-            SettingHelper.setEditor(getContext(), GTASK_FIRST_ENABLED, false);
-        }
-        return type;
     }
     
     public static boolean isTick(){

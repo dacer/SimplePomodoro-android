@@ -61,8 +61,6 @@ public class SettingActivity extends PreferenceActivity {
 		bindPreferenceSummaryToValue(findPreference("pref_notification_sound"));
 		bindPreferenceSummaryToValue(findPreference("pref_first_day"));
 //		bindPreferenceSummaryToValue(findPreference("pref_daily_goal"));
-
-		Preference google_task_Preference = findPreference("pref_sync_with_google_task");
 		Preference email_us_Preference = findPreference("pref_email_us");
 		Preference donate_Preference = findPreference("donate");
 		Preference about_Preference = findPreference("pref_about");
@@ -157,23 +155,6 @@ public class SettingActivity extends PreferenceActivity {
 			public boolean onPreferenceClick(Preference preference) {
 				// TODO Auto-generated method stub
 				startActivity(new Intent(SettingActivity.this, PlaneFighterActivity.class)); 
-				return false;
-			}
-		});
-		
-		
-		google_task_Preference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-			
-			@Override
-			public boolean onPreferenceClick(Preference preference) {
-				// TODO Auto-generated method stub
-				if(SettingUtility.isGTaskFirstEnabled()){
-					showGtaskAlertDialog();
-					MyScreenLocker locker = new MyScreenLocker(SettingActivity.this);
-					locker.removeManage();
-					remove_manage_Preference.setEnabled(false);
-					fast_mode_Preference.setChecked(false);
-				}
 				return false;
 			}
 		});

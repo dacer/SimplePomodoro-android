@@ -215,7 +215,7 @@ public class TaskRecorder {
 				list.add(cursor.getString(index));
 			}
 		}
-		
+		cursor.close();
 		return list.get(0);
 	}
 	
@@ -237,7 +237,7 @@ public class TaskRecorder {
 				list.add(cursor.getString(index));
 			}
 		}
-		
+		cursor.close();
 		return list.get(0);
 	}
 	
