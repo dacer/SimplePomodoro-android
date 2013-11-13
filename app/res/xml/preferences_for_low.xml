@@ -25,6 +25,7 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/thanks">
     			<Preference android:summary="@string/help_me_publish_app" android:title="@string/tossking" />
+    			<Preference android:summary="@string/jonathan_gall_summary" android:title="@string/jonathan_gall" />
     </PreferenceCategory>
     		
     <PreferenceCategory android:title="@string/pref_title_info">

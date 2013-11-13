@@ -42,6 +42,7 @@
     		<PreferenceCategory android:title="@string/donate_title"><PreferenceScreen android:summary="@string/donate_summary" android:title="@string/donate_via" android:key="donate"></PreferenceScreen></PreferenceCategory>
     		<PreferenceCategory android:title="@string/thanks">
     			<Preference android:summary="@string/help_me_publish_app" android:title="@string/tossking" />
+    			<Preference android:summary="@string/jonathan_gall_summary" android:title="@string/jonathan_gall" />
     		</PreferenceCategory>
     		<PreferenceCategory android:title="@string/pref_about">
     			<PreferenceScreen android:summary="@string/pref_about_summary" android:title="@string/about_pomodoro" android:key="pref_about"></PreferenceScreen>

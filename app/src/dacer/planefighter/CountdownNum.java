@@ -42,7 +42,7 @@ public class CountdownNum {
 			mSecond = (int) ((nowC.getTimeInMillis() - startMillis)/1000);
 		}
 		canvas.drawText(String.valueOf(mSecond), MyUtils.getScreenWidth(), 
-				size/3*2, mPaint);
+				MyUtils.spToPixels(mContext, 200f), mPaint);
 	}
 	
 	public int getNowSecond(){
