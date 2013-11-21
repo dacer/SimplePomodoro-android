@@ -40,8 +40,8 @@ public class SettingActivity extends PreferenceActivity {
     	// TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         GlobalContext.setActivity(this);
-        setContentView(R.layout.preference_activity);
-        getListView().setItemsCanFocus(true);
+//        setContentView(R.layout.preference_activity);
+//        getListView().setItemsCanFocus(true);
     }
     
     @Override

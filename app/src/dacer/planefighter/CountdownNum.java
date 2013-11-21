@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
+import android.graphics.Rect;
 import android.graphics.Typeface;
 import dacer.utils.GlobalContext;
 import dacer.utils.MyUtils;
@@ -21,10 +22,12 @@ public class CountdownNum {
 	private int mSecond;
 	private boolean gameOver = false;
 	private Context mContext;
+	private Rect bound;
+	
 	public CountdownNum(Context context) {
 		// TODO Auto-generated constructor stub
 		mContext = context;
-		size = MyUtils.spToPixels(context, 280f);
+		size = MyUtils.spToPixels(context, 260f);
 		mPaint = new Paint();
 		mPaint.setAntiAlias(true);
 		mPaint.setTextAlign(Align.RIGHT);
@@ -34,6 +37,8 @@ public class CountdownNum {
 		mPaint.setARGB(20, 0, 0, 0);
 		Calendar c = Calendar.getInstance();
 		startMillis = c.getTimeInMillis();
+		bound = new Rect();
+		mPaint.getTextBounds("9", 0, 1, bound);
 	}
 	
 	public void draw(Canvas canvas){
@@ -42,7 +47,7 @@ public class CountdownNum {
 			mSecond = (int) ((nowC.getTimeInMillis() - startMillis)/1000);
 		}
 		canvas.drawText(String.valueOf(mSecond), MyUtils.getScreenWidth(), 
-				MyUtils.spToPixels(mContext, 200f), mPaint);
+				Math.abs(bound.top), mPaint);
 	}
 	
 	public int getNowSecond(){
