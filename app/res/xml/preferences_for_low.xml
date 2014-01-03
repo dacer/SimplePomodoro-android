@@ -13,7 +13,7 @@
         <com.robobunny.SeekBarPreference  
             robobunny:interval="5" 
             android:max="45" 
-            robobunny:min="20" 
+            robobunny:min="15" 
             android:key="pref_pomodoro_duration_new" 
             android:title="@string/pref_pomodoro_duration" 
             android:defaultValue="25" />

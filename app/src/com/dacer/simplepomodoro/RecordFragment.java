@@ -1,5 +1,10 @@
 package com.dacer.simplepomodoro;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.dacer.androidcharts.LineView;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -66,6 +71,46 @@ public class RecordFragment extends Fragment {
 			 	getActivity().overridePendingTransition(0, 0);
 			}
 	    });
+		
+		
+		
+		
+		LineView lineView = (LineView)rootView.findViewById(R.id.line_view);
+		ArrayList<String> strList = new ArrayList<String>();
+		ArrayList<Integer> dataList = new ArrayList<Integer>();
+		strList.add("12-01");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		strList.add("12-02");
+		dataList.add(2);
+		dataList.add(3);
+		dataList.add(3);
+		lineView.setBottomTextList(strList);
+		lineView.setDataList(dataList);
 		return rootView;
 	}
 

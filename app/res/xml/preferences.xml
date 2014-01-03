@@ -12,7 +12,7 @@
         
     </PreferenceScreen>
     <PreferenceScreen android:title="@string/pref_title_timer_settings" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:robobunny="http://robobunny.com">
-        <com.robobunny.SeekBarPreference  robobunny:unitsRight="min" robobunny:interval="5" android:max="45" robobunny:min="20" android:key="pref_pomodoro_duration_new" android:title="@string/pref_pomodoro_duration" android:defaultValue="25" />
+        <com.robobunny.SeekBarPreference  robobunny:unitsRight="min" robobunny:interval="5" android:max="45" robobunny:min="15" android:key="pref_pomodoro_duration_new" android:title="@string/pref_pomodoro_duration" android:defaultValue="25" />
         <com.robobunny.SeekBarPreference  robobunny:unitsRight="min" robobunny:interval="1" android:max="10" robobunny:min="1" android:key="pref_break_duration_new" android:title="@string/pref_break_duration" android:defaultValue="5" />
         <com.robobunny.SeekBarPreference  robobunny:unitsRight="min" robobunny:interval="5" android:max="40" robobunny:min="10" android:key="pref_long_break_duration_new" android:title="@string/pref_long_break_duration"  android:defaultValue="25" />
         <PreferenceCategory android:title="@string/pref_title_timers_end_alert">

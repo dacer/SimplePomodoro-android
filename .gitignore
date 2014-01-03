@@ -32,7 +32,7 @@ proguard/
 .DS_Store
 
 #library
-pulltorefreshLibrary
+PullToRefresh-libraryproject
 ViewPagerIndicator-library
 
 .google_apis

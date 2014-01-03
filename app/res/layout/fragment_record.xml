@@ -76,18 +76,31 @@
        <dacer.views.WeekCirView
         android:id="@+id/weekCirView"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_above="@id/tv_today_text"
+        android:layout_height="wrap_content"
         android:layout_alignLeft="@id/tv_title_record"
         android:layout_below="@id/tv_title_record" />
        
+       <HorizontalScrollView
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_above="@+id/tv_today"
+           android:layout_below="@id/weekCirView"
+           android:layout_marginBottom="20dp"
+           android:layout_marginTop="20dp" >
+
+        <view
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            class="com.dacer.androidcharts.LineView"
+            android:id="@+id/line_view"/>
+		</HorizontalScrollView>
+
        <dacer.views.WeekCirViewMode2
-        android:id="@+id/weekCirViewMode2"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_above="@id/tv_today_text"
-        android:layout_alignLeft="@id/tv_title_record"
-        android:layout_below="@id/tv_title_record" />
+           android:id="@+id/weekCirViewMode2"
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:layout_alignLeft="@id/tv_title_record"
+           android:layout_below="@id/tv_title_record" />
 
        <LinearLayout
            android:id="@id/ad_view"

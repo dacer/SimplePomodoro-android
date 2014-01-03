@@ -25,7 +25,7 @@ import dacer.settinghelper.SettingUtility;
  */
 public class WakeLockService extends Service {
     private PowerManager.WakeLock wl;
-    private boolean runThread = true;
+    private MediaPlayer mediaPlayer;
     
     public IBinder onBind(Intent intent) {
         return null;
@@ -41,7 +41,7 @@ public class WakeLockService extends Service {
         if(wl.isHeld()){
             wakeRelase();
         }
-        runThread = false;
+        stopTick();
     }
 
     private void init(){
@@ -64,8 +64,7 @@ public class WakeLockService extends Service {
 
         //Play tick
         if(SettingUtility.isTick()){
-            Thread tickThread = new Thread(new RepeatTickThread());
-            tickThread.start();
+            playTick();
         }
     }
 
@@ -79,23 +78,17 @@ public class WakeLockService extends Service {
 //        LogRecorder.record("---Wake Released---");
     }
 
+    private void playTick() {
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.tick);
+        mediaPlayer.setLooping(true);
+        mediaPlayer.start();
+    }
 
-    public class RepeatTickThread implements Runnable {
-
-        private final Handler mHandler = new Handler();
-        private MediaPlayer mediaPlayer;
-
-        public RepeatTickThread() {
-            mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.tick);
+    private void stopTick() {
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
         }
-
-        @Override
-        public void run() {
-        	if(runThread){
-                mediaPlayer.start();
-                mHandler.postDelayed(this, 1000);
-        	}
-        }
-
     }
 }
