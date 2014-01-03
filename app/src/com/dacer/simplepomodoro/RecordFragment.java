@@ -5,10 +5,13 @@ import java.util.List;
 
 import com.dacer.androidcharts.LineView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +21,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.MyPomoRecorder;
+import dacer.utils.MyPomoRecorder.PomoType;
 import dacer.views.WeekCirView;
-import dacer.views.WeekCirViewMode2;
 
 /**
  * Author:dacer
@@ -28,8 +31,6 @@ import dacer.views.WeekCirViewMode2;
 public class RecordFragment extends Fragment {
 	private static final String KEY_CONTENT = "MainFragment:Content";
 	private String mContent = "???";
-	private TextView tv_today;
-	private TextView tv_total;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class RecordFragment extends Fragment {
         if ((savedInstanceState != null) && savedInstanceState.containsKey(KEY_CONTENT)) {
             mContent = savedInstanceState.getString(KEY_CONTENT);
         }
-        
+//        processThread();
     }
 	
 	@Override
@@ -73,97 +74,101 @@ public class RecordFragment extends Fragment {
 	    });
 		
 		
-		
-		
-		LineView lineView = (LineView)rootView.findViewById(R.id.line_view);
-		ArrayList<String> strList = new ArrayList<String>();
-		ArrayList<Integer> dataList = new ArrayList<Integer>();
-		strList.add("12-01");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		strList.add("12-02");
-		dataList.add(2);
-		dataList.add(3);
-		dataList.add(3);
-		lineView.setBottomTextList(strList);
-		lineView.setDataList(dataList);
 		return rootView;
 	}
 
 	private void initCirView(View rootView){
 		WeekCirView wcView = (WeekCirView)rootView.findViewById(R.id.weekCirView);
-		WeekCirViewMode2 mode2View = (WeekCirViewMode2)rootView.findViewById(R.id.weekCirViewMode2);
+		
 		MyPomoRecorder recorder = new MyPomoRecorder(getActivity());
 		int[] weekPomo = recorder.getPomoOfThisWeek();
 		wcView.setAllColor(Color.parseColor("#cccccc"));
 		
 		wcView.setIndexColor(recorder.getWeekend(), Color.parseColor("#FFBB33"));
 		
-		mode2View.enabelMode();
 		float[] weekPercent = new float[7];
 		for(int i=0; i<7; i++){
 			weekPercent[i] = (float)weekPomo[i]/SettingUtility.getDailyGoal();
 		}
-		mode2View.setEveryPercent(weekPercent);
+		wcView.setEveryPercent(weekPercent);
 	}
 	
 	private void initFont(View rootView){
-		TextView tv_total_text = (TextView) rootView.findViewById(R.id.tv_total_text);
-		TextView tv_today_text = (TextView) rootView.findViewById(R.id.tv_today_text);
-		tv_today = (TextView) rootView.findViewById(R.id.tv_today);
-		tv_total = (TextView) rootView.findViewById(R.id.tv_total_num);
-		TextView tv_title = (TextView)rootView.findViewById(R.id.tv_title_record);
-		Typeface roboto = Typeface.createFromAsset(getActivity()
-				.getAssets(), "fonts/Roboto-Thin.ttf");
-		tv_today.setTypeface(roboto);
-		tv_total.setTypeface(roboto);
-		tv_title.setTypeface(roboto);
-		tv_today_text.setTypeface(roboto);
-		tv_total_text.setTypeface(roboto);
-		
-        if(SettingUtility.isLightTheme()){
-        	tv_today.setTextColor(Color.BLACK);
-    		tv_total.setTextColor(Color.BLACK);
-    		tv_title.setTextColor(Color.BLACK);
-    		tv_today_text.setTextColor(Color.BLACK);
-    		tv_total_text.setTextColor(Color.BLACK);
-    		rootView.setBackgroundColor(Color.WHITE);
-        }
-        MyPomoRecorder mRecorder = new MyPomoRecorder(getActivity());
-        tv_total.setText(": "+
-        		String.valueOf(mRecorder.getTotalPomo()));
-        tv_today.setText(": "+
-        		String.valueOf(mRecorder.getTodayPomo()));
-	}
-	
+        TextView tv_total_text = (TextView) rootView.findViewById(R.id.tv_total_text);
+        TextView tv_today_text = (TextView) rootView.findViewById(R.id.tv_today_text);
+        TextView tv_today = (TextView) rootView.findViewById(R.id.tv_today);
+        TextView tv_total = (TextView) rootView.findViewById(R.id.tv_total_num);
+        TextView tv_title = (TextView)rootView.findViewById(R.id.tv_title_record);
+        Typeface roboto = Typeface.createFromAsset(getActivity()
+                        .getAssets(), "fonts/Roboto-Thin.ttf");
+        tv_today.setTypeface(roboto);
+        tv_total.setTypeface(roboto);
+        tv_title.setTypeface(roboto);
+        tv_today_text.setTypeface(roboto);
+        tv_total_text.setTypeface(roboto);
+        
+		if(SettingUtility.isLightTheme()){
+		        tv_today.setTextColor(Color.BLACK);
+		            tv_total.setTextColor(Color.BLACK);
+		            tv_title.setTextColor(Color.BLACK);
+		            tv_today_text.setTextColor(Color.BLACK);
+		            tv_total_text.setTextColor(Color.BLACK);
+		            rootView.setBackgroundColor(Color.WHITE);
+		}
+		MyPomoRecorder mRecorder = new MyPomoRecorder(getActivity());
+		tv_total.setText(": "+
+		                String.valueOf(mRecorder.getTotalPomo()));
+		tv_today.setText(": "+
+		                String.valueOf(mRecorder.getTodayPomo()));
+		}
+			
 	@Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString(KEY_CONTENT, mContent);
     }
 
+	
+	
+	
+	
+    //DELETE
+    private ProgressDialog pd;
+    private Handler handler = new Handler() {
+
+        @Override
+
+        public void handleMessage(Message msg) {
+
+            super.handleMessage(msg);
+            pd.dismiss();
+
+        }
+
+    };
+
+
+    private void processThread() {
+        pd = ProgressDialog.show(getActivity(), "请稍等",
+                "正在随机创建2年内番茄记录,共1000个", true);
+        new Thread() {
+            @Override
+
+            public void run() {
+                MyPomoRecorder recorder = new MyPomoRecorder(getActivity());
+                //随机创建2年内的番茄记录
+                for (int i = 0; i < 1000; i++) {
+
+                    long startTime = System.currentTimeMillis() / 1000 -
+                            (long) (Math.random() * (365 * 24 * 60 * 60) * 2);
+                    recorder.putPomodoro(i+" ge", "", PomoType.POMODORO, startTime,startTime+25*60);
+                }
+                handler.sendEmptyMessage(0);
+
+            }
+
+
+        }.start();
+    }
+//DELETE-------
 }

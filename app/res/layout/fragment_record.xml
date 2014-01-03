@@ -29,16 +29,29 @@
         android:background="#80000000"
         android:src="@drawable/ic_action_overflow" />
 
-    <TextView
-        android:id="@+id/tv_total_text"
+       <dacer.views.WeekCirView
+        android:id="@+id/weekCirView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/tv_title_record"
+        android:layout_below="@id/tv_title_record" />
+       
+       <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/ad_view"
-        android:layout_alignLeft="@+id/tv_title_record"
-        android:layout_marginBottom="15dp"
-        android:text="@string/title_total"
-        android:textColor="#ffffff"
-        android:textSize="38sp" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:orientation="vertical" >
+
+	<TextView
+	    android:id="@+id/tv_total_text"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentBottom="true"
+	    android:layout_marginBottom="15dp"
+	    android:text="@string/title_total"
+	    android:textColor="#ffffff"
+	    android:textSize="38sp" />
 
     <TextView
         android:id="@+id/tv_today_text"
@@ -72,43 +85,6 @@
         android:text=": 20"
         android:textColor="#ffffff"
         android:textSize="38sp" />
-
-       <dacer.views.WeekCirView
-        android:id="@+id/weekCirView"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/tv_title_record"
-        android:layout_below="@id/tv_title_record" />
-       
-       <HorizontalScrollView
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:layout_above="@+id/tv_today"
-           android:layout_below="@id/weekCirView"
-           android:layout_marginBottom="20dp"
-           android:layout_marginTop="20dp" >
-
-        <view
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            class="com.dacer.androidcharts.LineView"
-            android:id="@+id/line_view"/>
-		</HorizontalScrollView>
-
-       <dacer.views.WeekCirViewMode2
-           android:id="@+id/weekCirViewMode2"
-           android:layout_width="fill_parent"
-           android:layout_height="wrap_content"
-           android:layout_alignLeft="@id/tv_title_record"
-           android:layout_below="@id/tv_title_record" />
-
-       <LinearLayout
-           android:id="@id/ad_view"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_alignParentBottom="true"
-           android:orientation="vertical" >
-
-       </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -52,6 +52,18 @@ public class MyPomoRecorder {
 		// res = 0 :success
 	}
 	
+	public void putPomodoro(String title, String notes,PomoType mType,long startTime, long finishTime){
+		db = mSQLHelper.getWritableDatabase();
+		cv.put(KEY_TITLE, title);
+		cv.put(KEY_NOTES, notes);
+		cv.put(KEY_STARTTIME, startTime);
+		cv.put(KEY_FINISHTIME, finishTime);
+		cv.put(KEY_TYPE, mType.equals(PomoType.POMODORO)? 0:1);
+		long res = db.insert(RECORDER_TABLE_NAME, null, cv);
+		// res = -1:failed
+		// res = 0 :success
+	}
+	
 	public int getTodayPomo(){
 		db = mSQLHelper.getReadableDatabase();
 		Cursor cursor;
