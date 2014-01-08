@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Simple Pomodoro</string>
+    <string name="action_settings">Configuracion</string>
+    <string name="title_activity_pomo_running">PomoRunning</string>
+    <string name="title_activity_finish_screen">Fin</string>
+    <string name="title_activity_Preference">Preferencias</string>
+    <string name="title_activity_break">Receso</string>
+    <string name="title_record">Record</string>
+    <string name="title_today">Hoy</string>
+    <string name="title_total">Total</string>
+    <string name="start">¡Comenzar!</string>
+    <string name="stop">Detener</string>
+    <string name="running_in_background">Ocultar</string>
+    <string name="do_you_wish_to_stop">¿Deseas detenerte?</string>
+    <string name="stop_pomodoro">¿Detener pomodoro?</string>
+    <string name="break_time_up">Break time\'s UP</string>
+    
+    <!-- Circle View -->
+    <string name="time_up">Time\'s UP</string>
+    <string name="tap_to_break">Toca para detener</string>
+    <!-- CDService -->
+    <string name="take_a_break">Toma un receso</string>
+    <string name="cancel">Cancelar</string>
+    <string name="pomodoro_time_up">Pomodoro time\'s up</string>
+    <string name="now_you_can_take_a_break">Ahora puedes tomar un descanzo</string>
+
+
+    <!-- BreakFinishService -->
+    <string name="continue_pomodoro">Continuar</string>
+    <string name="now_you_can_continue_your_pomodoro">Ahora puedes continuar tu pomodoro</string>
+    <string name="tap_to_continue_your_pomodoro">Toca para continuar tu pomodoro</string>
+
+    <!-- Preference -->
+    <string name="pref_title_display">Pantalla</string>
+    <string name="pref_enable_fullscreen">Activar pantalla completa</string>
+    <string name="pref_lights_on">Mantener pantalla activa</string>
+    <string name="pref_lights_on_summary">Previene que la pantalla se apague cuando en pomodoro esta en marcha</string>
+    <string name="pref_theme">Tema</string>
+
+    <string-array name="pref_theme_list">
+        <item>Negro</item>
+        <item>Blanco</item>
+    </string-array>
+    <string-array name="pref_theme_list_values">
+        <item>Negro</item>
+        <item>Blanco</item>
+    </string-array>
+
+    <string name="pref_title_weekly_statistics">Estadisticas semanales</string>
+    <string name="pref_use_pie_chart">Mostrar grafico</string>
+    <string name="pref_first_day">Primer dia</string>
+
+    <string-array name="pref_first_day_list">
+        <item>Domingo</item>
+        <item>Lunes</item>
+    </string-array>
+    <string-array name="pref_first_day_values">
+        <item>domingo</item>
+        <item>lunes</item>
+    </string-array>
+
+    <string name="pref_daily_goal">Fijar meta diaria</string>
+    <string name="pref_view_full_statistics">Ver todas las estadisticas</string>
+    <string name="pref_view_full_statistics_summary">despues de sincronizar con tu cuenta de google</string>
+    <string name="pref_title_timer_settings">Temporizador</string>
+    <string name="pref_break_duration">Duracion del receso</string>
+
+    <string-array name="pref_break_duration_list">
+        <item>3 min</item>
+        <item>5 min</item>
+        <item>8 min</item>
+    </string-array>
+    <string-array name="pref_break_duration_values">
+        <item>3</item>
+        <item>5</item>
+        <item>8</item>
+    </string-array>
+
+    <string name="pref_long_break_duration">Duracion del receso largo</string>
+
+    <string-array name="pref_long_break_duration_list">
+        <item>15 min</item>
+        <item>20 min</item>
+        <item>25 min</item>
+    </string-array>
+    <string-array name="pref_long_break_duration_values">
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+    </string-array>
+
+    <string name="pref_pomodoro_duration">Duracion del Pomodoro</string>
+
+    <string-array name="pref_pomodoro_duration_list">
+        <item>25 min</item>
+        <item>30 min</item>
+        <item>35 min</item>
+    </string-array>
+    <string-array name="pref_pomodoro_duration_values">
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
+    </string-array>
+
+    <string name="pref_title_timers_end_alert">Alerta de finalizacion</string>
+    <string name="pref_notification_sound">Sonido de notificacion</string>
+    <string name="pref_enable_vibrations">Activar vibraciones</string>
+    <string name="pref_title_labs">Experimental</string>
+    <string name="pref_fast_mode">MODO RAPIDO</string>
+    <string name="pref_fast_mode_summary">Auto bloquear/desbloquear la pantalla cuando un pomodorodo comienza/termina</string>
+    <string name="pref_remove_manage">Remover gestion de administracion</string>
+    <string name="pref_remove_manage_summary">Para desintalar the App, ¡¡por favor tocame primero!!</string>
+    <string name="pref_title_sync">Sincronizar</string>
+    <string name="pref_sync_with_google_task">Sincronizar con Google task</string>
+    <string name="pref_sync_with_google_task_summary">¡No recomendado!</string>
+    <string name="pref_choose_account">Selecciona una cuenta</string>
+    <string name="pref_title_info">Informacion</string>
+    <string name="pref_email_us">Feedback</string>
+    <string name="pref_about">Acerca de</string>
+    <string name="pref_about_summary">"Esta aplicacion esta basada en la "Tecnica Pomodoro®", una forma de maximizar nuestra administracion de tiempo.</string>
+    <string name="pref_ringtone_silent">Silencio</string>
+    <string name="screen_locker_warnning">Para desintalar la aplicacion, por favor PRIMERO selecciona el boton "Remover gestion de administrador"</string>
+
+    <!-- Recorder -->
+    <string name="error">Error</string>
+    <string name="error_format">[Error] %s</string><!-- Do NOT change the [%s] -->
+    <string name="title_activity_break_finish">BreakFinishActivity</string>
+    <string name="hello_world">Hola Mundo!</string>
+    <string name="daily_goal_error">ERROR:La meta diaria no es un numero, por favor corrigelo en las configuraciones.</string>
+    <string name="title_activity_cal">CalActivity</string>
+
+    <!-- About -->
+    <string name="author">Autor</string>
+    <string name="dacer">Dacer</string>
+    <string name="website">Sitio web</string>
+    <string name="website_url">http://dacer.github.io/myapps/en</string>
+    <string name="donate_title">Donar</string>
+    <string name="donate_via">Donar</string>
+    <string name="donate_summary">paypal/alipay:dacerfeedback@gmail.com</string>
+    <string name="about_pomodoro">Acerca de Pomodoro</string>
+    
+    <!-- Game -->
+    <string name="game_over">Perdiste</string>
+    <string name="your_score_is">Tu puntaje es:</string>
+    <string name="restart">Reiniciar</string>
+    <string name="exit">Salir</string>
+    
+    <!-- notification in RunningActivity -->
+    <string name="sp_is_running">SimplePomodoro se esta ejecutando.</string>
+    <string name="click_to_return">Toca para regresar</string>
+    <string name="break_time">Receso</string>
+    
+    <string name="debug_mode">Modo debug</string>
+    <string name="debug_mode_summary">La duracion será siempre 1 minuto</string>
+    
+    <!-- google task  -->
+    <string name="new_task">Nueva tarea</string>
+    <string name="edit_task">Editar tarea</string>
+    <string name="task_title">Titulo de la tarea</string>
+    <string name="the_title_can_not_be_empty">¡El titulo no puede estar vacio!</string>
+    <string name="ok">OK</string>
+    <string name="Sync_with_google_task_is_not_enabled">La sincronizacion con Google Task no esta activada</string>
+    
+    <!-- initTask  -->
+    <string name="swipe_right_to_finish">Desliza a la derecha para finalizar</string>
+    <string name="click_plus_to_add_task">Toca \"+\" para agregar una tarea</string>
+    <string name="pull_to_sync">Arrastra para sincronizar con Google Task</string>
+    <string name="hold_plus_to_change_account">Manten presionado \"+\" para cambiar cuenta</string>
+    <string name="i_from_web">Soy de google task:)</string>
+    
+    <!-- Thanks  -->
+    <string name="thanks">Agradecimient</string>
+    <string name="tossking">tossking(Neo Tian)</string>
+    <string name="help_me_publish_app">Me ayudo a publicar la App</string>
+
+    <string name="jonathan_gall">Jonathan Gall</string>
+    <string name="jonathan_gall_summary">Traduccion a Frances</string>
+    
+    <string name="jose_miguel_urdaneta">Jose Miguel Urdaneta</string>
+    <string name="jose_miguel_urdaneta_summary">Traduccion a Español</string>
+    
+    <string name="xiaomi_mode">Modo XiaoMi</string>
+    <string name="xiaomi_mode_summary">Para XiaoMi phone</string>
+    <string name="tick_sound_disabled">Sonido tictac desactivado</string>
+    <string name="tick_sound_enabled">Sonido tictac activado</string>
+    
+    <string name="pref_enable_ticking">Activar sonido tictac</string>
+    
+    <string name="detect_is_miphone">Al parecer usas XiaoMi Phone</string>
+    <string name="miphone_message">El modo Mi esta auto-activado,si no estas usando XiaoMi Phone por favor desactivalo manualmente.</string>
+    
+    <string name="gtask_warning">¡Funcion experimental!</string>
+    <string name="gtask_warning_summary">Esta funcion podría causar FC(cierre forzoso), así que el MODO RAPIDO será desactivado (si esta activado).</string>
+
+	
+    <!-- big font  -->
+    <string name="big_font_enabled">Activar fuente grande</string>
+    <string name="big_font_disabled">Desactivar fuente grande</string>
+</resources>

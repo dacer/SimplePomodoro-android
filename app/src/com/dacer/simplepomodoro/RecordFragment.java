@@ -1,9 +1,11 @@
 package com.dacer.simplepomodoro;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import com.dacer.androidcharts.LineView;
+import com.dacer.androidcharts.TempLog;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -72,7 +74,7 @@ public class RecordFragment extends Fragment {
 			 	getActivity().overridePendingTransition(0, 0);
 			}
 	    });
-		
+		getThisMonthPomoNum(2013, 1);
 		
 		return rootView;
 	}
@@ -128,7 +130,25 @@ public class RecordFragment extends Fragment {
         outState.putString(KEY_CONTENT, mContent);
     }
 
-	
+	private List<Integer> getThisMonthPomoNum(int year, int month){
+		List<Integer> result = new ArrayList<Integer>();
+		MyPomoRecorder recorder = new MyPomoRecorder(getActivity());
+		List<Long> startTimeList = recorder.getMonthUndeletedPomosStartTime(2013, 1);
+		Calendar c = Calendar.getInstance();
+		c.clear();
+		c.set(Calendar.YEAR, year);
+		c.set(Calendar.MONTH, month);
+		for (int i=0; i<c.getActualMaximum(Calendar.DAY_OF_MONTH); i++){
+			result.add(0);
+		}
+		long oneDayInSec = 24*60*60;
+		for (long startTime : startTimeList){
+			int i = (int) ((startTime-c.getTimeInMillis()/1000)/(oneDayInSec));
+			result.add(i, result.get(i)+1);
+		}
+		
+		return result;
+	}
 	
 	
 	

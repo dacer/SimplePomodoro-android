@@ -177,6 +177,10 @@
 
     <string name="jonathan_gall">Jonathan Gall</string>
     <string name="jonathan_gall_summary">French Translation</string>
+    
+    <string name="jose_miguel_urdaneta">Jose Miguel Urdaneta</string>
+    <string name="jose_miguel_urdaneta_summary">Spanish Translation</string>
+    
     <string name="xiaomi_mode">XiaoMi Mode</string>
     <string name="xiaomi_mode_summary">For XiaoMi phone</string>
     <string name="tick_sound_disabled">Tick sound disabled</string>

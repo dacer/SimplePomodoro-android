@@ -2,6 +2,7 @@ package dacer.utils;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.TimeZone;
 
 import dacer.settinghelper.SettingUtility;
@@ -146,6 +147,38 @@ public class MyPomoRecorder {
         }	
 		return result;
 	}
+	
+	public List<Long> getMonthUndeletedPomosStartTime(int year, int month) {
+
+		db = mSQLHelper.getReadableDatabase();
+        List<Long> startTimeList = new ArrayList<Long>();
+        String selection = KEY_STARTTIME + " BETWEEN ? AND ? ";
+
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, year);
+        cal.set(Calendar.MONTH, month);
+        cal.set(Calendar.DAY_OF_MONTH, 1);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+
+        long firstDayTimeInMillis = cal.getTimeInMillis() / 1000;
+        cal.add(Calendar.MONTH, 1);
+        long lastDayTimeInMillis = cal.getTimeInMillis() / 1000;
+        String[] selectionArgs = {
+                String.valueOf(firstDayTimeInMillis),
+                String.valueOf(lastDayTimeInMillis)};
+	        Cursor cursor = db.query(RECORDER_TABLE_NAME, null, selection,
+                selectionArgs, null, null, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            startTimeList.add(cursor.getLong(3));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return startTimeList;
+    }
 	
 	public int getTotalPomo(){
 		db = mSQLHelper.getReadableDatabase();
