@@ -13,6 +13,10 @@
 
     </style>
     
+    <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:displayOptions">showHome|homeAsUp|showTitle</item>
+    </style>
+    
     <style name="AppBaseThemeWhite" 
         parent="@android:Theme.Holo.Light.NoActionBar">
     </style>
@@ -23,5 +27,6 @@
     </style>
     
     <style name="SettingTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
     </style>
 </resources>

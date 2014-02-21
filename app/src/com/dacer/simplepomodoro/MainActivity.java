@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.umeng.analytics.MobclickAgent;
@@ -29,6 +31,10 @@ public class MainActivity extends FragmentActivity{
 		GlobalContext.setActivity(this);
 		initNowRunningType();
 		setTheme(SettingUtility.getTheme());
+		if(SettingUtility.isLightsOn()){
+        	final Window win = getWindow();
+        	win.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
 		setContentView(R.layout.activity_main);
 		
 		ViewPager pager = (ViewPager)findViewById(R.id.pager);

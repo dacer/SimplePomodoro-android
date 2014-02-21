@@ -2,7 +2,9 @@ package com.dacer.simplepomodoro;
 
 import com.robobunny.SeekBarPreference;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.Ringtone;
@@ -16,10 +18,17 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
 import android.preference.RingtonePreference;
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -229,7 +238,21 @@ public class SettingActivity extends PreferenceActivity {
 						preference.getContext()).getString(preference.getKey(),
 						""));
 	}
-    
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+            	Intent intent = new Intent();
+   			 intent.setClass(this,MainActivity.class);
+   			 intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+   			 startActivity(intent);
+   			 finish();
+   			 overridePendingTransition(0, 0);  
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
     
 //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item) 
@@ -282,4 +305,61 @@ public class SettingActivity extends PreferenceActivity {
 		d.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
 		d.show();
 	}
+    
+    
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        super.onPreferenceTreeClick(preferenceScreen, preference);
+
+        // If the user has clicked on a preference screen, set up the action bar
+        if (preference instanceof PreferenceScreen) {
+            initializeActionBar((PreferenceScreen) preference);
+        }
+
+        return false;
+    }
+    
+    /** Sets up the action bar for an {@link PreferenceScreen} */
+    @SuppressLint("NewApi")
+	public static void initializeActionBar(PreferenceScreen preferenceScreen) {
+        final Dialog dialog = preferenceScreen.getDialog();
+
+        if (dialog != null) {
+            // Inialize the action bar
+            dialog.getActionBar().setDisplayHomeAsUpEnabled(true);
+
+            // Apply custom home button area click listener to close the PreferenceScreen because PreferenceScreens are dialogs which swallow
+            // events instead of passing to the activity
+            // Related Issue: https://code.google.com/p/android/issues/detail?id=4611
+            View homeBtn = dialog.findViewById(android.R.id.home);
+
+            if (homeBtn != null) {
+                OnClickListener dismissDialogClickListener = new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                };
+
+                // Prepare yourselves for some hacky programming
+                ViewParent homeBtnContainer = homeBtn.getParent();
+
+                // The home button is an ImageView inside a FrameLayout
+                if (homeBtnContainer instanceof FrameLayout) {
+                    ViewGroup containerParent = (ViewGroup) homeBtnContainer.getParent();
+
+                    if (containerParent instanceof LinearLayout) {
+                        // This view also contains the title text, set the whole view as clickable
+                        ((LinearLayout) containerParent).setOnClickListener(dismissDialogClickListener);
+                    } else {
+                        // Just set it on the home button
+                        ((FrameLayout) homeBtnContainer).setOnClickListener(dismissDialogClickListener);
+                    }
+                } else {
+                    // The 'If all else fails' default case
+                    homeBtn.setOnClickListener(dismissDialogClickListener);
+                }
+            }    
+        }
+    }
 }
