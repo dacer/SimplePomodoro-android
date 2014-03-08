@@ -17,6 +17,7 @@ import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.dacer.androidcharts.TempLog;
 import com.dacer.simplepomodoro.R;
 
 import dacer.interfaces.OnClickCircleListener;
@@ -256,6 +257,12 @@ public class CircleView extends View {
         
         switch(action) {
             case (MotionEvent.ACTION_DOWN) :
+            	if(isInCenterCir(x,y) && swipeListener != null){
+            		TempLog.show("center");
+            		isQuickSwipeMode = true;
+            		swipeListener.startHoldOnCenter();
+            	}
+            	
             	if(MyUtils.isInCir(x, y,mCenterX,mCenterY,centerCirRadius)){
                 	moveSign = true;
                 	if(!downSign){
@@ -265,8 +272,22 @@ public class CircleView extends View {
                 }
                 return true;
             case (MotionEvent.ACTION_MOVE) :
+            	if(isQuickSwipeMode && swipeListener != null){
+            		swipeListener.swipeToPercent(getSwipePercent(y));
+//            		TempLog.show(getSwipePercent(y));
+            	}
                 return true;
             case (MotionEvent.ACTION_UP) :
+            	if(isQuickSwipeMode){
+            		if(SettingUtility.isVibrator()){
+            			Vibrator mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
+            			mVibrator.vibrate(10);
+            		}
+            		swipeListener.endHold();
+            		mListener.onClickCircle();
+//            		return true;
+            	}
+            
             	if(MyUtils.isInCir(x, y,mCenterX,mCenterY,centerCirRadius) && moveSign){
             		if(SettingUtility.isVibrator()){
             			Vibrator mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
@@ -317,6 +338,7 @@ public class CircleView extends View {
     public void setMyText(String str){
 //    	Log.e("CirView",str);
     	mCenterTextStr = str;
+    	postInvalidate();
     }
     
     public void setTextSize(float size){
@@ -347,5 +369,36 @@ public class CircleView extends View {
     	return (float)MyUtils.dipToPixels(mContext, 5);
     }
     
+    /**
+     * 根据上下滑动的比率得出百分比
+     * @return
+     */
+    private float getSwipePercent(float y){
+    	return -(mCenterY - y)/screenHeight;
+    }
+    /**
+     * 判断是否在x，y是否在中心的一小块区域
+     * @param x
+     * @param y
+     * @return
+     */
+    private boolean isInCenterCir(float x,float y){
+    	float tenDip = MyUtils.dipToPixels(mContext, 50);
+    	return (mCenterX-x)*(mCenterX-x)+(mCenterY-y)*(mCenterY-y) <= tenDip*tenDip;
+    }
+
+	int screenHeight = MyUtils.getScreenHeight();
+    private QuickSwipeListener swipeListener;
+    private boolean isQuickSwipeMode = false;
+    
+    public void setQuickSwipeListener(QuickSwipeListener l){
+    	swipeListener = l;
+    }
+    
+    public interface QuickSwipeListener{
+    	public void startHoldOnCenter();
+    	public void swipeToPercent(float i);//从顶部到底部为[-0.5,0.5]
+    	public void endHold();
+    }
     
 }

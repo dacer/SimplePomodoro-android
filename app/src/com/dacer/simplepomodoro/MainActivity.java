@@ -41,7 +41,7 @@ public class MainActivity extends FragmentActivity{
         }
 		setContentView(R.layout.activity_main);
 		
-		ViewPager pager = (ViewPager)findViewById(R.id.pager);
+		CustomViewPager pager = (CustomViewPager)findViewById(R.id.pager);
 		pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
 		LinePageIndicator mIndicator = (LinePageIndicator)findViewById(R.id.indicator);
 		if(SettingUtility.isLightTheme()){

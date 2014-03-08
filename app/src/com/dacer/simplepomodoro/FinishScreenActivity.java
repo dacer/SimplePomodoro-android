@@ -16,13 +16,15 @@ import dacer.utils.GlobalContext;
 import dacer.utils.MyNotification;
 import dacer.utils.MyUtils;
 import dacer.views.CircleView;
+import dacer.views.CircleView.QuickSwipeListener;
 
 /**
  * Author:dacer
  * Date  :Jul 17, 2013
  */
-public class FinishScreenActivity extends Activity implements OnClickCircleListener{
+public class FinishScreenActivity extends Activity implements OnClickCircleListener,QuickSwipeListener{
 
+	private CircleView mView;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,10 +48,11 @@ public class FinishScreenActivity extends Activity implements OnClickCircleListe
         }else{
         	bigCirRadius = (float) (height * 0.4);
         }
-		View mView = new CircleView(this, width/2, 
+		mView = new CircleView(this, width/2, 
 				height/2, bigCirRadius, 
 				getString(R.string.tap_to_break),
 				360, this,CircleView.RunMode.MODE_TWO);
+		mView.setQuickSwipeListener(this);
 		setContentView(mView);
 		final Window win = getWindow();
 		  win.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
@@ -101,4 +104,29 @@ public class FinishScreenActivity extends Activity implements OnClickCircleListe
         }
         return false;
     }
+	
+	private int nowDuration;
+	private int originDuration;
+	@Override
+	public void startHoldOnCenter() {
+		// TODO Auto-generated method stub
+		originDuration = SettingUtility.getBreakDuration();
+		mView.setMyText(originDuration+":00");
+	}
+
+	@Override
+	public void swipeToPercent(float f) {
+		// TODO Auto-generated method stub
+		//f -> [-0.5,0.5]
+		int i = (int)(originDuration+40*f);
+		if(i>=1 && i<=20){
+			nowDuration = i;
+			mView.setMyText(nowDuration+":00");
+		}
+	}
+	
+	@Override
+	public void endHold(){
+		SettingUtility.setBreakDuration(nowDuration);
+	}
 }

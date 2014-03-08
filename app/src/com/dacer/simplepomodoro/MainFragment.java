@@ -12,13 +12,14 @@ import dacer.interfaces.OnClickCircleListener;
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.MyUtils;
 import dacer.views.CircleView;
+import dacer.views.CircleView.QuickSwipeListener;
 import dacer.views.CircleView.RunMode;
 
 /**
  * Author:dacer
  * Date  :Jul 17, 2013
  */
-public class MainFragment extends Fragment implements OnClickCircleListener{
+public class MainFragment extends Fragment implements OnClickCircleListener,QuickSwipeListener{
 	private static final String KEY_CONTENT = "MainFragment:Content";
 	private String content = "???";
 	private CircleView mView;
@@ -46,6 +47,7 @@ public class MainFragment extends Fragment implements OnClickCircleListener{
 				MyUtils.getBigCirRadius(getActivity()), 
 				getString(R.string.start),
 				360, this,RunMode.MODE_ONE);
+		mView.setQuickSwipeListener(this);
 		return mView;
 	}
 
@@ -103,6 +105,32 @@ public class MainFragment extends Fragment implements OnClickCircleListener{
         super.onSaveInstanceState(outState);
         outState.putString(KEY_CONTENT, content);
     }
+
+
+	private int nowDuration;
+	private int originDuration;
+	@Override
+	public void startHoldOnCenter() {
+		// TODO Auto-generated method stub
+		originDuration = SettingUtility.getPomodoroDuration();
+		mView.setMyText(originDuration+":00");
+	}
+
+	@Override
+	public void swipeToPercent(float f) {
+		// TODO Auto-generated method stub
+		//f -> [-0.5,0.5]
+		int i = (int)(originDuration+100*f);
+		if(i>=10 && i<=50){
+			nowDuration = i;
+			mView.setMyText(nowDuration+":00");
+		}
+	}
+	
+	@Override
+	public void endHold(){
+		SettingUtility.setPomodoroDuration(nowDuration);
+	}
 
 	
 }

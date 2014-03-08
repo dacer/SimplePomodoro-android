@@ -192,6 +192,10 @@ public class SettingUtility {
     	return value;
     }
     
+    public static void setPomodoroDuration(int duration){
+    	SettingHelper.setEditor(getContext(), POMODORO_DURATION, duration);
+    }
+    
     public static int getBreakDuration(){
 		int value = SettingHelper.getSharedPreferences(getContext(), BREAK_DURATION, 5);
 		if(SettingHelper.getSharedPreferences(getContext(), DEBUG_MODE, false)){
@@ -199,6 +203,10 @@ public class SettingUtility {
     	}
 		return value;
 	}
+    
+    public static void setBreakDuration(int duration){
+    	SettingHelper.setEditor(getContext(), BREAK_DURATION, duration);
+    }
     
     public static void removeAD(boolean remove){
     	SettingHelper.setEditor(getContext(), PRE_ADREMOVED, remove);
