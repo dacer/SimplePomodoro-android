@@ -64,6 +64,19 @@ public class MyUtils {
         }
     }
 	
+	public static Boolean isOnCirBorder(float x, float y,float screenCenterX,
+			float screenCenterY,float radius,Context c){
+		float offset = dipToPixels(c, 10);
+    	float trueX = x - screenCenterX;
+        float trueY = y - screenCenterY;
+        if((trueX * trueX + trueY*trueY) < (radius+offset) * (radius+offset) &&
+        		(trueX * trueX + trueY*trueY) > (radius-offset) * (radius-offset)){
+        	return true;
+        }else{
+        	return false;
+        }
+    }
+	
 	public static int getScreenWidth(){
 		Activity mActivity = GlobalContext.getActivity();
 		DisplayMetrics metrics = new DisplayMetrics();   

@@ -79,6 +79,7 @@
         <service android:name="dacer.service.CDService" />
         <service android:name="dacer.service.BreakFinishService" />
         <service android:name="dacer.service.WakeLockService" />
+        <service android:name="dacer.service.ScreenLockerService" />
 
         <!-- device admin -->
         <receiver

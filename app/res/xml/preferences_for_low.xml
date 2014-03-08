@@ -45,6 +45,7 @@
     			<Preference android:summary="@string/help_me_publish_app" android:title="@string/tossking" />
     			<Preference android:summary="@string/jonathan_gall_summary" android:title="@string/jonathan_gall" />
     			<Preference android:summary="@string/jose_miguel_urdaneta_summary" android:title="@string/jose_miguel_urdaneta" />
+    			<Preference android:summary="@string/maciej_summary" android:title="@string/maciej" />
     </PreferenceCategory>
     		
     <PreferenceCategory android:title="@string/pref_title_info">

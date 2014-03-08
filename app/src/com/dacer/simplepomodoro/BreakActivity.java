@@ -15,6 +15,7 @@ import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import dacer.service.BreakFinishService;
+import dacer.service.ScreenLockerService;
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.GlobalContext;
 import dacer.utils.MyScreenLocker;
@@ -62,6 +63,18 @@ public class BreakActivity extends Activity {
 		tvTime.setTypeface(roboto);
 		showContinueView();
  		  
+		  win.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
+		    | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
+//		    | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+		    | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+
+  	startService(new Intent(this,ScreenLockerService.class));
+	}
+	
+	@Override
+	public void onDestroy(){
+		super.onDestroy();
+		stopService(new Intent(this,ScreenLockerService.class));
 	}
 
 	@Override

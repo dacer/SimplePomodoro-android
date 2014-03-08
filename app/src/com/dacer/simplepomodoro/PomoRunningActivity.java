@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.IntentFilter;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,8 +20,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import dacer.interfaces.OnClickCircleListener;
 import dacer.service.CDService;
+import dacer.service.ScreenLockerService;
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.GlobalContext;
+import dacer.utils.LockScreenReeiver;
 import dacer.utils.MyNotification;
 import dacer.utils.MyScreenLocker;
 import dacer.utils.MyUtils;
@@ -49,8 +52,8 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
         	MyScreenLocker locker = new MyScreenLocker(this);
             locker.myLockNow();
         }
+    	final Window win = getWindow();
         if(SettingUtility.isLightsOn()){
-        	final Window win = getWindow();
         	win.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
         setTheme(SettingUtility.getTheme());
@@ -73,8 +76,21 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
 		
 		showContinueView();
 		setContentView(mView);
+		
+        
+		  win.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
+		    | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
+//		    | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+		    | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+
+    	startService(new Intent(this,ScreenLockerService.class));
 	}
 
+	@Override
+	public void onDestroy(){
+		super.onDestroy();
+		stopService(new Intent(this,ScreenLockerService.class));
+	}
 	
 	private void startCountDown(final int leftTimeInSec, final int totalTimeInMin, Context context){
 //		SetMyAlarmManager.schedulService(context, totalTime,CDService.class);

@@ -131,6 +131,14 @@ public class SettingUtility {
     	return type;
     }
     
+    public static boolean isPomoRunning(){
+    	return getRunningType()==POMO_RUNNING;
+    }
+    
+    public static boolean isBreakRunning(){
+    	return getRunningType()==BREAK_RUNNING;
+    }
+    
     public static void setRunningType(int runningType) {
     	SettingHelper.setEditor(getContext(), NOW_RUNNING_TYPE, runningType);
     }

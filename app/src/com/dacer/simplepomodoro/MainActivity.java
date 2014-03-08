@@ -1,6 +1,9 @@
 package com.dacer.simplepomodoro;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,6 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.dacer.androidcharts.TempLog;
 import com.umeng.analytics.MobclickAgent;
 import com.viewpagerindicator.LinePageIndicator;
 
@@ -31,8 +35,8 @@ public class MainActivity extends FragmentActivity{
 		GlobalContext.setActivity(this);
 		initNowRunningType();
 		setTheme(SettingUtility.getTheme());
+    	final Window win = getWindow();
 		if(SettingUtility.isLightsOn()){
-        	final Window win = getWindow();
         	win.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
 		setContentView(R.layout.activity_main);
@@ -47,6 +51,10 @@ public class MainActivity extends FragmentActivity{
         mIndicator.setCurrentItem(1);
         //for long break
         MyUtils.deleteContinueTimes(this);
+    
+        win.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
+    		    | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
+    		    | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 	}
 
 	@Override
@@ -87,4 +95,5 @@ public class MainActivity extends FragmentActivity{
 			finish();
 		}
 	}
+
 }

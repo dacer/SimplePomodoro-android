@@ -183,6 +183,9 @@
     <string name="jose_miguel_urdaneta">Jose Miguel Urdaneta</string>
     <string name="jose_miguel_urdaneta_summary">Spanish Translation</string>
     
+    <string name="maciej">Maciej Bończak</string>
+    <string name="maciej_summary">Polish Translation</string>
+    
     <string name="xiaomi_mode">XiaoMi Mode</string>
     <string name="xiaomi_mode_summary">For XiaoMi phone</string>
     <string name="tick_sound_disabled">Tick sound disabled</string>
