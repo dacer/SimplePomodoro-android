@@ -19,6 +19,7 @@ import android.view.WindowManager;
 import com.dacer.simplepomodoro.BreakFinishActivity;
 import com.dacer.simplepomodoro.R;
 
+import dacer.settinghelper.SettingUtility;
 import dacer.utils.MyNotification;
 import dacer.utils.MyUtils;
 
@@ -71,7 +72,7 @@ public class BreakFinishService extends Service {
   }
   
 	private void initiService(){
-		
+		SettingUtility.setRunningType(SettingUtility.BREAK_FINISHED);
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
 		String strRingtonePreference = sp.getString("pref_notification_sound", "");
 		if(!strRingtonePreference.equals("")){

@@ -40,6 +40,10 @@ public class MyPomoRecorder {
 		mSQLHelper = new SQLHelper(mContext);
 	}
 	
+	public void close() {
+        db.close();
+    }
+	
 	public void putPomodoro(String title, String notes,PomoType mType,int durationMin){
 		db = mSQLHelper.getWritableDatabase();
 		cv.put(KEY_TITLE, title);
@@ -75,7 +79,7 @@ public class MyPomoRecorder {
 		cursor = db.query(RECORDER_TABLE_NAME, null, selection,
 				selectionArgs, null, null, null);
 		int result = cursor.getCount();
-//		cursor.close();
+		cursor.close();
 		return result;
 	}
 	
@@ -143,7 +147,7 @@ public class MyPomoRecorder {
     		result[theDayOfWeekBeginWithZero] = cursor.getCount();
     		cal.set(Calendar.DAY_OF_YEAR, cal.get(Calendar.DAY_OF_YEAR)-2);
     		theDayOfWeekBeginWithZero--;
-//    		cursor.close();
+    		cursor.close();
         }	
 		return result;
 	}

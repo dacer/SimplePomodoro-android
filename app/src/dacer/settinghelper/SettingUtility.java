@@ -47,6 +47,8 @@ public class SettingUtility {
 	public static final int NONE_RUNNING = 0;
 	public static final int POMO_RUNNING = 1;
 	public static final int BREAK_RUNNING = 2;
+	public static final int POMO_FINISHED = 3;
+	public static final int BREAK_FINISHED = 4;
 	
 	
     private SettingUtility() {

@@ -52,6 +52,7 @@ public class FinishScreenActivity extends Activity implements OnClickCircleListe
 				height/2, bigCirRadius, 
 				getString(R.string.tap_to_break),
 				360, this,CircleView.RunMode.MODE_TWO);
+		mView.setTextSize((int)MyUtils.dipToPixels(this,40f));
 		mView.setQuickSwipeListener(this);
 		setContentView(mView);
 		final Window win = getWindow();
@@ -105,24 +106,31 @@ public class FinishScreenActivity extends Activity implements OnClickCircleListe
         return false;
     }
 	
+	
 	private int nowDuration;
 	private int originDuration;
 	@Override
 	public void startHoldOnCenter() {
 		// TODO Auto-generated method stub
 		originDuration = SettingUtility.getBreakDuration();
-		mView.setMyText(originDuration+":00");
+		nowDuration = originDuration;
+//		mView.setMyText(originDuration+":00");
 	}
 
 	@Override
 	public void swipeToPercent(float f) {
 		// TODO Auto-generated method stub
 		//f -> [-0.5,0.5]
-		int i = (int)(originDuration+40*f);
+		int i = (int)(originDuration+45*f);
 		if(i>=1 && i<=20){
 			nowDuration = i;
-			mView.setMyText(nowDuration+":00");
+		}else if(i<1){
+			nowDuration = 1;
+		}else if(i>20){
+			nowDuration = 20;
 		}
+		mView.setMyText(nowDuration+":00");
+		
 	}
 	
 	@Override

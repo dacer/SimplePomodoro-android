@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dacer.simplepomodoro"
-    android:versionCode="28"
-    android:versionName="1.9.9.8" >
+    android:versionCode="32"
+    android:versionName="2.0.1" >
 
     <uses-sdk
         android:minSdkVersion="9"
@@ -64,10 +64,6 @@
             android:label="@string/title_activity_finish_screen"
             android:launchMode="singleTask"
             android:theme="@style/MyMainScreenTheme_Black" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.dacer.simplepomodoro.BreakFinishActivity"

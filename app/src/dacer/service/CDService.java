@@ -81,6 +81,7 @@ public class CDService extends Service {
   
   
   private void initiService(){
+	  SettingUtility.setRunningType(SettingUtility.POMO_FINISHED);
 	  SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
 		String strRingtonePreference = sp.getString("pref_notification_sound", "");
 		if(!strRingtonePreference.equals("")){

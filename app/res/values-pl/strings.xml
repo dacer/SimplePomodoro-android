@@ -20,7 +20,7 @@
     
     <!-- Circle View -->
     <string name="time_up">Czas minął</string>
-    <string name="tap_to_break">Rozpocznij przerwę</string>
+    <string name="tap_to_break">przerwę</string>
     <!-- CDService -->
     <string name="take_a_break">Zrób przerwę</string>
     <string name="cancel">Anuluj</string>

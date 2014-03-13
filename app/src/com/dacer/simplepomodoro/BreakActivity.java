@@ -68,13 +68,13 @@ public class BreakActivity extends Activity {
 //		    | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
 		    | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
-  	startService(new Intent(this,ScreenLockerService.class));
+//  	startService(new Intent(this,ScreenLockerService.class));
 	}
 	
 	@Override
 	public void onDestroy(){
 		super.onDestroy();
-		stopService(new Intent(this,ScreenLockerService.class));
+//		stopService(new Intent(this,ScreenLockerService.class));
 	}
 
 	@Override

@@ -113,18 +113,23 @@ public class MainFragment extends Fragment implements OnClickCircleListener,Quic
 	public void startHoldOnCenter() {
 		// TODO Auto-generated method stub
 		originDuration = SettingUtility.getPomodoroDuration();
-		mView.setMyText(originDuration+":00");
+		nowDuration = originDuration;
+//		mView.setMyText(getString(R.string.start));
 	}
 
 	@Override
 	public void swipeToPercent(float f) {
 		// TODO Auto-generated method stub
 		//f -> [-0.5,0.5]
-		int i = (int)(originDuration+100*f);
+		int i = (int)(originDuration+102*f);
 		if(i>=10 && i<=50){
 			nowDuration = i;
-			mView.setMyText(nowDuration+":00");
+		}else if(i<10){
+			nowDuration = 10;
+		}else if(i>50){
+			nowDuration = 50;
 		}
+		mView.setMyText(nowDuration+":00");
 	}
 	
 	@Override

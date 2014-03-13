@@ -73,7 +73,7 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 	PullToRefreshListView listView;
 	ArrayList<String> mTitles;
     ArrayList<Integer> mIds;
-	  
+    private Cursor cr;
 	  
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -210,10 +210,9 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 	
 	  void refreshView() {
 		TaskLocalUtils tLocalUtils = new TaskLocalUtils(GlobalContext.getInstance());
-	    final Cursor cr = tLocalUtils.getAllCursorInMainList();
+	    cr = tLocalUtils.getAllCursorInMainList();
 	    mTitles = getAllTitlesOfCurosr(cr);
 	    mIds = getAllIdFromCursor(cr);
-	    
 //	    final TaskListCursorAdapter mAdapter = new TaskListCursorAdapter(getActivity(), R.layout.my_task_list, 
 //					cr,
 //					new String[] { TaskRecorder.KEY_TITLE },
@@ -356,4 +355,10 @@ public class TaskListFragment extends Fragment implements DialogDismissListener{
 			d.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
 			d.show();
 		}
+	 @Override
+		public void onDestroy(){
+			super.onDestroy();
+			cr.close();
+		}
+		
 }

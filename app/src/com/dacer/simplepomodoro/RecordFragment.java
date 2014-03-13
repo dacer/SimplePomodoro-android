@@ -33,6 +33,8 @@ import dacer.views.WeekCirView;
 public class RecordFragment extends Fragment {
 	private static final String KEY_CONTENT = "MainFragment:Content";
 	private String mContent = "???";
+
+	private MyPomoRecorder recorder;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class RecordFragment extends Fragment {
         if ((savedInstanceState != null) && savedInstanceState.containsKey(KEY_CONTENT)) {
             mContent = savedInstanceState.getString(KEY_CONTENT);
         }
+        recorder = new MyPomoRecorder(getActivity());
 //        processThread();
     }
 	
@@ -82,7 +85,6 @@ public class RecordFragment extends Fragment {
 	private void initCirView(View rootView){
 		WeekCirView wcView = (WeekCirView)rootView.findViewById(R.id.weekCirView);
 		
-		MyPomoRecorder recorder = new MyPomoRecorder(getActivity());
 		int[] weekPomo = recorder.getPomoOfThisWeek();
 		wcView.setAllColor(Color.parseColor("#cccccc"));
 		
@@ -117,11 +119,10 @@ public class RecordFragment extends Fragment {
 		            tv_total_text.setTextColor(Color.BLACK);
 		            rootView.setBackgroundColor(Color.WHITE);
 		}
-		MyPomoRecorder mRecorder = new MyPomoRecorder(getActivity());
 		tv_total.setText(": "+
-		                String.valueOf(mRecorder.getTotalPomo()));
+		                String.valueOf(recorder.getTotalPomo()));
 		tv_today.setText(": "+
-		                String.valueOf(mRecorder.getTodayPomo()));
+		                String.valueOf(recorder.getTodayPomo()));
 		}
 			
 	@Override
@@ -132,7 +133,6 @@ public class RecordFragment extends Fragment {
 
 	private List<Integer> getThisMonthPomoNum(int year, int month){
 		List<Integer> result = new ArrayList<Integer>();
-		MyPomoRecorder recorder = new MyPomoRecorder(getActivity());
 		List<Long> startTimeList = recorder.getMonthUndeletedPomosStartTime(2013, 1);
 		Calendar c = Calendar.getInstance();
 		c.clear();
@@ -146,10 +146,14 @@ public class RecordFragment extends Fragment {
 			int i = (int) ((startTime-c.getTimeInMillis()/1000)/(oneDayInSec));
 			result.add(i, result.get(i)+1);
 		}
-		
 		return result;
 	}
 	
+	@Override
+	public void onDestroy(){
+		super.onDestroy();
+		recorder.close();
+	}
 	
 	
     //DELETE
@@ -175,7 +179,6 @@ public class RecordFragment extends Fragment {
             @Override
 
             public void run() {
-                MyPomoRecorder recorder = new MyPomoRecorder(getActivity());
                 //随机创建2年内的番茄记录
                 for (int i = 0; i < 1000; i++) {
 

@@ -78,6 +78,7 @@ public class CircleView extends View {
     		float sweepAngle, OnClickCircleListener listener,RunMode mode) {
         super(context);
         mContext = context;
+        tenDip = MyUtils.dipToPixels(mContext, 60);
         backgroundColor = SettingUtility.isLightTheme()? Color.WHITE:Color.BLACK;
         bigCirColor = SettingUtility.getBigCirColor();
         mtShader = new SweepGradient(cirCenterX, cirCenterY,
@@ -258,7 +259,7 @@ public class CircleView extends View {
         switch(action) {
             case (MotionEvent.ACTION_DOWN) :
             	if(isInCenterCir(x,y) && swipeListener != null){
-            		TempLog.show("center");
+//            		TempLog.show("center");
             		isQuickSwipeMode = true;
             		swipeListener.startHoldOnCenter();
             	}
@@ -272,7 +273,7 @@ public class CircleView extends View {
                 }
                 return true;
             case (MotionEvent.ACTION_MOVE) :
-            	if(isQuickSwipeMode && swipeListener != null){
+            	if(isQuickSwipeMode && swipeListener != null && !isInCenterCir(x,y)){
             		swipeListener.swipeToPercent(getSwipePercent(y));
 //            		TempLog.show(getSwipePercent(y));
             	}
@@ -343,6 +344,8 @@ public class CircleView extends View {
     
     public void setTextSize(float size){
     	CENTER_TEXT_SIZE = (int)size;
+    	setMyTextSize(size);
+    	postInvalidate();
     }
     
     private void setMyTextSize(float size){
@@ -370,11 +373,15 @@ public class CircleView extends View {
     }
     
     /**
-     * 根据上下滑动的比率得出百分比
+     * 根据上下滑动的比率得出百分比[-0.5,0.5],中心点有60dp的防误触范围
      * @return
      */
     private float getSwipePercent(float y){
-    	return -(mCenterY - y)/screenHeight;
+    	if(Math.abs(mCenterY-y)<tenDip){
+    		return 0;
+    	}
+    	int i = y<mCenterY? 1 : -1;
+    	return (y-mCenterY+i*tenDip)/(screenHeight-tenDip);
     }
     /**
      * 判断是否在x，y是否在中心的一小块区域
@@ -383,13 +390,13 @@ public class CircleView extends View {
      * @return
      */
     private boolean isInCenterCir(float x,float y){
-    	float tenDip = MyUtils.dipToPixels(mContext, 50);
     	return (mCenterX-x)*(mCenterX-x)+(mCenterY-y)*(mCenterY-y) <= tenDip*tenDip;
     }
 
 	int screenHeight = MyUtils.getScreenHeight();
     private QuickSwipeListener swipeListener;
     private boolean isQuickSwipeMode = false;
+	private float tenDip;
     
     public void setQuickSwipeListener(QuickSwipeListener l){
     	swipeListener = l;
