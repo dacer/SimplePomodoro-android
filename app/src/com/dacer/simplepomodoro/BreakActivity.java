@@ -15,7 +15,6 @@ import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import dacer.service.BreakFinishService;
-import dacer.service.ScreenLockerService;
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.GlobalContext;
 import dacer.utils.MyScreenLocker;

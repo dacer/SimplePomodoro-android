@@ -106,6 +106,8 @@
     <string name="pref_title_labs">实验室</string>
     <string name="pref_fast_mode">极速模式</string>
     <string name="pref_fast_mode_summary">在启动和完成一个番茄时自动锁屏/亮屏</string>
+    <string name="pref_silent_mode">勿扰模式</string>
+    <string name="pref_silent_mode_summary">在番茄运行中自动关闭网络，结束后恢复</string>
     <string name="pref_remove_manage">取消设备管理器授权</string>
     <string name="pref_remove_manage_summary">开启极速模式后，欲删除本软件请先点击我！</string>
     <string name="pref_title_sync">同步</string>
@@ -172,7 +174,7 @@
     <string name="help_me_publish_app">帮助我发布此软件到google play</string>
 
     <string name="xiaomi_mode">小米模式</string>
-    <string name="xiaomi_mode_summary">小米手机用户请选中我</string>
+    <string name="xiaomi_mode_summary">如果您的番茄结束时间不准确请尝试使用本模式，否则请勿选中</string>
     
     <string name="pref_enable_ticking">开启嘀嗒声</string>
     

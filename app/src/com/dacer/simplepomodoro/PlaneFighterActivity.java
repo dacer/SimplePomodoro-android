@@ -10,9 +10,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.umeng.analytics.MobclickAgent;
-
 import dacer.planefighter.BGSurfaceView;
 import dacer.planefighter.onGameOverListener;
 import dacer.settinghelper.SettingUtility;
@@ -94,20 +91,11 @@ public class PlaneFighterActivity extends FragmentActivity implements onGameOver
 		
 	}
 	
-
-	@Override
-	protected void onResume(){
-		super.onResume();
-		MobclickAgent.onResume(this);
-	}
-	
-	
 	@Override
 	protected void onPause() {
 		// TODO Auto-generated method stub
 		super.onPause();
 		finish();
-		MobclickAgent.onPause(this);
 	}
 
 }

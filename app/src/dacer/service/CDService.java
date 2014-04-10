@@ -28,6 +28,7 @@ import dacer.utils.MyPomoRecorder.PomoType;
 /**
  * Author:dacer
  * Date  :Jul 17, 2013
+ * 在运行番茄时判断wifi mobile 网络是否开启，结束时智能的关闭
  */
 public class CDService extends Service {
 
@@ -98,6 +99,10 @@ public class CDService extends Service {
 			mVibrator.vibrate(new long[]{50,100,50,100}, -1);
 		}
 		
+		if(SettingUtility.isSilentMode()){
+			MyUtils.controlNetwork(true, getApplicationContext());
+		}
+		
 		MyUtils.ScreenState screenState = MyUtils.getScreenState(this);
 		Intent intent = new Intent(CDService.this,FinishScreenActivity.class);
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -155,4 +160,6 @@ public class CDService extends Service {
 		return null;
 	}
 
+	
+	
 }

@@ -1,7 +1,5 @@
 package com.dacer.simplepomodoro;
 
-import com.robobunny.SeekBarPreference;
-
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -31,7 +29,6 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.GlobalContext;
 import dacer.utils.MyScreenLocker;

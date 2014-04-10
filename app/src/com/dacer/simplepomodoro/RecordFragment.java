@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import com.dacer.androidcharts.LineView;
-import com.dacer.androidcharts.TempLog;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;

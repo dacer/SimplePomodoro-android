@@ -1,27 +1,18 @@
 package com.dacer.simplepomodoro;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Toast;
 
-import com.dacer.androidcharts.TempLog;
-import com.umeng.analytics.MobclickAgent;
 import com.viewpagerindicator.LinePageIndicator;
 
 import dacer.adapters.MyPagerAdapter;
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.GlobalContext;
-import dacer.utils.MyNotification;
 import dacer.utils.MyUtils;
 
 /**
@@ -57,18 +48,6 @@ public class MainActivity extends FragmentActivity{
     		    | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 	}
 
-	@Override
-	protected void onResume(){
-		super.onResume();
-		MobclickAgent.onResume(this);
-	}
-	
-
-	@Override
-	public void onPause() {
-	    super.onPause();
-	    MobclickAgent.onPause(this);
-	}
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {

@@ -1,6 +1,7 @@
 package dacer.utils;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
@@ -14,12 +15,15 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.net.ConnectivityManager;
+import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import dacer.service.WakeLockService;
+import dacer.settinghelper.SettingUtility;
 
 /**
  * Author:dacer
@@ -33,6 +37,50 @@ public class MyUtils {
 		MYAPP,OTHERAPP,LOCK
 		}
 
+	public static void controlNetwork(boolean enable, Context paramContext){
+		
+		//control mobile network
+		if(SettingUtility.isMobileNetworkEnabled()){
+			try {
+		        ConnectivityManager connectivityManager = (ConnectivityManager) paramContext.getSystemService("connectivity");
+		        Method setMobileDataEnabledMethod = ConnectivityManager.class.getDeclaredMethod("setMobileDataEnabled", Boolean.TYPE);
+		        setMobileDataEnabledMethod.setAccessible(true);
+		        setMobileDataEnabledMethod.invoke(connectivityManager, enable);
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    }
+		}
+		
+		//control wifi network
+		if(SettingUtility.isWifiEnabled()){
+			WifiManager wifi=(WifiManager) paramContext.getSystemService(Context.WIFI_SERVICE);
+			wifi.setWifiEnabled(enable);
+		}
+	}
+	
+	/**
+	 * @return null if unconfirmed
+	 */
+	public static Boolean isMobileDataEnabled(Context paramContext){
+	    Object connectivityService = paramContext.getSystemService("connectivity"); 
+	    ConnectivityManager cm = (ConnectivityManager) connectivityService;
+
+	    try {
+	        Class<?> c = Class.forName(cm.getClass().getName());
+	        Method m = c.getDeclaredMethod("getMobileDataEnabled");
+	        m.setAccessible(true);
+	        return (Boolean)m.invoke(cm);
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return null;
+	    }
+	}
+	
+	public static boolean isWifiEnabled(Context c){
+		WifiManager wifi = (WifiManager) c.getSystemService(Context.WIFI_SERVICE);
+		return wifi.isWifiEnabled();
+	}
+	
 	public static ScreenState getScreenState(Context c){
 		PowerManager pm = (PowerManager) c.getSystemService(Context.POWER_SERVICE);
 		boolean isScreenOn = pm.isScreenOn();

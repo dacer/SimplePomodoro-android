@@ -1,13 +1,10 @@
 package com.dacer.simplepomodoro;
 
-import com.umeng.analytics.MobclickAgent;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import dacer.interfaces.OnClickCircleListener;
@@ -80,19 +77,6 @@ public class FinishScreenActivity extends Activity implements OnClickCircleListe
 		 	startActivity(intent);
 		 	finish();
 //		 	overridePendingTransition(0, 0);
-	}
-
-	@Override
-	protected void onResume(){
-		super.onResume();
-		MobclickAgent.onResume(this);
-	}
-	
-
-	@Override
-	public void onPause() {
-	    super.onPause();
-	    MobclickAgent.onPause(this);
 	}
 	
 	@Override

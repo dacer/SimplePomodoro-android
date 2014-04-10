@@ -25,6 +25,7 @@ public class SettingUtility {
 	private static final String THEME_TYPE = "pref_theme_type";
 	private static final String ENABLE_VIBRATIONS = "pref_enable_vibrations";
 	private static final String	ENABLE_FASTMODE = "pref_fast_mode";
+	private static final String	ENABLE_SILENT_MODE = "pref_silent_mode";
 	private static final String ENABLE_FULLSCREEN = "pref_enable_fullscreen";
 	private static final String ENABLE_LIGHTS_ON = "pref_lights_on";
 	public static final String BREAK_DURATION = "pref_break_duration_new";
@@ -50,6 +51,10 @@ public class SettingUtility {
 	public static final int POMO_FINISHED = 3;
 	public static final int BREAK_FINISHED = 4;
 	
+	//Silent Mode
+
+	private static final String MOBILE_NETWORK_WAS_ENABLED = "mobile_network_was_enabled";
+	private static final String WIFI_WAS_ENABLED = "wifi_was_enabled";
 	
     private SettingUtility() {
 
@@ -94,6 +99,26 @@ public class SettingUtility {
     
     public static void setBigFont(boolean isBig){
         SettingHelper.setEditor(getContext(), BIG_FONT, isBig);
+    }
+    
+    public static boolean isWifiEnabled(){
+        boolean type = SettingHelper.
+                getSharedPreferences(getContext(), WIFI_WAS_ENABLED, false);
+        return type;
+    }
+    
+    public static void setWifiEnabled(boolean isBig){
+        SettingHelper.setEditor(getContext(), WIFI_WAS_ENABLED, isBig);
+    }
+    
+    public static boolean isMobileNetworkEnabled(){
+        boolean type = SettingHelper.
+                getSharedPreferences(getContext(), MOBILE_NETWORK_WAS_ENABLED, false);
+        return type;
+    }
+    
+    public static void setMobileNetworkEnabled(boolean isBig){
+        SettingHelper.setEditor(getContext(), MOBILE_NETWORK_WAS_ENABLED, isBig);
     }
     
     public static boolean isTick(){
@@ -232,6 +257,11 @@ public class SettingUtility {
     
 	public static boolean isFastMode(){
         boolean value = SettingHelper.getSharedPreferences(getContext(), ENABLE_FASTMODE, false);
+        return value;
+    }
+	
+	public static boolean isSilentMode(){
+        boolean value = SettingHelper.getSharedPreferences(getContext(), ENABLE_SILENT_MODE, false);
         return value;
     }
 	

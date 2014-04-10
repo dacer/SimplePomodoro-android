@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import dacer.interfaces.OnClickCircleListener;
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.MyUtils;
@@ -56,7 +55,6 @@ public class MainFragment extends Fragment implements OnClickCircleListener,Quic
 		// TODO Auto-generated method stub
 		//Start pomodoro
 		new Thread(new myReadyAnimThread()).start();  
-		
 	}
 	
 	

@@ -112,6 +112,8 @@
     <string name="pref_fast_mode">FAST MODE</string>
     <string name="pref_fast_mode_summary">Auto lock/unlock screen when pomodoro start/finish</string>
     <string name="pref_remove_manage">Remove administration manage</string>
+    <string name="pref_silent_mode">DO NOT DISTURB</string>
+    <string name="pref_silent_mode_summary">Auto disable network during pomodoro and enable after finish</string>
     <string name="pref_remove_manage_summary">To uninstall the app, please FIRST click me!!</string>
     <string name="pref_title_sync">Sync</string>
     <string name="pref_sync_with_google_task">Sync with google task</string>
@@ -187,7 +189,7 @@
     <string name="maciej_summary">Polish Translation</string>
     
     <string name="xiaomi_mode">XiaoMi Mode</string>
-    <string name="xiaomi_mode_summary">For XiaoMi phone</string>
+    <string name="xiaomi_mode_summary">For XiaoMi phones</string>
     <string name="tick_sound_disabled">Tick sound disabled</string>
     <string name="tick_sound_enabled">Tick sound enabled</string>
     

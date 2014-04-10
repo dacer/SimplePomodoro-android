@@ -1,30 +1,21 @@
 package com.dacer.simplepomodoro;
 
-import java.math.BigDecimal;
-
-import com.umeng.analytics.MobclickAgent;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.IntentFilter;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import dacer.interfaces.OnClickCircleListener;
 import dacer.service.CDService;
-import dacer.service.ScreenLockerService;
 import dacer.settinghelper.SettingUtility;
 import dacer.utils.GlobalContext;
-import dacer.utils.LockScreenReeiver;
-import dacer.utils.MyNotification;
 import dacer.utils.MyScreenLocker;
 import dacer.utils.MyUtils;
 import dacer.utils.SetMyAlarmManager;
@@ -84,6 +75,12 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
 		    | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
 //    	startService(new Intent(this,ScreenLockerService.class));
+		  
+			if(SettingUtility.isSilentMode()){
+				SettingUtility.setMobileNetworkEnabled(MyUtils.isMobileDataEnabled(this));
+				SettingUtility.setWifiEnabled(MyUtils.isWifiEnabled(this));
+				MyUtils.controlNetwork(false, this);
+			}
 	}
 
 	@Override
@@ -153,6 +150,10 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
     						MainActivity.class);
     			 	intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
     			 	startActivity(intent);
+    			 	//退出时复原
+    			 	if(SettingUtility.isSilentMode()){
+    					MyUtils.controlNetwork(true, getApplicationContext());
+    				}
     			 	finish();
     			 	overridePendingTransition(0, 0);
     			}
@@ -171,12 +172,6 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
         SettingUtility.setRunningType(SettingUtility.POMO_RUNNING);
 	}
 
-	@Override
-	protected void onResume(){
-		super.onResume();
-		MobclickAgent.onResume(this);
-	}
-	
 	@Override
 	public void onClickCircle() {
 		// TODO Auto-generated method stub

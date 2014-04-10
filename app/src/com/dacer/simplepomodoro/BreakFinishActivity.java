@@ -1,7 +1,5 @@
 package com.dacer.simplepomodoro;
 
-import com.umeng.analytics.MobclickAgent;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -89,17 +87,4 @@ public class BreakFinishActivity extends Activity {
         }
         return false;
     }
-	
-	@Override
-	protected void onResume(){
-		super.onResume();
-		MobclickAgent.onResume(this);
-	}
-	
-
-	@Override
-	public void onPause() {
-	    super.onPause();
-	    MobclickAgent.onPause(this);
-	}
 }

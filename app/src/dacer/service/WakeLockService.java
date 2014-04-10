@@ -62,8 +62,8 @@ public class WakeLockService extends Service {
         startForeground(22, notification);
 
 
-        //Play tick
-        if(SettingUtility.isTick()){
+        //Play tick and disable Ticking in Break Duration
+        if(SettingUtility.isTick() && !SettingUtility.isBreakRunning()){
             playTick();
         }
     }
