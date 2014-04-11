@@ -136,6 +136,7 @@ public class BreakActivity extends Activity {
 			nowProcess = (int) (maxBreakDuration*60 - leftTimeInMills/1000);
 			mProgressBar.setProgress(nowProcess);
 		}else {
+	        SettingUtility.setRunningType(SettingUtility.BREAK_RUNNING);
 			SetMyAlarmManager.schedulService(this, 
 					maxBreakDuration, 
 					BreakFinishService.class);

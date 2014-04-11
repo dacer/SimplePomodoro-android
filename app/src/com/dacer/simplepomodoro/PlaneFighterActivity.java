@@ -50,18 +50,18 @@ public class PlaneFighterActivity extends FragmentActivity implements onGameOver
 		runOnUiThread(new Runnable() {
 			  @Override
 			public void run() {
-				  if(score >= 40){
-					  if(!SettingUtility.isADRemoved()){
-						  	SettingUtility.removeAD(true);
-							Toast.makeText(PlaneFighterActivity.this, "ADRemoved", Toast.LENGTH_LONG).show();
-					  }
-						
-				  	}else{
-						if(SettingUtility.isADRemoved()){
-							SettingUtility.removeAD(false);
-							Toast.makeText(PlaneFighterActivity.this, "AD is back :)", Toast.LENGTH_LONG).show();
-						}
-					}
+//				  if(score >= 40){
+//					  if(!SettingUtility.isADRemoved()){
+//						  	SettingUtility.removeAD(true);
+//							Toast.makeText(PlaneFighterActivity.this, "ADRemoved", Toast.LENGTH_LONG).show();
+//					  }
+//						
+//				  	}else{
+//						if(SettingUtility.isADRemoved()){
+//							SettingUtility.removeAD(false);
+//							Toast.makeText(PlaneFighterActivity.this, "AD is back :)", Toast.LENGTH_LONG).show();
+//						}
+//					}
 				  AlertDialog.Builder builder = new AlertDialog.Builder(PlaneFighterActivity.this);
 					final LayoutInflater inflater = getLayoutInflater();
 					final View dialogView = inflater.inflate(

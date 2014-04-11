@@ -28,7 +28,7 @@ public class SetMyAlarmManager {
         // Schedule the alarm!  
         AlarmManager am = (AlarmManager)mContext.getSystemService(Context.ALARM_SERVICE);  
         
-        if(SettingUtility.isXiaomiMode()||SettingUtility.isTick()){
+        if(SettingUtility.isXiaomiMode()||(SettingUtility.isTick()&&SettingUtility.isPomoRunning())){
         	am.set(AlarmManager.RTC, finishTimeInMills, mAlarmSender);
         	mContext.startService(new Intent(mContext, WakeLockService.class));
         }else{

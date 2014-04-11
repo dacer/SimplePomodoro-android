@@ -66,6 +66,9 @@ public class WakeLockService extends Service {
         if(SettingUtility.isTick() && !SettingUtility.isBreakRunning()){
             playTick();
         }
+//        if (SettingUtility.isBreakRunning()){
+//        	stopSelf();
+//        }
     }
 
     private void wakeLock(){

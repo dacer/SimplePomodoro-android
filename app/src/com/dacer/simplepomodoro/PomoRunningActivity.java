@@ -209,6 +209,7 @@ public class PomoRunningActivity extends Activity implements OnClickCircleListen
 		if((finishTime > nowTime) &&(runningType == SettingUtility.POMO_RUNNING)){
 			leftTimeInSec = (int) ((finishTime - nowTime + 1000)/1000);
 		}else {
+	        SettingUtility.setRunningType(SettingUtility.POMO_RUNNING);
 			SetMyAlarmManager.schedulService(this, 
 					SettingUtility.getPomodoroDuration(), 
 					CDService.class);
