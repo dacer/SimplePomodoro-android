@@ -134,12 +134,13 @@ public class SettingActivity extends PreferenceActivity {
 					public boolean onPreferenceClick(Preference preference) {
 						// TODO Auto-generated method stub
 						//EMAIL!
-						Intent intent = new Intent(Intent.ACTION_SEND);
-						intent.setType("message/rfc822");
-						intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"dacerfeedback@gmail.com"});
-//						intent.putExtra(Intent.EXTRA_SUBJECT, "");
-                intent.putExtra(Intent.EXTRA_TEXT, "\n\n\n"+MyUtils.getDeviceName()+"\n"+MyUtils.getDeviceVersion());
-						startActivity(Intent.createChooser(intent, "Send Email"));
+//						Intent intent = new Intent(Intent.ACTION_SEND);
+//						intent.setType("message/rfc822");
+//						intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"dacerfeedback@gmail.com"});
+////						intent.putExtra(Intent.EXTRA_SUBJECT, "");
+//                intent.putExtra(Intent.EXTRA_TEXT, "\n\n\n"+MyUtils.getDeviceName()+"\n"+MyUtils.getDeviceVersion());
+//						startActivity(Intent.createChooser(intent, "Send Email"));
+						showEmailDialog();
 						return false;
 					}
 				});
@@ -285,17 +286,16 @@ public class SettingActivity extends PreferenceActivity {
     }
     
     //google task
-    private void showGtaskAlertDialog(){
+    private void showEmailDialog(){
 		AlertDialog d = new AlertDialog.Builder(this)
-        .setTitle(getString(R.string.gtask_warning))
-        .setMessage(getString(R.string.gtask_warning_summary))
+        .setTitle(getString(R.string.send_email_title))
+        .setMessage(getString(R.string.send_email_context))
         .setPositiveButton(R.string.ok, new android.content.DialogInterface.OnClickListener() {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
-				
-				
+				dialog.dismiss();	
 			}
 		})
       	.create();

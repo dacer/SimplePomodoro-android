@@ -179,12 +179,14 @@
     <string name="pref_enable_ticking">开启嘀嗒声</string>
     
     <string name="detect_is_miphone">您似乎使用的是小米手机</string>
-    <string name="miphone_message">自动调整为【小米模式】，如非小米手机请在设置中关闭小米模式。</string>
-    
-    <string name="gtask_warning">实验性功能!</string>
-    <string name="gtask_warning_summary">极速模式已自动关闭，请在确保Google Task可正常使用的情况下再开启极速模式。</string>
+    <string name="miphone_message">自动调整为【小米模式】，如非小米手机请在设置中关闭小米模式，如是小米手机用户请至应用信息开启悬浮窗。</string>
     
     <!-- big font  -->
     <string name="big_font_enabled">大号字体启用，如需取消请再次点击我</string>
     <string name="big_font_disabled">大号字体取消</string>
+    
+    
+    <string name="send_email_title">本应用将不再接受新功能的请求</string>
+    <string name="send_email_context">感谢大家对极简番茄的支持\n\n本软件将不再接受新功能的请求\n\n最初做这个软件的目的很简单，就是做一个安装了之后不用去翻一个个的设置项，不用去被各种花哨奇怪的界面干扰，可以忽略应用的存在完全专注在工作上的应用，现在这个目标基本上也完成了\n\n另因为最近较为繁忙，可能有发给我的email没有能即使回复希望大家多多见谅
+\n\n再次感谢所有通过支付宝给予我支持的大家：(为了隐私考虑就只显示名字的最后一个字和邮箱后缀)\n\n*石 *@126.com\n\n**超 *@126.com\n\n**轩 *@163.com\n\n*宇 *@qq.com\n\n**洋 *@foxmail.com\n\n**志 03(手机尾号)\n\n**健 *@qq.com\n\n**龙 *@163.com\n\n*浩 27(手机尾号)\n\n*鑫 *@hotmail.com\n\n**琴 *@gmail.com\n\n**岳 38(手机尾号)\n\n*瑞 *@vip.qq.com\n\n**甫 *@qq.com\n\n**甫 *@qq.com(第二次)\n\n**彬 *@163.com\n\n尤其感谢帮助我发布到Google play的 Neo Tian 先生\n\n最后，如果有bug或者其他什么问题的话欢迎邮件至： dacerfeedback@gmail.com\n\nDacer\n\n祝好</string>
 </resources>

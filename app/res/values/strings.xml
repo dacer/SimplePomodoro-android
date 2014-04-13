@@ -113,7 +113,7 @@
     <string name="pref_fast_mode_summary">Auto lock/unlock screen when pomodoro start/finish</string>
     <string name="pref_remove_manage">Remove administration manage</string>
     <string name="pref_silent_mode">DO NOT DISTURB</string>
-    <string name="pref_silent_mode_summary">Auto disable network during pomodoro and enable after finish</string>
+    <string name="pref_silent_mode_summary">Auto disable/enable network when pomodoro start/finish</string>
     <string name="pref_remove_manage_summary">To uninstall the app, please FIRST click me!!</string>
     <string name="pref_title_sync">Sync</string>
     <string name="pref_sync_with_google_task">Sync with google task</string>
@@ -143,6 +143,9 @@
     <string name="donate_via">Donate</string>
     <string name="donate_summary">paypal/alipay:dacerfeedback@gmail.com</string>
     <string name="about_pomodoro">About pomodoro</string>
+    
+    <string name="send_email_title">THIS PROJECT IS NO LONGER BEING MAINTAINED</string>
+    <string name="send_email_context">No more new feature request please, let\'s keep it simple:)\n\nThank you everyone for your help and support!\n\nParticular thanks to:\n\nNeo Tian(Publish)\n\nBiao H Yu (Donation)\n\nJonathan Gall(French Translation)\n\nJose Miguel Urdaneta(Spanish Translation)\n\nMaciej Bończak(Polish Translation)\n\nHowever, if you have any other questions feel free to contact me:  dacerfeedback@gmail.com\n\nDacer\n\nSincerely</string>
     
     <!-- Game -->
     <string name="game_over">Game Over</string>
